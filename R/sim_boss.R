@@ -19,6 +19,8 @@ sim_boss <- function(crit, hit, int, sp, mana = NULL, time = 150) {
   n_max <- time %/% 2.5 + 1
   sample_sb <- sample_shadowbolt(n_max)
   sample_h <- sample_hit(n_max)
+  m_test <- (sample_h <= 1 | sample_h <= (17 - hit))
+  c_test <- sample_h >= (100 - compute_critchance(crit, int))
   manacost <- compute_manacost()
 
   i <- 0
@@ -30,7 +32,8 @@ sim_boss <- function(crit, hit, int, sp, mana = NULL, time = 150) {
       sim_row <- shadowbolt(crit, hit, int, sp,
         improved_sb_proc = sim_row[4],
         sample_shadowbolt = sample_sb[i],
-        sample_hit = sample_h[i]
+        miss_test = m_test[i],
+        crit_test = c_test[i]
       )
     }
     stats_total <- stats_total + sim_row

@@ -19,7 +19,8 @@ shadowbolt(
   improved_sb_proc = 0,
   curse_of_shadows = 1,
   sample_shadowbolt = NULL,
-  sample_hit = NULL
+  miss_test = NULL,
+  crit_test = NULL
 )
 }
 \arguments{
@@ -51,7 +52,9 @@ shadowbolt(
 
 \item{sample_shadowbolt}{optional shadow bolt dmg sample}
 
-\item{sample_hit}{optional hit chance sample}
+\item{miss_test}{optional argument whether spell hits}
+
+\item{crit_test}{optional argument whether spell crits}
 }
 \value{
 a numeric vector with values for dmg, manacost, casttime and improved_sb_proc
