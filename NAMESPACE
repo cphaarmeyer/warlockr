@@ -3,3 +3,4 @@
 export(lifetap)
 export(shadowbolt)
 export(sim_boss)
+export(sim_dps)
