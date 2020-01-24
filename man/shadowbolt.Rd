@@ -17,7 +17,9 @@ shadowbolt(
   shadow_mastery = 0,
   demonic_sacrifice = 1,
   improved_sb_proc = 0,
-  curse_of_shadows = 1
+  curse_of_shadows = 1,
+  sample_shadowbolt = NULL,
+  sample_hit = NULL
 )
 }
 \arguments{
@@ -46,6 +48,10 @@ shadowbolt(
 \item{improved_sb_proc}{number of active procs of improved shadow bolt on target}
 
 \item{curse_of_shadows}{whether curse of shadows is on target}
+
+\item{sample_shadowbolt}{optional shadow bolt dmg sample}
+
+\item{sample_hit}{optional hit chance sample}
 }
 \value{
 a numeric vector with values for dmg, manacost, casttime and improved_sb_proc

@@ -16,6 +16,8 @@
 #' @param demonic_sacrifice whether succubus was sacrificed
 #' @param improved_sb_proc number of active procs of improved shadow bolt on target
 #' @param curse_of_shadows whether curse of shadows is on target
+#' @param sample_shadowbolt optional shadow bolt dmg sample
+#' @param sample_hit optional hit chance sample
 #'
 #' @return a numeric vector with values for dmg, manacost, casttime and improved_sb_proc
 #' @export
@@ -23,12 +25,14 @@
 #' @examples
 #' shadowbolt(2, 1, 277, 346)
 shadowbolt <- function(crit, hit, int, sp, devastation = 5, ruin = 1, improved_sb = 5, cataclysm = 2,
-                       bane = 5, shadow_mastery = 0, demonic_sacrifice = 1, improved_sb_proc = 0, curse_of_shadows = 1) {
-  dmg <- (sample_shadowbolt() + 0.8571 * sp) * (1 + 0.02 * shadow_mastery) *
+                       bane = 5, shadow_mastery = 0, demonic_sacrifice = 1, improved_sb_proc = 0, curse_of_shadows = 1,
+                       sample_shadowbolt = NULL, sample_hit = NULL) {
+  if (is.null(sample_shadowbolt)) sample_shadowbolt <- sample_shadowbolt()
+  dmg <- (sample_shadowbolt + 0.8571 * sp) * (1 + 0.02 * shadow_mastery) *
     (1 + 0.15 * demonic_sacrifice) * (1 + 0.1 * curse_of_shadows)
-  hit_table <- sample_hit()
-  miss_test <- (hit_table <= 1 | hit_table <= (17 - hit))
-  crit_test <- hit_table >= (100 - compute_critchance(crit, int, devastation))
+  if (is.null(sample_hit)) sample_hit <- sample_hit()
+  miss_test <- (sample_hit <= 1 | sample_hit <= (17 - hit))
+  crit_test <- sample_hit >= (100 - compute_critchance(crit, int, devastation))
   improved_sb_test <- improved_sb_proc > 0
   manacost <- -compute_manacost(cataclysm)
   casttime <- 3 - (0.1 * bane)
