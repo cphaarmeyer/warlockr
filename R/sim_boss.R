@@ -16,12 +16,22 @@ sim_boss <- function(crit, hit, int, sp, mana = NULL, time = 150) {
   if (is.null(mana)) mana <- compute_mana(int)
   stats_total <- c(0, mana, 0, 0)
   sim_row <- c(0, 0, 0, 0)
+  n_max <- time %/% 2.5 + 1
+  sample_sb <- sample_shadowbolt(n_max)
+  sample_h <- sample_hit(n_max)
+  manacost <- compute_manacost()
 
+  i <- 0
   while (stats_total[3] < time) {
-    if (stats_total[2] < compute_manacost()) {
+    if (stats_total[2] < manacost) {
       sim_row <- lifetap(346, improved_sb_proc = sim_row[4])
     } else {
-      sim_row <- shadowbolt(crit, hit, int, sp, improved_sb_proc = sim_row[4])
+      i <- i + 1
+      sim_row <- shadowbolt(crit, hit, int, sp,
+        improved_sb_proc = sim_row[4],
+        sample_shadowbolt = sample_sb[i],
+        sample_hit = sample_h[i]
+      )
     }
     stats_total <- stats_total + sim_row
   }

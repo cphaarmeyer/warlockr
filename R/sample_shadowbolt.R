@@ -11,5 +11,5 @@
 #' sample_shadowbolt()
 #' sample_shadowbolt(5)
 sample_shadowbolt <- function(n = 1) {
-  sample(455:507, n)
+  sample(455:507, n, replace = TRUE)
 }
