@@ -28,7 +28,7 @@ shadowbolt <- function(crit, hit, int, sp, devastation = 5, ruin = 1, improved_s
     (1 + 0.15 * demonic_sacrifice) * (1 + 0.1 * curse_of_shadows)
   hit_table <- sample(1:100, 1)
   miss_test <- (hit_table <= 1 | hit_table <= (17 - hit))
-  crit_test <- hit_table >= (100 - (1.71 + int / 60.6 + devastation + crit))
+  crit_test <- hit_table >= (100 - compute_critchance(crit, int, devastation))
   improved_sb_test <- improved_sb_proc > 0
   manacost <- -1 * (370 - (370 * 0.01 * cataclysm))
   casttime <- 3 - (0.1 * bane)
