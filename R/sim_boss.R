@@ -18,7 +18,7 @@ sim_boss <- function(crit, hit, int, sp, mana = NULL, time = 150) {
   sim_row <- c(0, 0, 0, 0)
 
   while (stats_total[3] < time) {
-    if (stats_total[2] < 363) {
+    if (stats_total[2] < compute_manacost()) {
       sim_row <- lifetap(346, improved_sb_proc = sim_row[4])
     } else {
       sim_row <- shadowbolt(crit, hit, int, sp, improved_sb_proc = sim_row[4])
