@@ -1,6 +1,6 @@
 #' Shadowbolt
 #'
-#' Simulates a shadowbolt. Based on:
+#' Simulates a shadow bolt. Based on:
 #' https://www.reddit.com/r/classicwow/comments/dh5r6g/so_i_made_a_warlock_shadowbolt_simulator/
 #'
 #' @param crit crit percentage on gear
@@ -25,10 +25,10 @@
 shadowbolt <- function(crit, hit, int, sp, devastation = 5, ruin = 1, improved_sb = 5, cataclysm = 2,
                        bane = 5, shadow_mastery = 0, demonic_sacrifice = 1, improved_sb_proc = 0, curse_of_shadows = 1) {
   dmg <- (sample(455:507, 1) + 0.8571 * sp) * (1 + 0.02 * shadow_mastery) *
-    (1 + 0.15 * demonic_sacrifice) * (1 + 0.08 * curse_of_shadows)
+    (1 + 0.15 * demonic_sacrifice) * (1 + 0.1 * curse_of_shadows)
   hit_table <- sample(1:100, 1)
   miss_test <- (hit_table <= 1 | hit_table <= (17 - hit))
-  crit_test <- hit_table >= (100 - (1.71 + int / 59.5 + devastation + crit))
+  crit_test <- hit_table >= (100 - (1.71 + int / 60.6 + devastation + crit))
   improved_sb_test <- improved_sb_proc > 0
   manacost <- -1 * (370 - (370 * 0.01 * cataclysm))
   casttime <- 3 - (0.1 * bane)
