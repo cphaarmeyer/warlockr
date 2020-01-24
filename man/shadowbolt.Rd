@@ -2,7 +2,7 @@
 % Please edit documentation in R/shadowbolt.R
 \name{shadowbolt}
 \alias{shadowbolt}
-\title{Shadowbolt}
+\title{Shadow Bolt}
 \usage{
 shadowbolt(
   crit,

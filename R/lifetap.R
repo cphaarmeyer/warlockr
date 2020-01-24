@@ -1,4 +1,4 @@
-#' Lifetap
+#' Life Tap
 #'
 #' Simulates a life tap. Based on:
 #' https://www.reddit.com/r/classicwow/comments/dh5r6g/so_i_made_a_warlock_shadowbolt_simulator/

@@ -2,7 +2,7 @@
 % Please edit documentation in R/lifetap.R
 \name{lifetap}
 \alias{lifetap}
-\title{Lifetap}
+\title{Life Tap}
 \usage{
 lifetap(sp, imp_lifetap = 2, improved_sb_proc = 0)
 }
