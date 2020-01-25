@@ -12,5 +12,17 @@
 #' mat <- sim_dps(2, 1, 277, 346, iter = 1000)
 #' mean(mat[, 4])
 sim_dps <- function(crit, hit, int, sp, mana = NULL, time = 150, iter = 50000) {
-  t(replicate(iter, sim_boss(crit, hit, int, sp, mana, time)))
+  if (is.null(mana)) mana <- compute_mana(int)
+  n_max <- time %/% 2.5 + 1
+  sb_dmg <- matrix((sample_shadowbolt(n_max * iter) + 0.8571 * sp) * 1.265, ncol = iter)
+  sample_h <- matrix(sample_hit(n_max * iter), ncol = iter)
+  sb_miss <- (sample_h <= 1 | sample_h <= (17 - hit))
+  sb_crit <- sample_h >= (100 - compute_critchance(crit, int))
+  sb_manacost <- compute_manacost()
+  lt_mancost <- compute_manacost("lifetap", sp = sp)
+  t(vapply(1:iter, function(i) {
+    sim_boss_impl(mana, sb_dmg[, i], sb_miss[, i], sb_crit[, i], sb_manacost, lt_mancost, time)
+  },
+  FUN.VALUE = rep(0, 4)
+  ))
 }

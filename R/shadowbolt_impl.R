@@ -13,11 +13,11 @@
 #' shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 1, 5, 0)
 shadowbolt_impl <- function(dmg, miss_test, crit_test, manacost, casttime, ruin, improved_sb, improved_sb_proc) {
   improved_sb_test <- improved_sb_proc > 0
-  if (miss_test == TRUE) {
+  if (miss_test) {
     return(c(0, manacost, casttime, improved_sb_proc))
-  } else if (crit_test == TRUE) {
+  } else if (crit_test) {
     dmg <- dmg * (1.5 + (0.5 * ruin))
-    if (improved_sb_test == TRUE) {
+    if (improved_sb_test) {
       dmg <- dmg * (1 + 0.05 * improved_sb)
       improved_sb_proc <- improved_sb_proc - 1
       return(c(dmg, manacost, casttime, improved_sb_proc))
@@ -26,7 +26,7 @@ shadowbolt_impl <- function(dmg, miss_test, crit_test, manacost, casttime, ruin,
       return(c(dmg, manacost, casttime, improved_sb_proc))
     }
   } else {
-    if (improved_sb_test == TRUE) {
+    if (improved_sb_test) {
       dmg <- dmg * (1 + 0.05 * improved_sb)
       improved_sb_proc <- improved_sb_proc - 1
       return(c(dmg, manacost, casttime, improved_sb_proc))
