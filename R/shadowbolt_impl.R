@@ -14,30 +14,24 @@
 shadowbolt_impl <- function(dmg, miss_test, crit_test, manacost, casttime, ruin, improved_sb, improved_sb_proc) {
   improved_sb_test <- improved_sb_proc > 0
   if (miss_test == TRUE) {
-    dmg <- 0
-    stats <- c(dmg, manacost, casttime, improved_sb_proc)
-    return(stats)
+    return(c(0, manacost, casttime, improved_sb_proc))
   } else if (crit_test == TRUE) {
     dmg <- dmg * (1.5 + (0.5 * ruin))
     if (improved_sb_test == TRUE) {
       dmg <- dmg * (1 + 0.05 * improved_sb)
       improved_sb_proc <- improved_sb_proc - 1
-      stats <- c(dmg, manacost, casttime, improved_sb_proc)
-      return(stats)
+      return(c(dmg, manacost, casttime, improved_sb_proc))
     } else {
       improved_sb_proc <- 4
-      stats <- c(dmg, manacost, casttime, improved_sb_proc)
-      return(stats)
+      return(c(dmg, manacost, casttime, improved_sb_proc))
     }
   } else {
     if (improved_sb_test == TRUE) {
       dmg <- dmg * (1 + 0.05 * improved_sb)
       improved_sb_proc <- improved_sb_proc - 1
-      stats <- c(dmg, manacost, casttime, improved_sb_proc)
-      return(stats)
+      return(c(dmg, manacost, casttime, improved_sb_proc))
     } else {
-      stats <- c(dmg, manacost, casttime, improved_sb_proc)
-      return(stats)
+      return(c(dmg, manacost, casttime, improved_sb_proc))
     }
   }
 }

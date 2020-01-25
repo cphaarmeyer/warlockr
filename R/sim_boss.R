@@ -22,11 +22,12 @@ sim_boss <- function(crit, hit, int, sp, mana = NULL, time = 150) {
   sb_miss <- (sample_h <= 1 | sample_h <= (17 - hit))
   sb_crit <- sample_h >= (100 - compute_critchance(crit, int))
   sb_manacost <- compute_manacost()
+  lt_mancost <- compute_manacost("lifetap", sp = sp)
 
   i <- 0
   while (stats_total[3] < time) {
     if (stats_total[2] < sb_manacost) {
-      sim_row <- lifetap(346, improved_sb_proc = sim_row[4])
+      sim_row <- lifetap_impl(lt_mancost, sim_row[4])
     } else {
       i <- i + 1
       sim_row <- shadowbolt_impl(sb_dmg[i], sb_miss[i], sb_crit[i], -sb_manacost, 2.5, 1, 5, sim_row[4])

@@ -4,13 +4,24 @@
 \alias{compute_manacost}
 \title{Compute Mana Cost}
 \usage{
-compute_manacost(cataclysm = 2)
+compute_manacost(
+  spell = c("shadowbolt", "lifetap"),
+  cataclysm = 2,
+  sp = 0,
+  imp_lifetap = 2
+)
 }
 \arguments{
+\item{spell}{which spell}
+
 \item{cataclysm}{number of talent points in cataclysm}
+
+\item{sp}{(shadow) spellpower on gear}
+
+\item{imp_lifetap}{number of talent points in improved life tap}
 }
 \description{
-Computes the mana cost of a shadow bolt based on numer of points in cataclysm.
+Computes the mana cost of a spell.
 }
 \examples{
 compute_manacost()
