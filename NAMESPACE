@@ -3,6 +3,7 @@
 export(compute_critchance)
 export(compute_mana)
 export(compute_manacost)
+export(compute_statweights)
 export(lifetap)
 export(lifetap_impl)
 export(sample_hit)
