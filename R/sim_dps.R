@@ -3,6 +3,7 @@
 #' Repeatedly simulates bosses to calculate dps.
 #'
 #' @inherit sim_boss
+#' @param timeframe vector of minimal and maximal duration of a fight in seconds
 #' @param iter number of iterations
 #'
 #' @return a matrix where every row is a vector returned by \code{sim_boss}
@@ -11,9 +12,9 @@
 #' @examples
 #' mat <- sim_dps(2, 1, 277, 346, iter = 1000)
 #' mean(mat[, 4])
-sim_dps <- function(crit, hit, int, sp, mana = NULL, iter = 50000) {
+sim_dps <- function(crit, hit, int, sp, mana = NULL, timeframe = c(45, 150), iter = 50000) {
   if (is.null(mana)) mana <- compute_mana(int)
-  time <- exp(stats::rnorm(iter, 4.5, 0.3))
+  time <- stats::runif(iter, timeframe[1], timeframe[2])
   n_max <- max(time) %/% 2.5 + 1
   sb_dmg <- matrix((sample_shadowbolt(n_max * iter) + 0.8571 * sp) * 1.265, ncol = iter)
   sample_h <- matrix(sample_hit(n_max * iter), ncol = iter)
