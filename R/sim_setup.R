@@ -1,0 +1,30 @@
+#' Setup Simulation
+#'
+#' @param n sample number
+#' @inheritParams sim_boss
+#' @inheritParams sim_dps
+#'
+#' @return a list of arguments
+#' @export
+#'
+#' @examples
+#' sim_setup(10, 2, 1, 277, 346, NULL)
+sim_setup <- function(n, crit, hit, int, sp, mana, iter = 1) {
+  if (is.null(mana)) mana <- compute_mana(int)
+  to_matrix <- function(x) {
+    if (iter > 1) matrix(x, ncol = iter) else x
+  }
+  sb_dmg <- (sample_shadowbolt(n * iter) + 0.8571 * sp) * 1.265
+  sample_h <- sample_hit(n * iter)
+  sb_miss <- (sample_h <= 1 | sample_h <= (17 - hit))
+  sb_crit <- sample_h >= (100 - compute_critchance(crit, int))
+  sb_dmg <- (sb_dmg * !sb_miss) * (1 + sb_crit)
+  list(
+    mana = mana,
+    sb_dmg = to_matrix(sb_dmg),
+    sb_miss = to_matrix(sb_miss),
+    sb_crit = to_matrix(sb_crit),
+    sb_manacost = compute_manacost(),
+    lt_mancost = compute_manacost("lifetap", sp = sp)
+  )
+}
