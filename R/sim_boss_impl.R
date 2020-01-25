@@ -19,11 +19,11 @@ sim_boss_impl <- function(mana, mp5, sb_dmg, sb_miss, sb_crit, sb_manacost, lt_m
       j <- j + 1
       stats_total[2] <- stats_total[2] + mp5
     }
-    if (stats_total[2] < sb_manacost) {
+    if (stats_total[2] < -sb_manacost) {
       sim_row <- lifetap_impl(lt_mancost, sim_row[4])
     } else {
       i <- i + 1
-      sim_row <- shadowbolt_impl(sb_dmg[i], sb_miss[i], sb_crit[i], -sb_manacost, 2.5, 5, sim_row[4])
+      sim_row <- shadowbolt_impl(sb_dmg[i], sb_miss[i], sb_crit[i], sb_manacost, 2.5, 5, sim_row[4])
     }
     stats_total <- stats_total + sim_row
   }

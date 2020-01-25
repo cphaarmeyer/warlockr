@@ -17,7 +17,7 @@ sim_dps <- function(crit, hit, int, sp, mp5, mana = NULL, timeframe = c(45, 150)
   if (!is.null(seed)) set.seed(seed)
   time <- stats::runif(iter, timeframe[1], timeframe[2])
   n_max <- max(time) %/% 2.5 + 1
-  arguments <- sim_setup(n_max * iter, crit, hit, int, sp, mana)
+  arguments <- sim_setup(n_max, crit, hit, int, sp, mana, iter = iter)
   get_arg <- function(i) {
     lapply(arguments, function(x) {
       if (is.matrix(x)) x[, i] else x

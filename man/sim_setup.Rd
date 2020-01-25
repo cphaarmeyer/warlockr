@@ -4,7 +4,21 @@
 \alias{sim_setup}
 \title{Setup Simulation}
 \usage{
-sim_setup(n, crit, hit, int, sp, mana, iter = 1)
+sim_setup(
+  n,
+  crit,
+  hit,
+  int,
+  sp,
+  mana,
+  iter = 1,
+  devastation = 5,
+  ruin = 1,
+  cataclysm = 2,
+  shadow_mastery = 0,
+  demonic_sacrifice = 1,
+  curse_of_shadows = 1
+)
 }
 \arguments{
 \item{n}{sample number}
@@ -20,6 +34,18 @@ sim_setup(n, crit, hit, int, sp, mana, iter = 1)
 \item{mana}{starting mana (by default computed from int)}
 
 \item{iter}{number of iterations}
+
+\item{devastation}{number of talent points in devastation}
+
+\item{ruin}{number of talent points in ruin}
+
+\item{cataclysm}{number of talent points in cataclysm}
+
+\item{shadow_mastery}{number of talent points in shadow mastery}
+
+\item{demonic_sacrifice}{whether succubus was sacrificed}
+
+\item{curse_of_shadows}{whether curse of shadows is on target}
 }
 \value{
 a list of arguments
