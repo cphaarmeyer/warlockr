@@ -4,7 +4,7 @@
 \alias{sim_boss}
 \title{Simulate Boss Fight}
 \usage{
-sim_boss(crit, hit, int, sp, mana = NULL, time = 150)
+sim_boss(crit, hit, int, sp, mp5, mana = NULL, time = 150)
 }
 \arguments{
 \item{crit}{crit percentage on gear}
@@ -14,6 +14,8 @@ sim_boss(crit, hit, int, sp, mana = NULL, time = 150)
 \item{int}{intellect of character}
 
 \item{sp}{(shadow) spellpower on gear}
+
+\item{mp5}{mp5 on gear}
 
 \item{mana}{starting mana (by default computed from int)}
 
@@ -27,5 +29,5 @@ Simulates one boss fight with default values. Based on:
 https://www.reddit.com/r/classicwow/comments/dh5r6g/so_i_made_a_warlock_shadowbolt_simulator/
 }
 \examples{
-sim_boss(2, 1, 277, 346)
+sim_boss(2, 1, 277, 346, 0)
 }

@@ -11,9 +11,9 @@
 #' @export
 #'
 #' @examples
-#' mat <- sim_dps(2, 1, 277, 346, iter = 1000)
+#' mat <- sim_dps(2, 1, 277, 346, 0, iter = 1000)
 #' mean(mat[, 4])
-sim_dps <- function(crit, hit, int, sp, mana = NULL, timeframe = c(45, 150), iter = 50000, seed = NULL) {
+sim_dps <- function(crit, hit, int, sp, mp5, mana = NULL, timeframe = c(45, 150), iter = 50000, seed = NULL) {
   if (is.null(mana)) mana <- compute_mana(int)
   if (!is.null(seed)) set.seed(seed)
   time <- stats::runif(iter, timeframe[1], timeframe[2])
@@ -26,7 +26,7 @@ sim_dps <- function(crit, hit, int, sp, mana = NULL, timeframe = c(45, 150), ite
   sb_manacost <- compute_manacost()
   lt_mancost <- compute_manacost("lifetap", sp = sp)
   t(vapply(1:iter, function(i) {
-    sim_boss_impl(mana, sb_dmg[, i], sb_miss[, i], sb_crit[, i], sb_manacost, lt_mancost, time[i])
+    sim_boss_impl(mana, mp5, sb_dmg[, i], sb_miss[, i], sb_crit[, i], sb_manacost, lt_mancost, time[i])
   },
   FUN.VALUE = rep(0, 4)
   ))

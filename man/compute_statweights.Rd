@@ -4,7 +4,15 @@
 \alias{compute_statweights}
 \title{Compute Stat Weights}
 \usage{
-compute_statweights(crit, hit, int, sp, timeframe = c(45, 150), iter = 50000)
+compute_statweights(
+  crit,
+  hit,
+  int,
+  sp,
+  mp5,
+  timeframe = c(45, 150),
+  iter = 50000
+)
 }
 \arguments{
 \item{crit}{crit percentage on gear}
@@ -14,6 +22,8 @@ compute_statweights(crit, hit, int, sp, timeframe = c(45, 150), iter = 50000)
 \item{int}{intellect of character}
 
 \item{sp}{(shadow) spellpower on gear}
+
+\item{mp5}{mp5 on gear}
 
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
@@ -26,5 +36,5 @@ a named vector with weights
 Simulates current dps and dps with inceased stats to compute weights for these stats.
 }
 \examples{
-compute_statweights(2, 1, 277, 346, iter = 1000)
+compute_statweights(2, 1, 277, 346, 0, iter = 1000)
 }

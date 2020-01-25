@@ -4,10 +4,21 @@
 \alias{sim_boss_impl}
 \title{Base Implementation Simulate Boss Fight}
 \usage{
-sim_boss_impl(mana, sb_dmg, sb_miss, sb_crit, sb_manacost, lt_mancost, time)
+sim_boss_impl(
+  mana,
+  mp5,
+  sb_dmg,
+  sb_miss,
+  sb_crit,
+  sb_manacost,
+  lt_mancost,
+  time
+)
 }
 \arguments{
 \item{mana}{starting mana (by default computed from int)}
+
+\item{mp5}{mp5 on gear}
 
 \item{sb_dmg}{vector of shadow bolt damage ignoring possible miss or crit}
 

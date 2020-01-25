@@ -4,7 +4,17 @@
 \alias{sim_dps}
 \title{Simultate DPS}
 \usage{
-sim_dps(crit, hit, int, sp, mana = NULL, timeframe = c(45, 150), iter = 50000)
+sim_dps(
+  crit,
+  hit,
+  int,
+  sp,
+  mp5,
+  mana = NULL,
+  timeframe = c(45, 150),
+  iter = 50000,
+  seed = NULL
+)
 }
 \arguments{
 \item{crit}{crit percentage on gear}
@@ -15,11 +25,15 @@ sim_dps(crit, hit, int, sp, mana = NULL, timeframe = c(45, 150), iter = 50000)
 
 \item{sp}{(shadow) spellpower on gear}
 
+\item{mp5}{mp5 on gear}
+
 \item{mana}{starting mana (by default computed from int)}
 
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
 \item{iter}{number of iterations}
+
+\item{seed}{optional seed}
 }
 \value{
 a matrix where every row is a vector returned by \code{sim_boss}
@@ -28,6 +42,6 @@ a matrix where every row is a vector returned by \code{sim_boss}
 Repeatedly simulates bosses to calculate dps.
 }
 \examples{
-mat <- sim_dps(2, 1, 277, 346, iter = 1000)
+mat <- sim_dps(2, 1, 277, 346, 0, iter = 1000)
 mean(mat[, 4])
 }
