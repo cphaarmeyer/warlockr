@@ -19,8 +19,9 @@ sim_setup <- function(n, crit, hit, int, sp, mana, iter = 1,
   sb_dmg <- (sample_shadowbolt(n * iter) + 0.8571 * sp) * (1 + 0.02 * shadow_mastery) *
     (1 + 0.15 * demonic_sacrifice) * (1 + 0.1 * curse_of_shadows)
   sample_h <- sample_hit(n * iter)
+  sample_c <- sample_hit(n * iter)
   sb_miss <- (sample_h <= 1 | sample_h <= (17 - hit))
-  sb_crit <- sample_h >= (100 - compute_critchance(crit, int, devastation))
+  sb_crit <- sample_c >= (100 - compute_critchance(crit, int, devastation))
   sb_dmg <- (sb_dmg * !sb_miss) * (1 + sb_crit * 0.5 * (1 + ruin))
   list(
     mana = mana,
