@@ -4,7 +4,7 @@
 \alias{sim_dps}
 \title{Simultate DPS}
 \usage{
-sim_dps(crit, hit, int, sp, mana = NULL, time = 150, iter = 50000)
+sim_dps(crit, hit, int, sp, mana = NULL, iter = 50000)
 }
 \arguments{
 \item{crit}{crit percentage on gear}
@@ -16,8 +16,6 @@ sim_dps(crit, hit, int, sp, mana = NULL, time = 150, iter = 50000)
 \item{sp}{(shadow) spellpower on gear}
 
 \item{mana}{starting mana (by default computed from int)}
-
-\item{time}{length of fight in seconds}
 
 \item{iter}{number of iterations}
 }
