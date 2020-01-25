@@ -19,6 +19,7 @@ sim_boss <- function(crit, hit, int, sp, mana = NULL, time = 150) {
   sample_h <- sample_hit(n_max)
   sb_miss <- (sample_h <= 1 | sample_h <= (17 - hit))
   sb_crit <- sample_h >= (100 - compute_critchance(crit, int))
+  sb_dmg <- (sb_dmg * !sb_miss) * (1 + sb_crit)
   sb_manacost <- compute_manacost()
   lt_mancost <- compute_manacost("lifetap", sp = sp)
   sim_boss_impl(mana, sb_dmg, sb_miss, sb_crit, sb_manacost, lt_mancost, time)

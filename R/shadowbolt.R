@@ -32,5 +32,6 @@ shadowbolt <- function(crit, hit, int, sp, devastation = 5, ruin = 1, improved_s
   improved_sb_test <- improved_sb_proc > 0
   manacost <- -compute_manacost(cataclysm = cataclysm)
   casttime <- 3 - (0.1 * bane)
-  shadowbolt_impl(dmg, miss_test, crit_test, manacost, casttime, ruin, improved_sb, improved_sb_proc)
+  dmg <- (dmg * !miss_test) * (1 + 0.5 * crit_test * (1 + ruin))
+  shadowbolt_impl(dmg, miss_test, crit_test, manacost, casttime, improved_sb, improved_sb_proc)
 }

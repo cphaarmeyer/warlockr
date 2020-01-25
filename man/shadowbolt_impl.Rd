@@ -10,13 +10,12 @@ shadowbolt_impl(
   crit_test,
   manacost,
   casttime,
-  ruin,
   improved_sb,
   improved_sb_proc
 )
 }
 \arguments{
-\item{dmg}{damage ignoring possible miss or crit}
+\item{dmg}{damage ignoring improved shadow bolt proc}
 
 \item{miss_test}{whether hits}
 
@@ -26,8 +25,6 @@ shadowbolt_impl(
 
 \item{casttime}{cast time}
 
-\item{ruin}{number of talent points in ruin}
-
 \item{improved_sb}{number of talent points in improved shadow bolt}
 
 \item{improved_sb_proc}{number of active procs of improved shadow bolt on target}
@@ -36,5 +33,5 @@ shadowbolt_impl(
 Base Implementation of Shadow Bolt
 }
 \examples{
-shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 1, 5, 0)
+shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 5, 0)
 }
