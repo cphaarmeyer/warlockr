@@ -10,11 +10,7 @@ compare_items(
   int,
   sp,
   mp5,
-  d_crit = 0,
-  d_hit = 0,
-  d_int = 0,
-  d_sp = 0,
-  d_mp5 = 0,
+  items,
   timeframe = c(45, 150),
   iter = 50000
 )
@@ -30,26 +26,24 @@ compare_items(
 
 \item{mp5}{mp5 on gear}
 
-\item{d_crit}{difference in crit}
-
-\item{d_hit}{difference in hit}
-
-\item{d_int}{difference in intelligence}
-
-\item{d_sp}{difference in spellpower}
-
-\item{d_mp5}{difference in mp5}
+\item{items}{list where each element indicates the stat changes by an item}
 
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
 \item{iter}{number of iterations}
 }
 \value{
-a vector with current dps, new dps and difference
+a data frame with current dps, new dps and difference
 }
 \description{
 Simulates dps with current stats and with new stats to compare them.
 }
 \examples{
-compare_items(2, 1, 277, 346, 0, -1, 1, 5, 3, 0, iter = 1000)
+compare_items(2, 1, 277, 346, 0,
+  items = list(
+    new_item1 = list(crit = -1, hit = 1),
+    new_item2 = list(int = 5, sp = 3)
+  ),
+  iter = 1000
+)
 }
