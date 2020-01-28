@@ -10,6 +10,7 @@ sim_boss_impl(
   sb_dmg,
   sb_miss,
   sb_crit,
+  curse_miss,
   sb_manacost,
   lt_mancost,
   time
@@ -25,6 +26,8 @@ sim_boss_impl(
 \item{sb_miss}{vector of whether shadow bolt hits}
 
 \item{sb_crit}{vector of whether shadow bolt crits}
+
+\item{curse_miss}{vector of whether curse hits}
 
 \item{sb_manacost}{mana cost of shadow bolt}
 
