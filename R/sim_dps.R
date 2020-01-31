@@ -1,6 +1,8 @@
 #' Simultate DPS
 #'
 #' Repeatedly simulates bosses to calculate dps.
+#' The timeframe sets a minimum an maximum time for a boss fight.
+#' Each boss simulation has a random length in between.
 #'
 #' @inherit sim_boss
 #' @param timeframe vector of minimal and maximal duration of a fight in seconds

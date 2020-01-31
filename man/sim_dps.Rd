@@ -40,6 +40,8 @@ a matrix where every row is a vector returned by \code{sim_boss}
 }
 \description{
 Repeatedly simulates bosses to calculate dps.
+The timeframe sets a minimum an maximum time for a boss fight.
+Each boss simulation has a random length in between.
 }
 \examples{
 mat <- sim_dps(2, 1, 277, 346, 0, iter = 1000)

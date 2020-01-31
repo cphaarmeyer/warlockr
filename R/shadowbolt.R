@@ -1,7 +1,6 @@
 #' Shadow Bolt
 #'
-#' Simulates a shadow bolt. Based on:
-#' https://www.reddit.com/r/classicwow/comments/dh5r6g/so_i_made_a_warlock_shadowbolt_simulator/
+#' Simulates a shadow bolt.
 #'
 #' @param crit crit percentage on gear
 #' @param hit hit percentage on gear

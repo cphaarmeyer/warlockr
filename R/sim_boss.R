@@ -1,7 +1,6 @@
 #' Simulate Boss Fight
 #'
-#' Simulates one boss fight with default values. Based on:
-#' https://www.reddit.com/r/classicwow/comments/dh5r6g/so_i_made_a_warlock_shadowbolt_simulator/
+#' Simulates one boss fight with default values.
 #'
 #' @inheritParams shadowbolt
 #' @param mp5 mp5 on gear

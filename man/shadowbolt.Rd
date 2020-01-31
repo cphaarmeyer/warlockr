@@ -51,8 +51,7 @@ shadowbolt(
 a numeric vector with values for dmg, manacost, casttime and improved_sb_proc
 }
 \description{
-Simulates a shadow bolt. Based on:
-https://www.reddit.com/r/classicwow/comments/dh5r6g/so_i_made_a_warlock_shadowbolt_simulator/
+Simulates a shadow bolt.
 }
 \examples{
 shadowbolt(2, 1, 277, 346)
