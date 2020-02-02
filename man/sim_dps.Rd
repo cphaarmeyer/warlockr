@@ -10,7 +10,6 @@ sim_dps(
   int,
   sp,
   mp5,
-  mana = NULL,
   timeframe = c(45, 150),
   iter = 50000,
   seed = NULL
@@ -26,8 +25,6 @@ sim_dps(
 \item{sp}{(shadow) spellpower on gear}
 
 \item{mp5}{mp5 on gear}
-
-\item{mana}{starting mana (by default computed from int)}
 
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 

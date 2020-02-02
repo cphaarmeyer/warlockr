@@ -12,12 +12,12 @@
 compute_statweights <- function(crit, hit, int, sp, mp5, timeframe = c(45, 150), iter = 50000) {
   seed <- sample(1:1000, 1)
   simulations <- list(
-    current = sim_dps(crit, hit, int, sp, mp5, NULL, timeframe, iter, seed),
-    crit = sim_dps(crit + 1, hit, int, sp, mp5, NULL, timeframe, iter, seed),
-    hit = sim_dps(crit, hit + 1, int, sp, mp5, NULL, timeframe, iter, seed),
-    int = sim_dps(crit, hit, int + 1, sp, mp5, NULL, timeframe, iter, seed),
-    sp = sim_dps(crit, hit, int, sp + 1, mp5, NULL, timeframe, iter, seed),
-    mp5 = sim_dps(crit, hit, int, sp, mp5 + 1, NULL, timeframe, iter, seed)
+    current = sim_dps(crit, hit, int, sp, mp5, timeframe, iter, seed),
+    crit = sim_dps(crit + 1, hit, int, sp, mp5, timeframe, iter, seed),
+    hit = sim_dps(crit, hit + 1, int, sp, mp5, timeframe, iter, seed),
+    int = sim_dps(crit, hit, int + 1, sp, mp5, timeframe, iter, seed),
+    sp = sim_dps(crit, hit, int, sp + 1, mp5, timeframe, iter, seed),
+    mp5 = sim_dps(crit, hit, int, sp, mp5 + 1, timeframe, iter, seed)
   )
   dps <- vapply(simulations, function(x) mean(x[, 4]), FUN.VALUE = 0)
   (dps - dps[1])[-1]

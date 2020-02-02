@@ -4,7 +4,7 @@
 \alias{sim_boss}
 \title{Simulate Boss Fight}
 \usage{
-sim_boss(crit, hit, int, sp, mp5, mana = NULL, time = 150)
+sim_boss(crit, hit, int, sp, mp5, time = 150)
 }
 \arguments{
 \item{crit}{crit percentage on gear}
@@ -16,8 +16,6 @@ sim_boss(crit, hit, int, sp, mp5, mana = NULL, time = 150)
 \item{sp}{(shadow) spellpower on gear}
 
 \item{mp5}{mp5 on gear}
-
-\item{mana}{starting mana (by default computed from int)}
 
 \item{time}{length of fight in seconds}
 }

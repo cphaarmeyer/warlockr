@@ -19,11 +19,11 @@
 compare_items <- function(crit, hit, int, sp, mp5, items, timeframe = c(45, 150), iter = 50000) {
   seed <- sample(1:1000, 1)
   to_0 <- function(x) if (is.null(x)) 0 else x
-  current <- sim_dps(crit, hit, int, sp, mp5, NULL, timeframe, iter, seed)
+  current <- sim_dps(crit, hit, int, sp, mp5, timeframe, iter, seed)
   simulations <- lapply(items, function(x) {
     sim_dps(
       crit + to_0(x$crit), hit + to_0(x$hit), int + to_0(x$int), sp + to_0(x$sp), mp5 + to_0(x$mp5),
-      NULL, timeframe, iter, seed
+      timeframe, iter, seed
     )
   })
   dps <- mean(current[, 4])
