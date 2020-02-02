@@ -4,27 +4,10 @@
 \alias{sim_dps}
 \title{Simultate DPS}
 \usage{
-sim_dps(
-  crit,
-  hit,
-  int,
-  sp,
-  mp5,
-  timeframe = c(45, 150),
-  iter = 50000,
-  seed = NULL
-)
+sim_dps(stats, timeframe = c(45, 150), iter = 50000, seed = NULL)
 }
 \arguments{
-\item{crit}{crit percentage on gear}
-
-\item{hit}{hit percentage on gear}
-
-\item{int}{intellect of character}
-
-\item{sp}{(shadow) spellpower on gear}
-
-\item{mp5}{mp5 on gear}
+\item{stats}{a named list with the stats of the character including int, sp, crit, hit and mp5}
 
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
@@ -41,6 +24,6 @@ The timeframe sets a minimum an maximum time for a boss fight.
 Each boss simulation has a random length in between.
 }
 \examples{
-mat <- sim_dps(2, 1, 277, 346, 0, iter = 1000)
+mat <- sim_dps(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
 mean(mat[, 4])
 }

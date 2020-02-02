@@ -4,18 +4,10 @@
 \alias{sim_boss}
 \title{Simulate Boss Fight}
 \usage{
-sim_boss(crit, hit, int, sp, mp5, time = 150)
+sim_boss(stats, time = 150)
 }
 \arguments{
-\item{crit}{crit percentage on gear}
-
-\item{hit}{hit percentage on gear}
-
-\item{int}{intellect of character}
-
-\item{sp}{(shadow) spellpower on gear}
-
-\item{mp5}{mp5 on gear}
+\item{stats}{a named list with the stats of the character including int, sp, crit, hit and mp5}
 
 \item{time}{length of fight in seconds}
 }
@@ -26,5 +18,5 @@ a numeric vector with values for total dmg, mana, total casttime and dps
 Simulates one boss fight with default values.
 }
 \examples{
-sim_boss(2, 1, 277, 346, 0)
+sim_boss(list(int = 277, sp = 346, crit = 2, hit = 2))
 }
