@@ -17,7 +17,7 @@ sim_boss_impl(
 )
 }
 \arguments{
-\item{mana}{starting mana (by default computed from int)}
+\item{mana}{starting mana}
 
 \item{mp5}{mp5 on gear}
 

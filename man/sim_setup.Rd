@@ -10,7 +10,6 @@ sim_setup(
   hit,
   int,
   sp,
-  mana,
   iter = 1,
   devastation = 5,
   ruin = 1,
@@ -31,8 +30,6 @@ sim_setup(
 \item{int}{intellect of character}
 
 \item{sp}{(shadow) spellpower on gear}
-
-\item{mana}{starting mana (by default computed from int)}
 
 \item{iter}{number of iterations}
 
@@ -57,5 +54,5 @@ a list of arguments
 Setup Simulation
 }
 \examples{
-sim_setup(10, 2, 1, 277, 346, NULL)
+sim_setup(10, 2, 1, 277, 346)
 }

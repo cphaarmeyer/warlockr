@@ -13,20 +13,21 @@
 #' @export
 #'
 #' @examples
-#' mat <- sim_dps(2, 1, 277, 346, 0, iter = 1000)
+#' mat <- sim_dps(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
 #' mean(mat[, 4])
-sim_dps <- function(crit, hit, int, sp, mp5, mana = NULL, timeframe = c(45, 150), iter = 50000, seed = NULL) {
+sim_dps <- function(stats, timeframe = c(45, 150), iter = 50000, seed = NULL) {
   if (!is.null(seed)) set.seed(seed)
   time <- stats::runif(iter, timeframe[1], timeframe[2])
   n_max <- max(time) %/% 2.5 + 1
-  arguments <- sim_setup(n_max, crit, hit, int, sp, mana, iter = iter)
+  stats <- clean_stats(stats)
+  arguments <- sim_setup(n_max, stats$crit, stats$hit, stats$int, stats$sp, iter = iter)
   get_arg <- function(i) {
     lapply(arguments, function(x) {
       if (is.matrix(x)) x[, i] else x
     })
   }
   t(vapply(1:iter, function(i) {
-    do.call(sim_boss_impl, c(get_arg(i), mp5 = mp5, time = time[i]))
+    do.call(sim_boss_impl, c(get_arg(i), mp5 = stats$mp5, time = time[i]))
   },
   FUN.VALUE = rep(0, 4)
   ))

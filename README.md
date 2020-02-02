@@ -29,11 +29,12 @@ But first we set up the simulation with our current stats.
 
 ``` r
 library(warlockr)
-my_crit <- 3
-my_hit <- 3
-my_int <- 258 + 31 + 12 # with buffs
-my_sp <- 168 + 33 + 26 + 27 # shadow spell damage
-my_mp5 <- 0
+my_stats <- list(
+  int = 258 + 31 + 12, # with buffs
+  sp = 168 + 33 + 26 + 27, # shadow spell damage
+  crit = 3,
+  hit = 3
+)
 ```
 
 The `compute_statweights` function first simluates your DPS. Then for
@@ -42,10 +43,10 @@ weights are the difference in DPS.
 
 ``` r
 set.seed(42)
-stat <- compute_statweights(my_crit, my_hit, my_int, my_sp, my_mp5)
-stat
-#>       crit        hit        int         sp        mp5 
-#> 4.63549578 3.63483455 0.11018689 0.40267577 0.01678176
+my_weights <- compute_statweights(my_stats)
+my_weights
+#>        int         sp       crit        hit        mp5 
+#> 0.11018689 0.40267577 4.63549578 3.63483455 0.01678176
 ```
 
 The `compare_items` function works very similar. As additional input it
@@ -60,7 +61,7 @@ items <- list(
   "Deep Woodlands Cloak" = list(int = 9, sp = -6)
 )
 set.seed(42)
-df <- compare_items(my_crit, my_hit, my_int, my_sp, my_mp5, items = items)
+df <- compare_items(my_stats, items = items)
 df[order(-df$dps), ]
 #>                              dps       diff
 #> Robe of the Void        335.0949  7.7611997
@@ -74,13 +75,14 @@ df[order(-df$dps), ]
 If you want to know what impact world buffs have, simulate again.
 
 ``` r
+my_stats$crit <- my_stats$crit + 10
 set.seed(42)
-stat_ony <- compute_statweights(my_crit + 10, my_hit, my_int, my_sp, my_mp5)
-stat_ony
-#>       crit        hit        int         sp        mp5 
-#> 4.18339646 4.13774837 0.10022948 0.45677110 0.01795692
+weights_ony <- compute_statweights(my_stats)
+weights_ony
+#>        int         sp       crit        hit        mp5 
+#> 0.10022948 0.45677110 4.18339646 4.13774837 0.01795692
 set.seed(42)
-df_ony <- compare_items(my_crit + 10, my_hit, my_int, my_sp, my_mp5, items = items)
+df_ony <- compare_items(my_stats, items = items)
 df_ony[order(-df_ony$dps), ]
 #>                              dps      diff
 #> Robe of the Void        380.5442  9.144664

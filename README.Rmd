@@ -38,11 +38,12 @@ But first we set up the simulation with our current stats.
 
 ```{r example}
 library(warlockr)
-my_crit <- 3
-my_hit <- 3
-my_int <- 258 + 31 + 12 # with buffs
-my_sp <- 168 + 33 + 26 + 27 # shadow spell damage
-my_mp5 <- 0
+my_stats <- list(
+  int = 258 + 31 + 12, # with buffs
+  sp = 168 + 33 + 26 + 27, # shadow spell damage
+  crit = 3,
+  hit = 3
+)
 ```
 
 The `compute_statweights` function first simluates your DPS.
@@ -51,8 +52,8 @@ The weights are the difference in DPS.
 
 ```{r statweights}
 set.seed(42)
-stat <- compute_statweights(my_crit, my_hit, my_int, my_sp, my_mp5)
-stat
+my_weights <- compute_statweights(my_stats)
+my_weights
 ```
 
 The `compare_items` function works very similar.
@@ -67,18 +68,19 @@ items <- list(
   "Deep Woodlands Cloak" = list(int = 9, sp = -6)
 )
 set.seed(42)
-df <- compare_items(my_crit, my_hit, my_int, my_sp, my_mp5, items = items)
+df <- compare_items(my_stats, items = items)
 df[order(-df$dps), ]
 ```
 
 If you want to know what impact world buffs have, simulate again.
 
 ```{r ony}
+my_stats$crit <- my_stats$crit + 10
 set.seed(42)
-stat_ony <- compute_statweights(my_crit + 10, my_hit, my_int, my_sp, my_mp5)
-stat_ony
+weights_ony <- compute_statweights(my_stats)
+weights_ony
 set.seed(42)
-df_ony <- compare_items(my_crit + 10, my_hit, my_int, my_sp, my_mp5, items = items)
+df_ony <- compare_items(my_stats, items = items)
 df_ony[order(-df_ony$dps), ]
 ```
 

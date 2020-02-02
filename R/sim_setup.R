@@ -9,11 +9,10 @@
 #' @export
 #'
 #' @examples
-#' sim_setup(10, 2, 1, 277, 346, NULL)
-sim_setup <- function(n, crit, hit, int, sp, mana, iter = 1,
+#' sim_setup(10, 2, 1, 277, 346)
+sim_setup <- function(n, crit, hit, int, sp, iter = 1,
                       devastation = 5, ruin = 1, cataclysm = 2, shadow_mastery = 0,
                       demonic_sacrifice = 1, curse_of_shadows = 1, suppression = 2) {
-  if (is.null(mana)) mana <- compute_mana(int)
   to_matrix <- function(x) {
     if (iter > 1) matrix(x, ncol = iter) else x
   }
@@ -27,7 +26,7 @@ sim_setup <- function(n, crit, hit, int, sp, mana, iter = 1,
   sb_dmg <- (sb_dmg * !sb_miss) * (1 + sb_crit * 0.5 * (1 + ruin))
   curse_miss <- sample_curse <= 1 | sample_curse <= (17 - hit - 2 * suppression)
   list(
-    mana = mana,
+    mana = compute_mana(int),
     sb_dmg = to_matrix(sb_dmg),
     sb_miss = to_matrix(sb_miss),
     sb_crit = to_matrix(sb_crit),

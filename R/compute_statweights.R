@@ -8,16 +8,19 @@
 #' @export
 #'
 #' @examples
-#' compute_statweights(2, 1, 277, 346, 0, iter = 1000)
-compute_statweights <- function(crit, hit, int, sp, mp5, timeframe = c(45, 150), iter = 50000) {
+#' compute_statweights(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
+compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
+  stats <- clean_stats(stats)
   seed <- sample(1:1000, 1)
-  simulations <- list(
-    current = sim_dps(crit, hit, int, sp, mp5, NULL, timeframe, iter, seed),
-    crit = sim_dps(crit + 1, hit, int, sp, mp5, NULL, timeframe, iter, seed),
-    hit = sim_dps(crit, hit + 1, int, sp, mp5, NULL, timeframe, iter, seed),
-    int = sim_dps(crit, hit, int + 1, sp, mp5, NULL, timeframe, iter, seed),
-    sp = sim_dps(crit, hit, int, sp + 1, mp5, NULL, timeframe, iter, seed),
-    mp5 = sim_dps(crit, hit, int, sp, mp5 + 1, NULL, timeframe, iter, seed)
+  simulations <- c(
+    list(current = sim_dps(stats, timeframe, iter, seed)),
+    lapply(
+      stats::setNames(nm = names(stats)),
+      function(x) {
+        stats[[x]] <- stats[[x]] + 1
+        sim_dps(stats, timeframe, iter, seed)
+      }
+    )
   )
   dps <- vapply(simulations, function(x) mean(x[, 4]), FUN.VALUE = 0)
   (dps - dps[1])[-1]
