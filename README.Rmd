@@ -39,8 +39,8 @@ But first we set up the simulation with our current stats.
 ```{r example}
 library(warlockr)
 my_stats <- list(
-  int = 258 + 31 + 12, # with buffs
-  sp = 168 + 33 + 26 + 27, # shadow spell damage
+  int = 245 + 31 + 12, # with buffs
+  sp = 198 + 26 + 33 + 27 + 40, # shadow spell damage
   crit = 3,
   hit = 3
 )
@@ -62,10 +62,13 @@ As additional input it takes a list of items in which you specify the stat diffe
 ```{r compare}
 items <- list(
   "Robe of the Void" = list(hit = -1, int = -20, sp = 33),
-  "Felcloth Shoulder" = list(int = -17, sp = 17),
-  "Burial Shawl" = list(int = -1, sp = 11),
-  "Shroud of the Nathrezim" = list(int = -1, crit = 1),
-  "Deep Woodlands Cloak" = list(int = 9, sp = -6)
+  "Burial Shawl" = list(int = 16, sp = -6),
+  "Dragon's Touch" = list(int = 12, sp = -5),
+  "Choker of the Fire Lord" = list(int = -2, sp = 34, hit = -1),
+  "Dragonslayer's Signet" = list(int = 5, sp = -9, crit = 1),
+  "Ring of Spell Power" = list(int = -7, sp = 24),
+  "Band of Forced Concentration" = list(int = 5, sp = 12, hit = 1),
+  "Band of Dark Dominion" = list(int = -1, sp = 24)
 )
 set.seed(42)
 df <- compare_items(my_stats, items = items)
