@@ -55,8 +55,9 @@ takes a list of items in which you specify the stat differences.
 ``` r
 items <- list(
   "Robe of the Void" = list(hit = -1, int = -20, sp = 33),
+  "Robe of Volatile Power" = list(int = -5, sp = 10, crit = 2, hit = -1),
   "Burial Shawl" = list(int = 16, sp = -6),
-  "Dragon's Touch" = list(int = 12, sp = -5),
+  "Dragon's Touch" = list(int = 8, sp = -5),
   "Choker of the Fire Lord" = list(int = -2, sp = 34, hit = -1),
   "Dragonslayer's Signet" = list(int = 5, sp = -9, crit = 1),
   "Ring of Spell Power" = list(int = -7, sp = 24),
@@ -70,12 +71,13 @@ df[order(-df$dps), ]
 #> Choker of the Fire Lord      367.2111 10.7640087
 #> Band of Dark Dominion        367.1732 10.7260950
 #> Band of Forced Concentration 366.8956 10.4484852
+#> Robe of Volatile Power       366.1194  9.6723194
 #> Ring of Spell Power          365.8703  9.4232083
 #> Robe of the Void             363.2897  6.8426263
 #> Dragonslayer's Signet        358.3131  1.8660636
 #> Burial Shawl                 356.8194  0.3723557
-#> Dragon's Touch               356.7034  0.2563003
 #> current                      356.4471  0.0000000
+#> Dragon's Touch               355.9592 -0.4878970
 ```
 
 If you want to know what impact world buffs have, simulate again.
@@ -90,16 +92,17 @@ weights_ony
 set.seed(42)
 df_ony <- compare_items(my_stats, items = items)
 df_ony[order(-df_ony$dps), ]
-#>                                   dps        diff
-#> Choker of the Fire Lord      416.9118 12.26038269
-#> Band of Dark Dominion        416.8658 12.21439518
-#> Band of Forced Concentration 416.4622 11.81075001
-#> Ring of Spell Power          415.5127 10.86121574
-#> Robe of the Void             412.8166  8.16519722
-#> Dragonslayer's Signet        405.5100  0.85858284
-#> Burial Shawl                 404.7936  0.14214656
-#> Dragon's Touch               404.7249  0.07345713
-#> current                      404.6514  0.00000000
+#>                                   dps       diff
+#> Choker of the Fire Lord      416.9118 12.2603827
+#> Band of Dark Dominion        416.8658 12.2143952
+#> Band of Forced Concentration 416.4622 11.8107500
+#> Ring of Spell Power          415.5127 10.8612157
+#> Robe of Volatile Power       413.3693  8.7178260
+#> Robe of the Void             412.8166  8.1651972
+#> Dragonslayer's Signet        405.5100  0.8585828
+#> Burial Shawl                 404.7936  0.1421466
+#> current                      404.6514  0.0000000
+#> Dragon's Touch               403.9401 -0.7113183
 ```
 
 This can help setting your priorities right. Note that this is only

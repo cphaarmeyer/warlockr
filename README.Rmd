@@ -62,8 +62,9 @@ As additional input it takes a list of items in which you specify the stat diffe
 ```{r compare}
 items <- list(
   "Robe of the Void" = list(hit = -1, int = -20, sp = 33),
+  "Robe of Volatile Power" = list(int = -5, sp = 10, crit = 2, hit = -1),
   "Burial Shawl" = list(int = 16, sp = -6),
-  "Dragon's Touch" = list(int = 12, sp = -5),
+  "Dragon's Touch" = list(int = 8, sp = -5),
   "Choker of the Fire Lord" = list(int = -2, sp = 34, hit = -1),
   "Dragonslayer's Signet" = list(int = 5, sp = -9, crit = 1),
   "Ring of Spell Power" = list(int = -7, sp = 24),
