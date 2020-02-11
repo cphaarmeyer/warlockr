@@ -10,5 +10,5 @@
 #' sample_hit()
 #' sample_hit(5)
 sample_hit <- function(n = 1) {
-  sample(10000, n, replace = TRUE) / 100
+  stats::runif(n, min = 0, max = 100)
 }
