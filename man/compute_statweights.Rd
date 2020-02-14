@@ -18,6 +18,7 @@ a named vector with weights
 }
 \description{
 Simulates current dps and dps with inceased stats to compute weights for these stats.
+The result is scaled such that spell power has weight 1.
 }
 \examples{
 compute_statweights(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)

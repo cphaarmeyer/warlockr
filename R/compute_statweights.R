@@ -1,6 +1,7 @@
 #' Compute Stat Weights
 #'
 #' Simulates current dps and dps with inceased stats to compute weights for these stats.
+#' The result is scaled such that spell power has weight 1.
 #'
 #' @inheritParams sim_dps
 #'
@@ -23,5 +24,6 @@ compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
     )
   )
   dps <- vapply(simulations, function(x) mean(x[, 4]), FUN.VALUE = 0)
-  (dps - dps[1])[-1]
+  weights <- (dps - dps[[1]])[-1]
+  weights / weights[["sp"]]
 }
