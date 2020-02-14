@@ -22,7 +22,7 @@ devtools::install_github("cphaarmeyer/warlockr")
 
 There are two main uses of the DPS simulation:
 
-  - computing how much a stat inceases your dps (stat weights)
+  - computing how much a stat increases your dps (stat weights)
   - computing the impact of an item on your dps (compare items)
 
 But first we set up the simulation with our current stats.
@@ -37,9 +37,9 @@ my_stats <- list(
 )
 ```
 
-The `compute_statweights` function first simluates your DPS. Then for
-every stat it simulates the dps with that stat increased by 1. The
-weights are the difference in DPS.
+The `compute_statweights` function first simulates your DPS. Then for
+every stat it simulates the DPS with that stat increased by 1. Finally
+the difference is scaled such that spell power has weight 1.
 
 ``` r
 set.seed(42)
@@ -60,7 +60,7 @@ items <- list(
   "Burial Shawl" = list(int = 16, sp = -6),
   "Dragon's Touch" = list(int = 8, sp = -5),
   "Dark Advisor's Pendant" = list(int = -2, sp = 20, hit = -1),
-  "Choker of Elightenment" = list(int = 1, sp = 18, hit = -1),
+  "Choker of Enlightenment" = list(int = 1, sp = 18, hit = -1),
   "Choker of the Fire Lord" = list(int = -2, sp = 34, hit = -1),
   "Dragonslayer's Signet" = list(int = 5, sp = -9, crit = 1),
   "Ring of Spell Power" = list(int = -7, sp = 24),
@@ -78,7 +78,7 @@ df[order(-df$dps), ]
 #> Mana Igniting Cord           406.4540  7.0037305
 #> Dark Advisor's Pendant       403.2049  3.7545849
 #> Robe of Volatile Power       402.9815  3.5312348
-#> Choker of Elightenment       402.8903  3.4400088
+#> Choker of Enlightenment      402.8903  3.4400088
 #> Dragonslayer's Signet        401.7351  2.2848002
 #> Burial Shawl                 399.7550  0.3047165
 #> current                      399.4503  0.0000000
@@ -105,7 +105,7 @@ df_ony[order(-df_ony$dps), ]
 #> Ring of Spell Power          464.5180 10.698591758
 #> Mana Igniting Cord           460.5443  6.724859057
 #> Dark Advisor's Pendant       458.1137  4.294265273
-#> Choker of Elightenment       457.6799  3.860501904
+#> Choker of Enlightenment      457.6799  3.860501904
 #> Dragonslayer's Signet        455.2262  1.406806345
 #> Robe of Volatile Power       455.0969  1.277452539
 #> Royal Seal of Eldre'Thalas   454.5713  0.751865659
