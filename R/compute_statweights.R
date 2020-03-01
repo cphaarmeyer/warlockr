@@ -21,6 +21,13 @@ statbudget <- list(
 compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
   stats <- clean_stats(stats)
   seed <- sample(1:1000, 1)
+  max_change <- as.list(floor(max(unlist(statbudget)) / unlist(statbudget)))
+  ranges <- lapply(
+    stats::setNames(nm = names(stats)),
+    function(x) {
+      max(0, stats[[x]] - max_change[[x]]):(stats[[x]] + max_change[[x]])
+    }
+  )
   simulations <- c(
     list(current = sim_dps(stats, timeframe, iter, seed)),
     lapply(
