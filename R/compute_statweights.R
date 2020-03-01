@@ -1,3 +1,11 @@
+statbudget <- list(
+  int = 1,
+  sp = 6 / 7,
+  crit = 14,
+  hit = 8,
+  mp5 = 2.5
+)
+
 #' Compute Stat Weights
 #'
 #' Simulates current dps and dps with inceased stats to compute weights for these stats.
