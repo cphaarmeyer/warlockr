@@ -20,14 +20,18 @@ statbudget <- list(
 #' compute_statweights(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
 compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
   stats <- clean_stats(stats)
+  statnames <- stats::setNames(nm = names(stats))
   seed <- sample(1:1000, 1)
   max_change <- as.list(floor(max(unlist(statbudget)) / unlist(statbudget)))
-  ranges <- lapply(
-    stats::setNames(nm = names(stats)),
-    function(x) {
-      max(0, stats[[x]] - max_change[[x]]):(stats[[x]] + max_change[[x]])
-    }
-  )
+  ranges <- lapply(statnames, function(x) {
+    max(0, stats[[x]] - max_change[[x]]):(stats[[x]] + max_change[[x]])
+  })
+  sims <- lapply(statnames, function(x) {
+    lapply(ranges[[x]], function(y) {
+      stats[[x]] <- y
+      sim_dps(stats, timeframe, iter, seed)
+    })
+  })
   simulations <- c(
     list(current = sim_dps(stats, timeframe, iter, seed)),
     lapply(
