@@ -17,7 +17,7 @@
 #'   ),
 #'   iter = 1000
 #' )
-compare_items <- function(stats, items, timeframe = c(45, 150), iter = 50000) {
+compare_items <- function(stats, items, timeframe = c(60, 300), iter = 50000) {
   stats <- clean_stats(stats)
   seed <- sample(1:1000, 1)
   current <- sim_dps(stats, timeframe, iter, seed)

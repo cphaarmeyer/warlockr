@@ -15,7 +15,7 @@
 #' @examples
 #' mat <- sim_dps(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
 #' mean(mat[, 4])
-sim_dps <- function(stats, timeframe = c(45, 150), iter = 50000, seed = NULL) {
+sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL) {
   if (!is.null(seed)) set.seed(seed)
   time <- stats::runif(iter, timeframe[1], timeframe[2])
   n_max <- max(time) %/% 2.5 + 1

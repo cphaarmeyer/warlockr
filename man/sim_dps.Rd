@@ -4,7 +4,7 @@
 \alias{sim_dps}
 \title{Simultate DPS}
 \usage{
-sim_dps(stats, timeframe = c(45, 150), iter = 50000, seed = NULL)
+sim_dps(stats, timeframe = c(60, 300), iter = 50000, seed = NULL)
 }
 \arguments{
 \item{stats}{a named list with the stats of the character including int, sp, crit, hit and mp5}

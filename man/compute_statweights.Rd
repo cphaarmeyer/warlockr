@@ -4,7 +4,7 @@
 \alias{compute_statweights}
 \title{Compute Stat Weights}
 \usage{
-compute_statweights(stats, timeframe = c(45, 150), iter = 50000)
+compute_statweights(stats, timeframe = c(60, 300), iter = 50000)
 }
 \arguments{
 \item{stats}{a named list with the stats of the character including int, sp, crit, hit and mp5}

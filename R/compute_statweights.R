@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' compute_statweights(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
-compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
+compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000) {
   stats <- clean_stats(stats)
   seed <- sample(1:1000, 1)
   simulations <- c(

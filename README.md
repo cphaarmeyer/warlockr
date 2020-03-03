@@ -45,8 +45,8 @@ the difference is scaled such that spell power has weight 1.
 set.seed(42)
 my_weights <- compute_statweights(my_stats)
 my_weights
-#>          int           sp         crit          hit          mp5 
-#>  0.237446277  1.000000000 13.891408930 11.260823773  0.008799019
+#>         int          sp        crit         hit         mp5 
+#>  0.27700560  1.00000000 13.39516411 10.44493367  0.07319366
 ```
 
 The `compare_items` function works very similar. As additional input it
@@ -70,20 +70,20 @@ items <- list(
 set.seed(42)
 df <- compare_items(my_stats, items = items)
 df[order(-df$dps), ]
-#>                                   dps       diff
-#> Band of Forced Concentration 410.0833 10.6330257
-#> Band of Dark Dominion        409.7451 10.2947700
-#> Choker of the Fire Lord      409.3528  9.9025378
-#> Ring of Spell Power          408.7354  9.2851051
-#> Mana Igniting Cord           406.4540  7.0037305
-#> Dark Advisor's Pendant       403.2049  3.7545849
-#> Robe of Volatile Power       402.9815  3.5312348
-#> Choker of Enlightenment      402.8903  3.4400088
-#> Dragonslayer's Signet        401.7351  2.2848002
-#> Burial Shawl                 399.7550  0.3047165
-#> current                      399.4503  0.0000000
-#> Dragon's Touch               398.6069 -0.8433522
-#> Royal Seal of Eldre'Thalas   397.8161 -1.6341752
+#>                                   dps      diff
+#> Band of Dark Dominion        401.3438 10.588962
+#> Band of Forced Concentration 401.2636 10.508816
+#> Choker of the Fire Lord      401.1903 10.435469
+#> Ring of Spell Power          400.3898  9.635007
+#> Mana Igniting Cord           398.0544  7.299561
+#> Dark Advisor's Pendant       394.9601  4.205324
+#> Choker of Enlightenment      394.5622  3.807420
+#> Robe of Volatile Power       393.3884  2.633558
+#> Dragonslayer's Signet        392.9063  2.151521
+#> current                      390.7548  0.000000
+#> Burial Shawl                 390.4903 -0.264467
+#> Dragon's Touch               389.6693 -1.085475
+#> Royal Seal of Eldre'Thalas   389.4183 -1.336544
 ```
 
 If you want to know what impact world buffs have, simulate again.
@@ -93,25 +93,25 @@ my_stats$crit <- my_stats$crit + 10
 set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
-#>          int           sp         crit          hit          mp5 
-#>  0.180555331  1.000000000 11.441861972 11.312041022  0.008228931
+#>         int          sp        crit         hit         mp5 
+#>  0.24197011  1.00000000 10.74445977 10.49508121  0.07249578
 set.seed(42)
 df_ony <- compare_items(my_stats, items = items)
 df_ony[order(-df_ony$dps), ]
-#>                                   dps         diff
-#> Band of Forced Concentration 465.8048 11.985413329
-#> Band of Dark Dominion        465.5455 11.726082448
-#> Choker of the Fire Lord      465.1017 11.282273611
-#> Ring of Spell Power          464.5180 10.698591758
-#> Mana Igniting Cord           460.5443  6.724859057
-#> Dark Advisor's Pendant       458.1137  4.294265273
-#> Choker of Enlightenment      457.6799  3.860501904
-#> Dragonslayer's Signet        455.2262  1.406806345
-#> Robe of Volatile Power       455.0969  1.277452539
-#> Royal Seal of Eldre'Thalas   454.5713  0.751865659
-#> Burial Shawl                 453.8214  0.002039264
-#> current                      453.8194  0.000000000
-#> Dragon's Touch               452.6723 -1.147147456
+#>                                   dps       diff
+#> Band of Dark Dominion        456.3276 12.0608080
+#> Choker of the Fire Lord      456.1616 11.8947801
+#> Band of Forced Concentration 456.1388 11.8719830
+#> Ring of Spell Power          455.3930 11.1261789
+#> Mana Igniting Cord           451.2074  6.9406025
+#> Dark Advisor's Pendant       449.0751  4.8083109
+#> Choker of Enlightenment      448.5748  4.3079482
+#> Royal Seal of Eldre'Thalas   445.4387  1.1718728
+#> Dragonslayer's Signet        445.3898  1.1229958
+#> Robe of Volatile Power       444.5889  0.3220315
+#> current                      444.2668  0.0000000
+#> Burial Shawl                 443.6605 -0.6063566
+#> Dragon's Touch               442.8720 -1.3948407
 ```
 
 This can help setting your priorities right. Note that this is only
