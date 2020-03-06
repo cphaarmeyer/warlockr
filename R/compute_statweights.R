@@ -31,7 +31,7 @@ compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
   sims <- vapply(1:iter_total, function(i) {
     sim_boss(lapply(stats_list, `[`, i), time[i])[4]
   }, FUN.VALUE = 0)
-  df <- data.frame(stats_list, dps = sims)
+  df <- data.frame(stats_list, dps = sims, time = time)
   mod <- stats::lm(dps ~ ., data = df)
   weights <- stats::coef(mod)[statnames]
   weights / weights[["sp"]]
