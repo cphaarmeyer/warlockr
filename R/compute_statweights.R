@@ -21,7 +21,6 @@ statbudget <- list(
 compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
   stats <- clean_stats(stats)
   statnames <- stats::setNames(nm = names(stats))
-  seed <- sample(1:1000, 1)
   max_change <- as.list(floor(max(unlist(statbudget)) / unlist(statbudget)))
   ranges <- lapply(statnames, function(x) {
     max(0, stats[[x]] - max_change[[x]]):(stats[[x]] + max_change[[x]])
@@ -31,17 +30,9 @@ compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
   sims <- vapply(1:iter, function(i) {
     sim_boss(lapply(stats_list, `[`, i), time[i])[4]
   }, FUN.VALUE = 0)
-  simulations <- c(
-    list(current = sim_dps(stats, timeframe, iter, seed)),
-    lapply(
-      stats::setNames(nm = names(stats)),
-      function(x) {
-        stats[[x]] <- stats[[x]] + 1
-        sim_dps(stats, timeframe, iter, seed)
-      }
-    )
-  )
-  dps <- vapply(simulations, function(x) mean(x[, 4]), FUN.VALUE = 0)
-  weights <- (dps - dps[[1]])[-1]
+  df <- as.data.frame(stats_list)
+  df[["dps"]] <- sims
+  mod <- lm(dps ~ ., data = df)
+  weights <- coef(mod)[statnames]
   weights / weights[["sp"]]
 }
