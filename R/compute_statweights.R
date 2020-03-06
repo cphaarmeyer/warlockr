@@ -1,3 +1,11 @@
+statbudget <- list(
+  int = 1,
+  sp = 6 / 7,
+  crit = 14,
+  hit = 8,
+  mp5 = 2.5
+)
+
 #' Compute Stat Weights
 #'
 #' Simulates current dps and dps with inceased stats to compute weights for these stats.
@@ -12,18 +20,19 @@
 #' compute_statweights(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
 compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000) {
   stats <- clean_stats(stats)
-  seed <- sample(1:1000, 1)
-  simulations <- c(
-    list(current = sim_dps(stats, timeframe, iter, seed)),
-    lapply(
-      stats::setNames(nm = names(stats)),
-      function(x) {
-        stats[[x]] <- stats[[x]] + 1
-        sim_dps(stats, timeframe, iter, seed)
-      }
-    )
-  )
-  dps <- vapply(simulations, function(x) mean(x[, 4]), FUN.VALUE = 0)
-  weights <- (dps - dps[[1]])[-1]
+  statnames <- stats::setNames(nm = names(stats))
+  iter_total <- iter * length(statnames)
+  max_change <- as.list(floor(max(unlist(statbudget)) / unlist(statbudget)))
+  ranges <- lapply(statnames, function(x) {
+    max(0, stats[[x]] - max_change[[x]]):(stats[[x]] + max_change[[x]])
+  })
+  stats_list <- lapply(ranges, sample, size = iter_total, replace = TRUE)
+  time <- stats::runif(iter_total, timeframe[1], timeframe[2])
+  sims <- vapply(1:iter_total, function(i) {
+    sim_boss(lapply(stats_list, `[`, i), time[i])[4]
+  }, FUN.VALUE = 0)
+  df <- data.frame(stats_list, dps = sims, time = time)
+  mod <- stats::lm(dps ~ ., data = df)
+  weights <- stats::coef(mod)[statnames]
   weights / weights[["sp"]]
 }
