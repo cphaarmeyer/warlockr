@@ -45,8 +45,8 @@ the difference is scaled such that spell power has weight 1.
 set.seed(42)
 my_weights <- compute_statweights(my_stats)
 my_weights
-#>         int          sp        crit         hit         mp5 
-#>  0.27700560  1.00000000 13.39516411 10.44493367  0.07319366
+#>        int         sp       crit        hit        mp5 
+#>  0.3540484  1.0000000 12.4861065  9.3728790  0.4805150
 ```
 
 The `compare_items` function works very similar. As additional input it
@@ -93,8 +93,8 @@ my_stats$crit <- my_stats$crit + 10
 set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
-#>         int          sp        crit         hit         mp5 
-#>  0.24197011  1.00000000 10.74445977 10.49508121  0.07249578
+#>        int         sp       crit        hit        mp5 
+#>  0.3018410  1.0000000 10.0037091  9.4120601  0.4892841
 set.seed(42)
 df_ony <- compare_items(my_stats, items = items)
 df_ony[order(-df_ony$dps), ]
