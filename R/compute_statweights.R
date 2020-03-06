@@ -26,12 +26,11 @@ compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
   ranges <- lapply(statnames, function(x) {
     max(0, stats[[x]] - max_change[[x]]):(stats[[x]] + max_change[[x]])
   })
-  sims <- lapply(statnames, function(x) {
-    lapply(ranges[[x]], function(y) {
-      stats[[x]] <- y
-      sim_dps(stats, timeframe, iter, seed)
-    })
-  })
+  stats_list <- lapply(ranges, sample, size = iter, replace = TRUE)
+  time <- stats::runif(iter, timeframe[1], timeframe[2])
+  sims <- vapply(1:iter, function(i) {
+    sim_boss(lapply(stats_list, `[`, i), time[i])[4]
+  }, FUN.VALUE = 0)
   simulations <- c(
     list(current = sim_dps(stats, timeframe, iter, seed)),
     lapply(
