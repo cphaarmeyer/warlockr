@@ -21,12 +21,13 @@ statbudget <- list(
 compute_statweights <- function(stats, timeframe = c(45, 150), iter = 50000) {
   stats <- clean_stats(stats)
   statnames <- stats::setNames(nm = names(stats))
+  iter_total <- iter * length(statnames)
   max_change <- as.list(floor(max(unlist(statbudget)) / unlist(statbudget)))
   ranges <- lapply(statnames, function(x) {
     max(0, stats[[x]] - max_change[[x]]):(stats[[x]] + max_change[[x]])
   })
-  stats_list <- lapply(ranges, sample, size = iter, replace = TRUE)
-  time <- stats::runif(iter, timeframe[1], timeframe[2])
+  stats_list <- lapply(ranges, sample, size = iter_total, replace = TRUE)
+  time <- stats::runif(iter_total, timeframe[1], timeframe[2])
   sims <- vapply(1:iter, function(i) {
     sim_boss(lapply(stats_list, `[`, i), time[i])[4]
   }, FUN.VALUE = 0)
