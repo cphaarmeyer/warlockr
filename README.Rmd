@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # warlockr
 
 The goal of warlockr is to collect useful functions for Warlocks in WoW Classic.
+Furthermore it should only have minimal package dependencies.
 Right now this is mostly about simulating the DPS.
 The starting point was [this](https://www.reddit.com/r/classicwow/comments/dh5r6g/so_i_made_a_warlock_shadowbolt_simulator/) Reddit post by [u/natehax](https://www.reddit.com/user/natehax/).
 
@@ -31,8 +32,8 @@ devtools::install_github("cphaarmeyer/warlockr")
 
 There are two main uses of the DPS simulation:
 
-* computing how much a stat increases your dps (stat weights)
-* computing the impact of an item on your dps (compare items)
+* computing how much a stat increases your DPS (stat weights)
+* computing the impact of an item on your DPS (compare items)
 
 But first we set up the simulation with our current stats.
 
@@ -46,9 +47,8 @@ my_stats <- list(
 )
 ```
 
-The `compute_statweights` function first simulates your DPS.
-Then for every stat it simulates the DPS with that stat increased by 1.
-Finally the difference is scaled such that spell power has weight 1.
+The `compute_statweights` function simulates the DPS in the neighborhood of your current stats.
+Then it evaluates the impact of every stat and scales such that spell power has weight 1.
 
 ```{r statweights}
 set.seed(42)
