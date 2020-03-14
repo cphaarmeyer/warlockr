@@ -22,7 +22,7 @@ compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000) {
   stats <- clean_stats(stats)
   statnames <- stats::setNames(nm = names(stats))
   iter_total <- iter * length(statnames)
-  max_change <- as.list(floor(max(unlist(statbudget)) / unlist(statbudget)))
+  max_change <- as.list(floor(2 * max(unlist(statbudget)) / unlist(statbudget)))
   ranges <- lapply(statnames, function(x) {
     max(0, stats[[x]] - max_change[[x]]):(stats[[x]] + max_change[[x]])
   })

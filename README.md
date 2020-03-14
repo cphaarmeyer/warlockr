@@ -47,7 +47,7 @@ set.seed(42)
 my_weights <- compute_statweights(my_stats)
 my_weights
 #>        int         sp       crit        hit        mp5 
-#>  0.3540484  1.0000000 12.4861065  9.3728790  0.4805150
+#>  0.3418810  1.0000000 12.7901709  9.8323416  0.3282895
 ```
 
 The `compare_items` function works very similar. As additional input it
@@ -95,7 +95,7 @@ set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
 #>        int         sp       crit        hit        mp5 
-#>  0.3018410  1.0000000 10.0037091  9.4120601  0.4892841
+#>  0.3110720  1.0000000 10.2604061  9.8849037  0.2964156
 set.seed(42)
 df_ony <- compare_items(my_stats, items = items)
 df_ony[order(-df_ony$dps), ]
