@@ -9,7 +9,8 @@ lifetap_impl(manacost, improved_sb_proc)
 \arguments{
 \item{manacost}{mana cost}
 
-\item{improved_sb_proc}{number of active procs of improved shadow bolt on target}
+\item{improved_sb_proc}{number of active procs of improved shadow bolt on
+target}
 }
 \description{
 Base Implementation of Life Tap

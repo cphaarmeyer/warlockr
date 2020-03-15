@@ -7,7 +7,8 @@
 compare_items(stats, items, timeframe = c(60, 300), iter = 50000)
 }
 \arguments{
-\item{stats}{a named list with the stats of the character including int, sp, crit, hit and mp5}
+\item{stats}{a named list with the stats of the character including int, sp,
+crit, hit and mp5}
 
 \item{items}{list where each element indicates the stat changes by an item}
 

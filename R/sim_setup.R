@@ -10,14 +10,21 @@
 #'
 #' @examples
 #' sim_setup(10, 2, 1, 277, 346)
-sim_setup <- function(n, crit, hit, int, sp, iter = 1,
-                      devastation = 5, ruin = 1, cataclysm = 2, shadow_mastery = 0,
-                      demonic_sacrifice = 1, curse_of_shadows = 1, suppression = 2) {
+sim_setup <- function(n, crit, hit, int, sp,
+                      iter = 1,
+                      devastation = 5,
+                      ruin = 1,
+                      cataclysm = 2,
+                      shadow_mastery = 0,
+                      demonic_sacrifice = 1,
+                      curse_of_shadows = 1,
+                      suppression = 2) {
   to_matrix <- function(x) {
     if (iter > 1) matrix(x, ncol = iter) else x
   }
-  sb_dmg <- (sample_shadowbolt(n * iter) + 0.8571 * sp) * (1 + 0.02 * shadow_mastery) *
-    (1 + 0.15 * demonic_sacrifice) * (1 + 0.1 * curse_of_shadows)
+  sb_dmg <- (sample_shadowbolt(n * iter) + 0.8571 * sp) *
+    (1 + 0.02 * shadow_mastery) * (1 + 0.15 * demonic_sacrifice) *
+    (1 + 0.1 * curse_of_shadows)
   sample_h <- sample_hit(n * iter)
   sample_c <- sample_hit(n * iter)
   sample_curse <- sample_hit(n * iter)

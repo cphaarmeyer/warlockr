@@ -7,12 +7,14 @@
 sim_boss(stats, time = 150)
 }
 \arguments{
-\item{stats}{a named list with the stats of the character including int, sp, crit, hit and mp5}
+\item{stats}{a named list with the stats of the character including int, sp,
+crit, hit and mp5}
 
 \item{time}{length of fight in seconds}
 }
 \value{
-a numeric vector with values for total dmg, mana, total casttime and dps
+a numeric vector with values for total dmg, mana, total casttime and
+dps
 }
 \description{
 Simulates one boss fight with default values.

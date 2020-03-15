@@ -27,7 +27,8 @@ shadowbolt_impl(
 
 \item{improved_sb}{number of talent points in improved shadow bolt}
 
-\item{improved_sb_proc}{number of active procs of improved shadow bolt on target}
+\item{improved_sb_proc}{number of active procs of improved shadow bolt on
+target}
 }
 \description{
 Base Implementation of Shadow Bolt

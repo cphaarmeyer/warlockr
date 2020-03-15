@@ -7,7 +7,8 @@
 compute_statweights(stats, timeframe = c(60, 300), iter = 50000)
 }
 \arguments{
-\item{stats}{a named list with the stats of the character including int, sp, crit, hit and mp5}
+\item{stats}{a named list with the stats of the character including int, sp,
+crit, hit and mp5}
 
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
@@ -17,9 +18,13 @@ compute_statweights(stats, timeframe = c(60, 300), iter = 50000)
 a named vector with weights
 }
 \description{
-Simulates current dps and dps with inceased stats to compute weights for these stats.
+Simulates current dps and dps with inceased stats to compute weights for
+these stats.
 The result is scaled such that spell power has weight 1.
 }
 \examples{
-compute_statweights(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
+compute_statweights(
+  list(int = 277, sp = 346, crit = 2, hit = 2),
+  iter = 1000
+)
 }

@@ -11,10 +11,12 @@ lifetap(sp, imp_lifetap = 2, improved_sb_proc = 0)
 
 \item{imp_lifetap}{number of talent points in improved life tap}
 
-\item{improved_sb_proc}{number of active procs of improved shadow bolt on target}
+\item{improved_sb_proc}{number of active procs of improved shadow bolt on
+target}
 }
 \value{
-a numeric vector with values for dmg, manacost, casttime and improved_sb_proc
+a numeric vector with values for dmg, manacost, casttime and
+improved_sb_proc
 }
 \description{
 Simulates a life tap.

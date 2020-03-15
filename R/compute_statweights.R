@@ -8,7 +8,8 @@ statbudget <- list(
 
 #' Compute Stat Weights
 #'
-#' Simulates current dps and dps with inceased stats to compute weights for these stats.
+#' Simulates current dps and dps with inceased stats to compute weights for
+#' these stats.
 #' The result is scaled such that spell power has weight 1.
 #'
 #' @inheritParams sim_dps
@@ -17,7 +18,10 @@ statbudget <- list(
 #' @export
 #'
 #' @examples
-#' compute_statweights(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
+#' compute_statweights(
+#'   list(int = 277, sp = 346, crit = 2, hit = 2),
+#'   iter = 1000
+#' )
 compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000) {
   stats <- clean_stats(stats)
   statnames <- stats::setNames(nm = names(stats))

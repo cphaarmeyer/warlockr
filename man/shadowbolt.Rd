@@ -43,12 +43,14 @@ shadowbolt(
 
 \item{demonic_sacrifice}{whether succubus was sacrificed}
 
-\item{improved_sb_proc}{number of active procs of improved shadow bolt on target}
+\item{improved_sb_proc}{number of active procs of improved shadow bolt on
+target}
 
 \item{curse_of_shadows}{whether curse of shadows is on target}
 }
 \value{
-a numeric vector with values for dmg, manacost, casttime and improved_sb_proc
+a numeric vector with values for dmg, manacost, casttime and
+improved_sb_proc
 }
 \description{
 Simulates a shadow bolt.

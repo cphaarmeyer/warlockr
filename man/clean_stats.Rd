@@ -7,7 +7,8 @@
 clean_stats(stats)
 }
 \arguments{
-\item{stats}{a named list with the stats of the character including int, sp, crit, hit and mp5}
+\item{stats}{a named list with the stats of the character including int, sp,
+crit, hit and mp5}
 }
 \description{
 Replaces missing stats with zero.

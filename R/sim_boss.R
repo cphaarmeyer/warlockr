@@ -2,10 +2,12 @@
 #'
 #' Simulates one boss fight with default values.
 #'
-#' @param stats a named list with the stats of the character including int, sp, crit, hit and mp5
+#' @param stats a named list with the stats of the character including int, sp,
+#'  crit, hit and mp5
 #' @param time length of fight in seconds
 #'
-#' @return a numeric vector with values for total dmg, mana, total casttime and dps
+#' @return a numeric vector with values for total dmg, mana, total casttime and
+#'  dps
 #' @export
 #'
 #' @examples

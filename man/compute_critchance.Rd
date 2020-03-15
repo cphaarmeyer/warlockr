@@ -14,7 +14,8 @@ compute_critchance(crit, int, devastation = 5)
 \item{devastation}{number of talent points in devastation}
 }
 \description{
-Computes crit chance based on crit on gear, intelligence and talent points in devastation.
+Computes crit chance based on crit on gear, intelligence and talent points in
+devastation.
 }
 \examples{
 compute_critchance(3, 267)

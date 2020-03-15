@@ -1,6 +1,7 @@
 #' Compute Crit Chance
 #'
-#' Computes crit chance based on crit on gear, intelligence and talent points in devastation.
+#' Computes crit chance based on crit on gear, intelligence and talent points in
+#' devastation.
 #'
 #' @inheritParams shadowbolt
 #'
