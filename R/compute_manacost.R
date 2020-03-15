@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' compute_manacost()
-compute_manacost <- function(spell = c("shadowbolt", "lifetap"), cataclysm = 2, sp = 0, imp_lifetap = 2) {
+compute_manacost <- function(spell = c("shadowbolt", "lifetap"), cataclysm = 2, sp = NA, imp_lifetap = 2) {
   spell <- match.arg(spell)
   switch(spell,
     "shadowbolt" = 370 * (1 - 0.01 * cataclysm),

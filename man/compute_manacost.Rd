@@ -7,7 +7,7 @@
 compute_manacost(
   spell = c("shadowbolt", "lifetap"),
   cataclysm = 2,
-  sp = 0,
+  sp = NA,
   imp_lifetap = 2
 )
 }
