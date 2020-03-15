@@ -31,7 +31,7 @@ sim_setup <- function(n, crit, hit, int, sp, iter = 1,
     sb_miss = to_matrix(sb_miss),
     sb_crit = to_matrix(sb_crit),
     sb_manacost = -compute_manacost(cataclysm = cataclysm),
-    lt_mancost = compute_manacost("lifetap", sp = sp),
+    lt_manacost = compute_manacost("lifetap", sp = sp),
     curse_miss = to_matrix(curse_miss)
   )
 }

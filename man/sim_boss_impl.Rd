@@ -12,7 +12,7 @@ sim_boss_impl(
   sb_crit,
   curse_miss,
   sb_manacost,
-  lt_mancost,
+  lt_manacost,
   time
 )
 }
@@ -31,7 +31,7 @@ sim_boss_impl(
 
 \item{sb_manacost}{mana cost of shadow bolt}
 
-\item{lt_mancost}{mana cost of life tap}
+\item{lt_manacost}{mana cost of life tap}
 
 \item{time}{length of fight in seconds}
 }

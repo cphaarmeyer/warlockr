@@ -8,10 +8,10 @@
 #' @param sb_crit vector of whether shadow bolt crits
 #' @param curse_miss vector of whether curse hits
 #' @param sb_manacost mana cost of shadow bolt
-#' @param lt_mancost mana cost of life tap
+#' @param lt_manacost mana cost of life tap
 #'
 #' @export
-sim_boss_impl <- function(mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss, sb_manacost, lt_mancost, time) {
+sim_boss_impl <- function(mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss, sb_manacost, lt_manacost, time) {
   n_curse <- min(which(!curse_miss))
   stats_total <- c(0, mana - n_curse * 200, 1.5 * n_curse, 0)
   sim_row <- c(0, 0, 0, 0)
@@ -24,7 +24,7 @@ sim_boss_impl <- function(mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss, sb_ma
       stats_total[2] <- stats_total[2] + mp5
     }
     if (stats_total[2] < -sb_manacost) {
-      sim_row <- lifetap_impl(lt_mancost, sim_row[4])
+      sim_row <- lifetap_impl(lt_manacost, sim_row[4])
     } else {
       i <- i + 1
       sim_row <- shadowbolt_impl(sb_dmg[i], sb_miss[i], sb_crit[i], sb_manacost, 2.5, 5, sim_row[4])
