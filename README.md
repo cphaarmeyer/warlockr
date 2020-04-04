@@ -24,17 +24,17 @@ devtools::install_github("cphaarmeyer/warlockr")
 There are two main uses of the DPS simulation:
 
   - computing how much a stat increases your DPS (stat weights)
-  - computing the impact of an item on your DPS (compare items)
+  - computing the impact of an item on your DPS (compare equip)
 
 But first we set up the simulation with our current stats.
 
 ``` r
 library(warlockr)
 my_stats <- list(
-  int = 223 + 31 + 12, # with buffs
-  sp = 312 + 26 + 33 + 27 + 40, # shadow spell damage
-  crit = 3,
-  hit = 2
+  int = 213 + 31 + 12, # with buffs
+  sp = 360 + 119 + 40, # shadow spell damage
+  crit = 4,
+  hit = 1
 )
 ```
 
@@ -47,44 +47,80 @@ set.seed(42)
 my_weights <- compute_statweights(my_stats)
 my_weights
 #>        int         sp       crit        hit        mp5 
-#>  0.3418810  1.0000000 12.7901709  9.8323416  0.3282895
+#>  0.3681915  1.0000000 13.2547359 10.4922716  0.3375856
 ```
 
-The `compare_items` function works very similar. As additional input it
-takes a list of items in which you specify the stat differences.
+To use the `compare_equip` function we need a list of our current items.
+If your just want a quick comparison see `compare_items`.
 
 ``` r
-items <- list(
-  "Royal Seal of Eldre'Thalas" = list(sp = 23, crit = -2),
-  "Mana Igniting Cord" = list(int = 5, sp = 12, crit = 1, hit = -1),
-  "Robe of Volatile Power" = list(int = 15, sp = -23, crit = 2),
-  "Burial Shawl" = list(int = 16, sp = -6),
-  "Dragon's Touch" = list(int = 8, sp = -5),
-  "Dark Advisor's Pendant" = list(int = -2, sp = 20, hit = -1),
-  "Choker of Enlightenment" = list(int = 1, sp = 18, hit = -1),
-  "Choker of the Fire Lord" = list(int = -2, sp = 34, hit = -1),
-  "Dragonslayer's Signet" = list(int = 5, sp = -9, crit = 1),
-  "Ring of Spell Power" = list(int = -7, sp = 24),
-  "Band of Forced Concentration" = list(int = 5, sp = 12, hit = 1),
-  "Band of Dark Dominion" = list(int = -1, sp = 24)
+my_equip <- list(
+  head = list(int = 16, sp = 32),
+  neck = list(int = 9, hit = 1),
+  shoulders = list(sp = 26),
+  back = list(sp = 18),
+  chest = list(sp = 46),
+  wrist = list(int = 11, sp = 13),
+  hands = list(sp = 33),
+  waist = list(int = 8, sp = 25, crit = 1),
+  legs = list(int = 16, sp = 39),
+  feet = list(int = 9, sp = 27),
+  finger1 = list(int = 7, sp = 18),
+  finger2 = list(int = 6, sp = 33),
+  trinket1 = list(crit = 2),
+  trinket2 = list(sp = 29),
+  weapon = list(int = 12, sp = 60, crit = 1) # includes off hand
 )
+```
+
+Next we need a list of which items to change.
+
+``` r
+my_changes <- list(
+  "Royal Seal of Eldre'Thalas" = list(
+    trinket1 = list(sp = 23)
+  ),
+  "Dragonslayer's Signet" = list(
+    finger1 = list(int = 10, crit = 1)
+  ),
+  "Ring of Spell Power" = list(
+    finger1 = list(sp = 33)
+  ),
+  "Ring of Blackrock" = list(
+    finger1 = list(sp = 19, mp5 = 9)
+  ),
+  "Band of Forced Concentration" = list(
+    finger1 = list(int = 12, sp = 21, hit = 1)
+  ),
+  "Zanzil's Concentration" = list(
+    finger1 = list(int = 10, sp = 11, hit = 1),
+    finger2 = list(int = 13, sp = 6, hit = 2, mp5 = 4)
+  ),
+  "Zanzil's Seal" = list(
+    finger1 = list(int = 10, sp = 11, hit = 1)
+  ),
+  "Band of Servitude" = list(
+    finger1 = list(int = 9, sp = 23)
+  )
+)
+```
+
+Now we can simulate.
+
+``` r
 set.seed(42)
-df <- compare_items(my_stats, items = items)
+df <- compare_equip(my_stats, my_equip, my_changes)
 df[order(-df$dps), ]
-#>                                   dps      diff
-#> Band of Dark Dominion        401.3438 10.588962
-#> Band of Forced Concentration 401.2636 10.508816
-#> Choker of the Fire Lord      401.1903 10.435469
-#> Ring of Spell Power          400.3898  9.635007
-#> Mana Igniting Cord           398.0544  7.299561
-#> Dark Advisor's Pendant       394.9601  4.205324
-#> Choker of Enlightenment      394.5622  3.807420
-#> Robe of Volatile Power       393.3884  2.633558
-#> Dragonslayer's Signet        392.9063  2.151521
-#> current                      390.7548  0.000000
-#> Burial Shawl                 390.4903 -0.264467
-#> Dragon's Touch               389.6693 -1.085475
-#> Royal Seal of Eldre'Thalas   389.4183 -1.336544
+#>                                   dps       diff
+#> Band of Forced Concentration 433.7967  6.9662434
+#> Ring of Spell Power          432.4196  5.5891521
+#> Band of Servitude            429.4197  2.5892899
+#> Zanzil's Seal                428.8979  2.0674564
+#> Zanzil's Concentration       427.5459  0.7155293
+#> Ring of Blackrock            427.3686  0.5381741
+#> current                      426.8304  0.0000000
+#> Dragonslayer's Signet        425.0566 -1.7738480
+#> Royal Seal of Eldre'Thalas   424.7618 -2.0685928
 ```
 
 If you want to know what impact world buffs have, simulate again.
@@ -95,24 +131,20 @@ set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
 #>        int         sp       crit        hit        mp5 
-#>  0.3110720  1.0000000 10.2604061  9.8849037  0.2964156
+#>  0.3195379  1.0000000 10.6953307 10.4988950  0.3443375
 set.seed(42)
-df_ony <- compare_items(my_stats, items = items)
+df_ony <- compare_equip(my_stats, my_equip, my_changes)
 df_ony[order(-df_ony$dps), ]
 #>                                   dps       diff
-#> Band of Dark Dominion        456.3276 12.0608080
-#> Choker of the Fire Lord      456.1616 11.8947801
-#> Band of Forced Concentration 456.1388 11.8719830
-#> Ring of Spell Power          455.3930 11.1261789
-#> Mana Igniting Cord           451.2074  6.9406025
-#> Dark Advisor's Pendant       449.0751  4.8083109
-#> Choker of Enlightenment      448.5748  4.3079482
-#> Royal Seal of Eldre'Thalas   445.4387  1.1718728
-#> Dragonslayer's Signet        445.3898  1.1229958
-#> Robe of Volatile Power       444.5889  0.3220315
-#> current                      444.2668  0.0000000
-#> Burial Shawl                 443.6605 -0.6063566
-#> Dragon's Touch               442.8720 -1.3948407
+#> Band of Forced Concentration 491.9584  7.8173762
+#> Ring of Spell Power          490.6409  6.4998095
+#> Band of Servitude            487.0413  2.9002395
+#> Zanzil's Seal                486.4475  2.3064442
+#> Ring of Blackrock            484.9065  0.7654778
+#> Zanzil's Concentration       484.8301  0.6890048
+#> Royal Seal of Eldre'Thalas   484.6356  0.4945705
+#> current                      484.1411  0.0000000
+#> Dragonslayer's Signet        480.7759 -3.3651879
 ```
 
 This can help setting your priorities right. Note that this is only
