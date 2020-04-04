@@ -33,17 +33,17 @@ devtools::install_github("cphaarmeyer/warlockr")
 There are two main uses of the DPS simulation:
 
 * computing how much a stat increases your DPS (stat weights)
-* computing the impact of an item on your DPS (compare items)
+* computing the impact of an item on your DPS (compare equip)
 
 But first we set up the simulation with our current stats.
 
 ```{r example}
 library(warlockr)
 my_stats <- list(
-  int = 223 + 31 + 12, # with buffs
-  sp = 312 + 26 + 33 + 27 + 40, # shadow spell damage
-  crit = 3,
-  hit = 2
+  int = 213 + 31 + 12, # with buffs
+  sp = 360 + 119 + 40, # shadow spell damage
+  crit = 4,
+  hit = 1
 )
 ```
 
@@ -56,26 +56,66 @@ my_weights <- compute_statweights(my_stats)
 my_weights
 ```
 
-The `compare_items` function works very similar.
-As additional input it takes a list of items in which you specify the stat differences.
+To use the `compare_equip` function we need a list of our current items.
+If your just want a quick comparison see `compare_items`.
+
+```{r equip}
+my_equip <- list(
+  head = list(int = 16, sp = 32),
+  neck = list(int = 9, hit = 1),
+  shoulders = list(sp = 26),
+  back = list(sp = 18),
+  chest = list(sp = 46),
+  wrist = list(int = 11, sp = 13),
+  hands = list(sp = 33),
+  waist = list(int = 8, sp = 25, crit = 1),
+  legs = list(int = 16, sp = 39),
+  feet = list(int = 9, sp = 27),
+  finger1 = list(int = 7, sp = 18),
+  finger2 = list(int = 6, sp = 33),
+  trinket1 = list(crit = 2),
+  trinket2 = list(sp = 29),
+  weapon = list(int = 12, sp = 60, crit = 1) # includes off hand
+)
+```
+
+Next we need a list of which items to change.
+
+```{r changes}
+my_changes <- list(
+  "Royal Seal of Eldre'Thalas" = list(
+    trinket1 = list(sp = 23)
+  ),
+  "Dragonslayer's Signet" = list(
+    finger1 = list(int = 10, crit = 1)
+  ),
+  "Ring of Spell Power" = list(
+    finger1 = list(sp = 33)
+  ),
+  "Ring of Blackrock" = list(
+    finger1 = list(sp = 19, mp5 = 9)
+  ),
+  "Band of Forced Concentration" = list(
+    finger1 = list(int = 12, sp = 21, hit = 1)
+  ),
+  "Zanzil's Concentration" = list(
+    finger1 = list(int = 10, sp = 11, hit = 1),
+    finger2 = list(int = 13, sp = 6, hit = 2, mp5 = 4)
+  ),
+  "Zanzil's Seal" = list(
+    finger1 = list(int = 10, sp = 11, hit = 1)
+  ),
+  "Band of Servitude" = list(
+    finger1 = list(int = 9, sp = 23)
+  )
+)
+```
+
+Now we can simulate.
 
 ```{r compare}
-items <- list(
-  "Royal Seal of Eldre'Thalas" = list(sp = 23, crit = -2),
-  "Mana Igniting Cord" = list(int = 5, sp = 12, crit = 1, hit = -1),
-  "Robe of Volatile Power" = list(int = 15, sp = -23, crit = 2),
-  "Burial Shawl" = list(int = 16, sp = -6),
-  "Dragon's Touch" = list(int = 8, sp = -5),
-  "Dark Advisor's Pendant" = list(int = -2, sp = 20, hit = -1),
-  "Choker of Enlightenment" = list(int = 1, sp = 18, hit = -1),
-  "Choker of the Fire Lord" = list(int = -2, sp = 34, hit = -1),
-  "Dragonslayer's Signet" = list(int = 5, sp = -9, crit = 1),
-  "Ring of Spell Power" = list(int = -7, sp = 24),
-  "Band of Forced Concentration" = list(int = 5, sp = 12, hit = 1),
-  "Band of Dark Dominion" = list(int = -1, sp = 24)
-)
 set.seed(42)
-df <- compare_items(my_stats, items = items)
+df <- compare_equip(my_stats, my_equip, my_changes)
 df[order(-df$dps), ]
 ```
 
@@ -87,7 +127,7 @@ set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
 set.seed(42)
-df_ony <- compare_items(my_stats, items = items)
+df_ony <- compare_equip(my_stats, my_equip, my_changes)
 df_ony[order(-df_ony$dps), ]
 ```
 
