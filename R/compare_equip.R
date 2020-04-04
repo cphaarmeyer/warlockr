@@ -46,5 +46,11 @@
 #' compare_equip(my_stats, my_equip, my_changes, iter = 1000)
 compare_equip <- function(stats, equip, changes,
                           timeframe = c(60, 300), iter = 50000) {
-
+  stopifnot(check_equip(equip))
+  stats_equip <- sum_stats(equip)
+  items <- lapply(changes, function(x) {
+    equip[names(x)] <- x
+    as.list(unlist(sum_stats(equip)) - unlist(stats_equip))
+  })
+  compare_items(stats, items, timeframe = timeframe, iter = iter)
 }
