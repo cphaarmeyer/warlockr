@@ -2,6 +2,7 @@
 
 export(check_equip)
 export(clean_stats)
+export(compare_equip)
 export(compare_items)
 export(compute_critchance)
 export(compute_mana)
