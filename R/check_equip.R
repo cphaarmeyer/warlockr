@@ -11,8 +11,9 @@
 #' @export
 check_equip <- function(equip) {
   slots <- c(
-    "head", "neck", "shoulders", "back", "chest", "wrist", "hands", "waist",
-    "legs", "feet", "finger1", "finger2", "trinket1", "trinket2", "weapon"
+    "head", "neck", "shoulders", "back", "chest", "wrist",
+    "hands", "waist", "legs", "feet", "finger1", "finger2",
+    "trinket1", "trinket2", "weapon", "wand"
   )
   setequal(unique(names(equip)), slots) & length(equip) == length(slots)
 }

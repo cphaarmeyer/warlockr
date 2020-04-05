@@ -47,7 +47,8 @@ my_equip <- list(
   finger2 = list(int = 6, sp = 33),
   trinket1 = list(crit = 2),
   trinket2 = list(sp = 29),
-  weapon = list(int = 12, sp = 60, crit = 1)
+  weapon = list(int = 12, sp = 60, crit = 1),
+  wand = list(int = 4, sp = 11)
 )
 my_changes <- list(
   "New Weapon" = list(
