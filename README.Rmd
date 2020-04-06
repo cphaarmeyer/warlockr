@@ -40,9 +40,9 @@ But first we set up the simulation with our current stats.
 ```{r example}
 library(warlockr)
 my_stats <- list(
-  int = 213 + 31 + 12, # with buffs
-  sp = 360 + 119 + 40, # shadow spell damage
-  crit = 4,
+  int = 223 + 31 + 16, # with buffs
+  sp = 375 + 86 + 40, # shadow spell damage
+  crit = 5,
   hit = 1
 )
 ```
@@ -67,7 +67,7 @@ my_equip <- list(
   back = list(sp = 18),
   chest = list(sp = 46),
   wrist = list(int = 11, sp = 13),
-  hands = list(sp = 33),
+  hands = list(int = 15, sp = 15, crit = 1),
   waist = list(int = 8, sp = 25, crit = 1),
   legs = list(int = 16, sp = 39),
   feet = list(int = 9, sp = 27),
