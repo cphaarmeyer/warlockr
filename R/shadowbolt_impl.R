@@ -19,7 +19,7 @@ shadowbolt_impl <- function(dmg,
                             improved_sb,
                             improved_sb_proc) {
   if (!miss_test & improved_sb_proc > 0) {
-    dmg <- dmg * (1 + 0.05 * improved_sb)
+    dmg <- dmg * (1 + 0.04 * improved_sb)
     improved_sb_proc <- improved_sb_proc - 1
   }
   if (crit_test) {
