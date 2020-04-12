@@ -47,7 +47,7 @@ set.seed(42)
 my_weights <- compute_statweights(my_stats)
 my_weights
 #>        int         sp       crit        hit        mp5 
-#>  0.3402901  1.0000000 11.8346503 10.3760295  0.3524043
+#>  0.3388921  1.0000000 11.7802173 10.9839519  0.3471447
 ```
 
 To use the `compare_equip` function we need a list of our current items.
@@ -113,15 +113,15 @@ set.seed(42)
 df <- compare_equip(my_stats, my_equip, my_changes)
 df[order(-df$dps), ]
 #>                                   dps       diff
-#> Band of Forced Concentration 424.3432  6.7410179
-#> Ring of Spell Power          423.2380  5.6358690
-#> Band of Servitude            420.0699  2.4677141
-#> Zanzil's Seal                419.5855  1.9833729
-#> Ring of Blackrock            418.2301  0.6279237
-#> Zanzil's Concentration       418.1087  0.5065712
-#> current                      417.6022  0.0000000
-#> Royal Seal of Eldre'Thalas   416.9170 -0.6851741
-#> Dragonslayer's Signet        415.2432 -2.3590184
+#> Band of Forced Concentration 420.4064  6.9403011
+#> Ring of Spell Power          419.0524  5.5863193
+#> Band of Servitude            415.9064  2.4403568
+#> Zanzil's Seal                415.6928  2.2266931
+#> Zanzil's Concentration       414.7751  1.3090036
+#> Ring of Blackrock            414.0943  0.6282092
+#> current                      413.4661  0.0000000
+#> Royal Seal of Eldre'Thalas   412.8764 -0.5896412
+#> Dragonslayer's Signet        411.0963 -2.3698232
 ```
 
 If you want to know what impact world buffs have, simulate again.
@@ -132,20 +132,20 @@ set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
 #>        int         sp       crit        hit        mp5 
-#>  0.3037038  1.0000000  9.7574255 10.4654931  0.3558472
+#>  0.3068978  1.0000000  9.9262208 11.0274521  0.3506991
 set.seed(42)
 df_ony <- compare_equip(my_stats, my_equip, my_changes)
 df_ony[order(-df_ony$dps), ]
 #>                                   dps       diff
-#> Band of Forced Concentration 476.1989  7.5237655
-#> Ring of Spell Power          475.0910  6.4158855
-#> Band of Servitude            471.4155  2.7403759
-#> Zanzil's Seal                470.8837  2.2085747
-#> Royal Seal of Eldre'Thalas   470.1008  1.4256193
-#> Ring of Blackrock            469.4696  0.7944512
-#> Zanzil's Concentration       469.2116  0.5364099
-#> current                      468.6751  0.0000000
-#> Dragonslayer's Signet        465.0192 -3.6559143
+#> Band of Forced Concentration 472.0794  7.7322541
+#> Ring of Spell Power          470.6959  6.3487185
+#> Band of Servitude            467.0664  2.7192526
+#> Zanzil's Seal                466.8085  2.4613136
+#> Zanzil's Concentration       465.7183  1.3711674
+#> Royal Seal of Eldre'Thalas   465.6070  1.2598763
+#> Ring of Blackrock            465.1270  0.7798082
+#> current                      464.3472  0.0000000
+#> Dragonslayer's Signet        460.8118 -3.5353641
 ```
 
 This can help setting your priorities right. Note that this is only
