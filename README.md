@@ -31,7 +31,7 @@ But first we set up the simulation with our current stats.
 ``` r
 library(warlockr)
 my_stats <- list(
-  int = 223 + 31 + 16, # with buffs
+  int = 228 + 31 + 16, # with buffs
   sp = 375 + 86 + 40, # shadow spell damage
   crit = 5,
   hit = 1
@@ -47,7 +47,7 @@ set.seed(42)
 my_weights <- compute_statweights(my_stats)
 my_weights
 #>        int         sp       crit        hit        mp5 
-#>  0.3560337  1.0000000 12.6885003 10.2437576  0.3554224
+#>  0.3402901  1.0000000 11.8346503 10.3760295  0.3524043
 ```
 
 To use the `compare_equip` function we need a list of our current items.
@@ -113,15 +113,15 @@ set.seed(42)
 df <- compare_equip(my_stats, my_equip, my_changes)
 df[order(-df$dps), ]
 #>                                   dps       diff
-#> Band of Forced Concentration 433.8448  7.0320626
-#> Ring of Spell Power          432.5918  5.7790567
-#> Band of Servitude            429.4584  2.6455880
-#> Zanzil's Seal                428.8240  2.0112248
-#> Ring of Blackrock            427.4052  0.5924304
-#> Zanzil's Concentration       427.2732  0.4604225
-#> current                      426.8128  0.0000000
-#> Royal Seal of Eldre'Thalas   425.3936 -1.4191823
-#> Dragonslayer's Signet        424.5061 -2.3066858
+#> Band of Forced Concentration 424.3432  6.7410179
+#> Ring of Spell Power          423.2380  5.6358690
+#> Band of Servitude            420.0699  2.4677141
+#> Zanzil's Seal                419.5855  1.9833729
+#> Ring of Blackrock            418.2301  0.6279237
+#> Zanzil's Concentration       418.1087  0.5065712
+#> current                      417.6022  0.0000000
+#> Royal Seal of Eldre'Thalas   416.9170 -0.6851741
+#> Dragonslayer's Signet        415.2432 -2.3590184
 ```
 
 If you want to know what impact world buffs have, simulate again.
@@ -132,20 +132,20 @@ set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
 #>        int         sp       crit        hit        mp5 
-#>  0.3114322  1.0000000 10.2657543 10.3502485  0.3564256
+#>  0.3037038  1.0000000  9.7574255 10.4654931  0.3558472
 set.seed(42)
 df_ony <- compare_equip(my_stats, my_equip, my_changes)
 df_ony[order(-df_ony$dps), ]
 #>                                   dps       diff
-#> Band of Forced Concentration 490.4279  7.9162762
-#> Ring of Spell Power          489.2095  6.6979099
-#> Band of Servitude            485.4701  2.9585171
-#> Zanzil's Seal                484.7806  2.2690002
-#> Royal Seal of Eldre'Thalas   483.5543  1.0426742
-#> Ring of Blackrock            483.3452  0.8335809
-#> Zanzil's Concentration       483.0090  0.4974424
-#> current                      482.5116  0.0000000
-#> Dragonslayer's Signet        478.7211 -3.7904951
+#> Band of Forced Concentration 476.1989  7.5237655
+#> Ring of Spell Power          475.0910  6.4158855
+#> Band of Servitude            471.4155  2.7403759
+#> Zanzil's Seal                470.8837  2.2085747
+#> Royal Seal of Eldre'Thalas   470.1008  1.4256193
+#> Ring of Blackrock            469.4696  0.7944512
+#> Zanzil's Concentration       469.2116  0.5364099
+#> current                      468.6751  0.0000000
+#> Dragonslayer's Signet        465.0192 -3.6559143
 ```
 
 This can help setting your priorities right. Note that this is only

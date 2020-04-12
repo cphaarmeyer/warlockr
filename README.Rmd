@@ -40,7 +40,7 @@ But first we set up the simulation with our current stats.
 ```{r example}
 library(warlockr)
 my_stats <- list(
-  int = 223 + 31 + 16, # with buffs
+  int = 228 + 31 + 16, # with buffs
   sp = 375 + 86 + 40, # shadow spell damage
   crit = 5,
   hit = 1
