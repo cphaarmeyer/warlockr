@@ -5,7 +5,7 @@
 \title{Setup Simulation}
 \usage{
 sim_setup(
-  time,
+  times,
   crit,
   hit,
   int,
@@ -21,7 +21,7 @@ sim_setup(
 )
 }
 \arguments{
-\item{time}{length of fight in seconds}
+\item{times}{vector with \code{time} for every iteration}
 
 \item{crit}{crit percentage on gear}
 

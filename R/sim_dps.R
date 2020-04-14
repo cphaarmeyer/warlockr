@@ -17,10 +17,10 @@
 #' mean(mat[, 4])
 sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL) {
   if (!is.null(seed)) set.seed(seed)
-  time <- stats::runif(iter, timeframe[1], timeframe[2])
+  times <- stats::runif(iter, timeframe[1], timeframe[2])
   stats <- clean_stats(stats)
   arguments <- sim_setup(
-    max(time), stats$crit, stats$hit, stats$int, stats$sp,
+    times, stats$crit, stats$hit, stats$int, stats$sp,
     iter = iter
   )
   get_arg <- function(i) {
@@ -29,7 +29,7 @@ sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL) {
     })
   }
   t(vapply(seq_len(iter), function(i) {
-    do.call(sim_boss_impl, c(get_arg(i), mp5 = stats$mp5, time = time[i]))
+    do.call(sim_boss_impl, c(get_arg(i), mp5 = stats$mp5, time = times[i]))
   },
   FUN.VALUE = double(4)
   ))

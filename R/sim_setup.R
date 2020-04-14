@@ -1,7 +1,7 @@
 #' Setup Simulation
 #'
+#' @param times vector with \code{time} for every iteration
 #' @inheritParams shadowbolt
-#' @inheritParams sim_boss
 #' @inheritParams sim_dps
 #' @param suppression number of talent points in suppression
 #'
@@ -10,7 +10,7 @@
 #'
 #' @examples
 #' sim_setup(30, 2, 1, 277, 346)
-sim_setup <- function(time, crit, hit, int, sp,
+sim_setup <- function(times, crit, hit, int, sp,
                       iter = 1,
                       devastation = 5,
                       ruin = 1,
@@ -19,7 +19,8 @@ sim_setup <- function(time, crit, hit, int, sp,
                       demonic_sacrifice = 1,
                       curse_of_shadows = 1,
                       suppression = 2) {
-  n <- time %/% 2.5 + 1
+  stopifnot(length(times) == iter)
+  n <- max(times) %/% 2.5 + 1
   to_matrix <- function(x) {
     if (iter > 1) matrix(x, ncol = iter) else x
   }
