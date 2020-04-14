@@ -5,7 +5,7 @@
 \title{Compute Shadow Bolt Damage}
 \usage{
 shadowbolt_dmg(
-  sample_dmg,
+  sb_dmg,
   sp,
   sb_miss,
   sb_crit,
@@ -18,7 +18,7 @@ shadowbolt_dmg(
 )
 }
 \arguments{
-\item{sample_dmg}{base damage returned by \code{sample_shadowbolt}}
+\item{sb_dmg}{vector of base shadow bolt damage}
 
 \item{sp}{(shadow) spellpower on gear}
 

@@ -1,9 +1,7 @@
 #' Base Implementation of Shadow Bolt
 #'
 #' @inheritParams shadowbolt
-#' @param dmg damage ignoring improved shadow bolt proc
-#' @param miss_test whether hits
-#' @param crit_test whether crits
+#' @inheritParams sim_boss_impl
 #' @param manacost mana cost
 #' @param casttime cast time
 #'
@@ -11,13 +9,13 @@
 #'
 #' @examples
 #' shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 0)
-shadowbolt_impl <- function(dmg, miss_test, crit_test, manacost, casttime,
+shadowbolt_impl <- function(sb_dmg, sb_miss, sb_crit, manacost, casttime,
                             improved_sb_proc) {
-  if (!miss_test && improved_sb_proc > 0) {
+  if (!sb_miss && improved_sb_proc > 0) {
     improved_sb_proc <- improved_sb_proc - 1
   }
-  if (!miss_test && crit_test) {
+  if (!sb_miss && sb_crit) {
     improved_sb_proc <- 4
   }
-  c(dmg, manacost, casttime, improved_sb_proc)
+  c(sb_dmg, manacost, casttime, improved_sb_proc)
 }

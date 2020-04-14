@@ -4,7 +4,7 @@
 #' @inheritParams shadowbolt
 #' @param mana starting mana
 #' @param mp5 mp5 on gear
-#' @param sb_dmg vector of shadow bolt damage ignoring possible miss or crit
+#' @param sb_dmg vector of base shadow bolt damage
 #' @param sb_miss vector of whether shadow bolt hits
 #' @param sb_crit vector of whether shadow bolt crits
 #' @param curse_miss vector of whether curse hits

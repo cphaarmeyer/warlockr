@@ -24,7 +24,7 @@ sim_boss_impl(
 
 \item{sp}{(shadow) spellpower on gear}
 
-\item{sb_dmg}{vector of shadow bolt damage ignoring possible miss or crit}
+\item{sb_dmg}{vector of base shadow bolt damage}
 
 \item{sb_miss}{vector of whether shadow bolt hits}
 
