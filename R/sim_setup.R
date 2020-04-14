@@ -24,15 +24,15 @@ sim_setup <- function(times, crit, hit, int, sp,
   to_matrix <- function(x) {
     if (iter > 1) matrix(x, ncol = iter) else x
   }
-  sb_dmg <- (sample_shadowbolt(n * iter) + 0.8571 * sp) *
-    (1 + 0.02 * shadow_mastery) * (1 + 0.15 * demonic_sacrifice) *
-    (1 + 0.1 * curse_of_shadows)
   sample_h <- sample_hit(n * iter)
   sample_c <- sample_hit(n * iter)
   sample_curse <- sample_hit(n * iter)
   sb_miss <- sample_h <= 1 | sample_h <= (17 - hit)
   sb_crit <- sample_c >= (100 - compute_critchance(crit, int, devastation))
-  sb_dmg <- (sb_dmg * !sb_miss) * (1 + sb_crit * 0.5 * (1 + ruin))
+  sb_dmg <- shadowbolt_dmg(sample_shadowbolt(n * iter), sp, sb_miss, sb_crit,
+    devastation = devastation, ruin = ruin, shadow_mastery = shadow_mastery,
+    demonic_sacrifice = demonic_sacrifice, curse_of_shadows = curse_of_shadows
+  )
   curse_miss <- sample_curse <= 1 | sample_curse <= (17 - hit - 2 * suppression)
   list(
     mana = compute_mana(int),
