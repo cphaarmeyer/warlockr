@@ -13,7 +13,8 @@ sim_setup(
   iter = 1,
   devastation = 5,
   cataclysm = 2,
-  suppression = 2
+  suppression = 2,
+  trinkets = NULL
 )
 }
 \arguments{
@@ -34,6 +35,9 @@ sim_setup(
 \item{cataclysm}{number of talent points in cataclysm}
 
 \item{suppression}{number of talent points in suppression}
+
+\item{trinkets}{which use trinkets are equipped, currently implemented:
+toep (Talisman of Ephemeral Power)}
 }
 \value{
 a list of arguments
