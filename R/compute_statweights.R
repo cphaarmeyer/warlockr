@@ -32,7 +32,7 @@ compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000) {
   })
   stats_list <- lapply(ranges, sample, size = iter_total, replace = TRUE)
   time <- stats::runif(iter_total, timeframe[1], timeframe[2])
-  sims <- vapply(1:iter_total, function(i) {
+  sims <- vapply(seq_len(iter_total), function(i) {
     sim_boss(lapply(stats_list, `[`, i), time[i])[4]
   }, FUN.VALUE = double(1))
   df <- data.frame(stats_list, dps = sims, time = time)
