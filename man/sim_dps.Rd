@@ -4,7 +4,13 @@
 \alias{sim_dps}
 \title{Simultate DPS}
 \usage{
-sim_dps(stats, timeframe = c(60, 300), iter = 50000, seed = NULL)
+sim_dps(
+  stats,
+  timeframe = c(60, 300),
+  iter = 50000,
+  seed = NULL,
+  trinkets = NULL
+)
 }
 \arguments{
 \item{stats}{a named list with the stats of the character including int, sp,
@@ -15,6 +21,9 @@ crit, hit and mp5}
 \item{iter}{number of iterations}
 
 \item{seed}{optional seed}
+
+\item{trinkets}{which use trinkets are equipped, currently implemented:
+toep (Talisman of Ephemeral Power)}
 }
 \value{
 a matrix where every row is a vector returned by \code{sim_boss}

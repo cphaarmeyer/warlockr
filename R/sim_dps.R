@@ -15,17 +15,18 @@
 #' @examples
 #' mat <- sim_dps(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
 #' mean(mat[, 4])
-sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL) {
+sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL,
+                    trinkets = NULL) {
   if (!is.null(seed)) set.seed(seed)
   times <- stats::runif(iter, timeframe[1], timeframe[2])
   stats <- clean_stats(stats)
   arguments <- sim_setup(
     times, stats$crit, stats$hit, stats$int, stats$sp,
-    iter = iter
+    iter = iter, trinkets = trinkets
   )
   get_arg <- function(i) {
     lapply(arguments, function(x) {
-      if (is.matrix(x)) x[, i] else x
+      if (is.matrix(x)) x[, i] else if (is.list(x)) x[[i]] else x
     })
   }
   t(vapply(seq_len(iter), function(i) {

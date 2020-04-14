@@ -4,8 +4,6 @@
 #' @inheritParams shadowbolt
 #' @inheritParams sim_dps
 #' @param suppression number of talent points in suppression
-#' @param trinkets which use trinkets are equipped, currently implemented:
-#'  toep (Talisman of Ephemeral Power)
 #'
 #' @return a list of arguments
 #' @export

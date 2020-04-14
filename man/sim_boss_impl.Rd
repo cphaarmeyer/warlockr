@@ -14,7 +14,8 @@ sim_boss_impl(
   curse_miss,
   sb_manacost,
   lt_manacost,
-  time
+  time,
+  sp_bonus = NULL
 )
 }
 \arguments{
@@ -37,6 +38,8 @@ sim_boss_impl(
 \item{lt_manacost}{mana cost of life tap}
 
 \item{time}{length of fight in seconds}
+
+\item{sp_bonus}{list ofsp bonus vectors applied to shadow bolts}
 }
 \description{
 Base Implementation Simulate Boss Fight
