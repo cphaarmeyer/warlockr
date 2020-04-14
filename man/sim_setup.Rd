@@ -5,7 +5,7 @@
 \title{Setup Simulation}
 \usage{
 sim_setup(
-  n,
+  time,
   crit,
   hit,
   int,
@@ -21,7 +21,7 @@ sim_setup(
 )
 }
 \arguments{
-\item{n}{sample number}
+\item{time}{length of fight in seconds}
 
 \item{crit}{crit percentage on gear}
 
@@ -54,5 +54,5 @@ a list of arguments
 Setup Simulation
 }
 \examples{
-sim_setup(10, 2, 1, 277, 346)
+sim_setup(30, 2, 1, 277, 346)
 }

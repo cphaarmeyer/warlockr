@@ -18,10 +18,9 @@
 sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL) {
   if (!is.null(seed)) set.seed(seed)
   time <- stats::runif(iter, timeframe[1], timeframe[2])
-  n_max <- max(time) %/% 2.5 + 1
   stats <- clean_stats(stats)
   arguments <- sim_setup(
-    n_max, stats$crit, stats$hit, stats$int, stats$sp,
+    max(time), stats$crit, stats$hit, stats$int, stats$sp,
     iter = iter
   )
   get_arg <- function(i) {

@@ -13,8 +13,7 @@
 #' @examples
 #' sim_boss(list(int = 277, sp = 346, crit = 2, hit = 2))
 sim_boss <- function(stats, time = 150) {
-  n_max <- time %/% 2.5 + 1
   stats <- clean_stats(stats)
-  arguments <- sim_setup(n_max, stats$crit, stats$hit, stats$int, stats$sp)
+  arguments <- sim_setup(time, stats$crit, stats$hit, stats$int, stats$sp)
   do.call(sim_boss_impl, c(arguments, mp5 = stats$mp5, time = time))
 }
