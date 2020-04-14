@@ -17,7 +17,7 @@ sim_boss_impl <- function(mana, mp5, sp, sb_dmg, sb_miss, sb_crit, curse_miss,
   n_curse <- min(which(!curse_miss))
   stats_total <- c(0, mana - n_curse * 200, 1.5 * n_curse, 0)
   sim_data <- stats_total
-  sim_row <- c(0, 0, 0, 0)
+  sim_row <- double(4)
   i <- 0
   j <- 1
   t_mp5 <- seq(0, time + 5, by = 5)
@@ -40,7 +40,7 @@ sim_boss_impl <- function(mana, mp5, sp, sb_dmg, sb_miss, sb_crit, curse_miss,
   sb <- sim_data[sim_data[, 2] < 0, ]
   dmg <- shadowbolt_dmg(
     sb[, 1], sp, sb_miss[seq_len(nrow(sb))], sb_crit[seq_len(nrow(sb))],
-    improved_sb_proc = c(0, sb[, 4][seq_len(nrow(sb) - 1)])
+    improved_sb_proc = c(0, sb[, 4][-nrow(sb)])
   )
   stats_total[1] <- sum(dmg)
   stats_total[4] <- stats_total[1] / stats_total[3]
