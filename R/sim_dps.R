@@ -31,6 +31,6 @@ sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL) {
   t(vapply(1:iter, function(i) {
     do.call(sim_boss_impl, c(get_arg(i), mp5 = stats$mp5, time = time[i]))
   },
-  FUN.VALUE = rep(0, 4)
+  FUN.VALUE = double(4)
   ))
 }

@@ -12,5 +12,5 @@
 #' ))
 sum_stats <- function(stats_list) {
   stats_list <- lapply(stats_list, clean_stats)
-  as.list(rowSums(vapply(stats_list, unlist, FUN.VALUE = rep(0, 5))))
+  as.list(rowSums(vapply(stats_list, unlist, FUN.VALUE = double(5))))
 }

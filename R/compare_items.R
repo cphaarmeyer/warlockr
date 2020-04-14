@@ -33,7 +33,7 @@ compare_items <- function(stats, items, timeframe = c(60, 300), iter = 50000) {
   new_dps <- vapply(
     c(list(current = current), simulations),
     function(x) mean(x[, 4]),
-    FUN.VALUE = 0
+    FUN.VALUE = double(1)
   )
   data.frame(dps = new_dps, diff = new_dps - dps)
 }
