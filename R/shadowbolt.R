@@ -38,12 +38,8 @@ shadowbolt <- function(crit, hit, int, sp,
     shadow_mastery = shadow_mastery, demonic_sacrifice = demonic_sacrifice,
     curse_of_shadows = curse_of_shadows
   )
-  dmg <- arguments$sb_dmg
-  miss_test <- arguments$sb_miss
-  crit_test <- arguments$sb_crit
-  manacost <- arguments$sb_manacost
-  casttime <- 3 - (0.1 * bane)
   shadowbolt_impl(
-    dmg, miss_test, crit_test, manacost, casttime, improved_sb, improved_sb_proc
+    arguments$sb_dmg, arguments$sb_miss, arguments$sb_crit,
+    arguments$sb_manacost, 3 - (0.1 * bane), improved_sb, improved_sb_proc
   )
 }
