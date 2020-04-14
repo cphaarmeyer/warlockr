@@ -11,15 +11,8 @@
 #' @param lt_manacost mana cost of life tap
 #'
 #' @export
-sim_boss_impl <- function(mana,
-                          mp5,
-                          sb_dmg,
-                          sb_miss,
-                          sb_crit,
-                          curse_miss,
-                          sb_manacost,
-                          lt_manacost,
-                          time) {
+sim_boss_impl <- function(mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss,
+                          sb_manacost, lt_manacost, time) {
   n_curse <- min(which(!curse_miss))
   stats_total <- c(0, mana - n_curse * 200, 1.5 * n_curse, 0)
   sim_row <- c(0, 0, 0, 0)

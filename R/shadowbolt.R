@@ -24,14 +24,9 @@
 #' @examples
 #' shadowbolt(2, 1, 277, 346)
 shadowbolt <- function(crit, hit, int, sp,
-                       devastation = 5,
-                       ruin = 1,
-                       improved_sb = 5,
-                       cataclysm = 2,
-                       bane = 5,
-                       shadow_mastery = 0,
-                       demonic_sacrifice = 1,
-                       improved_sb_proc = 0,
+                       devastation = 5, ruin = 1, improved_sb = 5,
+                       cataclysm = 2, bane = 5, shadow_mastery = 0,
+                       demonic_sacrifice = 1, improved_sb_proc = 0,
                        curse_of_shadows = 1) {
   arguments <- sim_setup(0, crit, hit, int, sp,
     devastation = devastation, ruin = ruin, cataclysm = cataclysm,
