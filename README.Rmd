@@ -13,6 +13,10 @@ knitr::opts_chunk$set(
 )
 ```
 
+<!-- badges: start -->
+[![R build status](https://github.com/cphaarmeyer/warlockr/workflows/R-CMD-check/badge.svg)](https://github.com/cphaarmeyer/warlockr/actions)
+<!-- badges: end -->
+
 # warlockr
 
 The goal of warlockr is to collect useful functions for Warlocks in WoW Classic.
