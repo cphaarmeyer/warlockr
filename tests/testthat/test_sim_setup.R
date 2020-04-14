@@ -12,7 +12,7 @@ test_that("sim_setup works as expected", {
   expect_equivalent(lengths(out), c(1, 13, 13, 13, 1, 1, 13))
   expect_equivalent(
     lapply(out, typeof),
-    c("double", "double", "logical", "logical", "double", "double", "logical")
+    c("double", "integer", "logical", "logical", "double", "double", "logical")
   )
   expect_gt(out$mana, 0)
   expect_lt(out$sb_manacost, 0)

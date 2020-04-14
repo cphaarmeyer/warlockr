@@ -29,7 +29,9 @@ sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL) {
     })
   }
   t(vapply(seq_len(iter), function(i) {
-    do.call(sim_boss_impl, c(get_arg(i), mp5 = stats$mp5, time = times[i]))
+    do.call(sim_boss_impl, c(get_arg(i),
+      mp5 = stats$mp5, sp = stats$sp, time = times[i]
+    ))
   },
   FUN.VALUE = double(4)
   ))

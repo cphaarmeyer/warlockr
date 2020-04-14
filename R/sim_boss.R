@@ -15,5 +15,7 @@
 sim_boss <- function(stats, time = 150) {
   stats <- clean_stats(stats)
   arguments <- sim_setup(time, stats$crit, stats$hit, stats$int, stats$sp)
-  do.call(sim_boss_impl, c(arguments, mp5 = stats$mp5, time = time))
+  do.call(sim_boss_impl, c(arguments,
+    mp5 = stats$mp5, sp = stats$sp, time = time
+  ))
 }

@@ -9,11 +9,12 @@ shadowbolt_dmg(
   sp,
   sb_miss,
   sb_crit,
-  devastation = 5,
   ruin = 1,
+  improved_sb = 5,
   shadow_mastery = 0,
   demonic_sacrifice = 1,
-  curse_of_shadows = 1
+  curse_of_shadows = 1,
+  improved_sb_proc = 0
 )
 }
 \arguments{
@@ -25,15 +26,18 @@ shadowbolt_dmg(
 
 \item{sb_crit}{vector of whether shadow bolt crits}
 
-\item{devastation}{number of talent points in devastation}
-
 \item{ruin}{number of talent points in ruin}
+
+\item{improved_sb}{number of talent points in improved shadow bolt}
 
 \item{shadow_mastery}{number of talent points in shadow mastery}
 
 \item{demonic_sacrifice}{whether succubus was sacrificed}
 
 \item{curse_of_shadows}{whether curse of shadows is on target}
+
+\item{improved_sb_proc}{number of active procs of improved shadow bolt on
+target}
 }
 \description{
 Compute Shadow Bolt Damage

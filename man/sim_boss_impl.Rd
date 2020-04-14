@@ -7,6 +7,7 @@
 sim_boss_impl(
   mana,
   mp5,
+  sp,
   sb_dmg,
   sb_miss,
   sb_crit,
@@ -20,6 +21,8 @@ sim_boss_impl(
 \item{mana}{starting mana}
 
 \item{mp5}{mp5 on gear}
+
+\item{sp}{(shadow) spellpower on gear}
 
 \item{sb_dmg}{vector of shadow bolt damage ignoring possible miss or crit}
 

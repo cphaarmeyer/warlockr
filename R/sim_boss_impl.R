@@ -1,6 +1,7 @@
 #' Base Implementation Simulate Boss Fight
 #'
 #' @inheritParams sim_boss
+#' @inheritParams shadowbolt
 #' @param mana starting mana
 #' @param mp5 mp5 on gear
 #' @param sb_dmg vector of shadow bolt damage ignoring possible miss or crit
@@ -11,10 +12,11 @@
 #' @param lt_manacost mana cost of life tap
 #'
 #' @export
-sim_boss_impl <- function(mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss,
+sim_boss_impl <- function(mana, mp5, sp, sb_dmg, sb_miss, sb_crit, curse_miss,
                           sb_manacost, lt_manacost, time) {
   n_curse <- min(which(!curse_miss))
   stats_total <- c(0, mana - n_curse * 200, 1.5 * n_curse, 0)
+  sim_data <- stats_total
   sim_row <- c(0, 0, 0, 0)
   i <- 0
   j <- 1
@@ -29,11 +31,18 @@ sim_boss_impl <- function(mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss,
     } else {
       i <- i + 1
       sim_row <- shadowbolt_impl(
-        sb_dmg[i], sb_miss[i], sb_crit[i], sb_manacost, 2.5, 5, sim_row[4]
+        sb_dmg[i], sb_miss[i], sb_crit[i], sb_manacost, 2.5, sim_row[4]
       )
     }
     stats_total <- stats_total + sim_row
+    sim_data <- rbind(sim_data, sim_row)
   }
+  sb <- sim_data[sim_data[, 2] < 0, ]
+  dmg <- shadowbolt_dmg(
+    sb[, 1], sp, sb_miss[seq_len(nrow(sb))], sb_crit[seq_len(nrow(sb))],
+    improved_sb_proc = c(0, sb[, 4][seq_len(nrow(sb) - 1)])
+  )
+  stats_total[1] <- sum(dmg)
   stats_total[4] <- stats_total[1] / stats_total[3]
   stats_total
 }

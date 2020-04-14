@@ -11,9 +11,8 @@
 #' @examples
 #' sim_setup(30, 2, 1, 277, 346)
 sim_setup <- function(times, crit, hit, int, sp,
-                      iter = 1, devastation = 5, ruin = 1, cataclysm = 2,
-                      shadow_mastery = 0, demonic_sacrifice = 1,
-                      curse_of_shadows = 1, suppression = 2) {
+                      iter = 1, devastation = 5,
+                      cataclysm = 2, suppression = 2) {
   stopifnot(length(times) == iter)
   n <- max(times) %/% 2.5 + 1
   to_matrix <- function(x) {
@@ -22,14 +21,10 @@ sim_setup <- function(times, crit, hit, int, sp,
   s <- sample_all(n * iter)
   sb_miss <- compute_miss(s$hit, hit)
   sb_crit <- s$crit >= (100 - compute_critchance(crit, int, devastation))
-  sb_dmg <- shadowbolt_dmg(s$sb, sp, sb_miss, sb_crit,
-    devastation = devastation, ruin = ruin, shadow_mastery = shadow_mastery,
-    demonic_sacrifice = demonic_sacrifice, curse_of_shadows = curse_of_shadows
-  )
   curse_miss <- compute_miss(s$curse, hit + 2 * suppression)
   list(
     mana = compute_mana(int),
-    sb_dmg = to_matrix(sb_dmg),
+    sb_dmg = to_matrix(s$sb),
     sb_miss = to_matrix(sb_miss),
     sb_crit = to_matrix(sb_crit),
     sb_manacost = -compute_manacost(cataclysm = cataclysm),

@@ -10,11 +10,10 @@
 #' @export
 #'
 #' @examples
-#' shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 5, 0)
+#' shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 0)
 shadowbolt_impl <- function(dmg, miss_test, crit_test, manacost, casttime,
-                            improved_sb, improved_sb_proc) {
+                            improved_sb_proc) {
   if (!miss_test && improved_sb_proc > 0) {
-    dmg <- dmg * (1 + 0.04 * improved_sb)
     improved_sb_proc <- improved_sb_proc - 1
   }
   if (!miss_test && crit_test) {

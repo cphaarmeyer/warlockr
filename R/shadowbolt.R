@@ -29,12 +29,17 @@ shadowbolt <- function(crit, hit, int, sp,
                        demonic_sacrifice = 1, improved_sb_proc = 0,
                        curse_of_shadows = 1) {
   arguments <- sim_setup(0, crit, hit, int, sp,
-    devastation = devastation, ruin = ruin, cataclysm = cataclysm,
-    shadow_mastery = shadow_mastery, demonic_sacrifice = demonic_sacrifice,
-    curse_of_shadows = curse_of_shadows
+    devastation = devastation, cataclysm = cataclysm
   )
-  shadowbolt_impl(
+  out <- shadowbolt_impl(
     arguments$sb_dmg, arguments$sb_miss, arguments$sb_crit,
-    arguments$sb_manacost, 3 - (0.1 * bane), improved_sb, improved_sb_proc
+    arguments$sb_manacost, 3 - (0.1 * bane), improved_sb_proc
   )
+  out[1] <- shadowbolt_dmg(
+    arguments$sb_dmg, sp, arguments$sb_miss, arguments$sb_crit,
+    ruin = ruin, improved_sb = improved_sb, shadow_mastery = shadow_mastery,
+    demonic_sacrifice = demonic_sacrifice, curse_of_shadows = curse_of_shadows,
+    improved_sb_proc = improved_sb_proc
+  )
+  out
 }

@@ -10,7 +10,6 @@ shadowbolt_impl(
   crit_test,
   manacost,
   casttime,
-  improved_sb,
   improved_sb_proc
 )
 }
@@ -25,8 +24,6 @@ shadowbolt_impl(
 
 \item{casttime}{cast time}
 
-\item{improved_sb}{number of talent points in improved shadow bolt}
-
 \item{improved_sb_proc}{number of active procs of improved shadow bolt on
 target}
 }
@@ -34,5 +31,5 @@ target}
 Base Implementation of Shadow Bolt
 }
 \examples{
-shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 5, 0)
+shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 0)
 }

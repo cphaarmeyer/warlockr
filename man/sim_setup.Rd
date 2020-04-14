@@ -12,11 +12,7 @@ sim_setup(
   sp,
   iter = 1,
   devastation = 5,
-  ruin = 1,
   cataclysm = 2,
-  shadow_mastery = 0,
-  demonic_sacrifice = 1,
-  curse_of_shadows = 1,
   suppression = 2
 )
 }
@@ -35,15 +31,7 @@ sim_setup(
 
 \item{devastation}{number of talent points in devastation}
 
-\item{ruin}{number of talent points in ruin}
-
 \item{cataclysm}{number of talent points in cataclysm}
-
-\item{shadow_mastery}{number of talent points in shadow mastery}
-
-\item{demonic_sacrifice}{whether succubus was sacrificed}
-
-\item{curse_of_shadows}{whether curse of shadows is on target}
 
 \item{suppression}{number of talent points in suppression}
 }
