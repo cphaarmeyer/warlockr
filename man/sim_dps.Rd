@@ -23,7 +23,8 @@ crit, hit and mp5}
 \item{seed}{optional seed}
 
 \item{trinkets}{which use trinkets are equipped, currently implemented:
-toep (Talisman of Ephemeral Power)}
+toep (Talisman of Ephemeral Power)
+zhc (Zandalarian Hero Charm)}
 }
 \value{
 a matrix where every row is a vector returned by \code{sim_boss}

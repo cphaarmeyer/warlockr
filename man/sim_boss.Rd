@@ -13,7 +13,8 @@ crit, hit and mp5}
 \item{time}{length of fight in seconds}
 
 \item{trinkets}{which use trinkets are equipped, currently implemented:
-toep (Talisman of Ephemeral Power)}
+toep (Talisman of Ephemeral Power)
+zhc (Zandalarian Hero Charm)}
 }
 \value{
 a numeric vector with values for total dmg, mana, total casttime and

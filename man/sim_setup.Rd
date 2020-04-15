@@ -37,7 +37,8 @@ sim_setup(
 \item{suppression}{number of talent points in suppression}
 
 \item{trinkets}{which use trinkets are equipped, currently implemented:
-toep (Talisman of Ephemeral Power)}
+toep (Talisman of Ephemeral Power)
+zhc (Zandalarian Hero Charm)}
 }
 \value{
 a list of arguments

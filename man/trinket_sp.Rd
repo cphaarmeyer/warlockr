@@ -8,7 +8,8 @@ trinket_sp(trinkets, times)
 }
 \arguments{
 \item{trinkets}{which use trinkets are equipped, currently implemented:
-toep (Talisman of Ephemeral Power)}
+toep (Talisman of Ephemeral Power)
+zhc (Zandalarian Hero Charm)}
 
 \item{times}{vector with \code{time} for every iteration}
 }
@@ -16,5 +17,6 @@ toep (Talisman of Ephemeral Power)}
 Spell Power Bonus of Trinkets
 }
 \examples{
-trinket_sp("toep", 150)
+trinket_sp("toep", 150:154)
+trinket_sp(c("toep", "zhc"), 150)
 }

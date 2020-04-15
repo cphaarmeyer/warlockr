@@ -7,6 +7,7 @@
 #' @param time length of fight in seconds
 #' @param trinkets which use trinkets are equipped, currently implemented:
 #'  toep (Talisman of Ephemeral Power)
+#'  zhc (Zandalarian Hero Charm)
 #'
 #' @return a numeric vector with values for total dmg, mana, total casttime and
 #'  dps
