@@ -87,6 +87,12 @@ my_changes <- list(
   "Royal Seal of Eldre'Thalas" = list(
     trinket1 = list(sp = 23)
   ),
+  "Talisman of Ephemeral Power" = list(
+    trinket1 = "toep"
+  ),
+  "Zandalarian Hero Charm" = list(
+    trinket1 = "zhc"
+  ),
   "Dragonslayer's Signet" = list(
     finger1 = list(int = 10, crit = 1)
   ),
@@ -121,6 +127,8 @@ df[order(-df$dps), ]
 #>                                   dps       diff
 #> Band of Forced Concentration 420.4064  6.9403011
 #> Ring of Spell Power          419.0524  5.5863193
+#> Talisman of Ephemeral Power  418.0182  4.5520888
+#> Zandalarian Hero Charm       416.5446  3.0785102
 #> Band of Servitude            415.9064  2.4403568
 #> Zanzil's Seal                415.6928  2.2266931
 #> Zanzil's Concentration       414.7751  1.3090036
@@ -144,7 +152,9 @@ df_ony <- compare_equip(my_stats, my_equip, my_changes)
 df_ony[order(-df_ony$dps), ]
 #>                                   dps       diff
 #> Band of Forced Concentration 472.0794  7.7322541
+#> Talisman of Ephemeral Power  471.3969  7.0497012
 #> Ring of Spell Power          470.6959  6.3487185
+#> Zandalarian Hero Charm       469.7370  5.3898680
 #> Band of Servitude            467.0664  2.7192526
 #> Zanzil's Seal                466.8085  2.4613136
 #> Zanzil's Concentration       465.7183  1.3711674

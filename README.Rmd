@@ -91,6 +91,12 @@ my_changes <- list(
   "Royal Seal of Eldre'Thalas" = list(
     trinket1 = list(sp = 23)
   ),
+  "Talisman of Ephemeral Power" = list(
+    trinket1 = "toep"
+  ),
+  "Zandalarian Hero Charm" = list(
+    trinket1 = "zhc"
+  ),
   "Dragonslayer's Signet" = list(
     finger1 = list(int = 10, crit = 1)
   ),
