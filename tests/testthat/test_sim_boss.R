@@ -8,9 +8,13 @@ test_that("sim_boss works as expected", {
   sim <- sim_boss(stats)
   set.seed(seed)
   sim_toep <- sim_boss(stats, trinkets = "toep")
+  set.seed(seed)
+  sim_toep_zhc <- sim_boss(stats, trinkets = c("toep", "zhc"))
 
   expect_length(sim, 4)
   expect_type(sim, "double")
   expect_true(all(sim >= 0))
   expect_gte(sim[[3]], 150)
+  expect_gte(sim_toep[[1]], sim[[1]])
+  expect_gte(sim_toep_zhc[[1]], sim[[1]])
 })
