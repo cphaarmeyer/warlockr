@@ -42,6 +42,9 @@
 #'   "New Rings" = list(
 #'     finger1 = list(int = 10, sp = 11, hit = 1),
 #'     finger2 = list(int = 13, sp = 6, hit = 2, mp5 = 4)
+#'   ),
+#'   "New Trinket" = list(
+#'     trinket1 = "zhc"
 #'   )
 #' )
 #' compare_equip(my_stats, my_equip, my_changes, iter = 1000)

@@ -19,6 +19,7 @@ sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL,
                     trinkets = NULL) {
   if (!is.null(seed)) set.seed(seed)
   times <- stats::runif(iter, timeframe[1], timeframe[2])
+  trinkets <- c(trinkets, attr(stats, "trinkets"))
   stats <- clean_stats(stats)
   arguments <- sim_setup(
     times, stats$crit, stats$hit, stats$int, stats$sp,
