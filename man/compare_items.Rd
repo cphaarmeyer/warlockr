@@ -2,7 +2,7 @@
 % Please edit documentation in R/compare_items.R
 \name{compare_items}
 \alias{compare_items}
-\title{Compare Two Items}
+\title{Compare Items}
 \usage{
 compare_items(stats, items, timeframe = c(60, 300), iter = 50000)
 }
@@ -17,7 +17,7 @@ crit, hit and mp5}
 \item{iter}{number of iterations}
 }
 \value{
-a data frame with current dps, new dps and difference
+a data frame
 }
 \description{
 Simulates dps with current stats and with new stats to compare them.

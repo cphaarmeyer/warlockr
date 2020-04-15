@@ -1,11 +1,11 @@
-#' Compare Two Items
+#' Compare Items
 #'
 #' Simulates dps with current stats and with new stats to compare them.
 #'
 #' @inheritParams sim_dps
 #' @param items list where each element indicates the stat changes by an item
 #'
-#' @return a data frame with current dps, new dps and difference
+#' @return a data frame
 #' @export
 #'
 #' @examples
@@ -19,21 +19,14 @@
 #' )
 compare_items <- function(stats, items, timeframe = c(60, 300), iter = 50000) {
   stats <- clean_stats(stats)
-  seed <- sample(1:1000, 1)
-  current <- sim_dps(stats, timeframe, iter, seed)
-  simulations <- lapply(items, function(x) {
-    sim_dps(
-      lapply(stats::setNames(nm = names(stats)), function(nm) {
-        stats[[nm]] + clean_stats(x)[[nm]]
-      }),
-      timeframe, iter, seed
-    )
-  })
-  dps <- mean(current[, 4])
-  new_dps <- vapply(
-    c(list(current = current), simulations),
-    function(x) mean(x[, 4]),
-    FUN.VALUE = double(1)
+  stats_list <- c(
+    list(current = stats),
+    lapply(items, function(x) {
+      sum_stats(list(stats, x))
+    })
   )
-  data.frame(dps = new_dps, diff = new_dps - dps)
+  df <- compare_dps(stats_list, timeframe = timeframe, iter = iter)
+  dps <- df["current", "dps"]
+  df[["diff"]] <- df[["dps"]] - dps
+  df
 }
