@@ -48,10 +48,12 @@
 compare_equip <- function(stats, equip, changes,
                           timeframe = c(60, 300), iter = 50000) {
   stopifnot(check_equip(equip))
+  stats <- clean_stats(stats)
   stats_equip <- sum_stats(equip)
-  items <- lapply(changes, function(x) {
+  stats_base <- as.list(unlist(stats) - unlist(stats_equip))
+  lst <- lapply(c(list(current = list()), changes), function(x) {
     equip[names(x)] <- x
-    as.list(unlist(sum_stats(equip)) - unlist(stats_equip))
+    sum_stats(c(list(stats_base), equip))
   })
-  compare_items(stats, items, timeframe = timeframe, iter = iter)
+  compare_dps(lst, timeframe = timeframe, iter = iter)
 }

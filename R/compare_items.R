@@ -25,8 +25,5 @@ compare_items <- function(stats, items, timeframe = c(60, 300), iter = 50000) {
       sum_stats(list(stats, x))
     })
   )
-  df <- compare_dps(stats_list, timeframe = timeframe, iter = iter)
-  dps <- df["current", "dps"]
-  df[["diff"]] <- df[["dps"]] - dps
-  df
+  compare_dps(stats_list, timeframe = timeframe, iter = iter)
 }
