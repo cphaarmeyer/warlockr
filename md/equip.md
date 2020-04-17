@@ -35,11 +35,6 @@ my_equip <- list(
   wand = list(int = 4, sp = 11)
 )
 
-set.seed(42)
-compute_statweights(my_stats)
-#>        int         sp       crit        hit        mp5 
-#>  0.3386459  1.0000000 12.1197405 11.3061057  0.3336375
-
 my_changes <- list(
   "0 Royal Seal of Eldre'Thalas" = list(
     trinket1 = list(sp = 23)
@@ -158,6 +153,11 @@ my_changes <- list(
 )
 
 set.seed(42)
+compute_statweights(my_stats)
+#>        int         sp       crit        hit        mp5 
+#>  0.3386459  1.0000000 12.1197405 11.3061057  0.3336375
+
+set.seed(42)
 df <- compare_equip(my_stats, my_equip, my_changes)
 df[order(-df$dps), ]
 #>                                                  dps        diff
@@ -199,4 +199,57 @@ df[order(-df$dps), ]
 #> BWL Nemesis Bracers                         419.8686 -0.03595014
 #> 0 Royal Seal of Eldre'Thalas                419.3360 -0.56847537
 #> BWL Nemesis Boots                           416.8271 -3.07743580
+
+my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
+unlist(my_stats_ony)
+#>  int   sp crit  hit  mp5 
+#>  285  501   15    2    0
+
+set.seed(42)
+compute_statweights(my_stats_ony)
+#>        int         sp       crit        hit        mp5 
+#>  0.3082035  1.0000000 10.1809362 11.3441712  0.3016480
+
+set.seed(42)
+df_ony <- compare_equip(my_stats_ony, my_equip, my_changes)
+df_ony[order(-df_ony$dps), ]
+#>                                                  dps        diff
+#> BWL Neltharions's Tear                      494.6945 23.23749380
+#> BWL Staff of the Shadow Flame               491.4738 20.01676116
+#> ZG Bloodvine Garb                           487.7004 16.24332733
+#> BWL Mish'undare, Circlet of the Mind Flayer 484.1255 12.66850185
+#> MC Choker of the Fire Lord                  482.5452 11.08812601
+#> BWL Bracers of Arcane Accuarcy              480.2004  8.74336952
+#> BWL Ebony Flame Gloves                      479.9257  8.46867213
+#> BWL Claw of Chromaggus                      479.7987  8.34163962
+#> BWL Band of Forced Concentration            479.3464  7.88935031
+#> ZG Kezan's Ustoppable Taint                 478.7085  7.25143959
+#> MC Talisman of Ephemeral Power              478.6265  7.16948659
+#> BWL Mantle of the Blackwing Cabal           478.0004  6.54337897
+#> MC Ring of Spell Power                      477.9105  6.45345317
+#> ZG Cloak of Consumption                     477.6860  6.22900721
+#> ZG Jin'do's Bag of Whammies                 477.6365  6.17944175
+#> BWL Master Dragonslayer's Orb               477.6057  6.14869713
+#> ZG Zandalarian Hero Charm                   476.8998  5.44279593
+#> ZG Jeklik's Opaline Talisman                475.9163  4.45928823
+#> 5 Dark Advisor's Pendant                    475.4786  4.02155279
+#> BWL Cloak of the Brood Lord                 475.1481  3.69109936
+#> ZG The Hexxer's Cover                       475.0830  3.62600782
+#> MC Choker of Enlightenment                  475.0288  3.57179009
+#> ZG Bloodvine Vest                           474.6894  3.23240571
+#> ZG Bloodvine Leggings                       474.5330  3.07594655
+#> ZG Touch of Chaos                           474.3304  2.87339274
+#> ZG Band of Servitube                        474.2397  2.78264088
+#> ZG Zanzil's Seal                            473.9258  2.46880796
+#> ZG Zanzil's Concentration                   472.7890  1.33196714
+#> 0 Royal Seal of Eldre'Thalas                472.7002  1.24317207
+#> ZG Kezan's Taint                            472.6602  1.20313235
+#> MC Mana Igniting Cord                       472.5938  1.13676553
+#> ZG Soul Corrupter's Necklace                472.4777  1.02069057
+#> BWL Nemesis Spaulders                       471.8959  0.43891125
+#> BWL Nemesis Robes                           471.7744  0.31737119
+#> MC Robe of Volatile Power                   471.7555  0.29844099
+#> current                                     471.4570  0.00000000
+#> BWL Nemesis Bracers                         471.3812 -0.07584763
+#> BWL Nemesis Boots                           468.0115 -3.44551847
 ```

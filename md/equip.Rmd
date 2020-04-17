@@ -44,9 +44,6 @@ my_equip <- list(
   wand = list(int = 4, sp = 11)
 )
 
-set.seed(42)
-compute_statweights(my_stats)
-
 my_changes <- list(
   "0 Royal Seal of Eldre'Thalas" = list(
     trinket1 = list(sp = 23)
@@ -165,6 +162,19 @@ my_changes <- list(
 )
 
 set.seed(42)
+compute_statweights(my_stats)
+
+set.seed(42)
 df <- compare_equip(my_stats, my_equip, my_changes)
 df[order(-df$dps), ]
+
+my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
+unlist(my_stats_ony)
+
+set.seed(42)
+compute_statweights(my_stats_ony)
+
+set.seed(42)
+df_ony <- compare_equip(my_stats_ony, my_equip, my_changes)
+df_ony[order(-df_ony$dps), ]
 ```
