@@ -38,6 +38,6 @@ test_that("compare_equip works as expected", {
   df <- compare_equip(my_stats, my_equip, my_changes, iter = 1000)
 
   expect_s3_class(df, "data.frame")
-  expect_named(df, c("dps", "diff"))
+  expect_named(df, c("dps", "diff", "slot"))
   expect_equal(rownames(df), c("current", names(my_changes)))
 })

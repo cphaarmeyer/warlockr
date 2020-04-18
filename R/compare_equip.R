@@ -58,5 +58,9 @@ compare_equip <- function(stats, equip, changes,
     equip[names(x)] <- x
     sum_stats(c(list(stats_base), equip))
   })
-  compare_dps(lst, timeframe = timeframe, iter = iter)
+  df <- compare_dps(lst, timeframe = timeframe, iter = iter)
+  df[["slot"]] <- c(NA, vapply(lapply(changes, names), paste,
+    collapse = "/", FUN.VALUE = character(1)
+  ))
+  df
 }
