@@ -26,7 +26,6 @@ my_stats <- list(
 unlist(my_stats)
 
 my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
-unlist(my_stats_ony)
 
 my_equip <- list(
   head = list(int = 16, sp = 32),
@@ -69,6 +68,9 @@ my_changes <- list(
   "MC Talisman of Ephemeral Power" = list(
     trinket1 = "toep"
   ),
+  "MC2 Talisman of Ephemeral Power" = list(
+    trinket2 = "toep"
+  ),
   "BWL Nemesis Bracers" = list(
     wrist = list(int = 11, sp = 15)
   ),
@@ -98,6 +100,9 @@ my_changes <- list(
   ),
   "BWL Neltharions's Tear" = list(
     trinket1 = list(sp = 44, hit = 2)
+  ),
+  "BWL2 Neltharions's Tear" = list(
+    trinket2 = list(sp = 44, hit = 2)
   ),
   "BWL Mish'undare, Circlet of the Mind Flayer" = list(
     head = list(int = 24, sp = 35, crit = 2)
@@ -158,6 +163,9 @@ my_changes <- list(
   ),
   "ZG Zandalarian Hero Charm" = list(
     trinket1 = "zhc"
+  ),
+  "ZG2 Zandalarian Hero Charm" = list(
+    trinket2 = "zhc"
   )
 )
 
@@ -188,6 +196,10 @@ my_bank <- list(
   ),
   "Felcloth Gloves" = list(
     hands = list(sp = 33)
+  ),
+  "Seal + Gloves" = list(
+    trinket1 = list(sp = 23),
+    hands = list(sp = 33)
   )
 )
 
@@ -208,6 +220,7 @@ show_statweights(my_stats)
 show_statweights(my_stats_ony)
 
 show_result(my_stats, my_changes)
+
 show_result(my_stats, my_bank)
 show_result(my_stats_ony, my_bank)
 ```

@@ -17,9 +17,6 @@ unlist(my_stats)
 #>  285  501    5    2
 
 my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
-unlist(my_stats_ony)
-#>  int   sp crit  hit  mp5 
-#>  285  501   15    2    0
 
 my_equip <- list(
   head = list(int = 16, sp = 32),
@@ -62,6 +59,9 @@ my_changes <- list(
   "MC Talisman of Ephemeral Power" = list(
     trinket1 = "toep"
   ),
+  "MC2 Talisman of Ephemeral Power" = list(
+    trinket2 = "toep"
+  ),
   "BWL Nemesis Bracers" = list(
     wrist = list(int = 11, sp = 15)
   ),
@@ -91,6 +91,9 @@ my_changes <- list(
   ),
   "BWL Neltharions's Tear" = list(
     trinket1 = list(sp = 44, hit = 2)
+  ),
+  "BWL2 Neltharions's Tear" = list(
+    trinket2 = list(sp = 44, hit = 2)
   ),
   "BWL Mish'undare, Circlet of the Mind Flayer" = list(
     head = list(int = 24, sp = 35, crit = 2)
@@ -151,6 +154,9 @@ my_changes <- list(
   ),
   "ZG Zandalarian Hero Charm" = list(
     trinket1 = "zhc"
+  ),
+  "ZG2 Zandalarian Hero Charm" = list(
+    trinket2 = "zhc"
   )
 )
 
@@ -181,6 +187,10 @@ my_bank <- list(
   ),
   "Felcloth Gloves" = list(
     hands = list(sp = 33)
+  ),
+  "Seal + Gloves" = list(
+    trinket1 = list(sp = 23),
+    hands = list(sp = 33)
   )
 )
 
@@ -208,6 +218,7 @@ show_result(my_stats, my_changes)
 #>                                     dps        diff            slot
 #> BWL Neltharions's Tear         438.8242 18.91966183        trinket1
 #> BWL Staff of the Shadow Flame  438.7709 18.86635977          weapon
+#> BWL2 Neltharions's Tear        436.7998 16.89532096        trinket2
 #> ZG Bloodvine Garb              436.0664 16.16190111 chest/legs/feet
 #> BWL Mish'undare, Circlet of th 432.9658 13.06133884            head
 #> MC Choker of the Fire Lord     429.7369  9.83243725            neck
@@ -229,6 +240,7 @@ show_result(my_stats, my_changes)
 #> ZG Zandalarian Hero Charm      423.0724  3.16785688        trinket1
 #> ZG The Hexxer's Cover          423.0713  3.16678766            head
 #> ZG Bloodvine Vest              422.9588  3.05425394           chest
+#> MC2 Talisman of Ephemeral Powe 422.5464  2.64193305        trinket2
 #> ZG Bloodvine Leggings          422.5213  2.61676070            legs
 #> ZG Touch of Chaos              422.4175  2.51298126            wand
 #> ZG Band of Servitube           422.3969  2.49244636         finger1
@@ -237,34 +249,38 @@ show_result(my_stats, my_changes)
 #> ZG Zanzil's Concentration      421.2162  1.31174438 finger1/finger2
 #> BWL Nemesis Robes              421.1689  1.26436833           chest
 #> MC Mana Igniting Cord          421.0166  1.11205043           waist
+#> ZG2 Zandalarian Hero Charm     420.9954  1.09092503        trinket2
 #> ZG Kezan's Taint               420.9544  1.04993109            neck
 #> ZG Soul Corrupter's Necklace   420.9011  0.99662248            neck
 #> BWL Nemesis Spaulders          420.4835  0.57898879       shoulders
 #> current                        419.9045  0.00000000            <NA>
 #> BWL Nemesis Bracers            419.8686 -0.03595014           wrist
 #> BWL Nemesis Boots              416.8271 -3.07743580            feet
+
 show_result(my_stats, my_bank)
-#>                                 dps       diff      slot
-#> Felcloth Gloves            420.3133  0.4088076     hands
-#> current                    419.9045  0.0000000      <NA>
-#> Royal Seal of Eldre'Thalas 419.3360 -0.5684754  trinket1
-#> Felheart Bracers           418.9789 -0.9256402     wrist
-#> Kezan's Taint              418.9007 -1.0037528      neck
-#> Zanzil's Band              418.0674 -1.8371405   finger1
-#> Maleki's Footwraps         417.4062 -2.4983416      feet
-#> Felheart Shoulder Pads     414.8560 -5.0485291 shoulders
-#> Felheart Slippers          413.7042 -6.2003014      feet
-#> Felherat Robes             412.7757 -7.1288195     chest
+#>                                 dps       diff           slot
+#> Felcloth Gloves            420.3133  0.4088076          hands
+#> current                    419.9045  0.0000000           <NA>
+#> Royal Seal of Eldre'Thalas 419.3360 -0.5684754       trinket1
+#> Seal + Gloves              419.3017 -0.6028155 trinket1/hands
+#> Felheart Bracers           418.9789 -0.9256402          wrist
+#> Kezan's Taint              418.9007 -1.0037528           neck
+#> Zanzil's Band              418.0674 -1.8371405        finger1
+#> Maleki's Footwraps         417.4062 -2.4983416           feet
+#> Felheart Shoulder Pads     414.8560 -5.0485291      shoulders
+#> Felheart Slippers          413.7042 -6.2003014           feet
+#> Felherat Robes             412.7757 -7.1288195          chest
 show_result(my_stats_ony, my_bank)
-#>                                 dps      diff      slot
-#> Felcloth Gloves            473.0560  1.598955     hands
-#> Royal Seal of Eldre'Thalas 472.7002  1.243172  trinket1
-#> current                    471.4570  0.000000      <NA>
-#> Kezan's Taint              470.4358 -1.021203      neck
-#> Felheart Bracers           470.3803 -1.076705     wrist
-#> Zanzil's Band              469.3320 -2.125045   finger1
-#> Maleki's Footwraps         468.7431 -2.713923      feet
-#> Felheart Shoulder Pads     465.5498 -5.907196 shoulders
-#> Felheart Slippers          464.5603 -6.896735      feet
-#> Felherat Robes             463.1759 -8.281105     chest
+#>                                 dps      diff           slot
+#> Seal + Gloves              473.9904  2.533352 trinket1/hands
+#> Felcloth Gloves            473.0560  1.598955          hands
+#> Royal Seal of Eldre'Thalas 472.7002  1.243172       trinket1
+#> current                    471.4570  0.000000           <NA>
+#> Kezan's Taint              470.4358 -1.021203           neck
+#> Felheart Bracers           470.3803 -1.076705          wrist
+#> Zanzil's Band              469.3320 -2.125045        finger1
+#> Maleki's Footwraps         468.7431 -2.713923           feet
+#> Felheart Shoulder Pads     465.5498 -5.907196      shoulders
+#> Felheart Slippers          464.5603 -6.896735           feet
+#> Felherat Robes             463.1759 -8.281105          chest
 ```
