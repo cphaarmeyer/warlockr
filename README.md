@@ -37,10 +37,10 @@ But first we set up the simulation with our current stats.
 ``` r
 library(warlockr)
 my_stats <- list(
-  int = 228 + 31 + 16, # with buffs
-  sp = 375 + 86 + 40, # shadow spell damage
+  int = 238 + 31 + 16, # with buffs
+  sp = 402 + 59 + 40, # shadow spell damage
   crit = 5,
-  hit = 1
+  hit = 2
 )
 ```
 
@@ -53,7 +53,7 @@ set.seed(42)
 my_weights <- compute_statweights(my_stats)
 my_weights
 #>        int         sp       crit        hit        mp5 
-#>  0.3388921  1.0000000 11.7802173 10.9839519  0.3471447
+#>  0.3386459  1.0000000 12.1197405 11.3061057  0.3336375
 ```
 
 To use the `compare_equip` function we need a list of our current items.
@@ -64,18 +64,18 @@ my_equip <- list(
   head = list(int = 16, sp = 32),
   neck = list(int = 9, hit = 1),
   shoulders = list(sp = 26),
-  back = list(sp = 18),
+  back = list(int = 6, sp = 23),
   chest = list(sp = 46),
-  wrist = list(int = 11, sp = 13),
+  wrist = list(int = 8, sp = 16),
   hands = list(int = 15, sp = 15, crit = 1),
   waist = list(int = 8, sp = 25, crit = 1),
   legs = list(int = 16, sp = 39),
-  feet = list(int = 9, sp = 27),
+  feet = list(int = 16, sp = 19, hit = 1),
   finger1 = list(int = 7, sp = 18),
   finger2 = list(int = 6, sp = 33),
   trinket1 = list(crit = 2),
   trinket2 = list(sp = 29),
-  weapon = list(int = 12, sp = 60, crit = 1), # includes off hand
+  weapon = list(int = 12, sp = 40 + 20, crit = 1), # includes off hand
   wand = list(int = 4, sp = 11)
 )
 ```
@@ -107,7 +107,7 @@ my_changes <- list(
   ),
   "Zanzil's Concentration" = list(
     finger1 = list(int = 10, sp = 11, hit = 1),
-    finger2 = list(int = 13, sp = 6, hit = 2, mp5 = 4)
+    finger2 = list(int = 13, sp = 6, hit = 1 + 1, mp5 = 4)
   ),
   "Zanzil's Seal" = list(
     finger1 = list(int = 10, sp = 11, hit = 1)
@@ -124,18 +124,18 @@ Now we can simulate.
 set.seed(42)
 df <- compare_equip(my_stats, my_equip, my_changes)
 df[order(-df$dps), ]
-#>                                   dps       diff
-#> Band of Forced Concentration 420.4064  6.9403011
-#> Ring of Spell Power          419.0524  5.5863193
-#> Talisman of Ephemeral Power  418.0182  4.5520888
-#> Zandalarian Hero Charm       416.5446  3.0785102
-#> Band of Servitude            415.9064  2.4403568
-#> Zanzil's Seal                415.6928  2.2266931
-#> Zanzil's Concentration       414.7751  1.3090036
-#> Ring of Blackrock            414.0943  0.6282092
-#> current                      413.4661  0.0000000
-#> Royal Seal of Eldre'Thalas   412.8764 -0.5896412
-#> Dragonslayer's Signet        411.0963 -2.3698232
+#>                                   dps       diff            slot
+#> Band of Forced Concentration 426.9639  7.0594219         finger1
+#> Ring of Spell Power          425.5735  5.6690031         finger1
+#> Talisman of Ephemeral Power  424.5918  4.6872617        trinket1
+#> Zandalarian Hero Charm       423.0724  3.1678569        trinket1
+#> Band of Servitude            422.3969  2.4924464         finger1
+#> Zanzil's Seal                422.1155  2.2109565         finger1
+#> Zanzil's Concentration       421.2162  1.3117444 finger1/finger2
+#> Ring of Blackrock            420.4370  0.5325473         finger1
+#> current                      419.9045  0.0000000            <NA>
+#> Royal Seal of Eldre'Thalas   419.3360 -0.5684754        trinket1
+#> Dragonslayer's Signet        417.2504 -2.6541346         finger1
 ```
 
 If you want to know what impact world buffs have, simulate again.
@@ -146,22 +146,22 @@ set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
 #>        int         sp       crit        hit        mp5 
-#>  0.3068978  1.0000000  9.9262208 11.0274521  0.3506991
+#>  0.3082035  1.0000000 10.1809362 11.3441712  0.3016480
 set.seed(42)
 df_ony <- compare_equip(my_stats, my_equip, my_changes)
 df_ony[order(-df_ony$dps), ]
-#>                                   dps       diff
-#> Band of Forced Concentration 472.0794  7.7322541
-#> Talisman of Ephemeral Power  471.3969  7.0497012
-#> Ring of Spell Power          470.6959  6.3487185
-#> Zandalarian Hero Charm       469.7370  5.3898680
-#> Band of Servitude            467.0664  2.7192526
-#> Zanzil's Seal                466.8085  2.4613136
-#> Zanzil's Concentration       465.7183  1.3711674
-#> Royal Seal of Eldre'Thalas   465.6070  1.2598763
-#> Ring of Blackrock            465.1270  0.7798082
-#> current                      464.3472  0.0000000
-#> Dragonslayer's Signet        460.8118 -3.5353641
+#>                                   dps      diff            slot
+#> Band of Forced Concentration 479.3464  7.889350         finger1
+#> Talisman of Ephemeral Power  478.6265  7.169487        trinket1
+#> Ring of Spell Power          477.9105  6.453453         finger1
+#> Zandalarian Hero Charm       476.8998  5.442796        trinket1
+#> Band of Servitude            474.2397  2.782641         finger1
+#> Zanzil's Seal                473.9258  2.468808         finger1
+#> Zanzil's Concentration       472.7890  1.331967 finger1/finger2
+#> Royal Seal of Eldre'Thalas   472.7002  1.243172        trinket1
+#> Ring of Blackrock            472.1426  0.685538         finger1
+#> current                      471.4570  0.000000            <NA>
+#> Dragonslayer's Signet        467.5481 -3.908971         finger1
 ```
 
 This can help setting your priorities right. Note that this is only

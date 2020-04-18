@@ -44,10 +44,10 @@ But first we set up the simulation with our current stats.
 ```{r example}
 library(warlockr)
 my_stats <- list(
-  int = 228 + 31 + 16, # with buffs
-  sp = 375 + 86 + 40, # shadow spell damage
+  int = 238 + 31 + 16, # with buffs
+  sp = 402 + 59 + 40, # shadow spell damage
   crit = 5,
-  hit = 1
+  hit = 2
 )
 ```
 
@@ -68,18 +68,18 @@ my_equip <- list(
   head = list(int = 16, sp = 32),
   neck = list(int = 9, hit = 1),
   shoulders = list(sp = 26),
-  back = list(sp = 18),
+  back = list(int = 6, sp = 23),
   chest = list(sp = 46),
-  wrist = list(int = 11, sp = 13),
+  wrist = list(int = 8, sp = 16),
   hands = list(int = 15, sp = 15, crit = 1),
   waist = list(int = 8, sp = 25, crit = 1),
   legs = list(int = 16, sp = 39),
-  feet = list(int = 9, sp = 27),
+  feet = list(int = 16, sp = 19, hit = 1),
   finger1 = list(int = 7, sp = 18),
   finger2 = list(int = 6, sp = 33),
   trinket1 = list(crit = 2),
   trinket2 = list(sp = 29),
-  weapon = list(int = 12, sp = 60, crit = 1), # includes off hand
+  weapon = list(int = 12, sp = 40 + 20, crit = 1), # includes off hand
   wand = list(int = 4, sp = 11)
 )
 ```
@@ -111,7 +111,7 @@ my_changes <- list(
   ),
   "Zanzil's Concentration" = list(
     finger1 = list(int = 10, sp = 11, hit = 1),
-    finger2 = list(int = 13, sp = 6, hit = 2, mp5 = 4)
+    finger2 = list(int = 13, sp = 6, hit = 1 + 1, mp5 = 4)
   ),
   "Zanzil's Seal" = list(
     finger1 = list(int = 10, sp = 11, hit = 1)
