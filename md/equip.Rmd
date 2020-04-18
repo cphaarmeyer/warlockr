@@ -25,6 +25,9 @@ my_stats <- list(
 )
 unlist(my_stats)
 
+my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
+unlist(my_stats_ony)
+
 my_equip <- list(
   head = list(int = 16, sp = 32),
   neck = list(int = 9, hit = 1),
@@ -45,9 +48,6 @@ my_equip <- list(
 )
 
 my_changes <- list(
-  "0 Royal Seal of Eldre'Thalas" = list(
-    trinket1 = list(sp = 23)
-  ),
   "5 Dark Advisor's Pendant" = list(
     neck = list(int = 7, sp = 20)
   ),
@@ -122,7 +122,7 @@ my_changes <- list(
   ),
   "ZG Zanzil's Concentration" = list(
     finger1 = list(int = 10, sp = 11, hit = 1),
-    finger2 = list(int = 13, sp = 6, hit = 2, mp5 = 4)
+    finger2 = list(int = 13, sp = 6, hit = 1 + 1, mp5 = 4)
   ),
   "ZG Jin'do's Bag of Whammies" = list(
     weapon = list(int = 12 + 11, sp = 40 + 18, crit = 1, hit = 1)
@@ -161,20 +161,53 @@ my_changes <- list(
   )
 )
 
-set.seed(42)
-compute_statweights(my_stats)
+my_bank <- list(
+  "Royal Seal of Eldre'Thalas" = list(
+    trinket1 = list(sp = 23)
+  ),
+  "Kezan's Taint" = list(
+    neck = list(sp = 12)
+  ),
+  "Zanzil's Band" = list(
+    finger1 = list(int = 13, hit = 1, mp5 = 4)
+  ),
+  "Felheart Shoulder Pads" = list(
+    shoulders = list(int = 17, sp = 9)
+  ),
+  "Felherat Robes" = list(
+    chest = list(int = 20, sp = 13, hit = 1)
+  ),
+  "Felheart Bracers" = list(
+    wrist = list(int = 11, sp = 13)
+  ),
+  "Felheart Slippers" = list(
+    feet = list(int = 11, sp = 18)
+  ),
+  "Maleki's Footwraps" = list(
+    feet = list(int = 9, sp = 27)
+  ),
+  "Felcloth Gloves" = list(
+    hands = list(sp = 33)
+  )
+)
 
-set.seed(42)
-df <- compare_equip(my_stats, my_equip, my_changes)
-df[order(-df$dps), ]
+show_statweights <- function(stats) {
+  set.seed(42)
+  compute_statweights(stats)
+}
 
-my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
-unlist(my_stats_ony)
+show_result <- function(stats, changes) {
+  set.seed(42)
+  df <- compare_equip(stats, my_equip, changes)
+  row.names(df) <- substr(row.names(df), 1, 30)
+  df[order(-df$dps), ]
+}
 
-set.seed(42)
-compute_statweights(my_stats_ony)
 
-set.seed(42)
-df_ony <- compare_equip(my_stats_ony, my_equip, my_changes)
-df_ony[order(-df_ony$dps), ]
+show_statweights(my_stats)
+show_statweights(my_stats_ony)
+
+show_result(my_stats, my_changes)
+show_result(my_stats, my_bank)
+show_result(my_stats_ony, my_bank)
 ```
