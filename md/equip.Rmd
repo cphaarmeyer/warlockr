@@ -18,10 +18,10 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 238 + 31 + 16,
-  sp = 402 + 59 + 40,
+  int = 225 + 31 + 16,
+  sp = 431 + 59 + 40,
   crit = 5,
-  hit = 2
+  hit = 1
 )
 unlist(my_stats)
 
@@ -29,7 +29,7 @@ my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
 
 my_equip <- list(
   head = list(int = 16, sp = 32),
-  neck = list(int = 9, hit = 1),
+  neck = list(sp = 22, mp5 = 3),
   shoulders = list(sp = 26),
   back = list(int = 6, sp = 23),
   chest = list(sp = 46),
@@ -43,18 +43,12 @@ my_equip <- list(
   trinket1 = list(crit = 2),
   trinket2 = list(sp = 29),
   weapon = list(int = 12, sp = 40 + 20, crit = 1),
-  wand = list(int = 4, sp = 11)
+  wand = list(sp = 18)
 )
 
 my_changes <- list(
-  "5 Dark Advisor's Pendant" = list(
-    neck = list(int = 7, sp = 20)
-  ),
   "MC Choker of the Fire Lord" = list(
     neck = list(int = 7, sp = 34)
-  ),
-  "MC Choker of Enlightenment" = list(
-    neck = list(int = 10, sp = 18)
   ),
   "MC Robe of Volatile Power" = list(
     chest = list(int = 15, sp = 23, crit = 2)
@@ -119,9 +113,6 @@ my_changes <- list(
   "ZG Band of Servitube" = list(
     finger1 = list(int = 9, sp = 23)
   ),
-  "ZG Jeklik's Opaline Talisman" = list(
-    neck = list(sp = 22, mp5 = 3)
-  ),
   "ZG Zanzil's Seal" = list(
     finger1 = list(int = 10, sp = 11, hit = 1)
   ),
@@ -138,12 +129,6 @@ my_changes <- list(
   "ZG Cloak of Consumption" = list(
     back = list(int = 10, sp = 23, hit = 1)
   ),
-  "ZG Soul Corrupter's Necklace" = list(
-    neck = list(int = 16, hit = 1)
-  ),
-  "ZG Touch of Chaos" = list(
-    wand = list(sp = 18)
-  ),
   "ZG Bloodvine Vest" = list(
     chest = list(int = 13, sp = 27, hit = 2)
   ),
@@ -154,9 +139,6 @@ my_changes <- list(
     chest = list(int = 13, sp = 27, hit = 2),
     legs = list(int = 6, sp = 37, hit = 1),
     feet = list(int = 16, sp = 19, crit = 2, hit = 1)
-  ),
-  "ZG Kezan's Taint" = list(
-    neck = list(int = 8, sp = 14)
   ),
   "ZG Kezan's Ustoppable Taint" = list(
     neck = list(int = 8, sp = 14 + 12)
@@ -174,7 +156,7 @@ my_bank <- list(
     trinket1 = list(sp = 23)
   ),
   "Kezan's Taint" = list(
-    neck = list(sp = 12)
+    neck = list(int = 6, sp = 12)
   ),
   "Zanzil's Band" = list(
     finger1 = list(int = 13, hit = 1, mp5 = 4)
@@ -200,6 +182,9 @@ my_bank <- list(
   "Seal + Gloves" = list(
     trinket1 = list(sp = 23),
     hands = list(sp = 33)
+  ),
+  "Star of Mystaria" = list(
+    neck = list(int = 9, hit = 1)
   )
 )
 
