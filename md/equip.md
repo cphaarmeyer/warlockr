@@ -211,8 +211,8 @@ show_result(my_stats, my_changes)
 #> MC Robe of Volatile Power      432.5835  3.255621919           chest
 #> ZG The Hexxer's Cover          432.2564  2.928505013            head
 #> ZG Bloodvine Leggings          431.9932  2.665347429            legs
-#> MC Talisman of Ephemeral Power 431.9004  2.572550447        trinket1
 #> ZG Kezan's Ustoppable Taint    431.9001  2.572244143            neck
+#> MC Talisman of Ephemeral Power 431.8836  2.555709028        trinket1
 #> ZG Zanzil's Seal               431.7932  2.465262448         finger1
 #> ZG Band of Servitube           431.7784  2.450502815         finger1
 #> ZG Zanzil's Concentration      431.5704  2.242514170 finger1/finger2
