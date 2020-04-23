@@ -8,6 +8,7 @@
 #' @param trinkets which use trinkets are equipped, currently implemented:
 #'  toep (Talisman of Ephemeral Power)
 #'  zhc (Zandalarian Hero Charm)
+#' @param cpp whether to use the Rcpp implementation
 #'
 #' @return a numeric vector with values for total dmg, mana, total casttime and
 #'  dps
@@ -15,13 +16,18 @@
 #'
 #' @examples
 #' sim_boss(list(int = 277, sp = 346, crit = 2, hit = 2))
-sim_boss <- function(stats, time = 150, trinkets = NULL) {
+sim_boss <- function(stats, time = 150, trinkets = NULL, cpp = FALSE) {
   stats <- clean_stats(stats)
   arguments <- sim_setup(time, stats$crit, stats$hit, stats$int, stats$sp,
     trinkets = trinkets
   )
   arguments$sp_bonus <- arguments$sp_bonus[[1]]
-  do.call(sim_boss_impl, c(arguments,
+  fun <- if (cpp) {
+    sim_boss_cpp
+  } else {
+    sim_boss_impl
+  }
+  do.call(fun, c(arguments,
     mp5 = stats$mp5, sp = stats$sp, time = time
   ))
 }
