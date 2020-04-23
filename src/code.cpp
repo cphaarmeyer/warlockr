@@ -25,8 +25,23 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
     row++;
   } while(curse_miss[row - 1]);
 
-  NumericMatrix mat(10, 4);
+  while(time_total < time) {
+    if(mana_total < -sb_manacost) {
+      time_vec.push_back(1.5);
+      time_total += time_vec[row];
+      mana_vec.push_back(lt_manacost);
+      mana_total += mana_vec[row];
+    } else {
+      time_vec.push_back(2.5);
+      time_total += time_vec[row];
+      mana_vec.push_back(sb_manacost);
+      mana_total += mana_vec[row];
+    }
+    row++;
+  }
+
   int n = time_vec.size();
+  NumericMatrix mat(n, 4);
   for(int i = 0; i < n; i++) {
     mat(i, 2) = time_vec[i];
     mat(i, 1) = mana_vec[i];
