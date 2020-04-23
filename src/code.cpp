@@ -15,6 +15,7 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
   double time_total = 0.0;
   std::vector<double> mana_vec(0);
   double mana_total = mana;
+  double mp5_time = 0;
   int row = 0;
 
   do {
@@ -26,6 +27,10 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
   } while(curse_miss[row - 1]);
 
   while(time_total < time) {
+    if(time_total - mp5_time >= 5.0) {
+      mana_total += mp5;
+      mp5_time += 5.0;
+    }
     if(mana_total < -sb_manacost) {
       time_vec.push_back(1.5);
       time_total += time_vec[row];
