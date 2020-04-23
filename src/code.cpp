@@ -15,16 +15,19 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
   double time_total = 0.0;
   std::vector<double> mana_vec(0);
   double mana_total = mana;
+  std::vector<double> dmg_vec(0);
   double mp5_time = 0;
   int row = 0;
+  int sb = 0;
 
   do {
     time_vec.push_back(1.5);
     time_total += time_vec[row];
-    mana_vec.push_back(-200);
+    mana_vec.push_back(-200.0);
     mana_total += mana_vec[row];
+    dmg_vec.push_back(0.0);
     row++;
-  } while(curse_miss[row - 1]);
+  } while(curse_miss[row - 1] == TRUE);
 
   while(time_total < time) {
     if(time_total - mp5_time >= 5.0) {
@@ -36,11 +39,14 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
       time_total += time_vec[row];
       mana_vec.push_back(lt_manacost);
       mana_total += mana_vec[row];
+      dmg_vec.push_back(0.0);
     } else {
       time_vec.push_back(2.5);
       time_total += time_vec[row];
       mana_vec.push_back(sb_manacost);
       mana_total += mana_vec[row];
+      dmg_vec.push_back(sb_dmg[sb]);
+      sb++;
     }
     row++;
   }
@@ -48,6 +54,7 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
   int n = time_vec.size();
   NumericMatrix mat(n, 4);
   for(int i = 0; i < n; i++) {
+    mat(i, 0) = dmg_vec[i];
     mat(i, 2) = time_vec[i];
     mat(i, 1) = mana_vec[i];
   }
