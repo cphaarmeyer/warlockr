@@ -62,13 +62,12 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
     row++;
   }
 
-  int n = time_vec.size();
-  NumericMatrix mat(n, 4);
-  for(int i = 0; i < n; i++) {
-    mat(i, 0) = dmg_vec[i];
-    mat(i, 1) = mana_vec[i];
-    mat(i, 2) = time_vec[i];
-    mat(i, 3) = proc_vec[i];
+  NumericMatrix out(row, 4);
+  for(int i = 0; i < row; i++) {
+    out(i, 0) = dmg_vec[i];
+    out(i, 1) = mana_vec[i];
+    out(i, 2) = time_vec[i];
+    out(i, 3) = proc_vec[i];
   }
-  return mat;
+  return out;
 }
