@@ -4,11 +4,6 @@
 #' @inheritParams sim_boss_impl
 #' @param manacost mana cost
 #' @param casttime cast time
-#'
-#' @export
-#'
-#' @examples
-#' shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 0)
 shadowbolt_impl <- function(sb_dmg, sb_miss, sb_crit, manacost, casttime,
                             improved_sb_proc) {
   if (!sb_miss && improved_sb_proc > 0) {

@@ -23,6 +23,3 @@ target}
 \description{
 Base Implementation of Shadow Bolt
 }
-\examples{
-shadowbolt_impl(575, FALSE, TRUE, 363, 2.5, 0)
-}

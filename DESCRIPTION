@@ -1,7 +1,7 @@
 Type: Package
 Package: warlockr
 Title: Classic WoW Warlock Related Stuff
-Version: 0.2.0
+Version: 0.3.0
 Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
@@ -9,8 +9,12 @@ Description: More about what it does (maybe more than one line)
 License: MIT + file LICENSE
 URL: https://github.com/cphaarmeyer/warlockr
 BugReports: https://github.com/cphaarmeyer/warlockr/issues
+Imports: 
+    Rcpp
 Suggests: 
     testthat
+LinkingTo: 
+    Rcpp
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
