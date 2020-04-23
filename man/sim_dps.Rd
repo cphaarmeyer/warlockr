@@ -9,7 +9,8 @@ sim_dps(
   timeframe = c(60, 300),
   iter = 50000,
   seed = NULL,
-  trinkets = NULL
+  trinkets = NULL,
+  cpp = FALSE
 )
 }
 \arguments{
@@ -25,6 +26,8 @@ crit, hit and mp5}
 \item{trinkets}{which use trinkets are equipped, currently implemented:
 toep (Talisman of Ephemeral Power)
 zhc (Zandalarian Hero Charm)}
+
+\item{cpp}{whether to use the Rcpp implementation}
 }
 \value{
 a matrix where every row is a vector returned by \code{sim_boss}

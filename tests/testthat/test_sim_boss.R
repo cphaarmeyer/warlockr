@@ -2,7 +2,7 @@ context("sim_boss")
 
 
 test_that("sim_boss works as expected", {
-  stats <- list(int = 277, sp = 346, crit = 2, hit = 2)
+  stats <- list(int = 277, sp = 346, crit = 2, hit = 2, mp5 = 8)
   seed <- sample(1:1000, 1)
   set.seed(seed)
   sim <- sim_boss(stats)

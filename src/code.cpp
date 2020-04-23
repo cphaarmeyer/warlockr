@@ -14,7 +14,7 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
   std::vector<double> time_vec(0);
   double time_total = 0.0;
   std::vector<double> mana_vec(0);
-  double mana_total = mana;
+  double mana_total = mana + mp5;
   std::vector<double> dmg_vec(0);
   std::vector<int> proc_vec(0);
   int proc = 0;

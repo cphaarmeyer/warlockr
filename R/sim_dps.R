@@ -16,7 +16,7 @@
 #' mat <- sim_dps(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
 #' mean(mat[, 4])
 sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL,
-                    trinkets = NULL) {
+                    trinkets = NULL, cpp = FALSE) {
   if (!is.null(seed)) set.seed(seed)
   times <- stats::runif(iter, timeframe[1], timeframe[2])
   trinkets <- c(trinkets, attr(stats, "trinkets"))
@@ -30,8 +30,13 @@ sim_dps <- function(stats, timeframe = c(60, 300), iter = 50000, seed = NULL,
       if (is.matrix(x)) x[, i] else if (is.list(x)) x[[i]] else x
     })
   }
+  fun <- if (cpp) {
+    sim_boss_cpp
+  } else {
+    sim_boss_impl
+  }
   t(vapply(seq_len(iter), function(i) {
-    do.call(sim_boss_impl, c(get_arg(i),
+    do.call(fun, c(get_arg(i),
       mp5 = stats$mp5, sp = stats$sp, time = times[i]
     ))
   },
