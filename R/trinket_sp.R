@@ -17,13 +17,13 @@ trinket_sp <- function(trinkets, times) {
   }
   toep <- if ("toep" %in% trinkets) {
     lapply(get_nsb(15, 90), function(x) {
-      list(toep = rep.int(175, x))
+      rep.int(175, x)
     })
   }
   zhc <- if ("zhc" %in% trinkets) {
     lapply(get_nsb(20, 120), function(x) {
       sp_seq <- seq.int(from = 204, by = -17, length.out = 8)
-      list(zhc = rep(sp_seq, (x %/% 8) + 1)[seq_len(x)])
+      rep(sp_seq, (x %/% 8) + 1)[seq_len(x)]
     })
   }
   lapply(seq_along(times), function(x) {
