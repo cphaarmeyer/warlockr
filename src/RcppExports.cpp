@@ -6,13 +6,13 @@
 using namespace Rcpp;
 
 // sim_boss_loop
-NumericMatrix sim_boss_loop(int mana, int mp5, NumericVector sb_dmg, LogicalVector sb_miss, LogicalVector sb_crit, LogicalVector curse_miss, double sb_manacost, double lt_manacost, double time);
+NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg, LogicalVector sb_miss, LogicalVector sb_crit, LogicalVector curse_miss, double sb_manacost, double lt_manacost, double time);
 RcppExport SEXP _warlockr_sim_boss_loop(SEXP manaSEXP, SEXP mp5SEXP, SEXP sb_dmgSEXP, SEXP sb_missSEXP, SEXP sb_critSEXP, SEXP curse_missSEXP, SEXP sb_manacostSEXP, SEXP lt_manacostSEXP, SEXP timeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< int >::type mana(manaSEXP);
-    Rcpp::traits::input_parameter< int >::type mp5(mp5SEXP);
+    Rcpp::traits::input_parameter< double >::type mana(manaSEXP);
+    Rcpp::traits::input_parameter< double >::type mp5(mp5SEXP);
     Rcpp::traits::input_parameter< NumericVector >::type sb_dmg(sb_dmgSEXP);
     Rcpp::traits::input_parameter< LogicalVector >::type sb_miss(sb_missSEXP);
     Rcpp::traits::input_parameter< LogicalVector >::type sb_crit(sb_critSEXP);
