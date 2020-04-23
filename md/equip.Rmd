@@ -20,7 +20,7 @@ library(warlockr)
 my_stats <- list(
   int = 238 + 31 + 16,
   sp = 454 + 33 + 40,
-  crit = 5,
+  crit = 3,
   hit = 1
 )
 unlist(my_stats)
@@ -40,8 +40,8 @@ my_equip <- list(
   feet = list(int = 16, sp = 19, hit = 1),
   finger1 = list(int = 7, sp = 18),
   finger2 = list(int = 6, sp = 33),
-  trinket1 = list(crit = 2),
-  trinket2 = list(sp = 29),
+  trinket1 = list(sp = 29),
+  trinket2 = "zhc",
   weapon = list(int = 12, sp = 40 + 20, crit = 1),
   wand = list(sp = 18)
 )
@@ -139,18 +139,12 @@ my_changes <- list(
   ),
   "ZG Kezan's Ustoppable Taint" = list(
     neck = list(int = 8, sp = 14 + 12)
-  ),
-  "ZG Zandalarian Hero Charm" = list(
-    trinket1 = "zhc"
-  ),
-  "ZG2 Zandalarian Hero Charm" = list(
-    trinket2 = "zhc"
   )
 )
 
 my_bank <- list(
   "Royal Seal of Eldre'Thalas" = list(
-    trinket1 = list(sp = 23)
+    trinket2 = list(sp = 23)
   ),
   "Kezan's Taint" = list(
     neck = list(int = 6, sp = 12)
@@ -173,12 +167,14 @@ my_bank <- list(
   "Felcloth Gloves" = list(
     hands = list(sp = 33)
   ),
-  "Seal + Gloves" = list(
-    trinket1 = list(sp = 23),
-    hands = list(sp = 33)
-  ),
   "Star of Mystaria" = list(
     neck = list(int = 9, hit = 1)
+  ),
+  "Eye of the Beast" = list(
+    trinket1 = list(crit = 2)
+  ),
+  "2 Eye of the Beast" = list(
+    trinket2 = list(crit = 2)
   )
 )
 
