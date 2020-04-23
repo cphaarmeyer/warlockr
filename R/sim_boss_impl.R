@@ -15,30 +15,11 @@
 #' @export
 sim_boss_impl <- function(mana, mp5, sp, sb_dmg, sb_miss, sb_crit, curse_miss,
                           sb_manacost, lt_manacost, time, sp_bonus = NULL) {
-  n_curse <- min(which(!curse_miss))
-  stats_total <- c(0, mana - n_curse * 200, 1.5 * n_curse, 0)
-  sim_data <- stats_total
-  sim_row <- double(4)
-  i <- 0
-  j <- 1
-  t_mp5 <- seq(0, time + 5, by = 5)
-  while (stats_total[3] < time) {
-    if (stats_total[3] >= t_mp5[j]) {
-      j <- j + 1
-      stats_total[2] <- stats_total[2] + mp5
-    }
-    if (stats_total[2] < -sb_manacost) {
-      sim_row <- lifetap_impl(lt_manacost, sim_row[4])
-    } else {
-      i <- i + 1
-      sim_row <- shadowbolt_impl(
-        sb_dmg[i], sb_miss[i], sb_crit[i], sb_manacost, 2.5, sim_row[4]
-      )
-    }
-    stats_total <- stats_total + sim_row
-    sim_data <- rbind(sim_data, sim_row)
-  }
-  sb <- sim_data[sim_data[, 2] < 0, ]
+  sim_data <- sim_boss_loop(
+    mana, mp5, sb_dmg, sb_miss, sb_crit,
+    curse_miss, sb_manacost, lt_manacost, time
+  )
+  sb <- sim_data[sim_data[, 3] == 2.5, ]
   nsb <- nrow(sb)
   if (!is.null(sp_bonus)) {
     rows <- lapply(lengths(sp_bonus), sample.int, n = nsb)
@@ -53,7 +34,9 @@ sim_boss_impl <- function(mana, mp5, sp, sb_dmg, sb_miss, sb_crit, curse_miss,
     sb[, 1], sp, sb_miss[seq_len(nsb)], sb_crit[seq_len(nsb)],
     improved_sb_proc = c(0, sb[, 4][-nsb])
   )
-  stats_total[1] <- sum(dmg)
+  stats_total <- c(sum(dmg), 0, sum(sim_data[, 3]), 0)
+  stats_total[2] <- sum(sim_data[, 2]) + mana + mp5 +
+    ((stats_total[3] - sim_data[, 3][nrow(sim_data)]) %/% 5) * mp5
   stats_total[4] <- stats_total[1] / stats_total[3]
   stats_total
 }
