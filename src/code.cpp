@@ -28,7 +28,7 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
     dmg_vec.push_back(0.0);
     proc_vec.push_back(0);
     row++;
-  } while(curse_miss[row - 1] == TRUE);
+  } while(curse_miss[row - 1]);
 
   while(time_total < time) {
     if(time_total - mp5_time >= 5.0) {
