@@ -4,8 +4,6 @@
 #' Simulate the Loop for a Boss Fight
 #'
 #' @inheritParams sim_boss_impl
-#'
-#' @export
 sim_boss_loop <- function(mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss, sb_manacost, lt_manacost, time) {
     .Call(`_warlockr_sim_boss_loop`, mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss, sb_manacost, lt_manacost, time)
 }

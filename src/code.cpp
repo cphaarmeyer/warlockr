@@ -4,8 +4,6 @@ using namespace Rcpp;
 //' Simulate the Loop for a Boss Fight
 //'
 //' @inheritParams sim_boss_impl
-//'
-//' @export
 // [[Rcpp::export]]
 NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
                             LogicalVector sb_miss, LogicalVector sb_crit,

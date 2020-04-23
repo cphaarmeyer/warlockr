@@ -15,6 +15,3 @@ target}
 \description{
 Base Implementation of Life Tap
 }
-\examples{
-lifetap_impl(788, 2)
-}
