@@ -18,9 +18,9 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 238 + 31 + 16,
-  sp = 454 + 33 + 40,
-  crit = 3,
+  int = 254 + 31 + 16,
+  sp = 440 + 33 + 40,
+  crit = 4,
   hit = 1
 )
 unlist(my_stats)
@@ -32,7 +32,7 @@ my_equip <- list(
   neck = list(sp = 22, mp5 = 3),
   shoulders = list(int = 13, sp = 23),
   back = list(int = 6, sp = 23),
-  chest = list(sp = 46),
+  chest = list(int = 16, sp = 32, crit = 1),
   wrist = list(int = 8, sp = 16),
   hands = list(int = 15, sp = 15, crit = 1),
   waist = list(int = 8, sp = 25, crit = 1),
@@ -70,9 +70,6 @@ my_changes <- list(
   ),
   "BWL Nemesis Boots" = list(
     feet = list(int = 17, sp = 23)
-  ),
-  "BWL Nemesis Robes" = list(
-    chest = list(int = 16, sp = 32, crit = 1)
   ),
   "BWL Mantle of the Blackwing Cabal" = list(
     shoulders = list(int = 16, sp = 34)
@@ -152,9 +149,6 @@ my_bank <- list(
   "Zanzil's Band" = list(
     finger1 = list(int = 13, hit = 1, mp5 = 4)
   ),
-  "Felherat Robes" = list(
-    chest = list(int = 20, sp = 13, hit = 1)
-  ),
   "Felheart Bracers" = list(
     wrist = list(int = 11, sp = 13)
   ),
@@ -175,6 +169,9 @@ my_bank <- list(
   ),
   "2 Eye of the Beast" = list(
     trinket2 = list(crit = 2)
+  ),
+  "Robe of the Void" = list(
+    chest = list(sp = 46)
   )
 )
 
