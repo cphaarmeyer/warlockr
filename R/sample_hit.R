@@ -1,6 +1,6 @@
 #' Sample Hit
 #'
-#' Vectorised function to simulate wheather a spell hits or crits.
+#' Vectorised function to simulate whether a spell hits or crits.
 #'
 #' @inheritParams sample_shadowbolt
 #'

@@ -8,7 +8,7 @@ statbudget <- list(
 
 #' Compute Stat Weights
 #'
-#' Simulates current dps and dps with inceased stats to compute weights for
+#' Simulates current dps and dps with increased stats to compute weights for
 #' these stats.
 #' The result is scaled such that spell power has weight 1.
 #'

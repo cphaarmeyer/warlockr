@@ -1,4 +1,4 @@
-#' Simultate DPS
+#' Simulate DPS
 #'
 #' Repeatedly simulates bosses to calculate dps.
 #' The timeframe sets a minimum an maximum time for a boss fight.

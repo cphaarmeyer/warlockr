@@ -39,7 +39,7 @@ sim_boss_impl(
 
 \item{time}{length of fight in seconds}
 
-\item{sp_bonus}{list ofsp bonus vectors applied to shadow bolts}
+\item{sp_bonus}{list of sp bonus vectors applied to shadow bolts}
 }
 \description{
 Base Implementation Simulate Boss Fight

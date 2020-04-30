@@ -10,7 +10,7 @@ sample_hit(n = 1)
 \item{n}{number of samples}
 }
 \description{
-Vectorised function to simulate wheather a spell hits or crits.
+Vectorised function to simulate whether a spell hits or crits.
 }
 \examples{
 sample_hit()

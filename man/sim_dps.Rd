@@ -2,7 +2,7 @@
 % Please edit documentation in R/sim_dps.R
 \name{sim_dps}
 \alias{sim_dps}
-\title{Simultate DPS}
+\title{Simulate DPS}
 \usage{
 sim_dps(
   stats,

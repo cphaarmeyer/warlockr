@@ -13,7 +13,7 @@ check_equip(equip)
 \code{TRUE} or \code{FALSE}
 }
 \description{
-Check if an euqipment list has all slots filled.
+Check if an equipment list has all slots filled.
 These are head, neck, shoulders, back, chest, wrist, hands, waist, legs,
 feet, finger1, finger2, trinket1, trinket2 and weapon.
 Every slot should be filled with a list of the item base stats.
