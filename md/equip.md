@@ -168,7 +168,7 @@ my_bank <- list(
 
 show_statweights <- function(stats) {
   set.seed(42)
-  compute_statweights(stats)
+  compute_statweights(stats, trinkets = "zhc")
 }
 
 show_result <- function(stats, changes) {
@@ -181,10 +181,10 @@ show_result <- function(stats, changes) {
 
 show_statweights(my_stats)
 #>        int         sp       crit        hit        mp5 
-#>  0.3495637  1.0000000 12.0823139 11.1792099  0.3359091
+#>  0.3613858  1.0000000 12.7523011 11.8428705  0.2348229
 show_statweights(my_stats_ony)
 #>        int         sp       crit        hit        mp5 
-#>  0.3138718  1.0000000 10.1842898 11.1905442  0.3486077
+#>  0.3185888  1.0000000 10.7256099 11.7372306  0.3019199
 
 show_result(my_stats, my_changes)
 #>                                     dps        diff            slot

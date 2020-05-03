@@ -177,7 +177,7 @@ my_bank <- list(
 
 show_statweights <- function(stats) {
   set.seed(42)
-  compute_statweights(stats)
+  compute_statweights(stats, trinkets = "zhc")
 }
 
 show_result <- function(stats, changes) {
