@@ -27,8 +27,8 @@ sim_setup <- function(times, crit, hit, int, sp,
     sb_dmg = to_matrix(s$sb),
     sb_miss = to_matrix(sb_miss),
     sb_crit = to_matrix(sb_crit),
-    sb_manacost = -compute_manacost(cataclysm = cataclysm),
-    lt_manacost = compute_manacost("lifetap", sp = sp),
+    sb_manacost = -shadowbolt_manacost(cataclysm = cataclysm),
+    lt_manacost = lifetap_manacost(sp = sp),
     curse_miss = to_matrix(curse_miss),
     sp_bonus = if (!is.null(trinkets)) trinket_sp(trinkets, times)
   )

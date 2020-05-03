@@ -10,6 +10,6 @@
 #' @examples
 #' lifetap(346)
 lifetap <- function(sp, imp_lifetap = 2, improved_sb_proc = 0) {
-  manacost <- compute_manacost("lifetap", sp = sp, imp_lifetap = imp_lifetap)
+  manacost <- lifetap_manacost(sp = sp, imp_lifetap = imp_lifetap)
   lifetap_impl(manacost, improved_sb_proc)
 }
