@@ -127,8 +127,8 @@ df[order(-df$dps), ]
 #>                                   dps       diff            slot
 #> Band of Forced Concentration 426.9639  7.0594219         finger1
 #> Ring of Spell Power          425.5735  5.6690031         finger1
-#> Talisman of Ephemeral Power  424.5918  4.6872617        trinket1
-#> Zandalarian Hero Charm       423.0724  3.1678569        trinket1
+#> Talisman of Ephemeral Power  425.4840  5.5795246        trinket1
+#> Zandalarian Hero Charm       423.7170  3.8124904        trinket1
 #> Band of Servitude            422.3969  2.4924464         finger1
 #> Zanzil's Seal                422.1155  2.2109565         finger1
 #> Zanzil's Concentration       421.2162  1.3117444 finger1/finger2
@@ -151,10 +151,10 @@ set.seed(42)
 df_ony <- compare_equip(my_stats, my_equip, my_changes)
 df_ony[order(-df_ony$dps), ]
 #>                                   dps      diff            slot
+#> Talisman of Ephemeral Power  479.6307  8.173710        trinket1
 #> Band of Forced Concentration 479.3464  7.889350         finger1
-#> Talisman of Ephemeral Power  478.6265  7.169487        trinket1
 #> Ring of Spell Power          477.9105  6.453453         finger1
-#> Zandalarian Hero Charm       476.8998  5.442796        trinket1
+#> Zandalarian Hero Charm       477.6268  6.169720        trinket1
 #> Band of Servitude            474.2397  2.782641         finger1
 #> Zanzil's Seal                473.9258  2.468808         finger1
 #> Zanzil's Concentration       472.7890  1.331967 finger1/finger2
