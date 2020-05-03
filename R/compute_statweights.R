@@ -22,7 +22,8 @@ statbudget <- list(
 #'   list(int = 277, sp = 346, crit = 2, hit = 2),
 #'   iter = 1000
 #' )
-compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000) {
+compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000,
+                                trinkets = NULL) {
   stats <- clean_stats(stats)
   statnames <- stats::setNames(nm = names(stats))
   iter_total <- iter * length(statnames)
@@ -33,7 +34,7 @@ compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000) {
   stats_list <- lapply(ranges, sample, size = iter_total, replace = TRUE)
   time <- stats::runif(iter_total, timeframe[1], timeframe[2])
   sims <- vapply(seq_len(iter_total), function(i) {
-    sim_boss(lapply(stats_list, `[`, i), time[i])[4]
+    sim_boss(lapply(stats_list, `[`, i), time = time[i], trinkets = trinkets)[4]
   }, FUN.VALUE = double(1))
   df <- data.frame(stats_list, dps = sims, time = time)
   mod <- stats::lm(dps ~ ., data = df)
