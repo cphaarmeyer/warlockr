@@ -7,7 +7,7 @@
 lifetap_manacost(sp, imp_lifetap = 2)
 }
 \arguments{
-\item{sp}{(shadow) spellpower on gear}
+\item{sp}{(shadow) spellpower of character}
 
 \item{imp_lifetap}{number of talent points in improved life tap}
 }

@@ -26,7 +26,7 @@ sim_setup(
 
 \item{int}{intellect of character}
 
-\item{sp}{(shadow) spellpower on gear}
+\item{sp}{(shadow) spellpower of character}
 
 \item{iter}{number of iterations}
 

@@ -5,7 +5,7 @@
 #' @param crit crit percentage on gear
 #' @param hit hit percentage on gear
 #' @param int intellect of character
-#' @param sp (shadow) spellpower on gear
+#' @param sp (shadow) spellpower of character
 #' @param devastation number of talent points in devastation
 #' @param ruin number of talent points in ruin
 #' @param improved_sb number of talent points in improved shadow bolt

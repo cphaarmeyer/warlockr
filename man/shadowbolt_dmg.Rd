@@ -20,7 +20,7 @@ shadowbolt_dmg(
 \arguments{
 \item{sb_dmg}{vector of base shadow bolt damage}
 
-\item{sp}{(shadow) spellpower on gear}
+\item{sp}{(shadow) spellpower of character}
 
 \item{sb_miss}{vector of whether shadow bolt hits}
 

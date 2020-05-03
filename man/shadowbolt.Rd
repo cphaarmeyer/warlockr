@@ -27,7 +27,7 @@ shadowbolt(
 
 \item{int}{intellect of character}
 
-\item{sp}{(shadow) spellpower on gear}
+\item{sp}{(shadow) spellpower of character}
 
 \item{devastation}{number of talent points in devastation}
 

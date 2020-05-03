@@ -23,7 +23,7 @@ sim_boss_impl(
 
 \item{mp5}{mp5 on gear}
 
-\item{sp}{(shadow) spellpower on gear}
+\item{sp}{(shadow) spellpower of character}
 
 \item{sb_dmg}{vector of base shadow bolt damage}
 

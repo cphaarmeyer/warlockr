@@ -7,7 +7,7 @@
 lifetap(sp, imp_lifetap = 2, improved_sb_proc = 0)
 }
 \arguments{
-\item{sp}{(shadow) spellpower on gear}
+\item{sp}{(shadow) spellpower of character}
 
 \item{imp_lifetap}{number of talent points in improved life tap}
 
