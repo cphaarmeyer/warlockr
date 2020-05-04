@@ -18,9 +18,9 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 244 + 31 + 16,
-  sp = 448 + 33 + 40,
-  crit = 4,
+  int = 261 + 31 + 16,
+  sp = 472 + 33 + 40,
+  crit = 5,
   hit = 2,
   mp5 = 3
 )
@@ -43,7 +43,7 @@ my_equip <- list(
   finger2 = list(int = 6, sp = 33),
   trinket1 = list(sp = 29),
   trinket2 = "zhc",
-  weapon = list(int = 12, sp = 40 + 20, crit = 1),
+  weapon = list(int = 29, sp = 84, crit = 2),
   wand = list(sp = 18)
 )
 
@@ -96,15 +96,6 @@ my_changes <- list(
   "BWL Mish'undare, Circlet of the Mind Flayer" = list(
     head = list(int = 24, sp = 35, crit = 2)
   ),
-  "BWL Staff of the Shadow Flame" = list(
-    weapon = list(int = 29, sp = 84, crit = 2)
-  ),
-  "BWL Master Dragonslayer's Orb" = list(
-    weapon = list(int = 12 + 14, sp = 40 + 28, crit = 1)
-  ),
-  "BWL Claw of Chromaggus" = list(
-    weapon = list(int = 17, sp = 64 + 20, mp5 = 4)
-  ),
   "ZG Band of Servitube" = list(
     finger1 = list(int = 9, sp = 23)
   ),
@@ -114,9 +105,6 @@ my_changes <- list(
   "ZG Zanzil's Concentration" = list(
     finger1 = list(int = 10, sp = 11, hit = 1),
     finger2 = list(int = 13, sp = 6, hit = 1 + 1, mp5 = 4)
-  ),
-  "ZG Jin'do's Bag of Whammies" = list(
-    weapon = list(int = 12 + 11, sp = 40 + 18, crit = 1, hit = 1)
   ),
   "ZG The Hexxer's Cover" = list(
     head = list(int = 10, sp = 41)
