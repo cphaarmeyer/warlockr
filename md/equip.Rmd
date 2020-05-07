@@ -18,10 +18,10 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 261 + 31 + 16,
+  int = 265 + 31 + 16,
   sp = 472 + 33 + 40,
   crit = 5,
-  hit = 2,
+  hit = 3,
   mp5 = 3
 )
 unlist(my_stats)
@@ -32,7 +32,7 @@ my_equip <- list(
   head = list(int = 16, sp = 32),
   neck = list(sp = 22, mp5 = 3),
   shoulders = list(int = 13, sp = 23),
-  back = list(int = 6, sp = 23),
+  back = list(int = 10, sp = 23, hit = 1),
   chest = list(int = 16, sp = 32, crit = 1),
   wrist = list(int = 8, sp = 16),
   hands = list(int = 15, sp = 15, crit = 1),
@@ -84,9 +84,6 @@ my_changes <- list(
   "BWL Ebony Flame Gloves" = list(
     hands = list(int = 12, sp = 43)
   ),
-  "BWL Cloak of the Brood Lord" = list(
-    back = list(int = 14, sp = 28)
-  ),
   "BWL Neltharions's Tear" = list(
     trinket1 = list(sp = 44, hit = 2)
   ),
@@ -108,9 +105,6 @@ my_changes <- list(
   ),
   "ZG The Hexxer's Cover" = list(
     head = list(int = 10, sp = 41)
-  ),
-  "ZG Cloak of Consumption" = list(
-    back = list(int = 10, sp = 23, hit = 1)
   ),
   "ZG Bloodvine Vest" = list(
     chest = list(int = 13, sp = 27, hit = 2)
@@ -137,9 +131,6 @@ my_bank <- list(
   ),
   "Felheart Bracers" = list(
     wrist = list(int = 11, sp = 13)
-  ),
-  "Felheart Slippers" = list(
-    feet = list(int = 11, sp = 18)
   ),
   "Maleki's Footwraps" = list(
     feet = list(int = 9, sp = 27)
