@@ -27,9 +27,7 @@ test_that("compare_equip works as expected", {
     wand = list(int = 4, sp = 11)
   )
   my_changes <- list(
-    "New Weapon" = list(
-      weapon = list(int = 29, sp = 84, crit = 2)
-    ),
+    "New Weapon" = list(weapon = list(int = 29, sp = 84, crit = 2)),
     "New Rings" = list(
       finger1 = list(int = 10, sp = 11, hit = 1),
       finger2 = list(int = 13, sp = 6, hit = 2, mp5 = 4)

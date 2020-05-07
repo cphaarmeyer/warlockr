@@ -88,37 +88,28 @@ Next we need a list of which items to change.
 
 ```{r changes}
 my_changes <- list(
-  "Royal Seal of Eldre'Thalas" = list(
-    trinket1 = list(sp = 23)
-  ),
-  "Talisman of Ephemeral Power" = list(
-    trinket1 = "toep"
-  ),
-  "Zandalarian Hero Charm" = list(
-    trinket1 = "zhc"
-  ),
-  "Dragonslayer's Signet" = list(
-    finger1 = list(int = 10, crit = 1)
-  ),
-  "Ring of Spell Power" = list(
-    finger1 = list(sp = 33)
-  ),
-  "Ring of Blackrock" = list(
-    finger1 = list(sp = 19, mp5 = 9)
-  ),
-  "Band of Forced Concentration" = list(
-    finger1 = list(int = 12, sp = 21, hit = 1)
-  ),
+  "Royal Seal of Eldre'Thalas" =
+    list(trinket1 = list(sp = 23)),
+  "Talisman of Ephemeral Power" =
+    list(trinket1 = "toep"),
+  "Zandalarian Hero Charm" =
+    list(trinket1 = "zhc"),
+  "Dragonslayer's Signet" =
+    list(finger1 = list(int = 10, crit = 1)),
+  "Ring of Spell Power" =
+    list(finger1 = list(sp = 33)),
+  "Ring of Blackrock" =
+    list(finger1 = list(sp = 19, mp5 = 9)),
+  "Band of Forced Concentration" =
+    list(finger1 = list(int = 12, sp = 21, hit = 1)),
   "Zanzil's Concentration" = list(
     finger1 = list(int = 10, sp = 11, hit = 1),
     finger2 = list(int = 13, sp = 6, hit = 1 + 1, mp5 = 4)
   ),
-  "Zanzil's Seal" = list(
-    finger1 = list(int = 10, sp = 11, hit = 1)
-  ),
-  "Band of Servitude" = list(
-    finger1 = list(int = 9, sp = 23)
-  )
+  "Zanzil's Seal" =
+    list(finger1 = list(int = 10, sp = 11, hit = 1)),
+  "Band of Servitude" =
+    list(finger1 = list(int = 9, sp = 23))
 )
 ```
 
