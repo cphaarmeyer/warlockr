@@ -96,10 +96,18 @@ my_changes <- list(
     legs = list(int = 6, sp = 37, hit = 1),
     feet = list(int = 16, sp = 19, crit = 2, hit = 1)
   ),
+  "ZG Bloodtinged Gloves" =
+    list(hands = list(int = 10, sp = 19, hit = 1)),
   "ZG Kezan's Ustoppable Taint" =
     list(neck = list(int = 8, sp = 14)),
   "ZGS Kezan's Ustoppable Taint" = list(
     neck = list(int = 8, sp = 14),
+    shoulders = list(int = 13, sp = 23)
+  ),
+  "ZG Zandalar Demoniac's Robe" =
+    list(chest = list(sp = 27, hit = 1)),
+  "ZGS Zandalar Demoniac's Robe" = list(
+    chest = list(sp = 27, hit = 1),
     shoulders = list(int = 13, sp = 23)
   )
 )
@@ -181,11 +189,14 @@ show_result(my_stats, my_changes)
 #> ZGS Kezan's Ustoppable Taint   467.6481  1.4071656  neck/shoulders
 #> MC Robe of Volatile Power      467.6150  1.3740072           chest
 #> MC Mana Igniting Cord          467.5877  1.3467354           waist
+#> ZG Bloodtinged Gloves          466.7979  0.5569016           hands
 #> current                        466.2410  0.0000000            <NA>
 #> BWL Nemesis Bracers            466.1360 -0.1050035           wrist
+#> ZGS Zandalar Demoniac's Robe   464.8976 -1.3433907 chest/shoulders
 #> BWLS Nemesis Bracers           464.6866 -1.5543678 wrist/shoulders
 #> ZG Kezan's Ustoppable Taint    463.3603 -2.8806856            neck
 #> BWL Nemesis Boots              462.6514 -3.5896127            feet
+#> ZG Zandalar Demoniac's Robe    460.8312 -5.4097987           chest
 
 show_result(my_stats, my_bank)
 #>                                     dps       diff            slot
