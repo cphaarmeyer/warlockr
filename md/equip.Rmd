@@ -136,7 +136,7 @@ show_statweights <- function(stats) {
 show_result <- function(stats, changes) {
   set.seed(42)
   df <- compare_equip(stats, my_equip, changes)
-  row.names(df) <- substr(row.names(df), 1, 30)
+  row.names(df) <- format(substr(row.names(df), 1, 30), width = 30)
   df[order(-df$dps), ]
 }
 

@@ -127,7 +127,7 @@ show_statweights <- function(stats) {
 show_result <- function(stats, changes) {
   set.seed(42)
   df <- compare_equip(stats, my_equip, changes)
-  row.names(df) <- substr(row.names(df), 1, 30)
+  row.names(df) <- format(substr(row.names(df), 1, 30), width = 30)
   df[order(-df$dps), ]
 }
 
@@ -166,35 +166,35 @@ show_result(my_stats, my_changes)
 #> BWL Nemesis Boots              461.2669 -3.48646660            feet
 
 show_result(my_stats, my_bank)
-#>                                   dps       diff      slot
-#> S Zandalar Domoniac's Mantle 466.2410  1.4876267 shoulders
-#> current                      464.7533  0.0000000      <NA>
-#> Felcloth Gloves              464.5522 -0.2011088     hands
-#> Felheart Bracers             463.8405 -0.9128113     wrist
-#> Zanzil's Band                463.3245 -1.4288348   finger1
-#> Eye of the Beast             462.7810 -1.9723626  trinket1
-#> Robe of the Void             462.6491 -2.1042154     chest
-#> Kezan's Taint                461.9311 -2.8222141      neck
-#> Maleki's Footwraps           461.7792 -2.9741090      feet
-#> Nemesis Leggings             461.7486 -3.0047208      legs
-#> Star of Mystaria             461.0659 -3.6874330      neck
-#> 2 Eye of the Beast           460.9536 -3.7996954  trinket2
-#> Zandalar Domoniac's Mantle   460.6468 -4.1065435 shoulders
-#> Royal Seal of Eldre'Thalas   460.2737 -4.4796294  trinket2
+#>                                     dps       diff      slot
+#> S Zandalar Domoniac's Mantle   466.2410  1.4876267 shoulders
+#> current                        464.7533  0.0000000      <NA>
+#> Felcloth Gloves                464.5522 -0.2011088     hands
+#> Felheart Bracers               463.8405 -0.9128113     wrist
+#> Zanzil's Band                  463.3245 -1.4288348   finger1
+#> Eye of the Beast               462.7810 -1.9723626  trinket1
+#> Robe of the Void               462.6491 -2.1042154     chest
+#> Kezan's Taint                  461.9311 -2.8222141      neck
+#> Maleki's Footwraps             461.7792 -2.9741090      feet
+#> Nemesis Leggings               461.7486 -3.0047208      legs
+#> Star of Mystaria               461.0659 -3.6874330      neck
+#> 2 Eye of the Beast             460.9536 -3.7996954  trinket2
+#> Zandalar Domoniac's Mantle     460.6468 -4.1065435 shoulders
+#> Royal Seal of Eldre'Thalas     460.2737 -4.4796294  trinket2
 show_result(my_stats_ony, my_bank)
-#>                                   dps      diff      slot
-#> S Zandalar Domoniac's Mantle 522.9619  1.581138 shoulders
-#> Felcloth Gloves              522.4559  1.075119     hands
-#> current                      521.3808  0.000000      <NA>
-#> Robe of the Void             520.3357 -1.045127     chest
-#> Felheart Bracers             520.2944 -1.086368     wrist
-#> Zanzil's Band                519.7001 -1.680701   finger1
-#> Maleki's Footwraps           518.1535 -3.227241      feet
-#> Kezan's Taint                518.1085 -3.272335      neck
-#> Nemesis Leggings             517.8578 -3.522964      legs
-#> Eye of the Beast             517.1420 -4.238812  trinket1
-#> Star of Mystaria             517.1121 -4.268701      neck
-#> Zandalar Domoniac's Mantle   516.6879 -4.692888 shoulders
-#> Royal Seal of Eldre'Thalas   516.3494 -5.031340  trinket2
-#> 2 Eye of the Beast           515.0912 -6.289606  trinket2
+#>                                     dps      diff      slot
+#> S Zandalar Domoniac's Mantle   522.9619  1.581138 shoulders
+#> Felcloth Gloves                522.4559  1.075119     hands
+#> current                        521.3808  0.000000      <NA>
+#> Robe of the Void               520.3357 -1.045127     chest
+#> Felheart Bracers               520.2944 -1.086368     wrist
+#> Zanzil's Band                  519.7001 -1.680701   finger1
+#> Maleki's Footwraps             518.1535 -3.227241      feet
+#> Kezan's Taint                  518.1085 -3.272335      neck
+#> Nemesis Leggings               517.8578 -3.522964      legs
+#> Eye of the Beast               517.1420 -4.238812  trinket1
+#> Star of Mystaria               517.1121 -4.268701      neck
+#> Zandalar Domoniac's Mantle     516.6879 -4.692888 shoulders
+#> Royal Seal of Eldre'Thalas     516.3494 -5.031340  trinket2
+#> 2 Eye of the Beast             515.0912 -6.289606  trinket2
 ```
