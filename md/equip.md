@@ -101,16 +101,16 @@ my_changes <- list(
   "ZGS Kezan's Ustoppable Taint" = list(
     neck = list(int = 8, sp = 14),
     shoulders = list(int = 13, sp = 23)
-  ),
-  "ZG Zandalar Demoniac's Robe" =
-    list(chest = list(sp = 27, hit = 1)),
-  "ZGS Zandalar Demoniac's Robe" = list(
-    chest = list(sp = 27, hit = 1),
-    shoulders = list(int = 13, sp = 23)
   )
 )
 
 my_bank <- list(
+  "Zandalar Demoniac's Robe" =
+    list(chest = list(sp = 27, hit = 1)),
+  "S Zandalar Demoniac's Robe" = list(
+    chest = list(sp = 27, hit = 1),
+    shoulders = list(int = 13, sp = 23)
+  ),
   "Nemesis Spaulders" =
     list(shoulders = list(int = 13, sp = 23)),
   "S Nemesis Spaulders" =
@@ -189,11 +189,9 @@ show_result(my_stats, my_changes)
 #> ZG Zanzil's Concentration      468.8135  0.06224036 finger1/finger2
 #> BWL Nemesis Bracers            468.8018  0.05059670           wrist
 #> current                        468.7512  0.00000000            <NA>
-#> ZGS Zandalar Demoniac's Robe   467.5264 -1.22485645 chest/shoulders
 #> BWLS Nemesis Bracers           467.4441 -1.30715981 wrist/shoulders
 #> ZG Kezan's Ustoppable Taint    465.9252 -2.82604984            neck
 #> BWL Nemesis Boots              465.2318 -3.51944602            feet
-#> ZG Zandalar Demoniac's Robe    463.5139 -5.23735714           chest
 
 show_result(my_stats, my_bank)
 #>                                     dps         diff            slot
@@ -201,6 +199,7 @@ show_result(my_stats, my_bank)
 #> current                        468.7512  0.000000000            <NA>
 #> Felcloth Gloves                468.7498 -0.001418977           hands
 #> Felheart Bracers               467.8654 -0.885797448           wrist
+#> S Zandalar Demoniac's Robe     467.5264 -1.224856450 chest/shoulders
 #> S Nemesis Spaulders            467.3596 -1.391603431       shoulders
 #> Eye of the Beast               466.7723 -1.978905676        trinket1
 #> Robe of the Void               466.7189 -2.032282051           chest
@@ -212,21 +211,24 @@ show_result(my_stats, my_bank)
 #> 2 Eye of the Beast             464.9907 -3.760533683        trinket2
 #> Zanzil's Band                  464.7778 -3.973442302         finger1
 #> Royal Seal of Eldre'Thalas     464.2530 -4.498235769        trinket2
+#> Zandalar Demoniac's Robe       463.5139 -5.237357140           chest
 show_result(my_stats_ony, my_bank)
-#>                                     dps       diff            slot
-#> Nemesis Spaulders              530.5081  4.7443292       shoulders
-#> Felcloth Gloves                527.0308  1.2669767           hands
-#> current                        525.7638  0.0000000            <NA>
-#> Robe of the Void               524.7652 -0.9985821           chest
-#> Felheart Bracers               524.7095 -1.0542822           wrist
-#> S Nemesis Spaulders            524.2589 -1.5049236       shoulders
-#> S Felheart Bracers             523.3230 -2.4408384 wrist/shoulders
-#> Maleki's Footwraps             522.5842 -3.1796165            feet
-#> Kezan's Taint                  522.4520 -3.3117980            neck
-#> Nemesis Leggings               522.3111 -3.4526723            legs
-#> Star of Mystaria               521.5731 -4.1907257            neck
-#> Eye of the Beast               521.4810 -4.2827707        trinket1
-#> Zanzil's Band                  521.2363 -4.5275165         finger1
-#> Royal Seal of Eldre'Thalas     520.7133 -5.0504786        trinket2
-#> 2 Eye of the Beast             519.4985 -6.2652657        trinket2
+#>                                     dps        diff            slot
+#> Nemesis Spaulders              530.5081  4.74432923       shoulders
+#> Felcloth Gloves                527.0308  1.26697669           hands
+#> S Zandalar Demoniac's Robe     525.7801  0.01635407 chest/shoulders
+#> current                        525.7638  0.00000000            <NA>
+#> Robe of the Void               524.7652 -0.99858209           chest
+#> Felheart Bracers               524.7095 -1.05428217           wrist
+#> S Nemesis Spaulders            524.2589 -1.50492365       shoulders
+#> S Felheart Bracers             523.3230 -2.44083844 wrist/shoulders
+#> Maleki's Footwraps             522.5842 -3.17961653            feet
+#> Kezan's Taint                  522.4520 -3.31179797            neck
+#> Nemesis Leggings               522.3111 -3.45267227            legs
+#> Star of Mystaria               521.5731 -4.19072568            neck
+#> Eye of the Beast               521.4810 -4.28277072        trinket1
+#> Zanzil's Band                  521.2363 -4.52751650         finger1
+#> Zandalar Demoniac's Robe       521.1631 -4.60064719           chest
+#> Royal Seal of Eldre'Thalas     520.7133 -5.05047857        trinket2
+#> 2 Eye of the Beast             519.4985 -6.26526568        trinket2
 ```
