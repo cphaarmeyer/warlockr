@@ -53,7 +53,7 @@ set.seed(42)
 my_weights <- compute_statweights(my_stats)
 my_weights
 #>        int         sp       crit        hit        mp5 
-#>  0.3386459  1.0000000 12.1197405 11.3061057  0.3336375
+#>  0.3386380  1.0000000 12.1194592 11.3058433  0.3336297
 ```
 
 To use the `compare_equip` function we need a list of our current items.
@@ -116,17 +116,17 @@ set.seed(42)
 df <- compare_equip(my_stats, my_equip, my_changes)
 df[order(-df$dps), ]
 #>                                   dps       diff            slot
-#> Band of Forced Concentration 426.9639  7.0594219         finger1
-#> Ring of Spell Power          425.5735  5.6690031         finger1
-#> Talisman of Ephemeral Power  425.4840  5.5795246        trinket1
-#> Zandalarian Hero Charm       423.7170  3.8124904        trinket1
-#> Band of Servitude            422.3969  2.4924464         finger1
-#> Zanzil's Seal                422.1155  2.2109565         finger1
-#> Zanzil's Concentration       421.2162  1.3117444 finger1/finger2
-#> Ring of Blackrock            420.4370  0.5325473         finger1
-#> current                      419.9045  0.0000000            <NA>
-#> Royal Seal of Eldre'Thalas   419.3360 -0.5684754        trinket1
-#> Dragonslayer's Signet        417.2504 -2.6541346         finger1
+#> Band of Forced Concentration 426.9740  7.0596202         finger1
+#> Ring of Spell Power          425.5837  5.6692934         finger1
+#> Talisman of Ephemeral Power  425.4945  5.5800840        trinket1
+#> Zandalarian Hero Charm       423.7274  3.8129614        trinket1
+#> Band of Servitude            422.4070  2.4925574         finger1
+#> Zanzil's Seal                422.1253  2.2109347         finger1
+#> Zanzil's Concentration       421.2258  1.3114073 finger1/finger2
+#> Ring of Blackrock            420.4470  0.5325703         finger1
+#> current                      419.9144  0.0000000            <NA>
+#> Royal Seal of Eldre'Thalas   419.3462 -0.5682540        trinket1
+#> Dragonslayer's Signet        417.2600 -2.6543872         finger1
 ```
 
 If you want to know what impact world buffs have, simulate again.
@@ -137,22 +137,22 @@ set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
 #>        int         sp       crit        hit        mp5 
-#>  0.3082035  1.0000000 10.1809362 11.3441712  0.3016480
+#>  0.3081963  1.0000000 10.1806983 11.3439061  0.3016408
 set.seed(42)
 df_ony <- compare_equip(my_stats, my_equip, my_changes)
 df_ony[order(-df_ony$dps), ]
-#>                                   dps      diff            slot
-#> Talisman of Ephemeral Power  479.6307  8.173710        trinket1
-#> Band of Forced Concentration 479.3464  7.889350         finger1
-#> Ring of Spell Power          477.9105  6.453453         finger1
-#> Zandalarian Hero Charm       477.6268  6.169720        trinket1
-#> Band of Servitude            474.2397  2.782641         finger1
-#> Zanzil's Seal                473.9258  2.468808         finger1
-#> Zanzil's Concentration       472.7890  1.331967 finger1/finger2
-#> Royal Seal of Eldre'Thalas   472.7002  1.243172        trinket1
-#> Ring of Blackrock            472.1426  0.685538         finger1
-#> current                      471.4570  0.000000            <NA>
-#> Dragonslayer's Signet        467.5481 -3.908971         finger1
+#>                                   dps       diff            slot
+#> Talisman of Ephemeral Power  479.6425  8.1743857        trinket1
+#> Band of Forced Concentration 479.3577  7.8895720         finger1
+#> Ring of Spell Power          477.9219  6.4537812         finger1
+#> Zandalarian Hero Charm       477.6385  6.1702955        trinket1
+#> Band of Servitude            474.2509  2.7827652         finger1
+#> Zanzil's Seal                473.9369  2.4687831         finger1
+#> Zanzil's Concentration       472.7997  1.3315855 finger1/finger2
+#> Royal Seal of Eldre'Thalas   472.7116  1.2434661        trinket1
+#> Ring of Blackrock            472.1537  0.6855659         finger1
+#> current                      471.4682  0.0000000            <NA>
+#> Dragonslayer's Signet        467.5589 -3.9092764         finger1
 ```
 
 This can help setting your priorities right. Note that this is only
