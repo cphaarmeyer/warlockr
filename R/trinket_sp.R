@@ -10,6 +10,7 @@
 trinket_sp <- function(trinkets, times) {
   stopifnot(all(trinkets %in% c("toep", "zhc")))
   get_nsb <- function(dur, cd) {
+    dur <- dur - 1
     nsb_full <- (dur %/% 2.5) * (times %/% cd)
     nsb_rest <- pmin(dur, times %% cd) %/% 2.5
     nsb_full + nsb_rest
