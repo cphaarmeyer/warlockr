@@ -58,7 +58,7 @@ my_changes <- list(
     list(finger1 = list(sp = 33)),
   "MC Talisman of Ephemeral Power" =
     list(trinket1 = "toep"),
-  "MC2 Talisman of Ephemeral Power" =
+  "MC Talisman of Ephemeral Power 2" =
     list(trinket2 = "toep"),
   "BWL Nemesis Bracers" =
     list(wrist = list(int = 11, sp = 15)),
@@ -140,8 +140,8 @@ my_bank <- list(
     list(feet = list(int = 9, sp = 27)),
   "Felcloth Gloves" =
     list(hands = list(sp = 33)),
-  "Star of Mystaria" =
-    list(neck = list(int = 9, hit = 1)),
+  "Soul Corrupter's Necklace" =
+    list(neck = list(int = 16, hit = 1)),
   "Eye of the Beast" =
     list(trinket1 = list(crit = 2)),
   "Eye of the Beast 2" =

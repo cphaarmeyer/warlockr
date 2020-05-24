@@ -49,7 +49,7 @@ my_changes <- list(
     list(finger1 = list(sp = 33)),
   "MC Talisman of Ephemeral Power" =
     list(trinket1 = "toep"),
-  "MC2 Talisman of Ephemeral Power" =
+  "MC Talisman of Ephemeral Power 2" =
     list(trinket2 = "toep"),
   "BWL Nemesis Bracers" =
     list(wrist = list(int = 11, sp = 15)),
@@ -131,8 +131,8 @@ my_bank <- list(
     list(feet = list(int = 9, sp = 27)),
   "Felcloth Gloves" =
     list(hands = list(sp = 33)),
-  "Star of Mystaria" =
-    list(neck = list(int = 9, hit = 1)),
+  "Soul Corrupter's Necklace" =
+    list(neck = list(int = 16, hit = 1)),
   "Eye of the Beast" =
     list(trinket1 = list(crit = 2)),
   "Eye of the Beast 2" =
@@ -187,7 +187,7 @@ show_result(my_stats, my_changes)
 #> ZG Kezan's Ustoppable Taint (Set)           468.87  1.33  neck/shoulders
 #> MC Talisman of Ephemeral Power              468.39  0.85        trinket1
 #> ZG Bloodtinged Gloves                       468.34  0.80           hands
-#> MC2 Talisman of Ephemeral Power             467.91  0.37        trinket2
+#> MC Talisman of Ephemeral Power 2            467.91  0.37        trinket2
 #> ZG Zanzil's Seal                            467.69  0.15         finger1
 #> BWL Nemesis Bracers                         467.59  0.05           wrist
 #> ZG Zanzil's Concentration                   467.55  0.01 finger1/finger2
@@ -207,12 +207,12 @@ show_result(my_stats, my_bank)
 #> Robe of the Void                            465.53 -2.01           chest
 #> Eye of the Beast                            465.51 -2.03        trinket1
 #> Felheart Bracers (Set)                      465.35 -2.19 wrist/shoulders
+#> Soul Corrupter's Necklace                   465.06 -2.48            neck
 #> Eye of the Beast 2                          465.00 -2.54        trinket2
 #> Kezan's Taint                               464.71 -2.83            neck
 #> Maleki's Footwraps                          464.67 -2.87            feet
 #> Nemesis Leggings                            464.62 -2.92            legs
 #> Royal Seal of Eldre'Thalas                  464.26 -3.27        trinket2
-#> Star of Mystaria                            463.90 -3.64            neck
 #> Zanzil's Band                               463.55 -3.99         finger1
 #> Zandalar Demoniac's Robe                    462.29 -5.25           chest
 show_result(my_stats_ony, my_bank)
@@ -225,11 +225,11 @@ show_result(my_stats_ony, my_bank)
 #> Felheart Bracers                            523.31 -1.08           wrist
 #> Nemesis Spaulders (Set)                     522.89 -1.51       shoulders
 #> Felheart Bracers (Set)                      521.95 -2.45 wrist/shoulders
+#> Soul Corrupter's Necklace                   521.40 -3.00            neck
 #> Maleki's Footwraps                          521.23 -3.17            feet
 #> Kezan's Taint                               521.08 -3.32            neck
 #> Nemesis Leggings                            520.95 -3.44            legs
 #> Royal Seal of Eldre'Thalas                  520.73 -3.67        trinket2
-#> Star of Mystaria                            520.18 -4.22            neck
 #> Eye of the Beast                            520.07 -4.33        trinket1
 #> Zanzil's Band                               519.84 -4.56         finger1
 #> Zandalar Demoniac's Robe                    519.79 -4.61           chest
