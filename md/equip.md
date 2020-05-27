@@ -57,7 +57,7 @@ my_changes <- list(
     list(wrist = list(int = 11, sp = 15)),
   "BWL Nemesis Bracers (Set)" = list(
     wrist = list(int = 11, sp = 15),
-    shoulders = list(int = 19, sp = 12)
+    neck = list(sp = 22 - 12, mp5 = 3)
   ),
   "BWL Nemesis Boots" =
     list(feet = list(int = 17, sp = 23)),
@@ -67,7 +67,7 @@ my_changes <- list(
     list(wrist = list(int = 12, sp = 21, hit = 1)),
   "BWL Bracers of Arcane Accuarcy (Set)" = list(
     wrist = list(int = 12, sp = 21, hit = 1),
-    shoulders = list(int = 19, sp = 12)
+    neck = list(sp = 22 - 12, mp5 = 3)
   ),
   "BWL Ebony Flame Gloves" =
     list(hands = list(int = 12, sp = 43)),
@@ -119,7 +119,7 @@ my_bank <- list(
     list(wrist = list(int = 11, sp = 13)),
   "Felheart Bracers (Set)" = list(
     wrist = list(int = 11, sp = 13),
-    shoulders = list(int = 19, sp = 12)
+    neck = list(sp = 22 - 12, mp5 = 3)
   ),
   "Maleki's Footwraps" =
     list(feet = list(int = 9, sp = 27)),
@@ -173,9 +173,9 @@ show_result(my_stats, my_changes)
 #> MC Choker of the Fire Lord                  491.56  9.11            neck
 #> BWL Bracers of Arcane Accuarcy              491.05  8.61           wrist
 #> BWL Ebony Flame Gloves                      488.93  6.48           hands
+#> BWL Bracers of Arcane Accuarcy (Set)        488.30  5.85      wrist/neck
 #> BWL Mantle of the Blackwing Cabal           488.03  5.58       shoulders
 #> MC Choker of the Fire Lord (Set)            487.46  5.02  neck/shoulders
-#> BWL Bracers of Arcane Accuarcy (Set)        486.87  4.42 wrist/shoulders
 #> ZG The Hexxer's Cover                       485.60  3.16            head
 #> ZG Bloodvine Vest                           484.75  2.30           chest
 #> MC Robe of Volatile Power                   484.01  1.57           chest
@@ -185,49 +185,49 @@ show_result(my_stats, my_changes)
 #> MC Talisman of Ephemeral Power 2            482.80  0.36        trinket2
 #> BWL Nemesis Bracers                         482.50  0.05           wrist
 #> current                                     482.44  0.00            <NA>
+#> BWL Nemesis Bracers (Set)                   479.64 -2.80      wrist/neck
 #> BWL Nemesis Boots                           478.83 -3.62            feet
 #> ZG Zanzil's Seal                            478.53 -3.91         finger1
-#> BWL Nemesis Bracers (Set)                   478.30 -4.15 wrist/shoulders
 #> ZG Zanzil's Concentration                   477.49 -4.96 finger1/finger2
 
 show_result(my_stats, my_bank)
-#>                                                dps  diff            slot
-#> Jeklik's Opaline Talisman                   485.14  2.70            neck
-#> Soul Corrupter's Necklace                   482.80  0.36            neck
-#> current                                     482.44  0.00            <NA>
-#> Felcloth Gloves                             482.22 -0.22           hands
-#> Felheart Bracers                            481.55 -0.90           wrist
-#> Jeklik's Opaline Talisman (Set)             481.12 -1.32  neck/shoulders
-#> Eye of the Beast                            480.53 -1.91        trinket1
-#> Robe of the Void                            480.36 -2.09           chest
-#> Eye of the Beast 2                          480.08 -2.37        trinket2
-#> Zandalar Demoniac's Robe (Set)              479.77 -2.67      chest/neck
-#> Maleki's Footwraps                          479.30 -3.15            feet
-#> Nemesis Leggings                            479.28 -3.17            legs
-#> Royal Seal of Eldre'Thalas                  479.21 -3.23        trinket2
-#> Soul Corrupter's Necklace (Set)             478.61 -3.83  neck/shoulders
-#> Band of Servitude                           478.25 -4.19         finger1
-#> Zandalar Demoniac's Mantle                  478.22 -4.22       shoulders
-#> Felheart Bracers (Set)                      477.44 -5.00 wrist/shoulders
-#> Zandalar Demoniac's Robe                    477.07 -5.37           chest
+#>                                                dps  diff           slot
+#> Jeklik's Opaline Talisman                   485.14  2.70           neck
+#> Soul Corrupter's Necklace                   482.80  0.36           neck
+#> current                                     482.44  0.00           <NA>
+#> Felcloth Gloves                             482.22 -0.22          hands
+#> Felheart Bracers                            481.55 -0.90          wrist
+#> Jeklik's Opaline Talisman (Set)             481.12 -1.32 neck/shoulders
+#> Eye of the Beast                            480.53 -1.91       trinket1
+#> Robe of the Void                            480.36 -2.09          chest
+#> Eye of the Beast 2                          480.08 -2.37       trinket2
+#> Zandalar Demoniac's Robe (Set)              479.77 -2.67     chest/neck
+#> Maleki's Footwraps                          479.30 -3.15           feet
+#> Nemesis Leggings                            479.28 -3.17           legs
+#> Royal Seal of Eldre'Thalas                  479.21 -3.23       trinket2
+#> Felheart Bracers (Set)                      478.71 -3.74     wrist/neck
+#> Soul Corrupter's Necklace (Set)             478.61 -3.83 neck/shoulders
+#> Band of Servitude                           478.25 -4.19        finger1
+#> Zandalar Demoniac's Mantle                  478.22 -4.22      shoulders
+#> Zandalar Demoniac's Robe                    477.07 -5.37          chest
 show_result(my_stats_ony, my_bank)
-#>                                                dps  diff            slot
-#> Jeklik's Opaline Talisman                   544.17  3.13            neck
-#> Felcloth Gloves                             542.11  1.06           hands
-#> Soul Corrupter's Necklace                   541.33  0.29            neck
-#> current                                     541.04  0.00            <NA>
-#> Robe of the Void                            540.02 -1.02           chest
-#> Felheart Bracers                            539.98 -1.07           wrist
-#> Jeklik's Opaline Talisman (Set)             539.59 -1.45  neck/shoulders
-#> Zandalar Demoniac's Robe (Set)              539.49 -1.55      chest/neck
-#> Maleki's Footwraps                          537.61 -3.43            feet
-#> Royal Seal of Eldre'Thalas                  537.41 -3.63        trinket2
-#> Nemesis Leggings                            537.35 -3.69            legs
-#> Eye of the Beast                            536.77 -4.27        trinket1
-#> Soul Corrupter's Necklace (Set)             536.52 -4.52  neck/shoulders
-#> Zandalar Demoniac's Robe                    536.32 -4.72           chest
-#> Band of Servitude                           536.28 -4.76         finger1
-#> Eye of the Beast 2                          536.26 -4.78        trinket2
-#> Zandalar Demoniac's Mantle                  536.21 -4.83       shoulders
-#> Felheart Bracers (Set)                      535.31 -5.73 wrist/shoulders
+#>                                                dps  diff           slot
+#> Jeklik's Opaline Talisman                   544.17  3.13           neck
+#> Felcloth Gloves                             542.11  1.06          hands
+#> Soul Corrupter's Necklace                   541.33  0.29           neck
+#> current                                     541.04  0.00           <NA>
+#> Robe of the Void                            540.02 -1.02          chest
+#> Felheart Bracers                            539.98 -1.07          wrist
+#> Jeklik's Opaline Talisman (Set)             539.59 -1.45 neck/shoulders
+#> Zandalar Demoniac's Robe (Set)              539.49 -1.55     chest/neck
+#> Maleki's Footwraps                          537.61 -3.43           feet
+#> Royal Seal of Eldre'Thalas                  537.41 -3.63       trinket2
+#> Nemesis Leggings                            537.35 -3.69           legs
+#> Felheart Bracers (Set)                      536.93 -4.11     wrist/neck
+#> Eye of the Beast                            536.77 -4.27       trinket1
+#> Soul Corrupter's Necklace (Set)             536.52 -4.52 neck/shoulders
+#> Zandalar Demoniac's Robe                    536.32 -4.72          chest
+#> Band of Servitude                           536.28 -4.76        finger1
+#> Eye of the Beast 2                          536.26 -4.78       trinket2
+#> Zandalar Demoniac's Mantle                  536.21 -4.83      shoulders
 ```

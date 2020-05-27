@@ -66,7 +66,7 @@ my_changes <- list(
     list(wrist = list(int = 11, sp = 15)),
   "BWL Nemesis Bracers (Set)" = list(
     wrist = list(int = 11, sp = 15),
-    shoulders = list(int = 19, sp = 12)
+    neck = list(sp = 22 - 12, mp5 = 3)
   ),
   "BWL Nemesis Boots" =
     list(feet = list(int = 17, sp = 23)),
@@ -76,7 +76,7 @@ my_changes <- list(
     list(wrist = list(int = 12, sp = 21, hit = 1)),
   "BWL Bracers of Arcane Accuarcy (Set)" = list(
     wrist = list(int = 12, sp = 21, hit = 1),
-    shoulders = list(int = 19, sp = 12)
+    neck = list(sp = 22 - 12, mp5 = 3)
   ),
   "BWL Ebony Flame Gloves" =
     list(hands = list(int = 12, sp = 43)),
@@ -128,7 +128,7 @@ my_bank <- list(
     list(wrist = list(int = 11, sp = 13)),
   "Felheart Bracers (Set)" = list(
     wrist = list(int = 11, sp = 13),
-    shoulders = list(int = 19, sp = 12)
+    neck = list(sp = 22 - 12, mp5 = 3)
   ),
   "Maleki's Footwraps" =
     list(feet = list(int = 9, sp = 27)),
