@@ -7,22 +7,22 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 276 + 31 + 16,
-  sp = 476 + 33 + 40,
+  int = 278 + 31 + 16,
+  sp = 497 + 33 + 40,
   crit = 5,
   hit = 4,
-  mp5 = 3
+  mp5 = 0
 )
 unlist(my_stats)
 #>  int   sp crit  hit  mp5 
-#>  323  549    5    4    3
+#>  325  570    5    4    0
 
 my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
 
 my_equip <- list(
   head = list(int = 16, sp = 32),
-  neck = list(sp = 22, mp5 = 3),
-  shoulders = list(int = 19, sp = 12),
+  neck = list(int = 8, sp = 14),
+  shoulders = list(int = 13, sp = 23),
   back = list(int = 10, sp = 23, hit = 1),
   chest = list(int = 16, sp = 32, crit = 1),
   wrist = list(int = 8, sp = 16),
@@ -41,6 +41,10 @@ my_equip <- list(
 my_changes <- list(
   "MC Choker of the Fire Lord" =
     list(neck = list(int = 7, sp = 34)),
+  "MC Choker of the Fire Lord (Set)" = list(
+    neck = list(int = 7, sp = 34),
+    shoulders = list(int = 19, sp = 12)
+  ),
   "MC Robe of Volatile Power" =
     list(chest = list(int = 15, sp = 23, crit = 2)),
   "MC Mana Igniting Cord" =
@@ -52,20 +56,18 @@ my_changes <- list(
   "BWL Nemesis Bracers" =
     list(wrist = list(int = 11, sp = 15)),
   "BWL Nemesis Bracers (Set)" = list(
-    wrist = list(int = 11, sp = 15 - 12),
-    shoulders = list(int = 13, sp = 23)
+    wrist = list(int = 11, sp = 15),
+    shoulders = list(int = 19, sp = 12)
   ),
   "BWL Nemesis Boots" =
     list(feet = list(int = 17, sp = 23)),
   "BWL Mantle of the Blackwing Cabal" =
     list(shoulders = list(int = 16, sp = 34)),
-  "BWL Mantle of the Blackwing Cabal (Set)" =
-    list(shoulders = list(int = 16, sp = 34 - 12)),
   "BWL Bracers of Arcane Accuarcy" =
     list(wrist = list(int = 12, sp = 21, hit = 1)),
   "BWL Bracers of Arcane Accuarcy (Set)" = list(
-    wrist = list(int = 12, sp = 21 - 12, hit = 1),
-    shoulders = list(int = 13, sp = 23)
+    wrist = list(int = 12, sp = 21, hit = 1),
+    shoulders = list(int = 19, sp = 12)
   ),
   "BWL Ebony Flame Gloves" =
     list(hands = list(int = 12, sp = 43)),
@@ -91,37 +93,33 @@ my_changes <- list(
     feet = list(int = 16, sp = 19, crit = 2, hit = 1)
   ),
   "ZG Bloodtinged Gloves" =
-    list(hands = list(int = 10, sp = 19, hit = 1)),
-  "ZG Kezan's Ustoppable Taint" =
-    list(neck = list(int = 8, sp = 14)),
-  "ZG Kezan's Ustoppable Taint (Set)" = list(
-    neck = list(int = 8, sp = 14),
-    shoulders = list(int = 13, sp = 23)
-  )
+    list(hands = list(int = 10, sp = 19, hit = 1))
 )
 
 my_bank <- list(
+  "Jeklik's Opaline Talisman" =
+    list(neck = list(sp = 22, mp5 = 3)),
+  "Jeklik's Opaline Talisman (Set)" = list(
+    neck = list(sp = 22, mp5 = 3),
+    shoulders = list(int = 19, sp = 12)
+  ),
   "Band of Servitude" =
     list(finger1 = list(int = 9, sp = 23)),
+  "Zandalar Demoniac's Mantle" =
+    list(shoulders = list(int = 19, sp = 12)),
   "Zandalar Demoniac's Robe" =
     list(chest = list(sp = 27, hit = 1)),
   "Zandalar Demoniac's Robe (Set)" = list(
     chest = list(sp = 27, hit = 1),
-    shoulders = list(int = 13, sp = 23)
+    neck = list(sp = 22, mp5 = 3)
   ),
-  "Nemesis Spaulders" =
-    list(shoulders = list(int = 13, sp = 23)),
-  "Nemesis Spaulders (Set)" =
-    list(shoulders = list(int = 13, sp = 23 - 12)),
   "Royal Seal of Eldre'Thalas" =
     list(trinket2 = list(sp = 23)),
-  "Kezan's Taint" =
-    list(neck = list(int = 8, sp = 14)),
   "Felheart Bracers" =
     list(wrist = list(int = 11, sp = 13)),
   "Felheart Bracers (Set)" = list(
-    wrist = list(int = 11, sp = 13 - 12),
-    shoulders = list(int = 13, sp = 23)
+    wrist = list(int = 11, sp = 13),
+    shoulders = list(int = 19, sp = 12)
   ),
   "Maleki's Footwraps" =
     list(feet = list(int = 9, sp = 27)),
@@ -129,6 +127,10 @@ my_bank <- list(
     list(hands = list(sp = 33)),
   "Soul Corrupter's Necklace" =
     list(neck = list(int = 16, hit = 1)),
+  "Soul Corrupter's Necklace (Set)" = list(
+    neck = list(int = 16, hit = 1),
+    shoulders = list(int = 19, sp = 12)
+  ),
   "Eye of the Beast" =
     list(trinket1 = list(crit = 2)),
   "Eye of the Beast 2" =
@@ -157,75 +159,75 @@ show_result <- function(stats, changes) {
 
 show_statweights(my_stats)
 #>        int         sp       crit        hit        mp5 
-#>  0.3711292  1.0000000 12.9192125 11.9624296  0.2883186
+#>  0.3343152  1.0000000 12.7594734 12.0040831  0.3488011
 show_statweights(my_stats_ony)
 #>        int         sp       crit        hit        mp5 
-#>  0.3322069  1.0000000 10.7892180 11.9297857  0.2596341
+#>  0.3092732  1.0000000 10.6309548 11.9744874  0.3349032
 
 show_result(my_stats, my_changes)
 #>                                                dps  diff            slot
-#> BWL Neltharions's Tear                      490.95 18.31        trinket1
-#> BWL Neltharions's Tear 2                    490.46 17.82        trinket2
-#> BWL Mish'undare, Circlet of the Mind Flayer 487.23 14.59            head
-#> ZG Bloodvine Garb                           486.87 14.23 chest/legs/feet
-#> BWL Mantle of the Blackwing Cabal           482.40  9.76       shoulders
-#> BWL Bracers of Arcane Accuarcy              481.25  8.61           wrist
-#> BWL Bracers of Arcane Accuarcy (Set)        479.74  7.10 wrist/shoulders
-#> BWL Ebony Flame Gloves                      479.33  6.69           hands
-#> MC Choker of the Fire Lord                  479.02  6.38            neck
-#> BWL Mantle of the Blackwing Cabal (Set)     476.79  4.14       shoulders
-#> ZG The Hexxer's Cover                       475.88  3.24            head
-#> ZG Bloodvine Vest                           474.95  2.31           chest
-#> MC Robe of Volatile Power                   474.20  1.56           chest
-#> ZG Kezan's Ustoppable Taint (Set)           474.00  1.36  neck/shoulders
-#> MC Mana Igniting Cord                       473.98  1.34           waist
-#> MC Talisman of Ephemeral Power              473.48  0.83        trinket1
-#> ZG Bloodtinged Gloves                       473.34  0.70           hands
-#> MC Talisman of Ephemeral Power 2            473.02  0.38        trinket2
-#> BWL Nemesis Bracers                         472.80  0.16           wrist
-#> current                                     472.64  0.00            <NA>
-#> BWL Nemesis Bracers (Set)                   471.22 -1.42 wrist/shoulders
-#> ZG Kezan's Ustoppable Taint                 469.86 -2.78            neck
-#> BWL Nemesis Boots                           469.24 -3.40            feet
-#> ZG Zanzil's Seal                            468.46 -4.19         finger1
-#> ZG Zanzil's Concentration                   467.55 -5.09 finger1/finger2
+#> BWL Neltharions's Tear                      500.82 18.38        trinket1
+#> BWL Neltharions's Tear 2                    500.47 18.03        trinket2
+#> BWL Mish'undare, Circlet of the Mind Flayer 497.23 14.79            head
+#> ZG Bloodvine Garb                           496.91 14.47 chest/legs/feet
+#> MC Choker of the Fire Lord                  491.56  9.11            neck
+#> BWL Bracers of Arcane Accuarcy              491.05  8.61           wrist
+#> BWL Ebony Flame Gloves                      488.93  6.48           hands
+#> BWL Mantle of the Blackwing Cabal           488.03  5.58       shoulders
+#> MC Choker of the Fire Lord (Set)            487.46  5.02  neck/shoulders
+#> BWL Bracers of Arcane Accuarcy (Set)        486.87  4.42 wrist/shoulders
+#> ZG The Hexxer's Cover                       485.60  3.16            head
+#> ZG Bloodvine Vest                           484.75  2.30           chest
+#> MC Robe of Volatile Power                   484.01  1.57           chest
+#> MC Mana Igniting Cord                       483.73  1.29           waist
+#> MC Talisman of Ephemeral Power              483.25  0.80        trinket1
+#> ZG Bloodtinged Gloves                       483.00  0.55           hands
+#> MC Talisman of Ephemeral Power 2            482.80  0.36        trinket2
+#> BWL Nemesis Bracers                         482.50  0.05           wrist
+#> current                                     482.44  0.00            <NA>
+#> BWL Nemesis Boots                           478.83 -3.62            feet
+#> ZG Zanzil's Seal                            478.53 -3.91         finger1
+#> BWL Nemesis Bracers (Set)                   478.30 -4.15 wrist/shoulders
+#> ZG Zanzil's Concentration                   477.49 -4.96 finger1/finger2
 
 show_result(my_stats, my_bank)
 #>                                                dps  diff            slot
-#> Nemesis Spaulders                           476.84  4.20       shoulders
-#> Felcloth Gloves                             472.67  0.03           hands
-#> current                                     472.64  0.00            <NA>
-#> Felheart Bracers                            471.89 -0.75           wrist
-#> Zandalar Demoniac's Robe (Set)              471.43 -1.21 chest/shoulders
-#> Nemesis Spaulders (Set)                     471.27 -1.37       shoulders
-#> Robe of the Void                            470.62 -2.02           chest
-#> Eye of the Beast                            470.51 -2.13        trinket1
-#> Felheart Bracers (Set)                      470.32 -2.33 wrist/shoulders
-#> Eye of the Beast 2                          470.04 -2.60        trinket2
-#> Soul Corrupter's Necklace                   470.04 -2.60            neck
-#> Kezan's Taint                               469.86 -2.78            neck
-#> Maleki's Footwraps                          469.78 -2.86            feet
-#> Nemesis Leggings                            469.74 -2.90            legs
-#> Royal Seal of Eldre'Thalas                  469.46 -3.18        trinket2
-#> Band of Servitude                           468.45 -4.19         finger1
-#> Zandalar Demoniac's Robe                    467.21 -5.43           chest
+#> Jeklik's Opaline Talisman                   485.14  2.70            neck
+#> Soul Corrupter's Necklace                   482.80  0.36            neck
+#> current                                     482.44  0.00            <NA>
+#> Felcloth Gloves                             482.22 -0.22           hands
+#> Felheart Bracers                            481.55 -0.90           wrist
+#> Jeklik's Opaline Talisman (Set)             481.12 -1.32  neck/shoulders
+#> Eye of the Beast                            480.53 -1.91        trinket1
+#> Robe of the Void                            480.36 -2.09           chest
+#> Eye of the Beast 2                          480.08 -2.37        trinket2
+#> Zandalar Demoniac's Robe (Set)              479.77 -2.67      chest/neck
+#> Maleki's Footwraps                          479.30 -3.15            feet
+#> Nemesis Leggings                            479.28 -3.17            legs
+#> Royal Seal of Eldre'Thalas                  479.21 -3.23        trinket2
+#> Soul Corrupter's Necklace (Set)             478.61 -3.83  neck/shoulders
+#> Band of Servitude                           478.25 -4.19         finger1
+#> Zandalar Demoniac's Mantle                  478.22 -4.22       shoulders
+#> Felheart Bracers (Set)                      477.44 -5.00 wrist/shoulders
+#> Zandalar Demoniac's Robe                    477.07 -5.37           chest
 show_result(my_stats_ony, my_bank)
 #>                                                dps  diff            slot
-#> Nemesis Spaulders                           534.87  4.81       shoulders
-#> Felcloth Gloves                             531.41  1.35           hands
-#> Zandalar Demoniac's Robe (Set)              530.11  0.05 chest/shoulders
-#> current                                     530.06  0.00            <NA>
-#> Felheart Bracers                            529.17 -0.90           wrist
-#> Robe of the Void                            529.12 -0.94           chest
-#> Nemesis Spaulders (Set)                     528.61 -1.45       shoulders
-#> Felheart Bracers (Set)                      527.51 -2.55 wrist/shoulders
-#> Maleki's Footwraps                          526.92 -3.14            feet
-#> Soul Corrupter's Necklace                   526.90 -3.16            neck
-#> Kezan's Taint                               526.83 -3.23            neck
-#> Nemesis Leggings                            526.68 -3.38            legs
-#> Royal Seal of Eldre'Thalas                  526.51 -3.55        trinket2
-#> Eye of the Beast                            525.62 -4.44        trinket1
-#> Band of Servitude                           525.30 -4.76         finger1
-#> Zandalar Demoniac's Robe                    525.27 -4.79           chest
-#> Eye of the Beast 2                          525.10 -4.96        trinket2
+#> Jeklik's Opaline Talisman                   544.17  3.13            neck
+#> Felcloth Gloves                             542.11  1.06           hands
+#> Soul Corrupter's Necklace                   541.33  0.29            neck
+#> current                                     541.04  0.00            <NA>
+#> Robe of the Void                            540.02 -1.02           chest
+#> Felheart Bracers                            539.98 -1.07           wrist
+#> Jeklik's Opaline Talisman (Set)             539.59 -1.45  neck/shoulders
+#> Zandalar Demoniac's Robe (Set)              539.49 -1.55      chest/neck
+#> Maleki's Footwraps                          537.61 -3.43            feet
+#> Royal Seal of Eldre'Thalas                  537.41 -3.63        trinket2
+#> Nemesis Leggings                            537.35 -3.69            legs
+#> Eye of the Beast                            536.77 -4.27        trinket1
+#> Soul Corrupter's Necklace (Set)             536.52 -4.52  neck/shoulders
+#> Zandalar Demoniac's Robe                    536.32 -4.72           chest
+#> Band of Servitude                           536.28 -4.76         finger1
+#> Eye of the Beast 2                          536.26 -4.78        trinket2
+#> Zandalar Demoniac's Mantle                  536.21 -4.83       shoulders
+#> Felheart Bracers (Set)                      535.31 -5.73 wrist/shoulders
 ```

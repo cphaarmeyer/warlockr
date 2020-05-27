@@ -18,11 +18,11 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 276 + 31 + 16,
-  sp = 476 + 33 + 40,
+  int = 278 + 31 + 16,
+  sp = 497 + 33 + 40,
   crit = 5,
   hit = 4,
-  mp5 = 3
+  mp5 = 0
 )
 unlist(my_stats)
 
@@ -30,8 +30,8 @@ my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
 
 my_equip <- list(
   head = list(int = 16, sp = 32),
-  neck = list(sp = 22, mp5 = 3),
-  shoulders = list(int = 19, sp = 12),
+  neck = list(int = 8, sp = 14),
+  shoulders = list(int = 13, sp = 23),
   back = list(int = 10, sp = 23, hit = 1),
   chest = list(int = 16, sp = 32, crit = 1),
   wrist = list(int = 8, sp = 16),
@@ -50,6 +50,10 @@ my_equip <- list(
 my_changes <- list(
   "MC Choker of the Fire Lord" =
     list(neck = list(int = 7, sp = 34)),
+  "MC Choker of the Fire Lord (Set)" = list(
+    neck = list(int = 7, sp = 34),
+    shoulders = list(int = 19, sp = 12)
+  ),
   "MC Robe of Volatile Power" =
     list(chest = list(int = 15, sp = 23, crit = 2)),
   "MC Mana Igniting Cord" =
@@ -61,20 +65,18 @@ my_changes <- list(
   "BWL Nemesis Bracers" =
     list(wrist = list(int = 11, sp = 15)),
   "BWL Nemesis Bracers (Set)" = list(
-    wrist = list(int = 11, sp = 15 - 12),
-    shoulders = list(int = 13, sp = 23)
+    wrist = list(int = 11, sp = 15),
+    shoulders = list(int = 19, sp = 12)
   ),
   "BWL Nemesis Boots" =
     list(feet = list(int = 17, sp = 23)),
   "BWL Mantle of the Blackwing Cabal" =
     list(shoulders = list(int = 16, sp = 34)),
-  "BWL Mantle of the Blackwing Cabal (Set)" =
-    list(shoulders = list(int = 16, sp = 34 - 12)),
   "BWL Bracers of Arcane Accuarcy" =
     list(wrist = list(int = 12, sp = 21, hit = 1)),
   "BWL Bracers of Arcane Accuarcy (Set)" = list(
-    wrist = list(int = 12, sp = 21 - 12, hit = 1),
-    shoulders = list(int = 13, sp = 23)
+    wrist = list(int = 12, sp = 21, hit = 1),
+    shoulders = list(int = 19, sp = 12)
   ),
   "BWL Ebony Flame Gloves" =
     list(hands = list(int = 12, sp = 43)),
@@ -100,37 +102,33 @@ my_changes <- list(
     feet = list(int = 16, sp = 19, crit = 2, hit = 1)
   ),
   "ZG Bloodtinged Gloves" =
-    list(hands = list(int = 10, sp = 19, hit = 1)),
-  "ZG Kezan's Ustoppable Taint" =
-    list(neck = list(int = 8, sp = 14)),
-  "ZG Kezan's Ustoppable Taint (Set)" = list(
-    neck = list(int = 8, sp = 14),
-    shoulders = list(int = 13, sp = 23)
-  )
+    list(hands = list(int = 10, sp = 19, hit = 1))
 )
 
 my_bank <- list(
+  "Jeklik's Opaline Talisman" =
+    list(neck = list(sp = 22, mp5 = 3)),
+  "Jeklik's Opaline Talisman (Set)" = list(
+    neck = list(sp = 22, mp5 = 3),
+    shoulders = list(int = 19, sp = 12)
+  ),
   "Band of Servitude" =
     list(finger1 = list(int = 9, sp = 23)),
+  "Zandalar Demoniac's Mantle" =
+    list(shoulders = list(int = 19, sp = 12)),
   "Zandalar Demoniac's Robe" =
     list(chest = list(sp = 27, hit = 1)),
   "Zandalar Demoniac's Robe (Set)" = list(
     chest = list(sp = 27, hit = 1),
-    shoulders = list(int = 13, sp = 23)
+    neck = list(sp = 22, mp5 = 3)
   ),
-  "Nemesis Spaulders" =
-    list(shoulders = list(int = 13, sp = 23)),
-  "Nemesis Spaulders (Set)" =
-    list(shoulders = list(int = 13, sp = 23 - 12)),
   "Royal Seal of Eldre'Thalas" =
     list(trinket2 = list(sp = 23)),
-  "Kezan's Taint" =
-    list(neck = list(int = 8, sp = 14)),
   "Felheart Bracers" =
     list(wrist = list(int = 11, sp = 13)),
   "Felheart Bracers (Set)" = list(
-    wrist = list(int = 11, sp = 13 - 12),
-    shoulders = list(int = 13, sp = 23)
+    wrist = list(int = 11, sp = 13),
+    shoulders = list(int = 19, sp = 12)
   ),
   "Maleki's Footwraps" =
     list(feet = list(int = 9, sp = 27)),
@@ -138,6 +136,10 @@ my_bank <- list(
     list(hands = list(sp = 33)),
   "Soul Corrupter's Necklace" =
     list(neck = list(int = 16, hit = 1)),
+  "Soul Corrupter's Necklace (Set)" = list(
+    neck = list(int = 16, hit = 1),
+    shoulders = list(int = 19, sp = 12)
+  ),
   "Eye of the Beast" =
     list(trinket1 = list(crit = 2)),
   "Eye of the Beast 2" =
