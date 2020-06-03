@@ -18,10 +18,10 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 274 + 31 + 16,
-  sp = 498 + 33 + 40,
-  crit = 5,
-  hit = 5,
+  int = 269 + 31 + 16,
+  sp = 502 + 33 + 40,
+  crit = 4,
+  hit = 6,
   mp5 = 3
 )
 unlist(my_stats)
@@ -35,7 +35,7 @@ my_equip <- list(
   back = list(int = 10, sp = 23, hit = 1),
   chest = list(int = 16, sp = 32, crit = 1),
   wrist = list(int = 12, sp = 21, hit = 1),
-  hands = list(int = 15, sp = 15, crit = 1),
+  hands = list(int = 10, sp = 19, hit = 1),
   waist = list(int = 8, sp = 25, crit = 1),
   legs = list(int = 6, sp = 37, hit = 1),
   feet = list(int = 16, sp = 19, hit = 1),
@@ -84,12 +84,12 @@ my_changes <- list(
     chest = list(int = 13, sp = 27, hit = 2),
     legs = list(int = 6, sp = 37, hit = 1),
     feet = list(int = 16, sp = 19, crit = 2, hit = 1)
-  ),
-  "ZG Bloodtinged Gloves" =
-    list(hands = list(int = 10, sp = 19, hit = 1))
+  )
 )
 
 my_bank <- list(
+  "Nemesis Gloves" =
+    list(hands = list(int = 15, sp = 15, crit = 1)),
   "Band of Servitude" =
     list(finger1 = list(int = 9, sp = 23)),
   "Demoniac's Threads" = list(
