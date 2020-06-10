@@ -18,10 +18,10 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 269 + 31 + 16,
-  sp = 502 + 33 + 40,
-  crit = 4,
-  hit = 6,
+  int = 266 + 31 + 16,
+  sp = 497 + 33 + 40,
+  crit = 5,
+  hit = 8,
   mp5 = 3
 )
 unlist(my_stats)
@@ -33,7 +33,7 @@ my_equip <- list(
   neck = list(sp = 22, mp5 = 3),
   shoulders = list(int = 13, sp = 23),
   back = list(int = 10, sp = 23, hit = 1),
-  chest = list(int = 16, sp = 32, crit = 1),
+  chest = list(int = 13, sp = 27, hit = 2),
   wrist = list(int = 12, sp = 21, hit = 1),
   hands = list(int = 10, sp = 19, hit = 1),
   waist = list(int = 8, sp = 25, crit = 1),
@@ -50,18 +50,22 @@ my_equip <- list(
 my_changes <- list(
   "MC Choker of the Fire Lord" =
     list(neck = list(int = 7, sp = 34)),
-  "MC Robe of Volatile Power" =
-    list(chest = list(int = 15, sp = 23, crit = 2)),
   "MC Mana Igniting Cord" =
     list(waist = list(int = 16, sp = 25, crit = 1)),
+  "MC Mana Igniting Cord (Set)" = list(
+    waist = list(int = 16, sp = 25, crit = 1),
+    hands = list(int = 15, sp = 15, crit = 1)
+  ),
   "MC Talisman of Ephemeral Power" =
     list(trinket1 = "toep"),
   "MC Talisman of Ephemeral Power 2" =
     list(trinket2 = "toep"),
-  "BWL Nemesis Boots" =
-    list(feet = list(int = 17, sp = 23)),
   "BWL Mantle of the Blackwing Cabal" =
     list(shoulders = list(int = 16, sp = 34)),
+  "BWL Mantle of the Blackwing Cabal (Set)" = list(
+    shoulders = list(int = 16, sp = 34),
+    hands = list(int = 15, sp = 15, crit = 1)
+  ),
   "BWL Ebony Flame Gloves" =
     list(hands = list(int = 12, sp = 43)),
   "BWL Neltharions's Tear" =
@@ -70,6 +74,10 @@ my_changes <- list(
     list(trinket2 = list(sp = 44, hit = 2)),
   "BWL Mish'undare, Circlet of the Mind Flayer" =
     list(head = list(int = 24, sp = 35, crit = 2)),
+  "BWL Mish'undare, Circlet of the Mind (Set)" = list(
+    head = list(int = 24, sp = 35, crit = 2),
+    hands = list(int = 15, sp = 15, crit = 1)
+  ),
   "ZG Zanzil's Seal" =
     list(finger1 = list(int = 10, sp = 11, hit = 1)),
   "ZG Zanzil's Concentration" = list(
@@ -78,12 +86,9 @@ my_changes <- list(
   ),
   "ZG The Hexxer's Cover" =
     list(head = list(int = 10, sp = 41)),
-  "ZG Bloodvine Vest" =
-    list(chest = list(int = 13, sp = 27, hit = 2)),
-  "ZG Bloodvine Garb" = list(
-    chest = list(int = 13, sp = 27, hit = 2),
-    legs = list(int = 6, sp = 37, hit = 1),
-    feet = list(int = 16, sp = 19, crit = 2, hit = 1)
+  "ZG The Hexxer's Cover (Set)" = list(
+    head = list(int = 10, sp = 41),
+    hands = list(int = 15, sp = 15, crit = 1)
   )
 )
 
@@ -96,10 +101,13 @@ my_bank <- list(
     neck = list(int = 8, sp = 14),
     shoulders = list(int = 19, sp = 12 + 12)
   ),
+  "Demoniac's Threads (Set)" = list(
+    neck = list(int = 8, sp = 14),
+    shoulders = list(int = 19, sp = 12 + 12),
+    hands = list(int = 15, sp = 15, crit = 1)
+  ),
   "Royal Seal of Eldre'Thalas" =
     list(trinket2 = list(sp = 23)),
-  "Maleki's Footwraps" =
-    list(feet = list(int = 9, sp = 27)),
   "Felcloth Gloves" =
     list(hands = list(sp = 33)),
   "Soul Corrupter's Necklace" =
@@ -107,11 +115,7 @@ my_bank <- list(
   "Eye of the Beast" =
     list(trinket1 = list(crit = 2)),
   "Eye of the Beast 2" =
-    list(trinket2 = list(crit = 2)),
-  "Robe of the Void" =
-    list(chest = list(sp = 46)),
-  "Nemesis Leggings" =
-    list(legs = list(int = 16, sp = 39))
+    list(trinket2 = list(crit = 2))
 )
 
 show_statweights <- function(stats) {
