@@ -7,21 +7,21 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 266 + 31 + 16,
-  sp = 497 + 33 + 40,
+  int = 273 + 31 + 16,
+  sp = 509 + 33 + 40,
   crit = 5,
   hit = 8,
-  mp5 = 3
+  mp5 = 0
 )
 unlist(my_stats)
 #>  int   sp crit  hit  mp5 
-#>  313  570    5    8    3
+#>  320  582    5    8    0
 
 my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
 
 my_equip <- list(
   head = list(int = 16, sp = 32),
-  neck = list(sp = 22, mp5 = 3),
+  neck = list(int = 7, sp = 34),
   shoulders = list(int = 13, sp = 23),
   back = list(int = 10, sp = 23, hit = 1),
   chest = list(int = 13, sp = 27, hit = 2),
@@ -39,8 +39,6 @@ my_equip <- list(
 )
 
 my_changes <- list(
-  "MC Choker of the Fire Lord" =
-    list(neck = list(int = 7, sp = 34)),
   "MC Mana Igniting Cord" =
     list(waist = list(int = 16, sp = 25, crit = 1)),
   "MC Mana Igniting Cord (Set)" = list(
@@ -88,21 +86,10 @@ my_bank <- list(
     list(hands = list(int = 15, sp = 15, crit = 1)),
   "Band of Servitude" =
     list(finger1 = list(int = 9, sp = 23)),
-  "Demoniac's Threads" = list(
-    neck = list(int = 8, sp = 14),
-    shoulders = list(int = 19, sp = 12 + 12)
-  ),
-  "Demoniac's Threads (Set)" = list(
-    neck = list(int = 8, sp = 14),
-    shoulders = list(int = 19, sp = 12 + 12),
-    hands = list(int = 15, sp = 15, crit = 1)
-  ),
   "Royal Seal of Eldre'Thalas" =
     list(trinket2 = list(sp = 23)),
   "Felcloth Gloves" =
     list(hands = list(sp = 33)),
-  "Soul Corrupter's Necklace" =
-    list(neck = list(int = 16, hit = 1)),
   "Eye of the Beast" =
     list(trinket1 = list(crit = 2)),
   "Eye of the Beast 2" =
@@ -127,53 +114,46 @@ show_result <- function(stats, changes) {
 
 show_statweights(my_stats)
 #>        int         sp       crit        hit        mp5 
-#>  0.3678278  1.0000000 13.1209564 11.6588670  0.2779227
+#>  0.3314658  1.0000000 12.8335981 11.6733465  0.2851733
 show_statweights(my_stats_ony)
 #>        int         sp       crit        hit        mp5 
-#>  0.3377767  1.0000000 10.9405169 11.5580653  0.2703077
+#>  0.3099809  1.0000000 10.9477804 11.6393004  0.2649764
 
 show_result(my_stats, my_changes)
 #>                                                dps  diff            slot
-#> BWL Neltharions's Tear                      522.09 18.71        trinket1
-#> BWL Neltharions's Tear 2                    521.53 18.15        trinket2
-#> BWL Mish'undare, Circlet of the Mind Flayer 518.85 15.48            head
-#> BWL Mish'undare, Circlet of the Mind (Set)  518.10 14.72      head/hands
-#> MC Choker of the Fire Lord                  509.94  6.56            neck
-#> BWL Ebony Flame Gloves                      509.58  6.20           hands
-#> BWL Mantle of the Blackwing Cabal           509.24  5.86       shoulders
-#> BWL Mantle of the Blackwing Cabal (Set)     508.87  5.49 shoulders/hands
-#> ZG The Hexxer's Cover                       506.79  3.41            head
-#> ZG The Hexxer's Cover (Set)                 506.20  2.82      head/hands
-#> MC Mana Igniting Cord                       504.82  1.45           waist
-#> MC Talisman of Ephemeral Power              504.40  1.02        trinket1
-#> MC Mana Igniting Cord (Set)                 504.23  0.85     waist/hands
-#> MC Talisman of Ephemeral Power 2            503.78  0.40        trinket2
-#> current                                     503.38  0.00            <NA>
-#> ZG Zanzil's Seal                            498.95 -4.43         finger1
-#> ZG Zanzil's Concentration                   497.67 -5.71 finger1/finger2
+#> BWL Neltharions's Tear                      528.91 18.97        trinket1
+#> BWL Neltharions's Tear 2                    528.43 18.49        trinket2
+#> BWL Mish'undare, Circlet of the Mind Flayer 525.73 15.79            head
+#> BWL Mish'undare, Circlet of the Mind (Set)  524.88 14.94      head/hands
+#> BWL Ebony Flame Gloves                      516.34  6.40           hands
+#> BWL Mantle of the Blackwing Cabal           515.98  6.04       shoulders
+#> BWL Mantle of the Blackwing Cabal (Set)     515.43  5.49 shoulders/hands
+#> ZG The Hexxer's Cover                       513.35  3.41            head
+#> ZG The Hexxer's Cover (Set)                 512.76  2.82      head/hands
+#> MC Mana Igniting Cord                       511.46  1.52           waist
+#> MC Talisman of Ephemeral Power              510.92  0.98        trinket1
+#> MC Mana Igniting Cord (Set)                 510.88  0.94     waist/hands
+#> MC Talisman of Ephemeral Power 2            510.32  0.38        trinket2
+#> current                                     509.94  0.00            <NA>
+#> ZG Zanzil's Seal                            505.62 -4.32         finger1
+#> ZG Zanzil's Concentration                   504.51 -5.42 finger1/finger2
 
 show_result(my_stats, my_bank)
-#>                                                dps  diff                 slot
-#> current                                     503.38  0.00                 <NA>
-#> Nemesis Gloves                              502.83 -0.55                hands
-#> Felcloth Gloves                             502.76 -0.62                hands
-#> Demoniac's Threads                          502.09 -1.29       neck/shoulders
-#> Eye of the Beast                            501.58 -1.80             trinket1
-#> Demoniac's Threads (Set)                    501.43 -1.95 neck/shoulders/hands
-#> Eye of the Beast 2                          500.95 -2.43             trinket2
-#> Soul Corrupter's Necklace                   500.80 -2.58                 neck
-#> Royal Seal of Eldre'Thalas                  499.92 -3.46             trinket2
-#> Band of Servitude                           499.02 -4.36              finger1
+#>                                                dps  diff     slot
+#> current                                     509.94  0.00     <NA>
+#> Nemesis Gloves                              509.52 -0.42    hands
+#> Felcloth Gloves                             509.33 -0.61    hands
+#> Eye of the Beast                            508.24 -1.70 trinket1
+#> Eye of the Beast 2                          507.61 -2.33 trinket2
+#> Royal Seal of Eldre'Thalas                  506.55 -3.39 trinket2
+#> Band of Servitude                           505.65 -4.29  finger1
 show_result(my_stats_ony, my_bank)
-#>                                                dps  diff                 slot
-#> current                                     564.67  0.00                 <NA>
-#> Felcloth Gloves                             564.22 -0.46                hands
-#> Demoniac's Threads                          563.00 -1.68       neck/shoulders
-#> Nemesis Gloves                              562.97 -1.70                hands
-#> Soul Corrupter's Necklace                   561.56 -3.11                 neck
-#> Demoniac's Threads (Set)                    561.09 -3.59 neck/shoulders/hands
-#> Royal Seal of Eldre'Thalas                  560.79 -3.88             trinket2
-#> Eye of the Beast                            560.49 -4.18             trinket1
-#> Eye of the Beast 2                          559.79 -4.88             trinket2
-#> Band of Servitude                           559.73 -4.95              finger1
+#>                                                dps  diff     slot
+#> current                                     571.95  0.00     <NA>
+#> Felcloth Gloves                             571.45 -0.50    hands
+#> Nemesis Gloves                              570.31 -1.64    hands
+#> Royal Seal of Eldre'Thalas                  568.16 -3.79 trinket2
+#> Eye of the Beast                            567.82 -4.13 trinket1
+#> Eye of the Beast 2                          567.13 -4.82 trinket2
+#> Band of Servitude                           567.08 -4.87  finger1
 ```
