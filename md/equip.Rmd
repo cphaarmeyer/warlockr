@@ -19,9 +19,9 @@ library(warlockr)
 
 my_stats <- list(
   int = 273 + 31 + 16,
-  sp = 509 + 33 + 40,
+  sp = 524 + 33 + 40,
   crit = 5,
-  hit = 8,
+  hit = 10,
   mp5 = 0
 )
 unlist(my_stats)
@@ -41,8 +41,8 @@ my_equip <- list(
   feet = list(int = 16, sp = 19, hit = 1),
   finger1 = list(int = 6, sp = 33),
   finger2 = list(int = 12, sp = 21, hit = 1),
-  trinket1 = list(sp = 29),
-  trinket2 = "zhc",
+  trinket1 = "zhc",
+  trinket2 = list(sp = 29, hit = 2),
   weapon = list(int = 29, sp = 84, crit = 2),
   wand = list(sp = 18)
 )
@@ -54,10 +54,6 @@ my_changes <- list(
     waist = list(int = 16, sp = 25, crit = 1),
     hands = list(int = 15, sp = 15, crit = 1)
   ),
-  "MC Talisman of Ephemeral Power" =
-    list(trinket1 = "toep"),
-  "MC Talisman of Ephemeral Power 2" =
-    list(trinket2 = "toep"),
   "BWL Mantle of the Blackwing Cabal" =
     list(shoulders = list(int = 16, sp = 34)),
   "BWL Mantle of the Blackwing Cabal (Set)" = list(
@@ -66,10 +62,6 @@ my_changes <- list(
   ),
   "BWL Ebony Flame Gloves" =
     list(hands = list(int = 12, sp = 43)),
-  "BWL Neltharions's Tear" =
-    list(trinket1 = list(sp = 44, hit = 2)),
-  "BWL Neltharions's Tear 2" =
-    list(trinket2 = list(sp = 44, hit = 2)),
   "BWL Mish'undare, Circlet of the Mind Flayer" =
     list(head = list(int = 24, sp = 35, crit = 2)),
   "BWL Mish'undare, Circlet of the Mind (Set)" = list(
@@ -91,18 +83,18 @@ my_changes <- list(
 )
 
 my_bank <- list(
+  "Talisman of Ephemeral Power" =
+    list(trinket1 = "toep"),
   "Nemesis Gloves" =
     list(hands = list(int = 15, sp = 15, crit = 1)),
   "Band of Servitude" =
     list(finger1 = list(int = 9, sp = 23)),
   "Royal Seal of Eldre'Thalas" =
-    list(trinket2 = list(sp = 23)),
+    list(trinket1 = list(sp = 23)),
   "Felcloth Gloves" =
     list(hands = list(sp = 33)),
   "Eye of the Beast" =
-    list(trinket1 = list(crit = 2)),
-  "Eye of the Beast 2" =
-    list(trinket2 = list(crit = 2))
+    list(trinket1 = list(crit = 2))
 )
 
 show_statweights <- function(stats) {

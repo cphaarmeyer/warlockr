@@ -8,14 +8,14 @@ library(warlockr)
 
 my_stats <- list(
   int = 273 + 31 + 16,
-  sp = 509 + 33 + 40,
+  sp = 524 + 33 + 40,
   crit = 5,
-  hit = 8,
+  hit = 10,
   mp5 = 0
 )
 unlist(my_stats)
 #>  int   sp crit  hit  mp5 
-#>  320  582    5    8    0
+#>  320  597    5   10    0
 
 my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
 
@@ -32,8 +32,8 @@ my_equip <- list(
   feet = list(int = 16, sp = 19, hit = 1),
   finger1 = list(int = 6, sp = 33),
   finger2 = list(int = 12, sp = 21, hit = 1),
-  trinket1 = list(sp = 29),
-  trinket2 = "zhc",
+  trinket1 = "zhc",
+  trinket2 = list(sp = 29, hit = 2),
   weapon = list(int = 29, sp = 84, crit = 2),
   wand = list(sp = 18)
 )
@@ -45,10 +45,6 @@ my_changes <- list(
     waist = list(int = 16, sp = 25, crit = 1),
     hands = list(int = 15, sp = 15, crit = 1)
   ),
-  "MC Talisman of Ephemeral Power" =
-    list(trinket1 = "toep"),
-  "MC Talisman of Ephemeral Power 2" =
-    list(trinket2 = "toep"),
   "BWL Mantle of the Blackwing Cabal" =
     list(shoulders = list(int = 16, sp = 34)),
   "BWL Mantle of the Blackwing Cabal (Set)" = list(
@@ -57,10 +53,6 @@ my_changes <- list(
   ),
   "BWL Ebony Flame Gloves" =
     list(hands = list(int = 12, sp = 43)),
-  "BWL Neltharions's Tear" =
-    list(trinket1 = list(sp = 44, hit = 2)),
-  "BWL Neltharions's Tear 2" =
-    list(trinket2 = list(sp = 44, hit = 2)),
   "BWL Mish'undare, Circlet of the Mind Flayer" =
     list(head = list(int = 24, sp = 35, crit = 2)),
   "BWL Mish'undare, Circlet of the Mind (Set)" = list(
@@ -82,18 +74,18 @@ my_changes <- list(
 )
 
 my_bank <- list(
+  "Talisman of Ephemeral Power" =
+    list(trinket1 = "toep"),
   "Nemesis Gloves" =
     list(hands = list(int = 15, sp = 15, crit = 1)),
   "Band of Servitude" =
     list(finger1 = list(int = 9, sp = 23)),
   "Royal Seal of Eldre'Thalas" =
-    list(trinket2 = list(sp = 23)),
+    list(trinket1 = list(sp = 23)),
   "Felcloth Gloves" =
     list(hands = list(sp = 33)),
   "Eye of the Beast" =
-    list(trinket1 = list(crit = 2)),
-  "Eye of the Beast 2" =
-    list(trinket2 = list(crit = 2))
+    list(trinket1 = list(crit = 2))
 )
 
 show_statweights <- function(stats) {
@@ -114,46 +106,42 @@ show_result <- function(stats, changes) {
 
 show_statweights(my_stats)
 #>        int         sp       crit        hit        mp5 
-#>  0.3314658  1.0000000 12.8335981 11.6733465  0.2851733
+#>  0.3557876  1.0000000 13.3311072 11.6059905  0.2679929
 show_statweights(my_stats_ony)
 #>        int         sp       crit        hit        mp5 
-#>  0.3099809  1.0000000 10.9477804 11.6393004  0.2649764
+#>  0.3170777  1.0000000 11.3403729 11.6800715  0.2905289
 
 show_result(my_stats, my_changes)
 #>                                                dps  diff            slot
-#> BWL Neltharions's Tear                      528.91 18.97        trinket1
-#> BWL Neltharions's Tear 2                    528.43 18.49        trinket2
-#> BWL Mish'undare, Circlet of the Mind Flayer 525.73 15.79            head
-#> BWL Mish'undare, Circlet of the Mind (Set)  524.88 14.94      head/hands
-#> BWL Ebony Flame Gloves                      516.34  6.40           hands
-#> BWL Mantle of the Blackwing Cabal           515.98  6.04       shoulders
-#> BWL Mantle of the Blackwing Cabal (Set)     515.43  5.49 shoulders/hands
-#> ZG The Hexxer's Cover                       513.35  3.41            head
-#> ZG The Hexxer's Cover (Set)                 512.76  2.82      head/hands
-#> MC Mana Igniting Cord                       511.46  1.52           waist
-#> MC Talisman of Ephemeral Power              510.92  0.98        trinket1
-#> MC Mana Igniting Cord (Set)                 510.88  0.94     waist/hands
-#> MC Talisman of Ephemeral Power 2            510.32  0.38        trinket2
-#> current                                     509.94  0.00            <NA>
-#> ZG Zanzil's Seal                            505.62 -4.32         finger1
-#> ZG Zanzil's Concentration                   504.51 -5.42 finger1/finger2
+#> BWL Mish'undare, Circlet of the Mind Flayer 545.06 16.15            head
+#> BWL Mish'undare, Circlet of the Mind (Set)  544.62 15.71      head/hands
+#> BWL Ebony Flame Gloves                      535.45  6.54           hands
+#> BWL Mantle of the Blackwing Cabal           534.99  6.09       shoulders
+#> BWL Mantle of the Blackwing Cabal (Set)     534.83  5.92 shoulders/hands
+#> ZG The Hexxer's Cover                       532.25  3.34            head
+#> ZG The Hexxer's Cover (Set)                 532.04  3.13      head/hands
+#> MC Mana Igniting Cord                       530.37  1.46           waist
+#> MC Mana Igniting Cord (Set)                 530.04  1.13     waist/hands
+#> current                                     528.91  0.00            <NA>
+#> ZG Zanzil's Seal                            524.27 -4.64         finger1
+#> ZG Zanzil's Concentration                   522.98 -5.93 finger1/finger2
 
 show_result(my_stats, my_bank)
 #>                                                dps  diff     slot
-#> current                                     509.94  0.00     <NA>
-#> Nemesis Gloves                              509.52 -0.42    hands
-#> Felcloth Gloves                             509.33 -0.61    hands
-#> Eye of the Beast                            508.24 -1.70 trinket1
-#> Eye of the Beast 2                          507.61 -2.33 trinket2
-#> Royal Seal of Eldre'Thalas                  506.55 -3.39 trinket2
-#> Band of Servitude                           505.65 -4.29  finger1
+#> Talisman of Ephemeral Power                 529.33  0.42 trinket1
+#> current                                     528.91  0.00     <NA>
+#> Nemesis Gloves                              528.68 -0.23    hands
+#> Felcloth Gloves                             528.36 -0.54    hands
+#> Eye of the Beast                            526.76 -2.15 trinket1
+#> Royal Seal of Eldre'Thalas                  525.48 -3.43 trinket1
+#> Band of Servitude                           524.47 -4.44  finger1
 show_result(my_stats_ony, my_bank)
 #>                                                dps  diff     slot
-#> current                                     571.95  0.00     <NA>
-#> Felcloth Gloves                             571.45 -0.50    hands
-#> Nemesis Gloves                              570.31 -1.64    hands
-#> Royal Seal of Eldre'Thalas                  568.16 -3.79 trinket2
-#> Eye of the Beast                            567.82 -4.13 trinket1
-#> Eye of the Beast 2                          567.13 -4.82 trinket2
-#> Band of Servitude                           567.08 -4.87  finger1
+#> Talisman of Ephemeral Power                 593.74  0.46 trinket1
+#> current                                     593.27  0.00     <NA>
+#> Felcloth Gloves                             592.80 -0.47    hands
+#> Nemesis Gloves                              591.77 -1.50    hands
+#> Royal Seal of Eldre'Thalas                  589.42 -3.85 trinket1
+#> Eye of the Beast                            588.56 -4.72 trinket1
+#> Band of Servitude                           588.22 -5.06  finger1
 ```
