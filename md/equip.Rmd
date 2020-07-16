@@ -41,7 +41,7 @@ my_equip <- list(
   feet = list(int = 16, sp = 19, hit = 1),
   finger1 = list(int = 6, sp = 33),
   finger2 = list(int = 12, sp = 21, hit = 1),
-  trinket1 = "zhc",
+  trinket1 = "toep",
   trinket2 = list(sp = 29, hit = 2),
   weapon = list(int = 29, sp = 84, crit = 2),
   wand = list(sp = 18)
@@ -83,8 +83,10 @@ my_changes <- list(
 )
 
 my_bank <- list(
-  "Talisman of Ephemeral Power" =
-    list(trinket1 = "toep"),
+  "Zandalarian Hero Charm" =
+    list(trinket1 = "zhc"),
+  "Briarwood Reed" =
+    list(trinket1 = list(sp = 29)),
   "Nemesis Gloves" =
     list(hands = list(int = 15, sp = 15, crit = 1)),
   "Band of Servitude" =
@@ -99,7 +101,7 @@ my_bank <- list(
 
 show_statweights <- function(stats) {
   set.seed(42)
-  compute_statweights(stats, trinkets = "zhc")
+  compute_statweights(stats, trinkets = "toep")
 }
 
 w <- max(nchar(names(c(my_changes, my_bank))))
