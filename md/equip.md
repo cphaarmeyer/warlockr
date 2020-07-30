@@ -59,16 +59,50 @@ my_changes <- list(
     head = list(int = 24, sp = 35, crit = 2),
     hands = list(int = 15, sp = 15, crit = 1)
   ),
-  "ZG Zanzil's Seal" =
-    list(finger1 = list(int = 10, sp = 11, hit = 1)),
-  "ZG Zanzil's Concentration" = list(
-    finger1 = list(int = 10, sp = 11, hit = 1),
-    finger2 = list(int = 13, sp = 6, hit = 1 + 1, mp5 = 4)
-  ),
   "ZG The Hexxer's Cover" =
     list(head = list(int = 10, sp = 41)),
   "ZG The Hexxer's Cover (Set)" = list(
     head = list(int = 10, sp = 41),
+    hands = list(int = 15, sp = 15, crit = 1)
+  ),
+  "AQ Ring of Unspoken Names" =
+    list(finger1 = list(sp = 14, crit = 1, hit = 1)),
+  "AQ Dustwind Turban" =
+    list(head = list(int = 29, sp = 31, crit = 1)),
+  "AQ Dustwind Turban (Set)" = list(
+    head = list(int = 29, sp = 31, crit = 1),
+    hands = list(int = 15, sp = 15, crit = 1)
+  ),
+  "AQ Blessed Quiraji Acolyte Staff" =
+    list(weapon = list(int = 33, sp = 76, crit = 1, hit = 2)),
+  "AQ Wand of Quiraji Nobility" =
+    list(wand = list(sp = 19)),
+  "AQ Amulet of Vek'nilash" =
+    list(neck = list(int = 5, sp = 27, crit = 1)),
+  "AQ Cloak of the Devoured" =
+    list(back = list(int = 10, sp = 30, hit = 1)),
+  "AQ Eyestalk Waist Cord" =
+    list(waist = list(int = 9, sp = 41, crit = 1)),
+  "AQ Eyestalk Waist Cord (Set)" = list(
+    waist = list(int = 9, sp = 41, crit = 1),
+    hands = list(int = 15, sp = 15, crit = 1)
+  ),
+  "AQ Dark Storm Gauntlets" =
+    list(hands = list(int = 15, sp = 37, hit = 1)),
+  "AQ Ring of the Fallen God" =
+    list(finger1 = list(int = 6, sp = 37, hit = 1)),
+  "AQ Ritssyn's Ring of Chaos" =
+    list(finger1 = list(sp = 25, crit = 1)),
+  "Doomcaller's Circlet" =
+    list(head = list(int = 24, sp = 33, crit = 1, hit = 1)),
+  "Doomcaller's Circlet (Set)" = list(
+    head = list(int = 24, sp = 33, crit = 1, hit = 1),
+    hands = list(int = 15, sp = 15, crit = 1)
+  ),
+  "Doomcaller's Mantle" =
+    list(shoulders = list(int = 11, sp = 28, hit = 1)),
+  "Doomcaller's Mantle (Set)" = list(
+    shoulders = list(int = 11, sp = 28, hit = 1),
     hands = list(int = 15, sp = 15, crit = 1)
   )
 )
@@ -117,16 +151,30 @@ show_result(my_stats, my_changes)
 #>                                                dps  diff            slot
 #> BWL Mish'undare, Circlet of the Mind Flayer 545.48 16.15            head
 #> BWL Mish'undare, Circlet of the Mind (Set)  545.04 15.71      head/hands
+#> Doomcaller's Circlet                        543.68 14.36            head
+#> Doomcaller's Circlet (Set)                  543.33 14.01      head/hands
+#> AQ Dark Storm Gauntlets                     539.32  9.99           hands
+#> AQ Dustwind Turban                          537.75  8.42            head
+#> AQ Eyestalk Waist Cord                      537.54  8.21           waist
+#> AQ Dustwind Turban (Set)                    537.36  8.03      head/hands
+#> AQ Eyestalk Waist Cord (Set)                537.32  7.99     waist/hands
+#> Doomcaller's Mantle                         537.16  7.83       shoulders
+#> AQ Ring of the Fallen God                   537.08  7.75         finger1
+#> Doomcaller's Mantle (Set)                   536.91  7.58 shoulders/hands
 #> BWL Ebony Flame Gloves                      535.87  6.54           hands
 #> BWL Mantle of the Blackwing Cabal           535.41  6.09       shoulders
 #> BWL Mantle of the Blackwing Cabal (Set)     535.23  5.91 shoulders/hands
+#> AQ Cloak of the Devoured                    532.78  3.46            back
 #> ZG The Hexxer's Cover                       532.65  3.32            head
 #> ZG The Hexxer's Cover (Set)                 532.45  3.13      head/hands
+#> AQ Amulet of Vek'nilash                     531.87  2.54            neck
+#> AQ Ring of Unspoken Names                   530.85  1.53         finger1
 #> MC Mana Igniting Cord                       530.78  1.45           waist
+#> AQ Ritssyn's Ring of Chaos                  530.77  1.45         finger1
+#> AQ Blessed Quiraji Acolyte Staff            530.74  1.42          weapon
 #> MC Mana Igniting Cord (Set)                 530.44  1.12     waist/hands
+#> AQ Wand of Quiraji Nobility                 529.77  0.45            wand
 #> current                                     529.33  0.00            <NA>
-#> ZG Zanzil's Seal                            524.68 -4.64         finger1
-#> ZG Zanzil's Concentration                   523.39 -5.93 finger1/finger2
 
 show_result(my_stats, my_bank)
 #>                                                dps  diff     slot
