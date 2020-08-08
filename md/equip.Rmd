@@ -18,10 +18,10 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 273 + 31 + 16,
-  sp = 524 + 33 + 40,
+  int = 275 + 31 + 16,
+  sp = 505 + 76 + 40,
   crit = 5,
-  hit = 10,
+  hit = 9,
   mp5 = 0
 )
 unlist(my_stats)
@@ -35,7 +35,7 @@ my_equip <- list(
   back = list(int = 10, sp = 23, hit = 1),
   chest = list(int = 13, sp = 27, hit = 2),
   wrist = list(int = 12, sp = 21, hit = 1),
-  hands = list(int = 10, sp = 19, hit = 1),
+  hands = list(int = 12, sp = 43),
   waist = list(int = 8, sp = 25, crit = 1),
   legs = list(int = 6, sp = 37, hit = 1),
   feet = list(int = 16, sp = 19, hit = 1),
@@ -60,8 +60,6 @@ my_changes <- list(
     shoulders = list(int = 16, sp = 34),
     hands = list(int = 15, sp = 15, crit = 1)
   ),
-  "BWL Ebony Flame Gloves" =
-    list(hands = list(int = 12, sp = 43)),
   "BWL Mish'undare, Circlet of the Mind Flayer" =
     list(head = list(int = 24, sp = 35, crit = 2)),
   "BWL Mish'undare, Circlet of the Mind (Set)" = list(
@@ -117,6 +115,8 @@ my_changes <- list(
 )
 
 my_bank <- list(
+  "Bloodtinged Gloves" =
+    list(hands = list(int = 10, sp = 19, hit = 1)),
   "Zandalarian Hero Charm" =
     list(trinket1 = "zhc"),
   "Briarwood Reed" =
@@ -127,8 +127,6 @@ my_bank <- list(
     list(finger1 = list(int = 9, sp = 23)),
   "Royal Seal of Eldre'Thalas" =
     list(trinket1 = list(sp = 23)),
-  "Felcloth Gloves" =
-    list(hands = list(sp = 33)),
   "Eye of the Beast" =
     list(trinket1 = list(crit = 2))
 )
