@@ -91,6 +91,10 @@ my_changes <- list(
     list(finger1 = list(int = 6, sp = 37, hit = 1)),
   "AQ Ritssyn's Ring of Chaos" =
     list(finger1 = list(sp = 25, crit = 1)),
+  "AQ Sharpened Silithid Femur + Jin'do's Bag" =
+    list(weapon = list(int = 7 + 11, sp = 72 + 18, crit = 1, hit = 1)),
+  "AQ Sharpened Silithid Femur + Royal Scepter" =
+    list(weapon = list(int = 7 + 9, sp = 72 + 20, crit = 1 + 1, hit = 1)),
   "Doomcaller's Circlet" =
     list(head = list(int = 24, sp = 33, crit = 1, hit = 1)),
   "Doomcaller's Circlet (Set)" = list(
@@ -155,6 +159,7 @@ show_result(my_stats, my_changes)
 #> Doomcaller's Mantle                         543.82  7.95       shoulders
 #> AQ Ring of the Fallen God                   543.79  7.92         finger1
 #> Doomcaller's Circlet (Set)                  543.33  7.46      head/hands
+#> AQ Sharpened Silithid Femur + Royal Scepter 543.27  7.40          weapon
 #> BWL Mantle of the Blackwing Cabal           541.89  6.02       shoulders
 #> AQ Cloak of the Devoured                    539.32  3.46            back
 #> AQ Dark Storm Gauntlets                     539.32  3.45           hands
@@ -168,6 +173,7 @@ show_result(my_stats, my_changes)
 #> AQ Eyestalk Waist Cord (Set)                537.32  1.45     waist/hands
 #> Doomcaller's Mantle (Set)                   536.91  1.04 shoulders/hands
 #> AQ Wand of Quiraji Nobility                 536.46  0.59            wand
+#> AQ Sharpened Silithid Femur + Jin'do's Bag  535.90  0.03          weapon
 #> current                                     535.87  0.00            <NA>
 #> BWL Mantle of the Blackwing Cabal (Set)     535.23 -0.64 shoulders/hands
 #> ZG The Hexxer's Cover (Set)                 532.45 -3.42      head/hands

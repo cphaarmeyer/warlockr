@@ -100,6 +100,10 @@ my_changes <- list(
     list(finger1 = list(int = 6, sp = 37, hit = 1)),
   "AQ Ritssyn's Ring of Chaos" =
     list(finger1 = list(sp = 25, crit = 1)),
+  "AQ Sharpened Silithid Femur + Jin'do's Bag" =
+    list(weapon = list(int = 7 + 11, sp = 72 + 18, crit = 1, hit = 1)),
+  "AQ Sharpened Silithid Femur + Royal Scepter" =
+    list(weapon = list(int = 7 + 9, sp = 72 + 20, crit = 1 + 1, hit = 1)),
   "Doomcaller's Circlet" =
     list(head = list(int = 24, sp = 33, crit = 1, hit = 1)),
   "Doomcaller's Circlet (Set)" = list(
