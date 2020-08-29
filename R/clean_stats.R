@@ -10,7 +10,7 @@
 #' clean_stats(list(crit = -1, hit = 1))
 clean_stats <- function(stats) {
   statnames <- c("int", "sp", "crit", "hit", "mp5")
-  if (!all(names(stats) %in% statnames)) warning("there are unused stats")
+  stopifnot(names(stats) %in% statnames)
   lapply(
     stats::setNames(nm = statnames),
     function(x) {
