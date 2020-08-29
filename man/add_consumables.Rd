@@ -4,7 +4,7 @@
 \alias{add_consumables}
 \title{Add Consumables}
 \usage{
-add_consumables(stats, consumables = c("gae", "eosp", "bwo"))
+add_consumables(stats, consumables = c("ai", "motw", "gae", "eosp", "bwo"))
 }
 \arguments{
 \item{stats}{a named list with the stats of the character including int, sp,
@@ -13,8 +13,10 @@ crit, hit and mp5}
 \item{consumables}{shortcuts of consumables}
 }
 \description{
-Adds consumables to stats.
+Adds consumables and buffs to stats.
 Available are:
+Arcane Intellect (ai),
+Mark of the Wild (motw),
 Greater Arcane Elixir (gae),
 Elixir of Shadow Power (eosp),
 Brilliant Wizard Oil (bwo),
