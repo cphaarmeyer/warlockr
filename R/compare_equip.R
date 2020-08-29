@@ -48,7 +48,7 @@ compare_equip <- function(stats, equip, changes,
                           timeframe = c(60, 300), iter = 50000) {
   stopifnot(check_equip(equip))
   stats_equip <- sum_stats(equip)
-  stats_base <- diff_stats(stats, stats_equip)
+  stats_base <- do_call_stats(list(stats, stats_equip), `-`)
   lst <- lapply(c(list(current = list()), changes), function(x) {
     equip[names(x)] <- x
     sum_stats(c(list(stats_base), equip))
