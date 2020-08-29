@@ -11,9 +11,7 @@
 clean_stats <- function(stats) {
   statnames <- stats::setNames(nm = c("int", "sp", "crit", "hit", "mp5"))
   stopifnot(names(stats) %in% statnames)
-  lapply(statnames, function(nm) {
-    null_to_0(stats[[nm]])
-  })
+  lapply(statnames, function(nm) null_to_0(stats[[nm]]))
 }
 
 null_to_0 <- function(x) {

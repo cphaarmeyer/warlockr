@@ -18,9 +18,7 @@ compare_dps <- function(stats_list, timeframe = c(60, 300), iter = 50000) {
   simulations <- lapply(stats_list, sim_dps,
     timeframe = timeframe, iter = iter, seed = seed
   )
-  dps <- vapply(simulations, function(x) mean(x[, 4]),
-    FUN.VALUE = double(1)
-  )
+  dps <- vapply(simulations, function(x) mean(x[, 4]), FUN.VALUE = double(1))
   df <- data.frame(dps = dps)
   if ("current" %in% row.names(df)) {
     dps <- df["current", "dps"]

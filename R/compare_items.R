@@ -21,9 +21,7 @@ compare_items <- function(stats, items, timeframe = c(60, 300), iter = 50000) {
   stats <- clean_stats(stats)
   stats_list <- c(
     list(current = stats),
-    lapply(items, function(x) {
-      sum_stats(list(stats, x))
-    })
+    lapply(items, function(x) sum_stats(list(stats, x)))
   )
   compare_dps(stats_list, timeframe = timeframe, iter = iter)
 }

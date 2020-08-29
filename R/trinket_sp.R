@@ -16,9 +16,7 @@ trinket_sp <- function(trinkets, times) {
     nsb_full + nsb_rest
   }
   toep <- if ("toep" %in% trinkets) {
-    lapply(get_nsb(15, 90), function(x) {
-      rep.int(175, x)
-    })
+    lapply(get_nsb(15, 90), function(x) rep.int(175, x))
   }
   zhc <- if ("zhc" %in% trinkets) {
     lapply(get_nsb(20, 120), function(x) {
@@ -26,7 +24,5 @@ trinket_sp <- function(trinkets, times) {
       rep(sp_seq, (x %/% 8) + 1)[seq_len(x)]
     })
   }
-  lapply(seq_along(times), function(x) {
-    c(toep[[x]], zhc[[x]])
-  })
+  lapply(seq_along(times), function(x) c(toep[[x]], zhc[[x]]))
 }
