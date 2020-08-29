@@ -10,10 +10,15 @@
 #' @return \code{TRUE} or \code{FALSE}
 #' @export
 check_equip <- function(equip) {
+  stopifnot(is_unique(names(equip)))
   slots <- c(
     "head", "neck", "shoulders", "back", "chest", "wrist",
     "hands", "waist", "legs", "feet", "finger1", "finger2",
     "trinket1", "trinket2", "weapon", "wand"
   )
-  setequal(unique(names(equip)), slots) & length(equip) == length(slots)
+  setequal(names(equip), slots)
+}
+
+is_unique <- function(x) {
+  anyDuplicated(x) == 0
 }

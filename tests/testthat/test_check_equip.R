@@ -11,10 +11,12 @@ test_that("check_equip works as expected", {
   equip_extra <- c(equip, list(a = list()))
   equip_typo <- c(equip[1:15], list(weapn = list()))
   equip_shuffle <- equip[sample.int(16)]
+  equip_mult <- c(equip, list(weapon = list()))
 
   expect_true(check_equip(equip))
   expect_false(check_equip(equip_miss))
   expect_false(check_equip(equip_extra))
   expect_false(check_equip(equip_typo))
   expect_true(check_equip(equip_shuffle))
+  expect_error(check_equip(equip_mult))
 })
