@@ -1,0 +1,53 @@
+head:
+  int: 16.0
+  sp: 32.0
+neck:
+  int: 7.0
+  sp: 34.0
+shoulders:
+  int: 13.0
+  sp: 23.0
+back:
+  int: 10.0
+  sp: 23.0
+  hit: 1.0
+chest:
+  int: 13.0
+  sp: 27.0
+  hit: 2.0
+wrist:
+  int: 12.0
+  sp: 21.0
+  hit: 1.0
+hands:
+  int: 12.0
+  sp: 43.0
+waist:
+  int: 8.0
+  sp: 25.0
+  crit: 1.0
+legs:
+  int: 6.0
+  sp: 37.0
+  hit: 1.0
+feet:
+  int: 16.0
+  sp: 19.0
+  hit: 1.0
+finger1:
+  int: 6.0
+  sp: 33.0
+finger2:
+  int: 12.0
+  sp: 21.0
+  hit: 1.0
+trinket1: toep
+trinket2:
+  sp: 29.0
+  hit: 2.0
+weapon:
+  int: 29.0
+  sp: 84.0
+  crit: 2.0
+wand:
+  sp: 18.0

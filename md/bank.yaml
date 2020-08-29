@@ -1,0 +1,25 @@
+Bloodtinged Gloves:
+  hands:
+    int: 10.0
+    sp: 19.0
+    hit: 1.0
+Zandalarian Hero Charm:
+  trinket1: zhc
+Briarwood Reed:
+  trinket1:
+    sp: 29.0
+Nemesis Gloves:
+  hands:
+    int: 15.0
+    sp: 15.0
+    crit: 1.0
+Band of Servitude:
+  finger1:
+    int: 9.0
+    sp: 23.0
+Royal Seal of Eldre'Thalas:
+  trinket1:
+    sp: 23.0
+Eye of the Beast:
+  trinket1:
+    crit: 2.0
