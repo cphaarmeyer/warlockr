@@ -14,9 +14,8 @@ sum_stats <- function(stats_list) {
   is_special <- vapply(stats_list, is.character, FUN.VALUE = logical(1))
   special <- stats_list[is_special]
   stats_list[is_special] <- NULL
-  stats_list <- lapply(stats_list, clean_stats)
   structure(
-    as.list(rowSums(vapply(stats_list, unlist, FUN.VALUE = double(5)))),
+    Reduce(f = function(...) do_call_stats(list(...), `+`), x = stats_list),
     trinkets = unlist(special)
   )
 }
