@@ -9,13 +9,13 @@
 #' @examples
 #' clean_stats(list(crit = -1, hit = 1))
 clean_stats <- function(stats) {
-  statnames <- c("int", "sp", "crit", "hit", "mp5")
+  statnames <- stats::setNames(nm = c("int", "sp", "crit", "hit", "mp5"))
   stopifnot(names(stats) %in% statnames)
-  lapply(
-    stats::setNames(nm = statnames),
-    function(x) {
-      y <- stats[[x]]
-      if (is.null(y)) 0 else y
-    }
-  )
+  lapply(statnames, function(nm) {
+    null_to_0(stats[[nm]])
+  })
+}
+
+null_to_0 <- function(x) {
+  if (is.null(x)) 0 else x
 }
