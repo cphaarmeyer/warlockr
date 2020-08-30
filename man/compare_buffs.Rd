@@ -31,10 +31,7 @@ a data frame
 Simulates dps with current stats and with new stats to compare them.
 }
 \examples{
-compare_buffs(with_buffs(
-  list(int = 275, sp = 581, crit = 5, hit = 9),
-  buffs = c("ai", "motw")
-),
-consumables = c("gae", "eosp", "bwo"), iter = 1000
+compare_buffs(with_buffs(list(int = 275, sp = 581, crit = 5, hit = 9)),
+  consumables = c("gae", "eosp", "bwo"), iter = 1000
 )
 }

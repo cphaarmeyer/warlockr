@@ -13,13 +13,13 @@ my_stats <- with_buffs(list(
   hit = 9,
   mp5 = 0
 ),
-buffs = c("ai", "motw"), consumables = "eosp"
+consumables = "eosp"
 )
 unlist(my_stats)
 #>  int   sp crit  hit  mp5 
 #>  322  621    5    9    0
 
-my_stats_ony <- with_buffs(my_stats, worldbuffs = "ony")
+my_stats_ony <- with_buffs(my_stats, buffs = character(), worldbuffs = "ony")
 
 my_equip <- yaml::read_yaml("equip.yaml")
 my_changes <- yaml::read_yaml("changes.yaml")

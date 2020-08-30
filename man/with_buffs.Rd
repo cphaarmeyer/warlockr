@@ -6,7 +6,7 @@
 \usage{
 with_buffs(
   stats,
-  buffs = character(),
+  buffs = c("ai", "motw"),
   consumables = character(),
   worldbuffs = character()
 )
@@ -43,6 +43,6 @@ Slip'kik's Savvy (dm)
 }
 \examples{
 with_buffs(list(int = 275, sp = 581, crit = 5, hit = 9),
-  buffs = c("ai", "motw"), worldbuffs = c("ony", "zg")
+  worldbuffs = c("ony", "zg")
 )
 }

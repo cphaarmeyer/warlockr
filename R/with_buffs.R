@@ -27,10 +27,10 @@
 #'
 #' @examples
 #' with_buffs(list(int = 275, sp = 581, crit = 5, hit = 9),
-#'   buffs = c("ai", "motw"), worldbuffs = c("ony", "zg")
+#'   worldbuffs = c("ony", "zg")
 #' )
 with_buffs <- function(stats,
-                       buffs = character(),
+                       buffs = c("ai", "motw"),
                        consumables = character(),
                        worldbuffs = character()) {
   stopifnot(

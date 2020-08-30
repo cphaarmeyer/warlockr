@@ -3,8 +3,8 @@ context("with_buffs")
 
 test_that("with_buffs works as expected", {
   stats <- list(int = 275, sp = 581, crit = 5, hit = 9)
-  out_id <- with_buffs(stats)
-  out_buffs <- with_buffs(stats, buffs = c("ai", "motw"))
+  out_id <- with_buffs(stats, buffs = character())
+  out_buffs <- with_buffs(stats)
   out_consumables <- with_buffs(stats, consumables = c("gae", "eosp"))
   out_wordbuffs <- with_buffs(stats, worldbuffs = c("ony", "zg"))
   out_mult <- with_buffs(stats,

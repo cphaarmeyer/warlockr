@@ -49,7 +49,7 @@ my_stats <- with_buffs(list(
   crit = 5,
   hit = 2
 ),
-buffs = c("ai", "motw"), consumables = "eosp"
+consumables = "eosp"
 )
 ```
 
@@ -126,7 +126,7 @@ df[order(-df$dps), ]
 If you want to know what impact world buffs have, simulate again.
 
 ```{r ony}
-my_stats <- with_buffs(my_stats, worldbuffs = "ony")
+my_stats <- with_buffs(my_stats, buffs = character(), worldbuffs = "ony")
 set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
