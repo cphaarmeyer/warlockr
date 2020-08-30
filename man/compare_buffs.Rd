@@ -4,11 +4,21 @@
 \alias{compare_buffs}
 \title{Compare Buffs}
 \usage{
-compare_buffs(stats, timeframe = c(60, 300), iter = 50000)
+compare_buffs(
+  stats,
+  consumables = character(),
+  worldbuffs = character(),
+  timeframe = c(60, 300),
+  iter = 50000
+)
 }
 \arguments{
 \item{stats}{a named list with the stats of the character including int, sp,
 crit, hit and mp5}
+
+\item{consumables}{shortcuts of consumables}
+
+\item{worldbuffs}{shortcuts of worldbuffs}
 
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
@@ -25,6 +35,6 @@ compare_buffs(with_buffs(
   list(int = 275, sp = 581, crit = 5, hit = 9),
   buffs = c("ai", "motw")
 ),
-iter = 1000
+consumables = c("gae", "eosp", "bwo"), iter = 1000
 )
 }
