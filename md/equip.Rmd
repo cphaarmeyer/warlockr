@@ -17,16 +17,18 @@ This file keeps track of my current stats, equip and potential upgrades.
 ```{r}
 library(warlockr)
 
-my_stats <- list(
-  int = 275 + 31 + 16,
-  sp = 505 + 76 + 40,
+my_stats <- with_buffs(list(
+  int = 275,
+  sp = 505 + 76,
   crit = 5,
   hit = 9,
   mp5 = 0
+),
+buffs = c("ai", "motw"), consumables = "eosp"
 )
 unlist(my_stats)
 
-my_stats_ony <- sum_stats(list(my_stats, list(crit = 10)))
+my_stats_ony <- with_buffs(my_stats, worldbuffs = "ony")
 
 my_equip <- yaml::read_yaml("equip.yaml")
 my_changes <- yaml::read_yaml("changes.yaml")

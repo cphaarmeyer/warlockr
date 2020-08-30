@@ -36,11 +36,13 @@ But first we set up the simulation with our current stats.
 
 ``` r
 library(warlockr)
-my_stats <- list(
-  int = 238 + 31 + 16, # with buffs
-  sp = 402 + 59 + 40, # shadow spell damage
+my_stats <- with_buffs(list(
+  int = 238,
+  sp = 402 + 59, # shadow spell damage
   crit = 5,
   hit = 2
+),
+buffs = c("ai", "motw"), consumables = "eosp"
 )
 ```
 
@@ -132,7 +134,7 @@ df[order(-df$dps), ]
 If you want to know what impact world buffs have, simulate again.
 
 ``` r
-my_stats$crit <- my_stats$crit + 10
+my_stats <- with_buffs(my_stats, worldbuffs = "ony")
 set.seed(42)
 weights_ony <- compute_statweights(my_stats)
 weights_ony
