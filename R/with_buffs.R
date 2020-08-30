@@ -2,9 +2,26 @@
 #'
 #' Adds buffs to stats.
 #'
-#' @inheritParams add_consumables
+#' Available buffs:
+#' Arcane Intellect (ai),
+#' Mark of the Wild (motw)
+#'
+#' Available consumables:
+#' Greater Arcane Elixir (gae),
+#' Elixir of Shadow Power (eosp),
+#' Brilliant Wizard Oil (bwo),
+#' Flask of Supreme Power (fosp)
+#'
+#' Available worldbuffs:
+#' Rallying Cry of the Dragonslayer (ony),
+#' Spirit of Zandalar (zg),
+#' Songflower Serenade (ss),
+#' Slip'kik's Savvy (dm)
+#'
+#' @inheritParams compare_equip
 #' @param buffs shortcuts of buffs
-#' @inheritParams add_worldbuffs
+#' @param consumables shortcuts of consumables
+#' @param worldbuffs shortcuts of worldbuffs
 #'
 #' @export
 #'
@@ -30,3 +47,22 @@ with_buffs <- function(stats,
   if (has_zg) out[["int"]] <- round(out[["int"]] * 1.1)
   out
 }
+
+available_buffs <- list(
+  ai = list(int = 31),
+  motw = list(int = 16)
+)
+
+available_consumables <- list(
+  gae = list(sp = 35),
+  eosp = list(sp = 40),
+  bwo = list(sp = 30, crit = 1),
+  fosp = list(sp = 150)
+)
+
+available_worldbuffs <- list(
+  ony = list(crit = 10),
+  zg = "zg",
+  ss = list(int = 15, crit = 5),
+  dm = list(crit = 3)
+)

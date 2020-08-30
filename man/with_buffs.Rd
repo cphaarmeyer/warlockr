@@ -24,6 +24,23 @@ crit, hit and mp5}
 \description{
 Adds buffs to stats.
 }
+\details{
+Available buffs:
+Arcane Intellect (ai),
+Mark of the Wild (motw)
+
+Available consumables:
+Greater Arcane Elixir (gae),
+Elixir of Shadow Power (eosp),
+Brilliant Wizard Oil (bwo),
+Flask of Supreme Power (fosp)
+
+Available worldbuffs:
+Rallying Cry of the Dragonslayer (ony),
+Spirit of Zandalar (zg),
+Songflower Serenade (ss),
+Slip'kik's Savvy (dm)
+}
 \examples{
 with_buffs(list(int = 275, sp = 581, crit = 5, hit = 9))
 }
