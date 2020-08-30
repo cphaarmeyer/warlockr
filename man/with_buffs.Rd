@@ -6,9 +6,9 @@
 \usage{
 with_buffs(
   stats,
-  buffs = c("ai", "motw"),
-  consumables = c("gae", "eosp", "bwo"),
-  worldbuffs = c("ony", "zg")
+  buffs = character(),
+  consumables = character(),
+  worldbuffs = character()
 )
 }
 \arguments{
@@ -42,5 +42,7 @@ Songflower Serenade (ss),
 Slip'kik's Savvy (dm)
 }
 \examples{
-with_buffs(list(int = 275, sp = 581, crit = 5, hit = 9))
+with_buffs(list(int = 275, sp = 581, crit = 5, hit = 9),
+  buffs = c("ai", "motw"), worldbuffs = c("ony", "zg")
+)
 }

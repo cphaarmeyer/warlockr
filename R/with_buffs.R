@@ -26,11 +26,13 @@
 #' @export
 #'
 #' @examples
-#' with_buffs(list(int = 275, sp = 581, crit = 5, hit = 9))
+#' with_buffs(list(int = 275, sp = 581, crit = 5, hit = 9),
+#'   buffs = c("ai", "motw"), worldbuffs = c("ony", "zg")
+#' )
 with_buffs <- function(stats,
-                       buffs = c("ai", "motw"),
-                       consumables = c("gae", "eosp", "bwo"),
-                       worldbuffs = c("ony", "zg")) {
+                       buffs = character(),
+                       consumables = character(),
+                       worldbuffs = character()) {
   stopifnot(
     buffs %in% names(available_buffs),
     consumables %in% names(available_consumables),
