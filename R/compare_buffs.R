@@ -20,11 +20,11 @@ compare_buffs <- function(stats,
   stats_list <- c(
     list(current = stats),
     lapply(
-      stats::setNames(nm = consumables),
+      char_set_names(consumables),
       function(nm) with_buffs(stats, consumables = nm)
     ),
     lapply(
-      stats::setNames(nm = worldbuffs),
+      char_set_names(worldbuffs),
       function(nm) with_buffs(stats, worldbuffs = nm)
     )
   )

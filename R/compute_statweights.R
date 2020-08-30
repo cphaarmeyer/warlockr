@@ -25,7 +25,7 @@ statbudget <- list(
 compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000,
                                 trinkets = NULL) {
   stats <- clean_stats(stats)
-  statnames <- stats::setNames(nm = names(stats))
+  statnames <- char_set_names(names(stats))
   iter_total <- iter * length(statnames)
   max_change <- do_call_stats(
     list(statbudget), function(x) floor(2 * max(x) / x)
