@@ -19,13 +19,17 @@
 add_consumables <- function(stats, consumables = c(
                               "ai", "motw", "gae", "eosp", "bwo"
                             )) {
-  stopifnot(consumables %in% names(available_consumables))
-  sum_stats(c(list(stats), available_consumables[consumables]))
+  available <- c(available_buffs, available_consumables)
+  stopifnot(consumables %in% names(available))
+  sum_stats(c(list(stats), available[consumables]))
 }
 
-available_consumables <- list(
+available_buffs <- list(
   ai = list(int = 31),
-  motw = list(int = 16),
+  motw = list(int = 16)
+)
+
+available_consumables <- list(
   gae = list(sp = 35),
   eosp = list(sp = 40),
   bwo = list(sp = 30, crit = 1),
