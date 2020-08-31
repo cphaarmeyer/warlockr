@@ -78,11 +78,6 @@ AQ Blessed Quiraji Acolyte Staff:
 AQ Wand of Quiraji Nobility:
   wand:
     sp: 19.0
-AQ Amulet of Vek'nilash:
-  neck:
-    int: 5.0
-    sp: 27.0
-    crit: 1.0
 AQ Cloak of the Devoured:
   back:
     int: 10.0

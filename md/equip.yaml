@@ -2,8 +2,9 @@ head:
   int: 16.0
   sp: 32.0
 neck:
-  int: 7.0
-  sp: 34.0
+  int: 5.0
+  sp: 27.0
+  crit: 1.0
 shoulders:
   int: 13.0
   sp: 23.0
