@@ -36,11 +36,12 @@ feet:
   sp: 19.0
   hit: 1.0
 finger1:
-  int: 6.0
-  sp: 33.0
-finger2:
   int: 12.0
   sp: 21.0
+  hit: 1.0
+finger2:
+  sp: 14.0
+  crit: 1.0
   hit: 1.0
 trinket1: toep
 trinket2:

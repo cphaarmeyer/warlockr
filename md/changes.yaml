@@ -50,11 +50,6 @@ ZG The Hexxer's Cover (Set):
     int: 15.0
     sp: 15.0
     crit: 1.0
-AQ Ring of Unspoken Names:
-  finger1:
-    sp: 14.0
-    crit: 1.0
-    hit: 1.0
 AQ Dustwind Turban:
   head:
     int: 29.0
