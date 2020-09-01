@@ -148,3 +148,29 @@ Doomcaller's Mantle (Set):
     int: 15.0
     sp: 15.0
     crit: 1.0
+Rockfury Bracers:
+  wrist:
+    sp: 27.0
+    hit: 1.0
+Doomcaller's Robes:
+  chest:
+    int: 17.0
+    sp: 41.0
+    crit: 1.0
+Doomcaller's Footwraps:
+  feet:
+    int: 16.0
+    sp: 28.0
+Doomcaller's Trousers:
+  legs:
+    int: 24.0
+    sp: 34.0
+    crit: 1.0
+Fel Infused Leggings:
+  legs:
+    sp: 64.0
+Leggings of the Black Blizzard:
+  legs:
+    int: 16.0
+    sp: 41.0
+    crit: 1.0

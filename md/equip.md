@@ -57,20 +57,26 @@ show_result(my_stats, my_changes)
 #> AQ Sharpened Silithid Femur + Royal Scepter 552.29  7.66          weapon
 #> Doomcaller's Circlet (Set)                  551.86  7.23      head/hands
 #> AQ Ring of the Fallen God                   551.62  6.99         finger1
+#> Fel Infused Leggings                        551.00  6.38            legs
 #> BWL Mantle of the Blackwing Cabal           550.78  6.15       shoulders
+#> Leggings of the Black Blizzard              549.07  4.45            legs
 #> AQ Cloak of the Devoured                    548.18  3.55            back
 #> AQ Dark Storm Gauntlets                     548.15  3.53           hands
 #> ZG The Hexxer's Cover                       548.09  3.46            head
+#> Doomcaller's Trousers                       546.93  2.30            legs
+#> Doomcaller's Robes                          546.80  2.17           chest
 #> AQ Blessed Quiraji Acolyte Staff            546.45  1.82          weapon
 #> MC Mana Igniting Cord                       546.19  1.56           waist
 #> AQ Eyestalk Waist Cord (Set)                545.88  1.25     waist/hands
 #> AQ Dustwind Turban (Set)                    545.71  1.09      head/hands
+#> Rockfury Bracers                            545.61  0.99           wrist
 #> Doomcaller's Mantle (Set)                   545.53  0.90 shoulders/hands
 #> AQ Wand of Quiraji Nobility                 545.16  0.54            wand
 #> AQ Ritssyn's Ring of Chaos                  545.03  0.40         finger1
 #> AQ Sharpened Silithid Femur + Jin'do's Bag  544.91  0.28          weapon
 #> current                                     544.62  0.00            <NA>
 #> BWL Mantle of the Blackwing Cabal (Set)     543.65 -0.97 shoulders/hands
+#> Doomcaller's Footwraps                      543.02 -1.60            feet
 #> ZG The Hexxer's Cover (Set)                 541.02 -3.60      head/hands
 #> MC Mana Igniting Cord (Set)                 538.92 -5.71     waist/hands
 
