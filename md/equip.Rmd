@@ -21,7 +21,7 @@ my_stats <- list(
   int = 267 + 31 + 16,
   sp = 512 + 63 + 40,
   crit = 7,
-  hit = 9,
+  hit = 10,
   mp5 = 0
 )
 unlist(my_stats)
