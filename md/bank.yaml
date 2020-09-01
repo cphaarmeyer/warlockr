@@ -1,33 +1,33 @@
 Band of Dark Dominion:
   finger1:
-    int: 6.0
-    sp: 33.0
+    int: 6
+    sp: 33
 Choker of the Fire Lord:
   neck:
-    int: 7.0
-    sp: 34.0
+    int: 7
+    sp: 34
 Bloodtinged Gloves:
   hands:
-    int: 10.0
-    sp: 19.0
-    hit: 1.0
+    int: 10
+    sp: 19
+    hit: 1
 Zandalarian Hero Charm:
   trinket1: zhc
 Briarwood Reed:
   trinket1:
-    sp: 29.0
+    sp: 29
 Nemesis Gloves:
   hands:
-    int: 15.0
-    sp: 15.0
-    crit: 1.0
+    int: 15
+    sp: 15
+    crit: 1
 Band of Servitude:
   finger1:
-    int: 9.0
-    sp: 23.0
+    int: 9
+    sp: 23
 Royal Seal of Eldre'Thalas:
   trinket1:
-    sp: 23.0
+    sp: 23
 Eye of the Beast:
   trinket1:
-    crit: 2.0
+    crit: 2
