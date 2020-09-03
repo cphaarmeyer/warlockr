@@ -8,22 +8,10 @@ MC Mana Igniting Cord (Set):
     int: 16
     sp: 25
     crit: 1
-  hands:
-    int: 15
-    sp: 15
-    crit: 1
-BWL Mantle of the Blackwing Cabal:
   shoulders:
-    int: 16
-    sp: 34
-BWL Mantle of the Blackwing Cabal (Set):
-  shoulders:
-    int: 16
-    sp: 34
-  hands:
-    int: 15
-    sp: 15
-    crit: 1
+    int: 11
+    sp: 5
+    hit: 1
 BWL Mish'undare, Circlet of the Mind Flayer:
   head:
     int: 24
@@ -34,10 +22,10 @@ BWL Mish'undare, Circlet of the Mind (Set):
     int: 24
     sp: 35
     crit: 2
-  hands:
-    int: 15
-    sp: 15
-    crit: 1
+  shoulders:
+    int: 11
+    sp: 5
+    hit: 1
 ZG The Hexxer's Cover:
   head:
     int: 10
@@ -46,10 +34,10 @@ ZG The Hexxer's Cover (Set):
   head:
     int: 10
     sp: 41
-  hands:
-    int: 15
-    sp: 15
-    crit: 1
+  shoulders:
+    int: 11
+    sp: 5
+    hit: 1
 AQ Dustwind Turban:
   head:
     int: 29
@@ -60,10 +48,10 @@ AQ Dustwind Turban (Set):
     int: 29
     sp: 31
     crit: 1
-  hands:
-    int: 15
-    sp: 15
-    crit: 1
+  shoulders:
+    int: 11
+    sp: 5
+    hit: 1
 AQ Blessed Quiraji Acolyte Staff:
   weapon:
     int: 33
@@ -88,10 +76,10 @@ AQ Eyestalk Waist Cord (Set):
     int: 9
     sp: 41
     crit: 1
-  hands:
-    int: 15
-    sp: 15
-    crit: 1
+  shoulders:
+    int: 11
+    sp: 5
+    hit: 1
 AQ Dark Storm Gauntlets:
   hands:
     int: 15
@@ -130,24 +118,10 @@ Doomcaller's Circlet (Set):
     sp: 33
     crit: 1
     hit: 1
-  hands:
-    int: 15
-    sp: 15
-    crit: 1
-Doomcaller's Mantle:
   shoulders:
     int: 11
-    sp: 28
+    sp: 5
     hit: 1
-Doomcaller's Mantle (Set):
-  shoulders:
-    int: 11
-    sp: 28
-    hit: 1
-  hands:
-    int: 15
-    sp: 15
-    crit: 1
 Rockfury Bracers:
   wrist:
     sp: 27

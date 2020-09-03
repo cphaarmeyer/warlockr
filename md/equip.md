@@ -50,15 +50,15 @@ show_result(my_stats, my_changes)
 #>                                                dps  diff            slot
 #> BWL Mish'undare, Circlet of the Mind Flayer 566.98 16.42            head
 #> Doomcaller's Circlet                        565.44 14.88            head
-#> BWL Mish'undare, Circlet of the Mind (Set)  559.27  8.71      head/hands
+#> BWL Mish'undare, Circlet of the Mind (Set)  563.24 12.67  head/shoulders
+#> Doomcaller's Circlet (Set)                  561.51 10.95  head/shoulders
 #> AQ Dustwind Turban                          559.26  8.70            head
 #> AQ Eyestalk Waist Cord                      559.04  8.47           waist
-#> Doomcaller's Mantle                         558.73  8.17       shoulders
 #> AQ Sharpened Silithid Femur + Royal Scepter 558.26  7.70          weapon
-#> Doomcaller's Circlet (Set)                  557.84  7.28      head/hands
 #> AQ Ring of the Fallen God                   557.63  7.07         finger1
 #> Fel Infused Leggings                        557.22  6.66            legs
-#> BWL Mantle of the Blackwing Cabal           556.77  6.21       shoulders
+#> AQ Dustwind Turban (Set)                    555.49  4.92  head/shoulders
+#> AQ Eyestalk Waist Cord (Set)                555.30  4.74 waist/shoulders
 #> Leggings of the Black Blizzard              555.27  4.71            legs
 #> AQ Cloak of the Devoured                    554.14  3.58            back
 #> AQ Dark Storm Gauntlets                     554.09  3.52           hands
@@ -67,41 +67,43 @@ show_result(my_stats, my_changes)
 #> Doomcaller's Robes                          553.01  2.44           chest
 #> AQ Blessed Quiraji Acolyte Staff            552.33  1.76          weapon
 #> MC Mana Igniting Cord                       552.14  1.58           waist
-#> AQ Eyestalk Waist Cord (Set)                551.83  1.27     waist/hands
-#> AQ Dustwind Turban (Set)                    551.65  1.09      head/hands
 #> Rockfury Bracers                            551.55  0.99           wrist
-#> Doomcaller's Mantle (Set)                   551.44  0.87 shoulders/hands
 #> AQ Ritssyn's Ring of Chaos                  551.18  0.62         finger1
 #> AQ Wand of Quiraji Nobility                 551.10  0.54            wand
 #> AQ Sharpened Silithid Femur + Jin'do's Bag  550.80  0.23          weapon
 #> current                                     550.56  0.00            <NA>
-#> BWL Mantle of the Blackwing Cabal (Set)     549.58 -0.98 shoulders/hands
+#> ZG The Hexxer's Cover (Set)                 550.42 -0.14  head/shoulders
 #> Doomcaller's Footwraps                      549.16 -1.40            feet
-#> ZG The Hexxer's Cover (Set)                 546.92 -3.64      head/hands
-#> MC Mana Igniting Cord (Set)                 544.79 -5.77     waist/hands
+#> MC Mana Igniting Cord (Set)                 548.40 -2.16 waist/shoulders
 
 show_result(my_stats, my_bank)
-#>                                                dps  diff     slot
-#> current                                     550.56  0.00     <NA>
-#> Zandalarian Hero Charm                      550.13 -0.43 trinket1
-#> Briarwood Reed                              549.76 -0.80 trinket1
-#> Band of Dark Dominion                       549.70 -0.87  finger1
-#> Choker of the Fire Lord                     547.79 -2.77     neck
-#> Eye of the Beast                            547.74 -2.83 trinket1
-#> Royal Seal of Eldre'Thalas                  546.64 -3.93 trinket1
-#> Band of Servitude                           545.05 -5.51  finger1
-#> Bloodtinged Gloves                          543.77 -6.79    hands
-#> Nemesis Gloves                              543.32 -7.25    hands
+#>                                                dps  diff            slot
+#> Doomcaller's Mantle                         558.73  8.17       shoulders
+#> current                                     550.56  0.00            <NA>
+#> Zandalarian Hero Charm                      550.13 -0.43        trinket1
+#> Briarwood Reed                              549.76 -0.80        trinket1
+#> Band of Dark Dominion                       549.70 -0.87         finger1
+#> Choker of the Fire Lord                     547.79 -2.77            neck
+#> Eye of the Beast                            547.74 -2.83        trinket1
+#> Doomcaller's Mantle (Set)                   546.88 -3.69       shoulders
+#> Royal Seal of Eldre'Thalas                  546.64 -3.93        trinket1
+#> Band of Servitude                           545.05 -5.51         finger1
+#> Bloodtinged Gloves                          543.77 -6.79           hands
+#> Nemesis Gloves                              543.32 -7.25           hands
+#> Nemesis Gloves (Set)                        541.08 -9.48 hands/shoulders
 show_result(my_stats_ony, my_bank)
-#>                                                dps  diff     slot
-#> current                                     615.26  0.00     <NA>
-#> Zandalarian Hero Charm                      614.78 -0.48 trinket1
-#> Band of Dark Dominion                       614.40 -0.85  finger1
-#> Briarwood Reed                              614.37 -0.89 trinket1
-#> Choker of the Fire Lord                     613.36 -1.89     neck
-#> Royal Seal of Eldre'Thalas                  610.87 -4.39 trinket1
-#> Eye of the Beast                            609.76 -5.50 trinket1
-#> Band of Servitude                           609.15 -6.11  finger1
-#> Bloodtinged Gloves                          607.70 -7.56    hands
-#> Nemesis Gloves                              605.88 -9.37    hands
+#>                                                dps   diff            slot
+#> Doomcaller's Mantle                         624.41   9.16       shoulders
+#> current                                     615.26   0.00            <NA>
+#> Zandalarian Hero Charm                      614.78  -0.48        trinket1
+#> Band of Dark Dominion                       614.40  -0.85         finger1
+#> Briarwood Reed                              614.37  -0.89        trinket1
+#> Choker of the Fire Lord                     613.36  -1.89            neck
+#> Doomcaller's Mantle (Set)                   611.17  -4.09       shoulders
+#> Royal Seal of Eldre'Thalas                  610.87  -4.39        trinket1
+#> Eye of the Beast                            609.76  -5.50        trinket1
+#> Band of Servitude                           609.15  -6.11         finger1
+#> Bloodtinged Gloves                          607.70  -7.56           hands
+#> Nemesis Gloves                              605.88  -9.37           hands
+#> Nemesis Gloves (Set)                        603.45 -11.81 hands/shoulders
 ```
