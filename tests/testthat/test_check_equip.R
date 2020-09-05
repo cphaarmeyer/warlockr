@@ -18,5 +18,5 @@ test_that("check_equip works as expected", {
   expect_false(check_equip(equip_extra))
   expect_false(check_equip(equip_typo))
   expect_true(check_equip(equip_shuffle))
-  expect_error(check_equip(equip_mult))
+  expect_false(check_equip(equip_mult))
 })
