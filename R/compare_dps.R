@@ -19,10 +19,13 @@ compare_dps <- function(stats_list, timeframe = c(60, 300), iter = 50000) {
     timeframe = timeframe, iter = iter, seed = seed
   )
   dps <- vapply(simulations, function(x) mean(x[, 4]), FUN.VALUE = double(1))
-  df <- data.frame(dps = dps)
+  add_diff_col(data.frame(dps = dps))
+}
+
+add_diff_col <- function(df) {
   if ("current" %in% row.names(df)) {
-    dps <- df["current", "dps"]
-    df[["diff"]] <- df[["dps"]] - dps
+    current_dps <- df[["current", "dps"]]
+    df[["diff"]] <- df[["dps"]] - current_dps
   }
   df
 }
