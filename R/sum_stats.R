@@ -16,7 +16,7 @@ sum_stats <- function(stats_list) {
   special <- stats_list[is_special]
   stats_list[is_special] <- NULL
   structure(
-    do_call_stats(stats_list, function(...) mlapply(sum, ...)),
+    do_call_stats(stats_list, function(...) Map(sum, ...)),
     trinkets = unlist(special)
   )
 }
