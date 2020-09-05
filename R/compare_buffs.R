@@ -2,6 +2,7 @@
 #'
 #' @inherit compare_items
 #' @inheritParams with_buffs
+#' @inheritParams compare_dps
 #'
 #' @export
 #'
@@ -13,7 +14,8 @@ compare_buffs <- function(stats,
                           consumables = character(),
                           worldbuffs = character(),
                           timeframe = c(60, 300),
-                          iter = 50000) {
+                          iter = 50000,
+                          seed = NULL) {
   with_buffs_trimmed <- function(...) with_buffs(..., buffs = character())
   with_consumables <- function(nm) with_buffs_trimmed(stats, consumables = nm)
   with_worlbuffs <- function(nm) with_buffs_trimmed(stats, worldbuffs = nm)
@@ -22,5 +24,5 @@ compare_buffs <- function(stats,
     lapply(char_set_names(consumables), with_consumables),
     lapply(char_set_names(worldbuffs), with_worlbuffs)
   )
-  compare_dps(stats_list, timeframe = timeframe, iter = iter)
+  compare_dps(stats_list, timeframe = timeframe, iter = iter, seed = seed)
 }

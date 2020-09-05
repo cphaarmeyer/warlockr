@@ -13,8 +13,11 @@
 #' ),
 #' iter = 1000
 #' )
-compare_dps <- function(stats_list, timeframe = c(60, 300), iter = 50000) {
-  seed <- sample(1:1000, 1)
+compare_dps <- function(stats_list,
+                        timeframe = c(60, 300),
+                        iter = 50000,
+                        seed = NULL) {
+  if (is.null(seed)) seed <- sample(1:1000, 1)
   simulations <- lapply(stats_list, sim_dps,
     timeframe = timeframe, iter = iter, seed = seed
   )
