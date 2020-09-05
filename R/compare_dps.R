@@ -17,7 +17,7 @@ compare_dps <- function(stats_list,
                         timeframe = c(60, 300),
                         iter = 50000,
                         seed = NULL) {
-  if (is.null(seed)) seed <- sample(1:1000, 1)
+  if (is.null(seed)) seed <- sample_seed()
   simulations <- lapply(stats_list, sim_dps,
     timeframe = timeframe, iter = iter, seed = seed
   )
@@ -32,3 +32,5 @@ add_diff_col <- function(df) {
   }
   df
 }
+
+sample_seed <- function() sample(1:1000, 1)
