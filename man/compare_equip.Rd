@@ -23,7 +23,7 @@ a data frame
 }
 \description{
 Similar to \code{compare_items} but different interface.
-See \code{check_equip} for more details.
+See \code{is_equip} for more details.
 }
 \examples{
 my_stats <- list(

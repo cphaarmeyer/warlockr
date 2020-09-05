@@ -1,10 +1,10 @@
 #' Compare Equip
 #'
 #' Similar to \code{compare_items} but different interface.
-#' See \code{check_equip} for more details.
+#' See \code{is_equip} for more details.
 #'
 #' @inheritParams compare_items
-#' @inheritParams check_equip
+#' @inheritParams is_equip
 #' @param changes named list with the item changes
 #'
 #' @return a data frame
@@ -46,7 +46,7 @@
 #' compare_equip(my_stats, my_equip, my_changes, iter = 1000)
 compare_equip <- function(stats, equip, changes,
                           timeframe = c(60, 300), iter = 50000) {
-  stopifnot(check_equip(equip))
+  stopifnot(is_equip(equip))
   stats_equip <- sum_stats(equip)
   stats_base <- do_call_stats(list(stats, stats_equip), `-`)
   lst <- lapply(c(list(current = list()), changes), function(x) {

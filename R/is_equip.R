@@ -1,4 +1,4 @@
-#' Check Equip
+#' Is Equip
 #'
 #' Check if an equipment list has all slots filled.
 #' These are head, neck, shoulders, back, chest, wrist, hands, waist, legs,
@@ -9,7 +9,7 @@
 #'
 #' @return \code{TRUE} or \code{FALSE}
 #' @export
-check_equip <- function(equip) {
+is_equip <- function(equip) {
   slots <- c(
     "head", "neck", "shoulders", "back", "chest", "wrist",
     "hands", "waist", "legs", "feet", "finger1", "finger2",
