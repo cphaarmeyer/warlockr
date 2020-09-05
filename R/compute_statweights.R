@@ -37,14 +37,13 @@ statbudget <- list(
   mp5 = 2.5
 )
 
+mlapply <- function(...) mapply(..., SIMPLIFY = FALSE)
+
 expand_stats <- function(stats) {
-  stats <- clean_stats(stats)
   max_change <- do_call_stats(
     list(statbudget), function(x) floor(2 * max(x) / x)
   )
-  lapply(statnames, function(nm) {
-    max(0, stats[[nm]] - max_change[[nm]]):(stats[[nm]] + max_change[[nm]])
-  })
+  mlapply(function(x, d) max(0, x - d):(x + d), clean_stats(stats), max_change)
 }
 
 sample_stats <- function(stats, n) {

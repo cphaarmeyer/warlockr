@@ -18,6 +18,7 @@ Sum Stats
 \examples{
 sum_stats(list(
   list(int = 1, sp = 2),
+  list(sp = 2, crit = 1),
   list(crit = 3, hit = 4)
 ))
 }

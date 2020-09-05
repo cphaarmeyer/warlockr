@@ -11,7 +11,7 @@ test_that("with_buffs works as expected", {
     buffs = c("ai", "motw"), worldbuffs = c("ony", "zg")
   )
 
-  expect_identical(out_id, stats)
+  expect_identical(out_id, clean_stats(stats))
   is_greater_somewhere <- function(out) {
     do.call(any, do_call_stats(list(out, stats), `>`))
   }
