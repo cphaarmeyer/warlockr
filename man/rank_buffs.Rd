@@ -9,7 +9,8 @@ rank_buffs(
   consumables = character(),
   worldbuffs = character(),
   timeframe = c(60, 300),
-  iter = 50000
+  iter = 50000,
+  seed = NULL
 )
 }
 \arguments{
@@ -23,6 +24,8 @@ crit, hit and mp5}
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
 \item{iter}{number of iterations}
+
+\item{seed}{optional seed}
 }
 \description{
 Ranks buffs by choosing the best one iteratively.

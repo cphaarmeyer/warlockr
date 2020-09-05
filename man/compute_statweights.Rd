@@ -8,6 +8,7 @@ compute_statweights(
   stats,
   timeframe = c(60, 300),
   iter = 50000,
+  seed = NULL,
   trinkets = NULL
 )
 }
@@ -18,6 +19,8 @@ crit, hit and mp5}
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
 \item{iter}{number of iterations}
+
+\item{seed}{optional seed}
 
 \item{trinkets}{which use trinkets are equipped, currently implemented:
 toep (Talisman of Ephemeral Power)

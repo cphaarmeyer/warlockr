@@ -17,10 +17,13 @@
 #'   ),
 #'   iter = 1000
 #' )
-compare_items <- function(stats, items, timeframe = c(60, 300), iter = 50000) {
+compare_items <- function(stats, items,
+                          timeframe = c(60, 300),
+                          iter = 50000,
+                          seed = NULL) {
   stats_list <- c(
     list(current = stats),
     lapply(items, function(x) sum_stats(list(stats, x)))
   )
-  compare_dps(stats_list, timeframe = timeframe, iter = iter)
+  compare_dps(stats_list, timeframe = timeframe, iter = iter, seed = seed)
 }

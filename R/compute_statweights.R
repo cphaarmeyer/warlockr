@@ -14,9 +14,13 @@
 #'   list(int = 277, sp = 346, crit = 2, hit = 2),
 #'   iter = 1000
 #' )
-compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000,
+compute_statweights <- function(stats,
+                                timeframe = c(60, 300),
+                                iter = 50000,
+                                seed = NULL,
                                 trinkets = NULL) {
   iter_total <- iter * length(statnames)
+  if (!is.null(seed)) set.seed(seed)
   df <- sample_sim_df(stats, iter_total, timeframe)
   df[["dps"]] <- vapply(
     X = seq_len(nrow(df)),

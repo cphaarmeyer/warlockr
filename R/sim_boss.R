@@ -5,6 +5,7 @@
 #' @param stats a named list with the stats of the character including int, sp,
 #'  crit, hit and mp5
 #' @param time length of fight in seconds
+#' @param seed optional seed
 #' @param trinkets which use trinkets are equipped, currently implemented:
 #'  toep (Talisman of Ephemeral Power)
 #'  zhc (Zandalarian Hero Charm)
@@ -15,7 +16,8 @@
 #'
 #' @examples
 #' sim_boss(list(int = 277, sp = 346, crit = 2, hit = 2))
-sim_boss <- function(stats, time = 150, trinkets = NULL) {
+sim_boss <- function(stats, time = 150, seed = NULL, trinkets = NULL) {
+  if (!is.null(seed)) set.seed(seed)
   stats <- clean_stats(stats)
   arguments <- sim_setup(time, stats$crit, stats$hit, stats$int, stats$sp,
     trinkets = trinkets
