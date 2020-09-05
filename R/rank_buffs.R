@@ -15,11 +15,12 @@ rank_buffs <- function(stats,
                        worldbuffs = character(),
                        timeframe = c(60, 300),
                        iter = 50000) {
-  out <- compare_buffs(stats, timeframe = timeframe, iter = iter)
+  seed <- sample_seed()
+  out <- compare_buffs(stats, timeframe = timeframe, iter = iter, seed = seed)
   get_best_buff <- function(stats, consumables, worldbuffs) {
     df <- compare_buffs(stats,
       consumables = consumables, worldbuffs = worldbuffs,
-      timeframe = timeframe, iter = iter
+      timeframe = timeframe, iter = iter, seed = seed
     )
     row <- which.max(df$dps)
     df[row, ]
