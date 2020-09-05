@@ -26,14 +26,12 @@ my_changes <- yaml::read_yaml("changes.yaml")
 my_bank <- yaml::read_yaml("bank.yaml")
 
 show_statweights <- function(stats) {
-  set.seed(42)
-  compute_statweights(stats, trinkets = "toep")
+  compute_statweights(stats, trinkets = "toep", seed = 42)
 }
 
 w <- max(nchar(names(c(my_changes, my_bank))))
 show_result <- function(stats, changes) {
-  set.seed(42)
-  df <- compare_equip(stats, my_equip, changes)
+  df <- compare_equip(stats, my_equip, changes, seed = 561)
   df <- df[order(-df$dps), ]
   row.names(df) <- format(row.names(df), width = w)
   df[c("dps", "diff")] <- lapply(df[c("dps", "diff")], round, digits = 2)
@@ -42,11 +40,19 @@ show_result <- function(stats, changes) {
 
 
 show_statweights(my_stats)
-#>        int         sp       crit        hit        mp5 
-#>  0.3742202  1.0000000 13.7117864 12.3276271  0.3052320
+#>          weight       dps
+#> int   0.3742202 0.1816506
+#> sp    1.0000000 0.4854110
+#> crit 13.7117864 6.6558516
+#> hit  12.3276271 5.9839656
+#> mp5   0.3052320 0.1481630
 show_statweights(my_stats_ony)
-#>        int         sp       crit        hit        mp5 
-#>  0.3315286  1.0000000 11.4317204 12.2146605  0.3138210
+#>          weight       dps
+#> int   0.3315286 0.1813759
+#> sp    1.0000000 0.5470898
+#> crit 11.4317204 6.2541773
+#> hit  12.2146605 6.6825158
+#> mp5   0.3138210 0.1716883
 
 show_result(my_stats, my_changes)
 #>                                                dps  diff            slot

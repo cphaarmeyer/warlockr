@@ -57,8 +57,7 @@ The `compute_statweights` function simulates the DPS in the neighborhood of your
 Then it evaluates the impact of every stat and scales such that spell power has weight 1.
 
 ```{r statweights}
-set.seed(42)
-my_weights <- compute_statweights(my_stats)
+my_weights <- compute_statweights(my_stats, seed = 42)
 my_weights
 ```
 
@@ -118,8 +117,7 @@ my_changes <- list(
 Now we can simulate.
 
 ```{r compare}
-set.seed(42)
-df <- compare_equip(my_stats, my_equip, my_changes)
+df <- compare_equip(my_stats, my_equip, my_changes, seed = 561)
 df[order(-df$dps), ]
 ```
 
@@ -127,11 +125,9 @@ If you want to know what impact world buffs have, simulate again.
 
 ```{r ony}
 my_stats <- with_buffs(my_stats, buffs = character(), worldbuffs = "ony")
-set.seed(42)
-weights_ony <- compute_statweights(my_stats)
+weights_ony <- compute_statweights(my_stats, seed = 42)
 weights_ony
-set.seed(42)
-df_ony <- compare_equip(my_stats, my_equip, my_changes)
+df_ony <- compare_equip(my_stats, my_equip, my_changes, seed = 561)
 df_ony[order(-df_ony$dps), ]
 ```
 

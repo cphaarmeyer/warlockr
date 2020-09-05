@@ -35,14 +35,12 @@ my_changes <- yaml::read_yaml("changes.yaml")
 my_bank <- yaml::read_yaml("bank.yaml")
 
 show_statweights <- function(stats) {
-  set.seed(42)
-  compute_statweights(stats, trinkets = "toep")
+  compute_statweights(stats, trinkets = "toep", seed = 42)
 }
 
 w <- max(nchar(names(c(my_changes, my_bank))))
 show_result <- function(stats, changes) {
-  set.seed(42)
-  df <- compare_equip(stats, my_equip, changes)
+  df <- compare_equip(stats, my_equip, changes, seed = 561)
   df <- df[order(-df$dps), ]
   row.names(df) <- format(row.names(df), width = w)
   df[c("dps", "diff")] <- lapply(df[c("dps", "diff")], round, digits = 2)
