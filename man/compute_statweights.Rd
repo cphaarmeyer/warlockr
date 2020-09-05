@@ -24,7 +24,7 @@ toep (Talisman of Ephemeral Power)
 zhc (Zandalarian Hero Charm)}
 }
 \value{
-a named vector with weights
+a data frame with weights
 }
 \description{
 Simulates current dps and dps with increased stats to compute weights for

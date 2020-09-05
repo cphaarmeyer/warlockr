@@ -6,7 +6,7 @@
 #'
 #' @inheritParams sim_dps
 #'
-#' @return a named vector with weights
+#' @return a data frame with weights
 #' @export
 #'
 #' @examples
@@ -24,8 +24,9 @@ compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000,
     FUN.VALUE = double(1)
   )
   mod <- stats::lm(dps ~ ., data = df)
-  weights <- stats::coef(mod)[statnames]
-  weights / weights[["sp"]]
+  coefs <- stats::coef(mod)[statnames]
+  weights <- coefs / coefs[["sp"]]
+  data.frame(weight = weights, dps = coefs)
 }
 
 statbudget <- list(
