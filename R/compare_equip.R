@@ -50,12 +50,12 @@ compare_equip <- function(stats, equip, changes,
                           seed = NULL) {
   stopifnot(is_equip(equip))
   stats_base <- do_call_stats(list(stats, sum_stats(equip)), `-`)
+  changes <- c(list(current = list()), changes)
   new_equip <- lapply(changes, function(x) replace_slot(equip, names(x), x))
   new_stats <- lapply(new_equip, function(...) {
     sum_stats(c(..., list(stats_base)))
   })
-  stats_list <- add_current(new_stats, stats)
-  df <- compare_dps(stats_list, timeframe = timeframe, iter = iter, seed = seed)
+  df <- compare_dps(new_stats, timeframe = timeframe, iter = iter, seed = seed)
   add_slots(df, changes)
 }
 
@@ -66,7 +66,8 @@ replace_slot <- function(equip, slot, replacement) {
 
 add_slots <- function(df, changes) {
   slots_list <- lapply(changes, names)
-  slots <- vapply(slots_list, paste, collapse = "/", FUN.VALUE = character(1))
-  df[["slot"]] <- c(NA_character_, slots)
+  df[["slot"]] <- vapply(slots_list, paste,
+    collapse = "/", FUN.VALUE = character(1)
+  )
   df
 }
