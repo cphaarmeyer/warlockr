@@ -18,19 +18,16 @@ rank_buffs <- function(stats,
                        seed = NULL) {
   if (is.null(seed)) seed <- sample_seed()
   out <- compare_buffs(stats, timeframe = timeframe, iter = iter, seed = seed)
-  while (length(consumables) + length(worldbuffs) > 0) {
+  buffs <- c(consumables, worldbuffs)
+  while (length(buffs) > 0) {
     best_buff_row <- select_best_buff(
-      stats, consumables, worldbuffs, timeframe, iter, seed
+      stats, intersect(consumables, buffs), intersect(worldbuffs, buffs),
+      timeframe, iter, seed
     )
     best_buff <- row.names(best_buff_row)
     out <- rbind(out, best_buff_row)
-    stats <- with_buffs(stats,
-      buffs = character(),
-      consumables = intersect(consumables, best_buff),
-      worldbuffs = intersect(worldbuffs, best_buff)
-    )
-    consumables <- setdiff(consumables, best_buff)
-    worldbuffs <- setdiff(worldbuffs, best_buff)
+    stats <- add_buff(stats, best_buff)
+    buffs <- setdiff(buffs, best_buff)
   }
   out
 }

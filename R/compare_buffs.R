@@ -16,12 +16,9 @@ compare_buffs <- function(stats,
                           timeframe = c(60, 300),
                           iter = 50000,
                           seed = NULL) {
-  with_buffs_trimmed <- function(...) with_buffs(..., buffs = character())
-  with_consumables <- function(nm) with_buffs_trimmed(stats, consumables = nm)
-  with_worlbuffs <- function(nm) with_buffs_trimmed(stats, worldbuffs = nm)
   stats_list <- add_current(c(
-    lapply(char_set_names(consumables), with_consumables),
-    lapply(char_set_names(worldbuffs), with_worlbuffs)
+    lapply(char_set_names(consumables), add_buff, stats = stats),
+    lapply(char_set_names(worldbuffs), add_buff, stats = stats)
   ), stats)
   compare_dps(stats_list, timeframe = timeframe, iter = iter, seed = seed)
 }
