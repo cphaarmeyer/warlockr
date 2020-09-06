@@ -52,13 +52,10 @@ scales such that spell power has weight 1.
 
 ``` r
 my_weights <- compute_statweights(my_stats, seed = 42)
-my_weights
-#>          weight       dps
-#> int   0.3386380 0.1535301
-#> sp    1.0000000 0.4533752
-#> crit 12.1194592 5.4946626
-#> hit  11.3058433 5.1257893
-#> mp5   0.3336297 0.1512594
+t(my_weights)
+#>              int        sp      crit       hit       mp5
+#> weight 0.3386380 1.0000000 12.119459 11.305843 0.3336297
+#> dps    0.1535301 0.4533752  5.494663  5.125789 0.1512594
 ```
 
 To use the `compare_equip` function we need a list of our current items.
@@ -138,13 +135,10 @@ If you want to know what impact world buffs have, simulate again.
 ``` r
 my_stats <- add_buff(my_stats, "ony")
 weights_ony <- compute_statweights(my_stats, seed = 42)
-weights_ony
-#>          weight       dps
-#> int   0.3081963 0.1558298
-#> sp    1.0000000 0.5056186
-#> crit 10.1806983 5.1475506
-#> hit  11.3439061 5.7356901
-#> mp5   0.3016408 0.1525152
+t(weights_ony)
+#>              int        sp      crit      hit       mp5
+#> weight 0.3081963 1.0000000 10.180698 11.34391 0.3016408
+#> dps    0.1558298 0.5056186  5.147551  5.73569 0.1525152
 df_ony <- compare_equip(my_stats, my_equip, my_changes, seed = 561)
 df_ony[order(-df_ony$dps), ]
 #>                                   dps       diff            slot

@@ -58,7 +58,7 @@ Then it evaluates the impact of every stat and scales such that spell power has 
 
 ```{r statweights}
 my_weights <- compute_statweights(my_stats, seed = 42)
-my_weights
+t(my_weights)
 ```
 
 To use the `compare_equip` function we need a list of our current items.
@@ -126,7 +126,7 @@ If you want to know what impact world buffs have, simulate again.
 ```{r ony}
 my_stats <- add_buff(my_stats, "ony")
 weights_ony <- compute_statweights(my_stats, seed = 42)
-weights_ony
+t(weights_ony)
 df_ony <- compare_equip(my_stats, my_equip, my_changes, seed = 561)
 df_ony[order(-df_ony$dps), ]
 ```

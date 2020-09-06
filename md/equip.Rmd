@@ -35,7 +35,7 @@ my_changes <- yaml::read_yaml("changes.yaml")
 my_bank <- yaml::read_yaml("bank.yaml")
 
 show_statweights <- function(stats) {
-  compute_statweights(stats, trinkets = "toep", seed = 42)
+  t(compute_statweights(stats, trinkets = "toep", seed = 42))
 }
 
 w <- max(nchar(names(c(my_changes, my_bank))))
