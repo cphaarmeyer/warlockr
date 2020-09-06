@@ -16,7 +16,7 @@ rank_buffs <- function(stats,
                        timeframe = c(60, 300),
                        iter = 50000,
                        seed = NULL) {
-  if (!is.null(seed)) seed <- sample_seed()
+  if (is.null(seed)) seed <- sample_seed()
   out <- compare_buffs(stats, timeframe = timeframe, iter = iter, seed = seed)
   get_best_buff <- function(stats, consumables, worldbuffs) {
     df <- compare_buffs(stats,
