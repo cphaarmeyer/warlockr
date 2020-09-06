@@ -54,7 +54,7 @@ compare_equip <- function(stats, equip, changes,
   new_stats <- lapply(new_equip, function(...) {
     sum_stats(c(..., list(stats_base)))
   })
-  stats_list <- c(list(current = stats), new_stats)
+  stats_list <- add_current(new_stats, stats)
   df <- compare_dps(stats_list, timeframe = timeframe, iter = iter, seed = seed)
   add_slots(df, changes)
 }

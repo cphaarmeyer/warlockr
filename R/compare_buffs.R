@@ -19,10 +19,9 @@ compare_buffs <- function(stats,
   with_buffs_trimmed <- function(...) with_buffs(..., buffs = character())
   with_consumables <- function(nm) with_buffs_trimmed(stats, consumables = nm)
   with_worlbuffs <- function(nm) with_buffs_trimmed(stats, worldbuffs = nm)
-  stats_list <- c(
-    list(current = stats),
+  stats_list <- add_current(c(
     lapply(char_set_names(consumables), with_consumables),
     lapply(char_set_names(worldbuffs), with_worlbuffs)
-  )
+  ), stats)
   compare_dps(stats_list, timeframe = timeframe, iter = iter, seed = seed)
 }
