@@ -4,19 +4,19 @@
 \alias{sim_boss}
 \title{Simulate Boss Fight}
 \usage{
-sim_boss(stats, time = 150, seed = NULL, trinkets = NULL)
+sim_boss(stats, trinkets = NULL, time = 150, seed = NULL)
 }
 \arguments{
 \item{stats}{a named list with the stats of the character including int, sp,
 crit, hit and mp5}
 
-\item{time}{length of fight in seconds}
-
-\item{seed}{optional seed}
-
 \item{trinkets}{which use trinkets are equipped, currently implemented:
 toep (Talisman of Ephemeral Power)
 zhc (Zandalarian Hero Charm)}
+
+\item{time}{length of fight in seconds}
+
+\item{seed}{optional seed}
 }
 \value{
 a numeric vector with values for total dmg, mana, total casttime and

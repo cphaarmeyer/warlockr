@@ -15,10 +15,10 @@
 #' mat <- sim_dps(list(int = 277, sp = 346, crit = 2, hit = 2), iter = 1000)
 #' mean(mat[, 4])
 sim_dps <- function(stats,
+                    trinkets = NULL,
                     timeframe = c(60, 300),
                     iter = 50000,
-                    seed = NULL,
-                    trinkets = NULL) {
+                    seed = NULL) {
   if (!is.null(seed)) set.seed(seed)
   times <- sample_time(timeframe, iter)
   trinkets <- c(trinkets, attr(stats, "trinkets"))

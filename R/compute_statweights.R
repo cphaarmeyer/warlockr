@@ -15,10 +15,10 @@
 #'   iter = 1000
 #' )
 compute_statweights <- function(stats,
+                                trinkets = NULL,
                                 timeframe = c(60, 300),
                                 iter = 50000,
-                                seed = NULL,
-                                trinkets = NULL) {
+                                seed = NULL) {
   iter_total <- iter * length(statnames)
   if (!is.null(seed)) set.seed(seed)
   df <- sample_sim_df(stats, iter_total, timeframe)

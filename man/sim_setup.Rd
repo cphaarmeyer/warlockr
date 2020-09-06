@@ -10,11 +10,11 @@ sim_setup(
   hit,
   int,
   sp,
+  trinkets = NULL,
   iter = 1,
   devastation = 5,
   cataclysm = 2,
-  suppression = 2,
-  trinkets = NULL
+  suppression = 2
 )
 }
 \arguments{
@@ -28,6 +28,10 @@ sim_setup(
 
 \item{sp}{(shadow) spellpower of character}
 
+\item{trinkets}{which use trinkets are equipped, currently implemented:
+toep (Talisman of Ephemeral Power)
+zhc (Zandalarian Hero Charm)}
+
 \item{iter}{number of iterations}
 
 \item{devastation}{number of talent points in devastation}
@@ -35,10 +39,6 @@ sim_setup(
 \item{cataclysm}{number of talent points in cataclysm}
 
 \item{suppression}{number of talent points in suppression}
-
-\item{trinkets}{which use trinkets are equipped, currently implemented:
-toep (Talisman of Ephemeral Power)
-zhc (Zandalarian Hero Charm)}
 }
 \value{
 a list of arguments

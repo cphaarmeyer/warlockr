@@ -11,8 +11,11 @@
 #' @examples
 #' sim_setup(30, 2, 1, 277, 346)
 sim_setup <- function(times, crit, hit, int, sp,
-                      iter = 1, devastation = 5, cataclysm = 2, suppression = 2,
-                      trinkets = NULL) {
+                      trinkets = NULL,
+                      iter = 1,
+                      devastation = 5,
+                      cataclysm = 2,
+                      suppression = 2) {
   stopifnot(length(times) == iter)
   n <- max(times) %/% 2.5 + 1
   to_matrix <- function(x) {
