@@ -34,9 +34,7 @@ with_buffs <- function(stats,
                        consumables = character(),
                        worldbuffs = character()) {
   stopifnot(
-    is_valid_buff(buffs, available_buffs),
-    is_valid_buff(consumables, available_consumables),
-    is_valid_buff(worldbuffs, available_worldbuffs)
+    is_buff(buffs), is_consumable(consumables), is_worldbuff(worldbuffs)
   )
   has_zg <- "zg" %in% worldbuffs
   if (has_zg) worldbuffs <- setdiff(worldbuffs, "zg")
@@ -72,3 +70,7 @@ available_worldbuffs <- list(
 is_valid_buff <- function(b, available) {
   is_unique(b) & all(b %in% names(available))
 }
+
+is_buff <- function(b) is_valid_buff(b, available_buffs)
+is_consumable <- function(b) is_valid_buff(b, available_consumables)
+is_worldbuff <- function(b) is_valid_buff(b, available_worldbuffs)
