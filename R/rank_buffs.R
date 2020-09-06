@@ -18,18 +18,12 @@ rank_buffs <- function(stats,
                        seed = NULL) {
   if (is.null(seed)) seed <- sample_seed()
   out <- compare_buffs(stats, timeframe = timeframe, iter = iter, seed = seed)
-  get_best_buff <- function(stats, consumables, worldbuffs) {
-    df <- compare_buffs(stats,
-      consumables = consumables, worldbuffs = worldbuffs,
-      timeframe = timeframe, iter = iter, seed = seed
-    )
-    row <- which.max(df$dps)
-    df[row, ]
-  }
   while (length(consumables) + length(worldbuffs) > 0) {
-    best_buff_df <- get_best_buff(stats, consumables, worldbuffs)
-    best_buff <- row.names(best_buff_df)
-    out <- rbind(out, best_buff_df)
+    best_buff_row <- select_best_buff(
+      stats, consumables, worldbuffs, timeframe, iter, seed
+    )
+    best_buff <- row.names(best_buff_row)
+    out <- rbind(out, best_buff_row)
     stats <- with_buffs(stats,
       buffs = character(),
       consumables = intersect(consumables, best_buff),
@@ -39,4 +33,13 @@ rank_buffs <- function(stats,
     worldbuffs <- setdiff(worldbuffs, best_buff)
   }
   out
+}
+
+select_best_buff <- function(stats, consumables, worldbuffs,
+                             timeframe, iter, seed) {
+  df <- compare_buffs(stats,
+    consumables = consumables, worldbuffs = worldbuffs,
+    timeframe = timeframe, iter = iter, seed = seed
+  )
+  df[which.max(df$dps), ]
 }
