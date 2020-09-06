@@ -128,7 +128,7 @@ df[order(-df$dps), ]
 #> Zanzil's Seal                422.1253  2.2109347         finger1
 #> Zanzil's Concentration       421.2258  1.3114073 finger1/finger2
 #> Ring of Blackrock            420.4470  0.5325703         finger1
-#> current                      419.9144  0.0000000            <NA>
+#> current                      419.9144  0.0000000                
 #> Royal Seal of Eldre'Thalas   419.3462 -0.5682540        trinket1
 #> Dragonslayer's Signet        417.2600 -2.6543872         finger1
 ```
@@ -136,7 +136,7 @@ df[order(-df$dps), ]
 If you want to know what impact world buffs have, simulate again.
 
 ``` r
-my_stats <- with_buffs(my_stats, buffs = character(), worldbuffs = "ony")
+my_stats <- add_buff(my_stats, "ony")
 weights_ony <- compute_statweights(my_stats, seed = 42)
 weights_ony
 #>          weight       dps
@@ -157,7 +157,7 @@ df_ony[order(-df_ony$dps), ]
 #> Zanzil's Concentration       472.7997  1.3315855 finger1/finger2
 #> Royal Seal of Eldre'Thalas   472.7116  1.2434661        trinket1
 #> Ring of Blackrock            472.1537  0.6855659         finger1
-#> current                      471.4682  0.0000000            <NA>
+#> current                      471.4682  0.0000000                
 #> Dragonslayer's Signet        467.5589 -3.9092764         finger1
 ```
 

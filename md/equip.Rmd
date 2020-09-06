@@ -28,7 +28,7 @@ consumables = "eosp"
 )
 unlist(my_stats)
 
-my_stats_ony <- with_buffs(my_stats, buffs = character(), worldbuffs = "ony")
+my_stats_ony <- add_buff(my_stats, "ony")
 
 my_equip <- yaml::read_yaml("equip.yaml")
 my_changes <- yaml::read_yaml("changes.yaml")

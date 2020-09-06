@@ -19,7 +19,7 @@ unlist(my_stats)
 #>  int   sp crit  hit  mp5 
 #>  322  621    5    9    0
 
-my_stats_ony <- with_buffs(my_stats, buffs = character(), worldbuffs = "ony")
+my_stats_ony <- add_buff(my_stats, "ony")
 
 my_equip <- yaml::read_yaml("equip.yaml")
 my_changes <- yaml::read_yaml("changes.yaml")
@@ -79,14 +79,14 @@ show_result(my_stats, my_changes)
 #> Doomcaller's Mantle (Set)                   536.91  1.04 shoulders/hands
 #> AQ Wand of Quiraji Nobility                 536.46  0.59            wand
 #> AQ Sharpened Silithid Femur + Jin'do's Bag  535.90  0.03          weapon
-#> current                                     535.87  0.00            <NA>
+#> current                                     535.87  0.00                
 #> BWL Mantle of the Blackwing Cabal (Set)     535.23 -0.64 shoulders/hands
 #> ZG The Hexxer's Cover (Set)                 532.45 -3.42      head/hands
 #> MC Mana Igniting Cord (Set)                 530.44 -5.43     waist/hands
 
 show_result(my_stats, my_bank)
 #>                                                dps  diff     slot
-#> current                                     535.87  0.00     <NA>
+#> current                                     535.87  0.00         
 #> Zandalarian Hero Charm                      535.45 -0.42 trinket1
 #> Briarwood Reed                              535.00 -0.87 trinket1
 #> Eye of the Beast                            533.59 -2.28 trinket1
@@ -96,7 +96,7 @@ show_result(my_stats, my_bank)
 #> Nemesis Gloves                              529.07 -6.80    hands
 show_result(my_stats_ony, my_bank)
 #>                                                dps  diff     slot
-#> current                                     601.03  0.00     <NA>
+#> current                                     601.03  0.00         
 #> Zandalarian Hero Charm                      600.55 -0.48 trinket1
 #> Briarwood Reed                              600.05 -0.98 trinket1
 #> Royal Seal of Eldre'Thalas                  596.75 -4.27 trinket1

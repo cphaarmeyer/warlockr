@@ -124,7 +124,7 @@ df[order(-df$dps), ]
 If you want to know what impact world buffs have, simulate again.
 
 ```{r ony}
-my_stats <- with_buffs(my_stats, buffs = character(), worldbuffs = "ony")
+my_stats <- add_buff(my_stats, "ony")
 weights_ony <- compute_statweights(my_stats, seed = 42)
 weights_ony
 df_ony <- compare_equip(my_stats, my_equip, my_changes, seed = 561)
