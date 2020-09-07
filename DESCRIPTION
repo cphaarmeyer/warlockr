@@ -1,7 +1,7 @@
 Type: Package
 Package: warlockr
 Title: Classic WoW Warlock Related Stuff
-Version: 0.3.3
+Version: 0.3.4
 Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
@@ -18,4 +18,4 @@ LinkingTo:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
