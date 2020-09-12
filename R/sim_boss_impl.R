@@ -8,14 +8,14 @@
 #' @param sb_miss vector of whether shadow bolt hits
 #' @param sb_crit vector of whether shadow bolt crits
 #' @param curse_miss vector of whether curse hits
-#' @param sb_manacost mana cost of shadow bolt
-#' @param lt_manacost mana cost of life tap
+#' @param sb_mana mana difference of shadow bolt
+#' @param lt_mana mana difference of life tap
 #' @param sp_bonus list of sp bonus vectors applied to shadow bolts
 sim_boss_impl <- function(mana, mp5, sp, sb_dmg, sb_miss, sb_crit, curse_miss,
-                          sb_manacost, lt_manacost, time, sp_bonus = NULL) {
+                          sb_mana, lt_mana, time, sp_bonus = NULL) {
   sim_data <- sim_boss_loop(
     mana, mp5, sb_dmg, sb_miss, sb_crit,
-    curse_miss, sb_manacost, lt_manacost, time
+    curse_miss, sb_mana, lt_mana, time
   )
   sb <- sim_data[sim_data[, 3] == 2.5, ]
   nsb <- nrow(sb)

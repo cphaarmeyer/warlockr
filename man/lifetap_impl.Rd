@@ -4,10 +4,10 @@
 \alias{lifetap_impl}
 \title{Base Implementation of Life Tap}
 \usage{
-lifetap_impl(manacost, improved_sb_proc)
+lifetap_impl(mana, improved_sb_proc)
 }
 \arguments{
-\item{manacost}{mana cost}
+\item{mana}{mana difference}
 
 \item{improved_sb_proc}{number of active procs of improved shadow bolt on
 target}

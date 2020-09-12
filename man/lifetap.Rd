@@ -15,7 +15,7 @@ lifetap(sp, imp_lifetap = 2, improved_sb_proc = 0)
 target}
 }
 \value{
-a numeric vector with values for dmg, manacost, casttime and
+a numeric vector with values for dmg, mana, casttime and
 improved_sb_proc
 }
 \description{

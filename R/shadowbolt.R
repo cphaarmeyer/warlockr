@@ -17,7 +17,7 @@
 #'  target
 #' @param curse_of_shadows whether curse of shadows is on target
 #'
-#' @return a numeric vector with values for dmg, manacost, casttime and
+#' @return a numeric vector with values for dmg, mana, casttime and
 #'  improved_sb_proc
 #' @export
 #'
@@ -33,7 +33,7 @@ shadowbolt <- function(crit, hit, int, sp,
   )
   out <- shadowbolt_impl(
     arguments$sb_dmg, arguments$sb_miss, arguments$sb_crit,
-    arguments$sb_manacost, 3 - (0.1 * bane), improved_sb_proc
+    arguments$sb_mana, 3 - (0.1 * bane), improved_sb_proc
   )
   out[1] <- shadowbolt_dmg(
     arguments$sb_dmg, sp, arguments$sb_miss, arguments$sb_crit,

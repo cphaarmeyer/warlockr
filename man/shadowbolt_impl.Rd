@@ -4,7 +4,7 @@
 \alias{shadowbolt_impl}
 \title{Base Implementation of Shadow Bolt}
 \usage{
-shadowbolt_impl(sb_dmg, sb_miss, sb_crit, manacost, casttime, improved_sb_proc)
+shadowbolt_impl(sb_dmg, sb_miss, sb_crit, mana, casttime, improved_sb_proc)
 }
 \arguments{
 \item{sb_dmg}{vector of base shadow bolt damage}
@@ -13,7 +13,7 @@ shadowbolt_impl(sb_dmg, sb_miss, sb_crit, manacost, casttime, improved_sb_proc)
 
 \item{sb_crit}{vector of whether shadow bolt crits}
 
-\item{manacost}{mana cost}
+\item{mana}{mana difference}
 
 \item{casttime}{cast time}
 
