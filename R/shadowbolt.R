@@ -6,16 +6,9 @@
 #' @param hit hit percentage on gear
 #' @param int intellect of character
 #' @param sp (shadow) spellpower of character
-#' @param devastation number of talent points in devastation
-#' @param ruin number of talent points in ruin
-#' @param improved_sb number of talent points in improved shadow bolt
-#' @param cataclysm number of talent points in cataclysm
-#' @param bane number of talent points in bane
-#' @param shadow_mastery number of talent points in shadow mastery
-#' @param demonic_sacrifice whether succubus was sacrificed
 #' @param improved_sb_proc number of active procs of improved shadow bolt on
 #'  target
-#' @param curse_of_shadows whether curse of shadows is on target
+#' @inheritParams warlock_talents
 #'
 #' @return a numeric vector with values for dmg, mana, casttime and
 #'  improved_sb_proc

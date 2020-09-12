@@ -3,7 +3,7 @@
 #' @param times vector with \code{time} for every iteration
 #' @inheritParams shadowbolt
 #' @inheritParams sim_dps
-#' @param suppression number of talent points in suppression
+#' @inheritParams warlock_talents
 #'
 #' @return a list of arguments
 #' @export

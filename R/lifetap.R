@@ -3,7 +3,7 @@
 #' Simulates a life tap.
 #'
 #' @inherit shadowbolt
-#' @param imp_lifetap number of talent points in improved life tap
+#' @inheritParams warlock_talents
 #'
 #' @export
 #'
