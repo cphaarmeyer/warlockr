@@ -13,7 +13,7 @@
 #' @param sp_bonus list of sp bonus vectors applied to shadow bolts
 sim_boss_impl <- function(mana, mp5, sp, sb_dmg, sb_miss, sb_crit, curse_miss,
                           sb_mana, lt_mana, time, sp_bonus = NULL) {
-  sim_data <- sim_boss_loop(
+  sim_data <- sim_boss_spells(
     mana, mp5, sb_dmg, sb_miss, sb_crit,
     curse_miss, sb_mana, lt_mana, time
   )

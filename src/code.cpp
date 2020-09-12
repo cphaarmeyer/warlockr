@@ -1,14 +1,19 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-//' Simulate the Loop for a Boss Fight
+//' Simulate the Spells of a Boss Fight
 //'
 //' @inheritParams sim_boss_impl
 // [[Rcpp::export]]
-NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
-                            LogicalVector sb_miss, LogicalVector sb_crit,
-                            LogicalVector curse_miss, double sb_mana,
-                            double lt_mana, double time) {
+NumericMatrix sim_boss_spells(double mana,
+                              double mp5,
+                              NumericVector sb_dmg,
+                              LogicalVector sb_miss,
+                              LogicalVector sb_crit,
+                              LogicalVector curse_miss,
+                              double sb_mana,
+                              double lt_mana,
+                              double time) {
   std::vector<double> time_vec(0);
   double time_total = 0.0;
   std::vector<double> mana_vec(0);
