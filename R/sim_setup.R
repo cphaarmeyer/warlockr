@@ -21,7 +21,7 @@ sim_setup <- function(times, crit, hit, int, sp,
   to_matrix <- function(x) {
     if (iter > 1) matrix(x, ncol = iter) else x
   }
-  s <- sample_all(n * iter)
+  s <- sample_sim(n * iter)
   sb_miss <- compute_miss(s$hit, hit)
   sb_crit <- s$crit >= (100 - compute_critchance(crit, int, devastation))
   curse_miss <- compute_miss(s$curse, hit + 2 * suppression)

@@ -6,8 +6,8 @@
 #' @export
 #'
 #' @examples
-#' sample_all(10)
-sample_all <- function(n) {
+#' sample_sim(10)
+sample_sim <- function(n) {
   list(
     sb = sample_shadowbolt(n),
     hit = sample_hit(n),

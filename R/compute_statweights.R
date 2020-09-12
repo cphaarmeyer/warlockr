@@ -21,7 +21,7 @@ compute_statweights <- function(stats,
                                 seed = NULL) {
   iter_total <- iter * length(statnames)
   if (!is.null(seed)) set.seed(seed)
-  df <- sample_sim_df(stats, iter_total, timeframe)
+  df <- sample_stats_df(stats, iter_total, timeframe)
   df[["dps"]] <- vapply(
     X = seq_len(nrow(df)),
     FUN = function(i) sim_boss_df(df[i, ], trinkets)[4],
@@ -56,7 +56,7 @@ sample_time <- function(timeframe, n) {
   stats::runif(n, timeframe[1], timeframe[2])
 }
 
-sample_sim_df <- function(stats, n, timeframe) {
+sample_stats_df <- function(stats, n, timeframe) {
   data.frame(sample_stats(stats, n), time = sample_time(timeframe, n))
 }
 
