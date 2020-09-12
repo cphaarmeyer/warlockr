@@ -6,6 +6,6 @@
 #'
 #' @examples
 #' shadowbolt_mana()
-shadowbolt_mana <- function(cataclysm = 2) {
-  -370 * (1 - 0.01 * cataclysm)
+shadowbolt_mana <- function(talents = warlock_talents()) {
+  -370 * (1 - 0.01 * talents[["cataclysm"]])
 }

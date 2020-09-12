@@ -4,12 +4,12 @@
 \alias{lifetap}
 \title{Life Tap}
 \usage{
-lifetap(sp, imp_lifetap = 2, improved_sb_proc = 0)
+lifetap(sp, talents = warlock_talents(), improved_sb_proc = 0)
 }
 \arguments{
 \item{sp}{(shadow) spellpower of character}
 
-\item{imp_lifetap}{number of talent points in improved life tap}
+\item{talents}{list of talents}
 
 \item{improved_sb_proc}{number of active procs of improved shadow bolt on
 target}

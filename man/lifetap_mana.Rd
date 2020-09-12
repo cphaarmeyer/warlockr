@@ -4,12 +4,12 @@
 \alias{lifetap_mana}
 \title{Life Tap Mana}
 \usage{
-lifetap_mana(sp, imp_lifetap = 2)
+lifetap_mana(sp, talents = warlock_talents())
 }
 \arguments{
 \item{sp}{(shadow) spellpower of character}
 
-\item{imp_lifetap}{number of talent points in improved life tap}
+\item{talents}{list of talents}
 }
 \description{
 Life Tap Mana

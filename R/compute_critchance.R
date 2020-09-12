@@ -9,6 +9,6 @@
 #'
 #' @examples
 #' compute_critchance(3, 267)
-compute_critchance <- function(crit, int, devastation = 5) {
-  1.71 + int / 60.6 + devastation + crit
+compute_critchance <- function(crit, int, talents = warlock_talents()) {
+  1.71 + int / 60.6 + talents[["devastation"]] + crit
 }

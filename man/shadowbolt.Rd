@@ -9,15 +9,8 @@ shadowbolt(
   hit,
   int,
   sp,
-  devastation = 5,
-  ruin = 1,
-  improved_sb = 5,
-  cataclysm = 2,
-  bane = 5,
-  shadow_mastery = 0,
-  demonic_sacrifice = 1,
-  improved_sb_proc = 0,
-  curse_of_shadows = 1
+  talents = warlock_talents(),
+  improved_sb_proc = 0
 )
 }
 \arguments{
@@ -29,24 +22,10 @@ shadowbolt(
 
 \item{sp}{(shadow) spellpower of character}
 
-\item{devastation}{number of talent points in devastation}
-
-\item{ruin}{number of talent points in ruin}
-
-\item{improved_sb}{number of talent points in improved shadow bolt}
-
-\item{cataclysm}{number of talent points in cataclysm}
-
-\item{bane}{number of talent points in bane}
-
-\item{shadow_mastery}{number of talent points in shadow mastery}
-
-\item{demonic_sacrifice}{whether succubus was sacrificed}
+\item{talents}{list of talents}
 
 \item{improved_sb_proc}{number of active procs of improved shadow bolt on
 target}
-
-\item{curse_of_shadows}{whether curse of shadows is on target}
 }
 \value{
 a numeric vector with values for dmg, mana, casttime and

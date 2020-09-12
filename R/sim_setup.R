@@ -13,9 +13,7 @@
 sim_setup <- function(times, crit, hit, int, sp,
                       trinkets = NULL,
                       iter = 1,
-                      devastation = 5,
-                      cataclysm = 2,
-                      suppression = 2) {
+                      talents = warlock_talents()) {
   stopifnot(length(times) == iter)
   n <- max(times) %/% 2.5 + 1
   to_matrix <- function(x) {
@@ -23,14 +21,14 @@ sim_setup <- function(times, crit, hit, int, sp,
   }
   s <- sample_sim(n * iter)
   sb_miss <- compute_miss(s$hit, hit)
-  sb_crit <- s$crit >= (100 - compute_critchance(crit, int, devastation))
-  curse_miss <- compute_miss(s$curse, hit + 2 * suppression)
+  sb_crit <- s$crit >= (100 - compute_critchance(crit, int, talents))
+  curse_miss <- compute_miss(s$curse, hit + 2 * talents[["suppression"]])
   list(
     mana = compute_mana(int),
     sb_dmg = to_matrix(s$sb),
     sb_miss = to_matrix(sb_miss),
     sb_crit = to_matrix(sb_crit),
-    sb_mana = shadowbolt_mana(cataclysm = cataclysm),
+    sb_mana = shadowbolt_mana(talents),
     lt_mana = lifetap_mana(sp = sp),
     curse_miss = to_matrix(curse_miss),
     sp_bonus = if (!is.null(trinkets)) trinket_sp(trinkets, times)

@@ -12,9 +12,7 @@ sim_setup(
   sp,
   trinkets = NULL,
   iter = 1,
-  devastation = 5,
-  cataclysm = 2,
-  suppression = 2
+  talents = warlock_talents()
 )
 }
 \arguments{
@@ -34,11 +32,7 @@ zhc (Zandalarian Hero Charm)}
 
 \item{iter}{number of iterations}
 
-\item{devastation}{number of talent points in devastation}
-
-\item{cataclysm}{number of talent points in cataclysm}
-
-\item{suppression}{number of talent points in suppression}
+\item{talents}{list of talents}
 }
 \value{
 a list of arguments

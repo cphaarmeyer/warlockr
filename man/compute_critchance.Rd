@@ -4,14 +4,14 @@
 \alias{compute_critchance}
 \title{Compute Crit Chance}
 \usage{
-compute_critchance(crit, int, devastation = 5)
+compute_critchance(crit, int, talents = warlock_talents())
 }
 \arguments{
 \item{crit}{crit percentage on gear}
 
 \item{int}{intellect of character}
 
-\item{devastation}{number of talent points in devastation}
+\item{talents}{list of talents}
 }
 \description{
 Computes crit chance based on crit on gear, intelligence and talent points in

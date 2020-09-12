@@ -4,10 +4,10 @@
 \alias{shadowbolt_mana}
 \title{Shadow Bolt Mana}
 \usage{
-shadowbolt_mana(cataclysm = 2)
+shadowbolt_mana(talents = warlock_talents())
 }
 \arguments{
-\item{cataclysm}{number of talent points in cataclysm}
+\item{talents}{list of talents}
 }
 \description{
 Shadow Bolt Mana
