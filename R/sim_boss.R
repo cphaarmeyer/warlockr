@@ -19,11 +19,15 @@
 sim_boss <- function(stats, trinkets = NULL, time = 150, seed = NULL) {
   if (!is.null(seed)) set.seed(seed)
   stats <- clean_stats(stats)
-  arguments <- sim_setup(time, stats$crit, stats$hit, stats$int, stats$sp,
+  args <- sim_setup(time, stats$crit, stats$hit, stats$int, stats$sp,
     trinkets = trinkets
   )
-  arguments$sp_bonus <- arguments$sp_bonus[[1]]
-  do.call(sim_boss_impl, c(arguments,
+  do.call(sim_boss_impl, c(flatten_sp_bonus(args),
     mp5 = stats$mp5, sp = stats$sp, time = time
   ))
+}
+
+flatten_sp_bonus <- function(x) {
+  x[["sp_bonus"]] <- x[["sp_bonus"]][[1]]
+  x
 }
