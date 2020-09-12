@@ -7,7 +7,7 @@
 compute_miss(s, hit)
 }
 \arguments{
-\item{s}{random numbers returned by \code{sample_hit}}
+\item{s}{random numbers returned by \code{sample_roll}}
 
 \item{hit}{hit percentage on gear}
 }
@@ -18,5 +18,5 @@ logical vector
 Determines from the sample whether a spell misses.
 }
 \examples{
-compute_miss(sample_hit(10), 2)
+compute_miss(sample_roll(10), 2)
 }
