@@ -2,5 +2,5 @@
 #'
 #' @inheritParams shadowbolt_impl
 lifetap_impl <- function(mana, improved_sb_proc) {
-  c(0, mana, 1.5, improved_sb_proc)
+  c(dmg = 0, mana = mana, time = 1.5, proc = improved_sb_proc)
 }

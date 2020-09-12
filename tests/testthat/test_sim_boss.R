@@ -14,4 +14,5 @@ test_that("sim_boss works as expected", {
   expect_gte(sim[[3]], 150)
   expect_gte(sim_toep[[1]], sim[[1]])
   expect_gte(sim_toep_zhc[[1]], sim[[1]])
+  expect_named(sim, c("dmg", "mana", "time", "dps"))
 })

@@ -29,7 +29,7 @@ sim_boss_impl <- function(mana, mp5, sp, sb_dmg, sb_miss, sb_crit, curse_miss,
     sb[, 1], sp, sb_miss[seq_len(nsb)], sb_crit[seq_len(nsb)],
     improved_sb_proc = c(0, sb[, 4][-nsb])
   )
-  stats_total <- c(sum(dmg), 0, sum(sim_data[, 3]), 0)
+  stats_total <- c(dmg = sum(dmg), mana = 0, time = sum(sim_data[, 3]), dps = 0)
   stats_total[2] <- sum(sim_data[, 2]) + mana + mp5 +
     (stats_total[3] %/% 5) * mp5
   stats_total[4] <- stats_total[1] / stats_total[3]
