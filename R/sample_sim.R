@@ -3,10 +3,6 @@
 #' @inheritParams sample_shadowbolt
 #'
 #' @return a list
-#' @export
-#'
-#' @examples
-#' sample_sim(10)
 sample_sim <- function(n) {
   list(
     sb = sample_shadowbolt(n),

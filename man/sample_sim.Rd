@@ -15,6 +15,3 @@ a list
 \description{
 Sample Shadow Bolt Damage, Hit, Crit and Curse Hit
 }
-\examples{
-sample_sim(10)
-}

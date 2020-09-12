@@ -3,7 +3,6 @@
 #' @inheritParams sim_boss_impl
 #' @inheritParams shadowbolt
 #'
-#' @export
 shadowbolt_dmg <- function(sb_dmg, sp, sb_miss, sb_crit,
                            talents = warlock_talents(),
                            improved_sb_proc = 0) {

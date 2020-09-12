@@ -2,11 +2,6 @@
 #'
 #' @inheritParams sim_setup
 #'
-#' @export
-#'
-#' @examples
-#' trinket_sp("toep", 150:154)
-#' trinket_sp(c("toep", "zhc"), 150)
 trinket_sp <- function(trinkets, times) {
   stopifnot(trinkets %in% c("toep", "zhc"))
   get_nsb <- function(dur, cd) {

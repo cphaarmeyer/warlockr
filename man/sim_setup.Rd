@@ -40,6 +40,3 @@ a list of arguments
 \description{
 Setup Simulation
 }
-\examples{
-sim_setup(30, 2, 1, 277, 346)
-}

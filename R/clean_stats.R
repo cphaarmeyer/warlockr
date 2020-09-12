@@ -4,10 +4,6 @@
 #'
 #' @inheritParams sim_boss
 #'
-#' @export
-#'
-#' @examples
-#' clean_stats(list(crit = -1, hit = 1))
 clean_stats <- function(stats) {
   stopifnot(is_stats(stats))
   lapply(statnames, function(nm) null_to_0(stats[[nm]]))

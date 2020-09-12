@@ -6,10 +6,6 @@
 #' @inheritParams warlock_talents
 #'
 #' @return a list of arguments
-#' @export
-#'
-#' @examples
-#' sim_setup(30, 2, 1, 277, 346)
 sim_setup <- function(times, crit, hit, int, sp,
                       trinkets = NULL,
                       iter = 1,

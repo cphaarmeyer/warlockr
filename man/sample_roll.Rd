@@ -12,7 +12,3 @@ sample_roll(n = 1)
 \description{
 Vectorised function to simulate whether a spell hits or crits.
 }
-\examples{
-sample_roll()
-sample_roll(5)
-}

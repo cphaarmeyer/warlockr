@@ -12,6 +12,3 @@ shadowbolt_mana(talents = warlock_talents())
 \description{
 Shadow Bolt Mana
 }
-\examples{
-shadowbolt_mana()
-}

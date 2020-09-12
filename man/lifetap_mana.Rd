@@ -14,6 +14,3 @@ lifetap_mana(sp, talents = warlock_talents())
 \description{
 Life Tap Mana
 }
-\examples{
-lifetap_mana(0)
-}

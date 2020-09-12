@@ -17,6 +17,3 @@ logical vector
 \description{
 Determines from the sample whether a spell misses.
 }
-\examples{
-compute_miss(sample_roll(10), 2)
-}
