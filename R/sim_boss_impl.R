@@ -13,25 +13,44 @@
 #' @param sp_bonus list of sp bonus vectors applied to shadow bolts
 sim_boss_impl <- function(mana, mp5, sp, sb_dmg, sb_miss, sb_crit, curse_miss,
                           sb_mana, lt_mana, time, sp_bonus = NULL) {
-  sim_data <- sim_boss_spells(
+  spells <- sim_boss_spells(
     mana, mp5, sb_dmg, sb_miss, sb_crit,
     curse_miss, sb_mana, lt_mana, time
   )
-  sb <- sim_data[sim_data[, 3] == 2.5, ]
-  nsb <- nrow(sb)
-  if (!is.null(sp_bonus)) {
-    rows <- sample.int(nsb, length(sp_bonus))
-    out <- double(nsb)
-    out[rows] <- sp_bonus
-    sp <- sp + out
-  }
-  dmg <- shadowbolt_dmg(
-    sb[, 1], sp, sb_miss[seq_len(nsb)], sb_crit[seq_len(nsb)],
-    improved_sb_proc = c(0, sb[, 4][-nsb])
+  sb <- select_shadowbolts(spells)
+  dmg <- adjust_dmg(sb, sp, sp_bonus, sb_miss, sb_crit)
+  total <- c(dmg = sum(dmg), mana = 0, time = sum(spells[, 3]), dps = 0)
+  total[["mana"]] <- sum_mana(mana, mp5, spells[, 2], total[["time"]])
+  total[["dps"]] <- total[["dmg"]] / total[["time"]]
+  total
+}
+
+select_shadowbolts <- function(spells) {
+  spells[spells[, 3] == 2.5, ]
+}
+
+adjust_dmg <- function(sb, sp, sp_bonus, sb_miss, sb_crit) {
+  n <- nrow(sb)
+  sp <- add_sp_bonus(sp, sp_bonus, n)
+  shadowbolt_dmg(
+    sb[, 1], sp, sb_miss[seq_len(n)], sb_crit[seq_len(n)],
+    improved_sb_proc = shift_down(sb[, 4])
   )
-  stats_total <- c(dmg = sum(dmg), mana = 0, time = sum(sim_data[, 3]), dps = 0)
-  stats_total[2] <- sum(sim_data[, 2]) + mana + mp5 +
-    (stats_total[3] %/% 5) * mp5
-  stats_total[4] <- stats_total[1] / stats_total[3]
-  stats_total
+}
+
+add_sp_bonus <- function(sp, bonus, n) {
+  out <- rep.int(sp, n)
+  if (!is.null(bonus)) {
+    rows <- sample.int(n, length(bonus))
+    out[rows] <- out[rows] + bonus
+  }
+  out
+}
+
+shift_down <- function(x) {
+  c(0, x[-length(x)])
+}
+
+sum_mana <- function(mana, mp5, spells_mana, time) {
+  sum(spells_mana) + mana + mp5 + (time %/% 5) * mp5
 }
