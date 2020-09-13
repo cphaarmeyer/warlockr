@@ -1,0 +1,8 @@
+> compare_equip(my_stats, my_equip, my_changes, iter = 1000, seed = 42)
+                 dps       diff            slot
+current     427.1109   0.000000                
+New Weapon  446.4363  19.325484          weapon
+New Rings   429.3724   2.261590 finger1/finger2
+New Neck    436.6854   9.574551            neck
+No Talisman 413.6353 -13.475594        trinket1
+

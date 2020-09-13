@@ -14,4 +14,8 @@ test_that("compute_statweights works as expected", {
   expect_type(weights[["weight"]], "double")
   expect_true(weights[["sp", "weight"]] == 1)
   expect_identical(w_seed1, w_seed2)
+  verify_output(
+    test_path("test_compute_statweights.txt"),
+    compute_statweights(stats, iter = 1000, seed = 42)
+  )
 })

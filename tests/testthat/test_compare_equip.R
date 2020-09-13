@@ -32,6 +32,7 @@ test_that("compare_equip works as expected", {
       finger1 = list(int = 10, sp = 11, hit = 1),
       finger2 = list(int = 13, sp = 6, hit = 2, mp5 = 4)
     ),
+    "New Neck" = list(neck = list(int = 7, sp = 34)),
     "No Talisman" = list(trinket1 = list())
   )
   df <- compare_equip(my_stats, my_equip, my_changes, iter = 1000)
@@ -39,6 +40,10 @@ test_that("compare_equip works as expected", {
   expect_s3_class(df, "data.frame")
   expect_named(df, c("dps", "diff", "slot"))
   expect_equal(rownames(df), c("current", names(my_changes)))
-  expect_gt(df[[1, 2]], df[[4, 2]])
+  expect_gt(df[[1, 2]], df[[5, 2]])
   expect_identical(df[[1, 3]], "")
+  verify_output(
+    test_path("test_compare_equip.txt"),
+    compare_equip(my_stats, my_equip, my_changes, iter = 1000, seed = 42)
+  )
 })
