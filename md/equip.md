@@ -34,8 +34,7 @@ show_result <- function(stats, changes) {
   df <- compare_equip(stats, my_equip, changes, seed = 561)
   df <- df[order(-df$dps), ]
   row.names(df) <- format(row.names(df), width = w)
-  df[c("dps", "diff")] <- lapply(df[c("dps", "diff")], round, digits = 2)
-  df
+  modifyList(df, lapply(df[c("dps", "diff")], round, digits = 2))
 }
 
 
