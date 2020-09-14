@@ -23,20 +23,20 @@ sim_dps <- function(stats,
   times <- sample_time(timeframe, iter)
   trinkets <- c(trinkets, attr(stats, "trinkets"))
   stats <- clean_stats(stats)
-  arguments <- sim_setup(
+  args <- sim_setup(
     times, stats$crit, stats$hit, stats$int, stats$sp,
     iter = iter, trinkets = trinkets
   )
-  get_arg <- function(i) {
-    lapply(arguments, function(x) {
-      if (is.matrix(x)) x[, i] else if (is.list(x)) x[[i]] else x
-    })
-  }
-  t(vapply(seq_len(iter), function(i) {
-    do.call(sim_boss_impl, c(get_arg(i),
+  sim_boss_arg <- function(i) {
+    do.call(sim_boss_impl, c(slice_args(args, i),
       mp5 = stats$mp5, sp = stats$sp, time = times[i]
     ))
-  },
-  FUN.VALUE = double(4)
-  ))
+  }
+  t(vapply(seq_len(iter), sim_boss_arg, FUN.VALUE = double(4)))
 }
+
+slice_arg <- function(x, i) {
+  if (is.matrix(x)) x[, i] else if (is.list(x)) x[[i]] else x
+}
+
+slice_args <- function(x, i) lapply(x, slice_arg, i = i)
