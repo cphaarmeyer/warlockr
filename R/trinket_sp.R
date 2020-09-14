@@ -4,20 +4,31 @@
 #'
 trinket_sp <- function(trinkets, times) {
   stopifnot(trinkets %in% c("toep", "zhc"))
-  get_nsb <- function(dur, cd) {
-    dur <- dur - 1
-    nsb_full <- (dur %/% 2.5) * (times %/% cd)
-    nsb_rest <- pmin(dur, times %% cd) %/% 2.5
-    nsb_full + nsb_rest
+  toep <- gather_sp_bonus(times, 15, 90, sp_toep, "toep" %in% trinkets)
+  zhc <- gather_sp_bonus(times, 20, 120, sp_zhc, "zhc" %in% trinkets)
+  Map(c, toep, zhc)
+}
+
+n_shadowbolts <- function(times, duration, cooldown) {
+  duration <- account_for_lag(duration)
+  full <- (duration %/% 2.5) * (times %/% cooldown)
+  rest <- pmin(duration, times %% cooldown) %/% 2.5
+  full + rest
+}
+
+account_for_lag <- function(duration) duration - 1
+
+sp_toep <- function(n) rep.int(175, n)
+
+sp_zhc <- function(n) {
+  sp_seq <- seq.int(from = 204, by = -17, length.out = 8)
+  rep(sp_seq, (n %/% 8) + 1)[seq_len(n)]
+}
+
+gather_sp_bonus <- function(times, duration, cooldown, sp_fun, exists) {
+  if (exists) {
+    lapply(n_shadowbolts(times, duration, cooldown), sp_fun)
+  } else {
+    rep.int(list(NULL), length(times))
   }
-  toep <- if ("toep" %in% trinkets) {
-    lapply(get_nsb(15, 90), function(x) rep.int(175, x))
-  }
-  zhc <- if ("zhc" %in% trinkets) {
-    lapply(get_nsb(20, 120), function(x) {
-      sp_seq <- seq.int(from = 204, by = -17, length.out = 8)
-      rep(sp_seq, (x %/% 8) + 1)[seq_len(x)]
-    })
-  }
-  lapply(seq_along(times), function(x) c(toep[[x]], zhc[[x]]))
 }
