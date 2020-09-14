@@ -10,11 +10,7 @@ shadowbolt_impl <- function(sb_dmg,
                             mana,
                             casttime,
                             improved_sb_proc) {
-  if (!sb_miss && improved_sb_proc > 0) {
-    improved_sb_proc <- improved_sb_proc - 1
-  }
-  if (!sb_miss && sb_crit) {
-    improved_sb_proc <- 4
-  }
+  if (!sb_miss && improved_sb_proc > 0) improved_sb_proc <- improved_sb_proc - 1
+  if (!sb_miss && sb_crit) improved_sb_proc <- 4
   c(dmg = sb_dmg, mana = mana, time = casttime, proc = improved_sb_proc)
 }
