@@ -9,7 +9,7 @@ test_that("trinket_sp works as expected", {
     list(
       15, 20, 20,
       c(20, 19), c(20, 20), c(20, 20),
-      c(20, 20), c(20, 20, 1), c(20, 20, 20)
+      c(20, 20, 0), c(20, 20, 1), c(20, 20, 20)
     )
   )
   expect_equal(
@@ -22,5 +22,9 @@ test_that("trinket_sp works as expected", {
   )
   expect_equal(
     trinket_uptime(times[c(1:2, 7)], 15, 90), list(15, 15, c(15, 15, 15))
+  )
+
+  expect_equal(
+    lengths(trinket_sp("zhc", times)), c(5, 7, 7, 14, 14, 14, 14, 14, 21)
   )
 })
