@@ -9,6 +9,13 @@ trinket_sp <- function(trinkets, times) {
   Map(c, toep, zhc)
 }
 
+trinket_uptime <- function(times, duration, cooldown) {
+  full_uptime <- lapply(times %/% cooldown, rep.int, x = duration)
+  rest_uptime <- pmin(duration, times %% cooldown)
+  uptime <- Map(c, full_uptime, rest_uptime)
+  lapply(uptime, function(x) x[x > 0])
+}
+
 n_shadowbolts <- function(times, duration, cooldown) {
   duration <- account_for_lag(duration)
   full <- (duration %/% 2.5) * (times %/% cooldown)
