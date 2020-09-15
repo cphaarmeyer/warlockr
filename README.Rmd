@@ -44,12 +44,13 @@ But first we set up the simulation with our current stats.
 ```{r example}
 library(warlockr)
 my_stats <- with_buffs(list(
-  int = 238,
-  sp = 402 + 59, # shadow spell damage
-  crit = 5,
-  hit = 2
+  int = 267,
+  sp = 512 + 63, # shadow spell damage
+  crit = 7,
+  hit = 10,
+  mp5 = 0
 ),
-consumables = "eosp"
+consumables = c("gae", "eosp", "bwo")
 )
 ```
 
@@ -57,7 +58,7 @@ The `compute_statweights` function simulates the DPS in the neighborhood of your
 Then it evaluates the impact of every stat and scales such that spell power has weight 1.
 
 ```{r statweights}
-my_weights <- compute_statweights(my_stats, seed = 42)
+my_weights <- compute_statweights(my_stats, trinkets = "toep", seed = 42)
 t(my_weights)
 ```
 
@@ -67,21 +68,21 @@ If your just want a quick comparison see `compare_items`.
 ```{r equip}
 my_equip <- list(
   head = list(int = 16, sp = 32),
-  neck = list(int = 9, hit = 1),
-  shoulders = list(sp = 26),
-  back = list(int = 6, sp = 23),
-  chest = list(sp = 46),
-  wrist = list(int = 8, sp = 16),
-  hands = list(int = 15, sp = 15, crit = 1),
+  neck = list(int = 5, sp = 27, crit = 1),
+  shoulders = list(int = 13, sp = 23),
+  back = list(int = 10, sp = 23, hit = 1),
+  chest = list(int = 13, sp = 27, hit = 2),
+  wrist = list(int = 12, sp = 21, hit = 1),
+  hands = list(int = 12, sp = 43),
   waist = list(int = 8, sp = 25, crit = 1),
-  legs = list(int = 16, sp = 39),
+  legs = list(int = 6, sp = 37, hit = 1),
   feet = list(int = 16, sp = 19, hit = 1),
-  finger1 = list(int = 7, sp = 18),
-  finger2 = list(int = 6, sp = 33),
-  trinket1 = list(crit = 2),
-  trinket2 = list(sp = 29),
-  weapon = list(int = 12, sp = 40 + 20, crit = 1), # includes off hand
-  wand = list(int = 4, sp = 11)
+  finger1 = list(int = 12, sp = 21, hit = 1),
+  finger2 = list(sp = 14, crit = 1, hit = 1),
+  trinket1 = "toep",
+  trinket2 = list(sp = 29, hit = 2),
+  weapon = list(int = 29, sp = 84, crit = 2),
+  wand = list(sp = 18)
 )
 ```
 
@@ -89,28 +90,22 @@ Next we need a list of which items to change.
 
 ```{r changes}
 my_changes <- list(
-  "Royal Seal of Eldre'Thalas" =
-    list(trinket1 = list(sp = 23)),
-  "Talisman of Ephemeral Power" =
-    list(trinket1 = "toep"),
-  "Zandalarian Hero Charm" =
-    list(trinket1 = "zhc"),
-  "Dragonslayer's Signet" =
-    list(finger1 = list(int = 10, crit = 1)),
-  "Ring of Spell Power" =
-    list(finger1 = list(sp = 33)),
-  "Ring of Blackrock" =
-    list(finger1 = list(sp = 19, mp5 = 9)),
-  "Band of Forced Concentration" =
-    list(finger1 = list(int = 12, sp = 21, hit = 1)),
-  "Zanzil's Concentration" = list(
-    finger1 = list(int = 10, sp = 11, hit = 1),
-    finger2 = list(int = 13, sp = 6, hit = 1 + 1, mp5 = 4)
+  "Doomcaller's Robes" =
+    list(chest = list(int = 17, sp = 41, crit = 1)),
+  "Fel Infused Leggings" =
+    list(legs = list(sp = 64)),
+  "Boots of Epiphany" =
+    list(feet = list(int = 19, sp = 34)),
+  "Robes + Leggings + Boots" = list(
+    chest = list(int = 17, sp = 41, crit = 1),
+    legs = list(sp = 64),
+    feet = list(int = 19, sp = 34)
   ),
-  "Zanzil's Seal" =
-    list(finger1 = list(int = 10, sp = 11, hit = 1)),
-  "Band of Servitude" =
-    list(finger1 = list(int = 9, sp = 23))
+  "Robes + Leggings + Boots - Setbonus" = list(
+    chest = list(int = 17, sp = 41, crit = 1 - 2),
+    legs = list(sp = 64),
+    feet = list(int = 19, sp = 34)
+  )
 )
 ```
 
@@ -125,7 +120,7 @@ If you want to know what impact world buffs have, simulate again.
 
 ```{r ony}
 my_stats <- add_buff(my_stats, "ony")
-weights_ony <- compute_statweights(my_stats, seed = 42)
+weights_ony <- compute_statweights(my_stats, trinkets = "toep", seed = 42)
 t(weights_ony)
 df_ony <- compare_equip(my_stats, my_equip, my_changes, seed = 561)
 df_ony[order(-df_ony$dps), ]
