@@ -36,11 +36,14 @@ But first we set up the simulation with our current stats.
 
 ``` r
 library(warlockr)
-my_stats <- list(
-  int = 238 + 31 + 16, # with buffs
-  sp = 402 + 59 + 40, # shadow spell damage
-  crit = 5,
-  hit = 2
+my_stats <- with_buffs(list(
+  int = 267,
+  sp = 512 + 63, # shadow spell damage
+  crit = 7,
+  hit = 10,
+  mp5 = 0
+),
+consumables = c("gae", "eosp", "bwo")
 )
 ```
 
@@ -49,11 +52,11 @@ of your current stats. Then it evaluates the impact of every stat and
 scales such that spell power has weight 1.
 
 ``` r
-set.seed(42)
-my_weights <- compute_statweights(my_stats)
-my_weights
-#>        int         sp       crit        hit        mp5 
-#>  0.3386380  1.0000000 12.1194592 11.3058433  0.3336297
+my_weights <- compute_statweights(my_stats, trinkets = "toep", seed = 42)
+t(my_weights)
+#>              int        sp      crit       hit       mp5
+#> weight 0.3619131 1.0000000 14.083848 12.732024 0.2668214
+#> dps    0.1880581 0.5196223  7.318281  6.615843 0.1386463
 ```
 
 To use the `compare_equip` function we need a list of our current items.
@@ -62,21 +65,21 @@ If your just want a quick comparison see `compare_items`.
 ``` r
 my_equip <- list(
   head = list(int = 16, sp = 32),
-  neck = list(int = 9, hit = 1),
-  shoulders = list(sp = 26),
-  back = list(int = 6, sp = 23),
-  chest = list(sp = 46),
-  wrist = list(int = 8, sp = 16),
-  hands = list(int = 15, sp = 15, crit = 1),
+  neck = list(int = 5, sp = 27, crit = 1),
+  shoulders = list(int = 13, sp = 23),
+  back = list(int = 10, sp = 23, hit = 1),
+  chest = list(int = 13, sp = 27, hit = 2),
+  wrist = list(int = 12, sp = 21, hit = 1),
+  hands = list(int = 12, sp = 43),
   waist = list(int = 8, sp = 25, crit = 1),
-  legs = list(int = 16, sp = 39),
+  legs = list(int = 6, sp = 37, hit = 1),
   feet = list(int = 16, sp = 19, hit = 1),
-  finger1 = list(int = 7, sp = 18),
-  finger2 = list(int = 6, sp = 33),
-  trinket1 = list(crit = 2),
-  trinket2 = list(sp = 29),
-  weapon = list(int = 12, sp = 40 + 20, crit = 1), # includes off hand
-  wand = list(int = 4, sp = 11)
+  finger1 = list(int = 12, sp = 21, hit = 1),
+  finger2 = list(sp = 14, crit = 1, hit = 1),
+  trinket1 = "toep",
+  trinket2 = list(sp = 29, hit = 2),
+  weapon = list(int = 29, sp = 84, crit = 2),
+  wand = list(sp = 18)
 )
 ```
 
@@ -84,75 +87,57 @@ Next we need a list of which items to change.
 
 ``` r
 my_changes <- list(
-  "Royal Seal of Eldre'Thalas" =
-    list(trinket1 = list(sp = 23)),
-  "Talisman of Ephemeral Power" =
-    list(trinket1 = "toep"),
-  "Zandalarian Hero Charm" =
-    list(trinket1 = "zhc"),
-  "Dragonslayer's Signet" =
-    list(finger1 = list(int = 10, crit = 1)),
-  "Ring of Spell Power" =
-    list(finger1 = list(sp = 33)),
-  "Ring of Blackrock" =
-    list(finger1 = list(sp = 19, mp5 = 9)),
-  "Band of Forced Concentration" =
-    list(finger1 = list(int = 12, sp = 21, hit = 1)),
-  "Zanzil's Concentration" = list(
-    finger1 = list(int = 10, sp = 11, hit = 1),
-    finger2 = list(int = 13, sp = 6, hit = 1 + 1, mp5 = 4)
+  "Doomcaller's Robes" =
+    list(chest = list(int = 17, sp = 41, crit = 1)),
+  "Fel Infused Leggings" =
+    list(legs = list(sp = 64)),
+  "Boots of Epiphany" =
+    list(feet = list(int = 19, sp = 34)),
+  "Robes + Leggings + Boots" = list(
+    chest = list(int = 17, sp = 41, crit = 1),
+    legs = list(sp = 64),
+    feet = list(int = 19, sp = 34)
   ),
-  "Zanzil's Seal" =
-    list(finger1 = list(int = 10, sp = 11, hit = 1)),
-  "Band of Servitude" =
-    list(finger1 = list(int = 9, sp = 23))
+  "Robes + Leggings + Boots - Setbonus" = list(
+    chest = list(int = 17, sp = 41, crit = 1 - 2),
+    legs = list(sp = 64),
+    feet = list(int = 19, sp = 34)
+  )
 )
 ```
 
 Now we can simulate.
 
 ``` r
-set.seed(42)
-df <- compare_equip(my_stats, my_equip, my_changes)
+df <- compare_equip(my_stats, my_equip, my_changes, seed = 561)
 df[order(-df$dps), ]
-#>                                   dps       diff            slot
-#> Band of Forced Concentration 426.9740  7.0596202         finger1
-#> Ring of Spell Power          425.5837  5.6692934         finger1
-#> Talisman of Ephemeral Power  422.8848  2.9703533        trinket1
-#> Zandalarian Hero Charm       422.5428  2.6284041        trinket1
-#> Band of Servitude            422.4070  2.4925574         finger1
-#> Zanzil's Seal                422.1253  2.2109347         finger1
-#> Zanzil's Concentration       421.2258  1.3114073 finger1/finger2
-#> Ring of Blackrock            420.4470  0.5325703         finger1
-#> current                      419.9144  0.0000000            <NA>
-#> Royal Seal of Eldre'Thalas   419.3462 -0.5682540        trinket1
-#> Dragonslayer's Signet        417.2600 -2.6543872         finger1
+#>                                          dps      diff            slot
+#> Robes + Leggings + Boots            612.6468  8.724165 chest/legs/feet
+#> Fel Infused Leggings                610.1060  6.183426            legs
+#> Doomcaller's Robes                  605.4479  1.525355           chest
+#> Boots of Epiphany                   605.4359  1.513346            feet
+#> current                             603.9226  0.000000                
+#> Robes + Leggings + Boots - Setbonus 598.2975 -5.625057 chest/legs/feet
 ```
 
 If you want to know what impact world buffs have, simulate again.
 
 ``` r
-my_stats$crit <- my_stats$crit + 10
-set.seed(42)
-weights_ony <- compute_statweights(my_stats)
-weights_ony
-#>        int         sp       crit        hit        mp5 
-#>  0.3081963  1.0000000 10.1806983 11.3439061  0.3016408
-set.seed(42)
-df_ony <- compare_equip(my_stats, my_equip, my_changes)
+my_stats <- add_buff(my_stats, "ony")
+weights_ony <- compute_statweights(my_stats, trinkets = "toep", seed = 42)
+t(weights_ony)
+#>              int        sp      crit       hit       mp5
+#> weight 0.3398773 1.0000000 11.849965 12.768214 0.2746858
+#> dps    0.1968847 0.5792817  6.864467  7.396392 0.1591205
+df_ony <- compare_equip(my_stats, my_equip, my_changes, seed = 561)
 df_ony[order(-df_ony$dps), ]
-#>                                   dps       diff            slot
-#> Band of Forced Concentration 479.3577  7.8895720         finger1
-#> Ring of Spell Power          477.9219  6.4537812         finger1
-#> Talisman of Ephemeral Power  476.6947  5.2265536        trinket1
-#> Zandalarian Hero Charm       476.3149  4.8467119        trinket1
-#> Band of Servitude            474.2509  2.7827652         finger1
-#> Zanzil's Seal                473.9369  2.4687831         finger1
-#> Zanzil's Concentration       472.7997  1.3315855 finger1/finger2
-#> Royal Seal of Eldre'Thalas   472.7116  1.2434661        trinket1
-#> Ring of Blackrock            472.1537  0.6855659         finger1
-#> current                      471.4682  0.0000000            <NA>
-#> Dragonslayer's Signet        467.5589 -3.9092764         finger1
+#>                                          dps       diff            slot
+#> Robes + Leggings + Boots            681.8057  8.4831251 chest/legs/feet
+#> Fel Infused Leggings                680.3640  7.0414502            legs
+#> Boots of Epiphany                   674.9246  1.6020169            feet
+#> Doomcaller's Robes                  673.7222  0.3995946           chest
+#> current                             673.3226  0.0000000                
+#> Robes + Leggings + Boots - Setbonus 668.2354 -5.0872230 chest/legs/feet
 ```
 
 This can help setting your priorities right. Note that this is only

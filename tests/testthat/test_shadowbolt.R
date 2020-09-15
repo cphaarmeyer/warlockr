@@ -10,5 +10,7 @@ test_that("shadowbolt works as expected", {
   expect_lt(sb[[2]], 0)
   expect_gt(sb[[3]], 0)
   expect_true(all(sb[c(1, 4)] >= 0))
-  expect_equal(sb_impl[4], 4)
+  expect_equal(sb_impl[[4]], 4)
+  expect_named(sb, c("dmg", "mana", "time", "proc"))
+  expect_named(sb_impl, c("dmg", "mana", "time", "proc"))
 })

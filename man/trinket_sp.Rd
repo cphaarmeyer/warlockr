@@ -16,7 +16,3 @@ zhc (Zandalarian Hero Charm)}
 \description{
 Spell Power Bonus of Trinkets
 }
-\examples{
-trinket_sp("toep", 150:154)
-trinket_sp(c("toep", "zhc"), 150)
-}

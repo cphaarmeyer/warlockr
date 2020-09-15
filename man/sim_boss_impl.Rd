@@ -12,8 +12,8 @@ sim_boss_impl(
   sb_miss,
   sb_crit,
   curse_miss,
-  sb_manacost,
-  lt_manacost,
+  sb_mana,
+  lt_mana,
   time,
   sp_bonus = NULL
 )
@@ -33,9 +33,9 @@ sim_boss_impl(
 
 \item{curse_miss}{vector of whether curse hits}
 
-\item{sb_manacost}{mana cost of shadow bolt}
+\item{sb_mana}{mana difference of shadow bolt}
 
-\item{lt_manacost}{mana cost of life tap}
+\item{lt_mana}{mana difference of life tap}
 
 \item{time}{length of fight in seconds}
 

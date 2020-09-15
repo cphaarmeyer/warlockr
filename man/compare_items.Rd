@@ -4,7 +4,7 @@
 \alias{compare_items}
 \title{Compare Items}
 \usage{
-compare_items(stats, items, timeframe = c(60, 300), iter = 50000)
+compare_items(stats, items, timeframe = c(60, 300), iter = 50000, seed = NULL)
 }
 \arguments{
 \item{stats}{a named list with the stats of the character including int, sp,
@@ -15,6 +15,8 @@ crit, hit and mp5}
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
 \item{iter}{number of iterations}
+
+\item{seed}{optional seed}
 }
 \value{
 a data frame

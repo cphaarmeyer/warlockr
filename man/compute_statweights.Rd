@@ -6,25 +6,28 @@
 \usage{
 compute_statweights(
   stats,
+  trinkets = NULL,
   timeframe = c(60, 300),
   iter = 50000,
-  trinkets = NULL
+  seed = NULL
 )
 }
 \arguments{
 \item{stats}{a named list with the stats of the character including int, sp,
 crit, hit and mp5}
 
+\item{trinkets}{which use trinkets are equipped, currently implemented:
+toep (Talisman of Ephemeral Power)
+zhc (Zandalarian Hero Charm)}
+
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
 \item{iter}{number of iterations}
 
-\item{trinkets}{which use trinkets are equipped, currently implemented:
-toep (Talisman of Ephemeral Power)
-zhc (Zandalarian Hero Charm)}
+\item{seed}{optional seed}
 }
 \value{
-a named vector with weights
+a data frame with weights
 }
 \description{
 Simulates current dps and dps with increased stats to compute weights for

@@ -3,15 +3,11 @@
 #' @inheritParams sample_shadowbolt
 #'
 #' @return a list
-#' @export
-#'
-#' @examples
-#' sample_all(10)
-sample_all <- function(n) {
+sample_sim <- function(n) {
   list(
     sb = sample_shadowbolt(n),
-    hit = sample_hit(n),
-    crit = sample_hit(n),
-    curse = sample_hit(n)
+    hit = sample_roll(n),
+    crit = sample_roll(n),
+    curse = sample_roll(n)
   )
 }

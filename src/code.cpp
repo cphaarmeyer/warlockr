@@ -1,14 +1,19 @@
 #include <Rcpp.h>
 using namespace Rcpp;
 
-//' Simulate the Loop for a Boss Fight
+//' Simulate the Spells of a Boss Fight
 //'
 //' @inheritParams sim_boss_impl
 // [[Rcpp::export]]
-NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
-                            LogicalVector sb_miss, LogicalVector sb_crit,
-                            LogicalVector curse_miss, double sb_manacost,
-                            double lt_manacost, double time) {
+NumericMatrix sim_boss_spells(double mana,
+                              double mp5,
+                              NumericVector sb_dmg,
+                              LogicalVector sb_miss,
+                              LogicalVector sb_crit,
+                              LogicalVector curse_miss,
+                              double sb_mana,
+                              double lt_mana,
+                              double time) {
   std::vector<double> time_vec(0);
   double time_total = 0.0;
   std::vector<double> mana_vec(0);
@@ -35,17 +40,17 @@ NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg,
       mana_total += mp5;
       mp5_time += 5.0;
     }
-    if(mana_total < -sb_manacost) {
+    if(mana_total < -sb_mana) {
       time_vec.push_back(1.5);
       time_total += time_vec[row];
-      mana_vec.push_back(lt_manacost);
+      mana_vec.push_back(lt_mana);
       mana_total += mana_vec[row];
       dmg_vec.push_back(0.0);
       proc_vec.push_back(proc_vec[row - 1]);
     } else {
       time_vec.push_back(2.5);
       time_total += time_vec[row];
-      mana_vec.push_back(sb_manacost);
+      mana_vec.push_back(sb_mana);
       mana_total += mana_vec[row];
       dmg_vec.push_back(sb_dmg[sb]);
       if(!sb_miss[sb] & (proc_vec[row - 1] > 0)) {

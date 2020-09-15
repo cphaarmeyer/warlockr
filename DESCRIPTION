@@ -1,7 +1,7 @@
 Type: Package
 Package: warlockr
 Title: Classic WoW Warlock Related Stuff
-Version: 0.3.4
+Version: 0.4.0
 Author: Who wrote it
 Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)

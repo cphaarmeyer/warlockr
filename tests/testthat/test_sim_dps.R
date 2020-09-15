@@ -3,7 +3,7 @@ context("sim_dps")
 
 test_that("sim_dps works as expected", {
   stats <- list(int = 277, sp = 346, crit = 2, hit = 2, mp5 = 8)
-  seed <- sample(1:1000, 1)
+  seed <- sample_seed()
   mat <- sim_dps(stats, iter = 1000, seed = seed)
   mat_toep <- sim_dps(stats, iter = 1000, seed = seed, trinkets = "toep")
   mat_toep_zhc <- sim_dps(stats,

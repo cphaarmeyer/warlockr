@@ -13,7 +13,3 @@ sample_shadowbolt(n = 1)
 Use the sample function so simulate the base damage of a shadow bolt.
 Intended for vectorisation if the simulation.
 }
-\examples{
-sample_shadowbolt()
-sample_shadowbolt(5)
-}

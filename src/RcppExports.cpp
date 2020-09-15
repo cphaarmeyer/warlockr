@@ -5,9 +5,9 @@
 
 using namespace Rcpp;
 
-// sim_boss_loop
-NumericMatrix sim_boss_loop(double mana, double mp5, NumericVector sb_dmg, LogicalVector sb_miss, LogicalVector sb_crit, LogicalVector curse_miss, double sb_manacost, double lt_manacost, double time);
-RcppExport SEXP _warlockr_sim_boss_loop(SEXP manaSEXP, SEXP mp5SEXP, SEXP sb_dmgSEXP, SEXP sb_missSEXP, SEXP sb_critSEXP, SEXP curse_missSEXP, SEXP sb_manacostSEXP, SEXP lt_manacostSEXP, SEXP timeSEXP) {
+// sim_boss_spells
+NumericMatrix sim_boss_spells(double mana, double mp5, NumericVector sb_dmg, LogicalVector sb_miss, LogicalVector sb_crit, LogicalVector curse_miss, double sb_mana, double lt_mana, double time);
+RcppExport SEXP _warlockr_sim_boss_spells(SEXP manaSEXP, SEXP mp5SEXP, SEXP sb_dmgSEXP, SEXP sb_missSEXP, SEXP sb_critSEXP, SEXP curse_missSEXP, SEXP sb_manaSEXP, SEXP lt_manaSEXP, SEXP timeSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -17,16 +17,16 @@ BEGIN_RCPP
     Rcpp::traits::input_parameter< LogicalVector >::type sb_miss(sb_missSEXP);
     Rcpp::traits::input_parameter< LogicalVector >::type sb_crit(sb_critSEXP);
     Rcpp::traits::input_parameter< LogicalVector >::type curse_miss(curse_missSEXP);
-    Rcpp::traits::input_parameter< double >::type sb_manacost(sb_manacostSEXP);
-    Rcpp::traits::input_parameter< double >::type lt_manacost(lt_manacostSEXP);
+    Rcpp::traits::input_parameter< double >::type sb_mana(sb_manaSEXP);
+    Rcpp::traits::input_parameter< double >::type lt_mana(lt_manaSEXP);
     Rcpp::traits::input_parameter< double >::type time(timeSEXP);
-    rcpp_result_gen = Rcpp::wrap(sim_boss_loop(mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss, sb_manacost, lt_manacost, time));
+    rcpp_result_gen = Rcpp::wrap(sim_boss_spells(mana, mp5, sb_dmg, sb_miss, sb_crit, curse_miss, sb_mana, lt_mana, time));
     return rcpp_result_gen;
 END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_warlockr_sim_boss_loop", (DL_FUNC) &_warlockr_sim_boss_loop, 9},
+    {"_warlockr_sim_boss_spells", (DL_FUNC) &_warlockr_sim_boss_spells, 9},
     {NULL, NULL, 0}
 };
 

@@ -5,7 +5,7 @@ test_that("compute_critchance works as expected", {
   c1 <- compute_critchance(3, 267)
   c2 <- compute_critchance(4, 267)
   c3 <- compute_critchance(3, 268)
-  c4 <- compute_critchance(3, 267, devastation = 0)
+  c4 <- compute_critchance(3, 267, list(devastation = 0))
 
   expect_length(c1, 1)
   expect_type(c1, "double")

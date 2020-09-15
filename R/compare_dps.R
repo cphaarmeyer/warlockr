@@ -13,18 +13,24 @@
 #' ),
 #' iter = 1000
 #' )
-compare_dps <- function(stats_list, timeframe = c(60, 300), iter = 50000) {
-  seed <- sample(1:1000, 1)
+compare_dps <- function(stats_list,
+                        timeframe = c(60, 300),
+                        iter = 50000,
+                        seed = NULL) {
+  if (is.null(seed)) seed <- sample_seed()
   simulations <- lapply(stats_list, sim_dps,
     timeframe = timeframe, iter = iter, seed = seed
   )
-  dps <- vapply(simulations, function(x) mean(x[, 4]),
-    FUN.VALUE = double(1)
-  )
-  df <- data.frame(dps = dps)
+  dps <- vapply(simulations, function(x) mean(x[, 4]), FUN.VALUE = double(1))
+  add_diff_col(data.frame(dps = dps))
+}
+
+add_diff_col <- function(df) {
   if ("current" %in% row.names(df)) {
-    dps <- df["current", "dps"]
-    df[["diff"]] <- df[["dps"]] - dps
+    current_dps <- df[["current", "dps"]]
+    df[["diff"]] <- df[["dps"]] - current_dps
   }
   df
 }
+
+sample_seed <- function() sample(1:1000, 1)

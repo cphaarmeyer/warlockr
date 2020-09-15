@@ -9,7 +9,7 @@ test_that("clean_stats works as expected", {
   res <- list(int = 277, sp = 346, crit = 2, hit = 2, mp5 = 0)
 
   expect_identical(clean_stats(s), res)
-  expect_warning(clean_stats(s1))
+  expect_error(clean_stats(s1))
   expect_identical(
     clean_stats(s2),
     list(int = 277, sp = 0, crit = 2, hit = 0, mp5 = 0)

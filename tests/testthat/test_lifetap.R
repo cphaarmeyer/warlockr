@@ -9,4 +9,5 @@ test_that("lifetap works as expected", {
   expect_gt(lt[[2]], 0)
   expect_true(lt[[3]] == 1.5)
   expect_true(all(lt[c(1, 4)] == 0))
+  expect_named(lt, c("dmg", "mana", "time", "proc"))
 })

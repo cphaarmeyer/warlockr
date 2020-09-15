@@ -1,11 +1,3 @@
-statbudget <- list(
-  int = 1,
-  sp = 6 / 7,
-  crit = 14,
-  hit = 8,
-  mp5 = 2.5
-)
-
 #' Compute Stat Weights
 #'
 #' Simulates current dps and dps with increased stats to compute weights for
@@ -14,7 +6,7 @@ statbudget <- list(
 #'
 #' @inheritParams sim_dps
 #'
-#' @return a named vector with weights
+#' @return a data frame with weights
 #' @export
 #'
 #' @examples
@@ -22,22 +14,54 @@ statbudget <- list(
 #'   list(int = 277, sp = 346, crit = 2, hit = 2),
 #'   iter = 1000
 #' )
-compute_statweights <- function(stats, timeframe = c(60, 300), iter = 50000,
-                                trinkets = NULL) {
-  stats <- clean_stats(stats)
-  statnames <- stats::setNames(nm = names(stats))
+compute_statweights <- function(stats,
+                                trinkets = NULL,
+                                timeframe = c(60, 300),
+                                iter = 50000,
+                                seed = NULL) {
   iter_total <- iter * length(statnames)
-  max_change <- as.list(floor(2 * max(unlist(statbudget)) / unlist(statbudget)))
-  ranges <- lapply(statnames, function(x) {
-    max(0, stats[[x]] - max_change[[x]]):(stats[[x]] + max_change[[x]])
-  })
-  stats_list <- lapply(ranges, sample, size = iter_total, replace = TRUE)
-  time <- stats::runif(iter_total, timeframe[1], timeframe[2])
-  sims <- vapply(seq_len(iter_total), function(i) {
-    sim_boss(lapply(stats_list, `[`, i), time = time[i], trinkets = trinkets)[4]
-  }, FUN.VALUE = double(1))
-  df <- data.frame(stats_list, dps = sims, time = time)
+  if (!is.null(seed)) set.seed(seed)
+  df <- sample_stats_df(stats, iter_total, timeframe)
+  df[["dps"]] <- vapply(
+    X = seq_len(nrow(df)),
+    FUN = function(i) sim_boss_df(df[i, ], trinkets)[4],
+    FUN.VALUE = double(1)
+  )
   mod <- stats::lm(dps ~ ., data = df)
-  weights <- stats::coef(mod)[statnames]
-  weights / weights[["sp"]]
+  coefs <- stats::coef(mod)[statnames]
+  weights <- coefs / coefs[["sp"]]
+  data.frame(weight = weights, dps = coefs)
+}
+
+statbudget <- list(
+  int = 1,
+  sp = 6 / 7,
+  crit = 14,
+  hit = 8,
+  mp5 = 2.5
+)
+
+expand_stats <- function(stats) {
+  max_change <- do_call_stats(
+    list(statbudget), function(x) floor(2 * max(x) / x)
+  )
+  Map(function(x, d) max(0, x - d):(x + d), clean_stats(stats), max_change)
+}
+
+sample_stats <- function(stats, n) {
+  lapply(expand_stats(stats), sample, size = n, replace = TRUE)
+}
+
+sample_time <- function(timeframe, n) {
+  stats::runif(n, timeframe[1], timeframe[2])
+}
+
+sample_stats_df <- function(stats, n, timeframe) {
+  data.frame(sample_stats(stats, n), time = sample_time(timeframe, n))
+}
+
+sim_boss_df <- function(df, trinkets) {
+  sim_boss(as.list(df[, statnames]),
+    time = df[["time"]], trinkets = trinkets
+  )
 }

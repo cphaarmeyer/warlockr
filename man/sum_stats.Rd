@@ -15,9 +15,3 @@ sum_stats(stats_list)
 \description{
 Sum Stats
 }
-\examples{
-sum_stats(list(
-  list(int = 1, sp = 2),
-  list(crit = 3, hit = 4)
-))
-}

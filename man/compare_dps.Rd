@@ -4,7 +4,7 @@
 \alias{compare_dps}
 \title{Compare the DPS of different Stats}
 \usage{
-compare_dps(stats_list, timeframe = c(60, 300), iter = 50000)
+compare_dps(stats_list, timeframe = c(60, 300), iter = 50000, seed = NULL)
 }
 \arguments{
 \item{stats_list}{as list of \code{stats}}
@@ -12,6 +12,8 @@ compare_dps(stats_list, timeframe = c(60, 300), iter = 50000)
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
 \item{iter}{number of iterations}
+
+\item{seed}{optional seed}
 }
 \value{
 a data frame

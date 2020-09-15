@@ -4,7 +4,14 @@
 \alias{compare_equip}
 \title{Compare Equip}
 \usage{
-compare_equip(stats, equip, changes, timeframe = c(60, 300), iter = 50000)
+compare_equip(
+  stats,
+  equip,
+  changes,
+  timeframe = c(60, 300),
+  iter = 50000,
+  seed = NULL
+)
 }
 \arguments{
 \item{stats}{a named list with the stats of the character including int, sp,
@@ -17,13 +24,15 @@ crit, hit and mp5}
 \item{timeframe}{vector of minimal and maximal duration of a fight in seconds}
 
 \item{iter}{number of iterations}
+
+\item{seed}{optional seed}
 }
 \value{
 a data frame
 }
 \description{
 Similar to \code{compare_items} but different interface.
-See \code{check_equip} for more details.
+See \code{is_equip} for more details.
 }
 \examples{
 my_stats <- list(

@@ -1,10 +1,10 @@
 #' Compare Equip
 #'
 #' Similar to \code{compare_items} but different interface.
-#' See \code{check_equip} for more details.
+#' See \code{is_equip} for more details.
 #'
 #' @inheritParams compare_items
-#' @inheritParams check_equip
+#' @inheritParams is_equip
 #' @param changes named list with the item changes
 #'
 #' @return a data frame
@@ -45,18 +45,29 @@
 #' )
 #' compare_equip(my_stats, my_equip, my_changes, iter = 1000)
 compare_equip <- function(stats, equip, changes,
-                          timeframe = c(60, 300), iter = 50000) {
-  stopifnot(check_equip(equip))
-  stats <- clean_stats(stats)
-  stats_equip <- sum_stats(equip)
-  stats_base <- as.list(unlist(stats) - unlist(stats_equip))
-  lst <- lapply(c(list(current = list()), changes), function(x) {
-    equip[names(x)] <- x
-    sum_stats(c(list(stats_base), equip))
+                          timeframe = c(60, 300),
+                          iter = 50000,
+                          seed = NULL) {
+  stopifnot(is_equip(equip))
+  stats_base <- do_call_stats(list(stats, sum_stats(equip)), `-`)
+  changes <- c(list(current = list()), changes)
+  new_equip <- lapply(changes, function(x) replace_slot(equip, names(x), x))
+  new_stats <- lapply(new_equip, function(...) {
+    sum_stats(c(..., list(stats_base)))
   })
-  df <- compare_dps(lst, timeframe = timeframe, iter = iter)
-  df[["slot"]] <- c(NA, vapply(lapply(changes, names), paste,
+  df <- compare_dps(new_stats, timeframe = timeframe, iter = iter, seed = seed)
+  add_slots(df, changes)
+}
+
+replace_slot <- function(equip, slot, replacement) {
+  equip[slot] <- replacement
+  equip
+}
+
+add_slots <- function(df, changes) {
+  slots_list <- lapply(changes, names)
+  df[["slot"]] <- vapply(slots_list, paste,
     collapse = "/", FUN.VALUE = character(1)
-  ))
+  )
   df
 }

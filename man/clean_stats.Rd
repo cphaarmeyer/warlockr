@@ -13,6 +13,3 @@ crit, hit and mp5}
 \description{
 Replaces missing stats with zero.
 }
-\examples{
-clean_stats(list(crit = -1, hit = 1))
-}

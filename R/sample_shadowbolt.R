@@ -5,11 +5,6 @@
 #'
 #' @param n number of samples
 #'
-#' @export
-#'
-#' @examples
-#' sample_shadowbolt()
-#' sample_shadowbolt(5)
 sample_shadowbolt <- function(n = 1) {
   sample(482:538, n, replace = TRUE)
 }
