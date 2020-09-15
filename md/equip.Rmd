@@ -17,18 +17,18 @@ This file keeps track of my current stats, equip and potential upgrades.
 ```{r}
 library(warlockr)
 
-my_stats <- with_buffs(list(
+my_stats <- list(
   int = 267,
   sp = 512 + 63,
   crit = 7,
   hit = 10,
   mp5 = 0
-),
-consumables = c("gae", "eosp", "bwo")
 )
-unlist(my_stats)
 
-my_stats_ony <- add_buff(my_stats, "ony")
+my_stats_unbuffed <- with_buffs(my_stats)
+my_stats_buffed <- with_buffs(my_stats, consumables = c("gae", "eosp", "bwo"))
+my_stats_ony <- add_buff(my_stats_buffed, "ony")
+unlist(my_stats_ony)
 
 my_equip <- yaml::read_yaml("equip.yaml")
 my_changes <- yaml::read_yaml("changes.yaml")
@@ -47,11 +47,13 @@ show_result <- function(stats, changes) {
 }
 
 
-show_statweights(my_stats)
+show_statweights(my_stats_buffed)
 show_statweights(my_stats_ony)
+show_statweights(my_stats_unbuffed)
 
-show_result(my_stats, my_changes)
+show_result(my_stats_buffed, my_changes)
 
-show_result(my_stats, my_bank)
+show_result(my_stats_buffed, my_bank)
 show_result(my_stats_ony, my_bank)
+show_result(my_stats_unbuffed, my_bank)
 ```
