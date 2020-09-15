@@ -10,6 +10,7 @@ trinket_sp <- function(trinkets, times) {
 }
 
 trinket_uptime <- function(times, duration, cooldown) {
+  times <- account_for_aggro(times)
   full_uptime <- lapply(times %/% cooldown, rep.int, x = duration)
   rest_uptime <- pmin(duration, times %% cooldown)
   Map(c, full_uptime, rest_uptime)
@@ -23,6 +24,7 @@ n_shadowbolts <- function(uptime) {
 }
 
 account_for_lag <- function(duration) duration - 1
+account_for_aggro <- function(time) time - 5
 
 sp_toep <- function(n) rep.int(175, n)
 

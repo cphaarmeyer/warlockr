@@ -2,7 +2,7 @@ context("trinket_sp")
 
 
 test_that("trinket_sp works as expected", {
-  times <- c(15, 20, 25, 139, 140, 142, 240, 241, 261)
+  times <- c(15, 20, 25, 139, 140, 142, 240, 241, 261) + 5
 
   expect_equal(
     trinket_uptime(times, 20, 120),
