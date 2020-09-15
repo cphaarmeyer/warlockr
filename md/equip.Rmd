@@ -24,7 +24,7 @@ my_stats <- with_buffs(list(
   hit = 10,
   mp5 = 0
 ),
-consumables = "eosp"
+consumables = c("gae", "eosp", "bwo")
 )
 unlist(my_stats)
 
