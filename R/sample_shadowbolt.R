@@ -6,5 +6,5 @@
 #' @param n number of samples
 #'
 sample_shadowbolt <- function(n = 1) {
-  sample(455:507, n, replace = TRUE)
+  sample(482:538, n, replace = TRUE)
 }

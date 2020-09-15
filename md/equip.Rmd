@@ -18,10 +18,10 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- with_buffs(list(
-  int = 275,
-  sp = 505 + 76,
-  crit = 5,
-  hit = 9,
+  int = 267,
+  sp = 512 + 63,
+  crit = 7,
+  hit = 10,
   mp5 = 0
 ),
 consumables = "eosp"

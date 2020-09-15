@@ -1,160 +1,150 @@
 MC Mana Igniting Cord:
   waist:
-    int: 16.0
-    sp: 25.0
-    crit: 1.0
+    int: 16
+    sp: 25
+    crit: 1
 MC Mana Igniting Cord (Set):
   waist:
-    int: 16.0
-    sp: 25.0
-    crit: 1.0
-  hands:
-    int: 15.0
-    sp: 15.0
-    crit: 1.0
-BWL Mantle of the Blackwing Cabal:
+    int: 16
+    sp: 25
+    crit: 1
   shoulders:
-    int: 16.0
-    sp: 34.0
-BWL Mantle of the Blackwing Cabal (Set):
-  shoulders:
-    int: 16.0
-    sp: 34.0
-  hands:
-    int: 15.0
-    sp: 15.0
-    crit: 1.0
+    int: 11
+    sp: 5
+    hit: 1
 BWL Mish'undare, Circlet of the Mind Flayer:
   head:
-    int: 24.0
-    sp: 35.0
-    crit: 2.0
+    int: 24
+    sp: 35
+    crit: 2
 BWL Mish'undare, Circlet of the Mind (Set):
   head:
-    int: 24.0
-    sp: 35.0
-    crit: 2.0
-  hands:
-    int: 15.0
-    sp: 15.0
-    crit: 1.0
+    int: 24
+    sp: 35
+    crit: 2
+  shoulders:
+    int: 11
+    sp: 5
+    hit: 1
 ZG The Hexxer's Cover:
   head:
-    int: 10.0
-    sp: 41.0
+    int: 10
+    sp: 41
 ZG The Hexxer's Cover (Set):
   head:
-    int: 10.0
-    sp: 41.0
-  hands:
-    int: 15.0
-    sp: 15.0
-    crit: 1.0
-AQ Ring of Unspoken Names:
-  finger1:
-    sp: 14.0
-    crit: 1.0
-    hit: 1.0
+    int: 10
+    sp: 41
+  shoulders:
+    int: 11
+    sp: 5
+    hit: 1
 AQ Dustwind Turban:
   head:
-    int: 29.0
-    sp: 31.0
-    crit: 1.0
+    int: 29
+    sp: 31
+    crit: 1
 AQ Dustwind Turban (Set):
   head:
-    int: 29.0
-    sp: 31.0
-    crit: 1.0
-  hands:
-    int: 15.0
-    sp: 15.0
-    crit: 1.0
+    int: 29
+    sp: 31
+    crit: 1
+  shoulders:
+    int: 11
+    sp: 5
+    hit: 1
 AQ Blessed Quiraji Acolyte Staff:
   weapon:
-    int: 33.0
-    sp: 76.0
-    crit: 1.0
-    hit: 2.0
+    int: 33
+    sp: 76
+    crit: 1
+    hit: 2
 AQ Wand of Quiraji Nobility:
   wand:
-    sp: 19.0
-AQ Amulet of Vek'nilash:
-  neck:
-    int: 5.0
-    sp: 27.0
-    crit: 1.0
+    sp: 19
 AQ Cloak of the Devoured:
   back:
-    int: 10.0
-    sp: 30.0
-    hit: 1.0
+    int: 10
+    sp: 30
+    hit: 1
 AQ Eyestalk Waist Cord:
   waist:
-    int: 9.0
-    sp: 41.0
-    crit: 1.0
+    int: 9
+    sp: 41
+    crit: 1
 AQ Eyestalk Waist Cord (Set):
   waist:
-    int: 9.0
-    sp: 41.0
-    crit: 1.0
-  hands:
-    int: 15.0
-    sp: 15.0
-    crit: 1.0
+    int: 9
+    sp: 41
+    crit: 1
+  shoulders:
+    int: 11
+    sp: 5
+    hit: 1
 AQ Dark Storm Gauntlets:
   hands:
-    int: 15.0
-    sp: 37.0
-    hit: 1.0
+    int: 15
+    sp: 37
+    hit: 1
 AQ Ring of the Fallen God:
   finger1:
-    int: 6.0
-    sp: 37.0
-    hit: 1.0
+    int: 6
+    sp: 37
+    hit: 1
 AQ Ritssyn's Ring of Chaos:
   finger1:
-    sp: 25.0
-    crit: 1.0
+    sp: 25
+    crit: 1
 AQ Sharpened Silithid Femur + Jin'do's Bag:
   weapon:
-    int: 18.0
-    sp: 90.0
-    crit: 1.0
-    hit: 1.0
+    int: 18
+    sp: 90
+    crit: 1
+    hit: 1
 AQ Sharpened Silithid Femur + Royal Scepter:
   weapon:
-    int: 16.0
-    sp: 92.0
-    crit: 2.0
-    hit: 1.0
+    int: 16
+    sp: 92
+    crit: 2
+    hit: 1
 Doomcaller's Circlet:
   head:
-    int: 24.0
-    sp: 33.0
-    crit: 1.0
-    hit: 1.0
+    int: 24
+    sp: 33
+    crit: 1
+    hit: 1
 Doomcaller's Circlet (Set):
   head:
-    int: 24.0
-    sp: 33.0
-    crit: 1.0
-    hit: 1.0
-  hands:
-    int: 15.0
-    sp: 15.0
-    crit: 1.0
-Doomcaller's Mantle:
+    int: 24
+    sp: 33
+    crit: 1
+    hit: 1
   shoulders:
-    int: 11.0
-    sp: 28.0
-    hit: 1.0
-Doomcaller's Mantle (Set):
-  shoulders:
-    int: 11.0
-    sp: 28.0
-    hit: 1.0
-  hands:
-    int: 15.0
-    sp: 15.0
-    crit: 1.0
+    int: 11
+    sp: 5
+    hit: 1
+Rockfury Bracers:
+  wrist:
+    sp: 27
+    hit: 1
+Doomcaller's Robes:
+  chest:
+    int: 17
+    sp: 41
+    crit: 1
+Doomcaller's Footwraps:
+  feet:
+    int: 16
+    sp: 28
+Doomcaller's Trousers:
+  legs:
+    int: 24
+    sp: 34
+    crit: 1
+Fel Infused Leggings:
+  legs:
+    sp: 64
+Leggings of the Black Blizzard:
+  legs:
+    int: 16
+    sp: 41
+    crit: 1
