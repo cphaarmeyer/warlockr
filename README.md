@@ -119,9 +119,9 @@ df[order(-df$dps), ]
 #>                                   dps       diff            slot
 #> Band of Forced Concentration 426.9740  7.0596202         finger1
 #> Ring of Spell Power          425.5837  5.6692934         finger1
-#> Talisman of Ephemeral Power  422.8308  2.9163919        trinket1
-#> Zandalarian Hero Charm       422.6445  2.7301316        trinket1
+#> Talisman of Ephemeral Power  422.4311  2.5166544        trinket1
 #> Band of Servitude            422.4070  2.4925574         finger1
+#> Zandalarian Hero Charm       422.3543  2.4398730        trinket1
 #> Zanzil's Seal                422.1253  2.2109347         finger1
 #> Zanzil's Concentration       421.2258  1.3114073 finger1/finger2
 #> Ring of Blackrock            420.4470  0.5325703         finger1
@@ -144,8 +144,8 @@ df_ony[order(-df_ony$dps), ]
 #>                                   dps       diff            slot
 #> Band of Forced Concentration 479.3577  7.8895720         finger1
 #> Ring of Spell Power          477.9219  6.4537812         finger1
-#> Talisman of Ephemeral Power  476.6370  5.1688029        trinket1
-#> Zandalarian Hero Charm       476.4319  4.9637366        trinket1
+#> Talisman of Ephemeral Power  476.1793  4.7111162        trinket1
+#> Zandalarian Hero Charm       476.0964  4.6282226        trinket1
 #> Band of Servitude            474.2509  2.7827652         finger1
 #> Zanzil's Seal                473.9369  2.4687831         finger1
 #> Zanzil's Concentration       472.7997  1.3315855 finger1/finger2
