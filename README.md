@@ -77,7 +77,7 @@ my_equip <- list(
   finger1 = list(int = 12, sp = 21, hit = 1),
   finger2 = list(sp = 14, crit = 1, hit = 1),
   trinket1 = "toep",
-  trinket2 = list(sp = 29, hit = 2),
+  trinket2 = list(sp = 44, hit = 2),
   weapon = list(int = 29, sp = 84, crit = 2),
   wand = list(sp = 18)
 )

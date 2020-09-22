@@ -45,7 +45,7 @@ finger2:
   hit: 1
 trinket1: toep
 trinket2:
-  sp: 29
+  sp: 44
   hit: 2
 weapon:
   int: 29
