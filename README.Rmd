@@ -90,6 +90,10 @@ Next we need a list of which items to change.
 
 ```{r changes}
 my_changes <- list(
+  "Zandalarian Hero Charm" =
+    list(trinket1 = "zhc"),
+  "Briarwood Reed" =
+    list(trinket1 = list(sp = 29)),
   "Doomcaller's Robes" =
     list(chest = list(int = 17, sp = 41, crit = 1)),
   "Fel Infused Leggings" =

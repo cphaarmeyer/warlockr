@@ -87,6 +87,10 @@ Next we need a list of which items to change.
 
 ``` r
 my_changes <- list(
+  "Zandalarian Hero Charm" =
+    list(trinket1 = "zhc"),
+  "Briarwood Reed" =
+    list(trinket1 = list(sp = 29)),
   "Doomcaller's Robes" =
     list(chest = list(int = 17, sp = 41, crit = 1)),
   "Fel Infused Leggings" =
@@ -111,13 +115,15 @@ Now we can simulate.
 ``` r
 df <- compare_equip(my_stats, my_equip, my_changes, seed = 561)
 df[order(-df$dps), ]
-#>                                          dps      diff            slot
-#> Robes + Leggings + Boots            612.6468  8.724165 chest/legs/feet
-#> Fel Infused Leggings                610.1060  6.183426            legs
-#> Doomcaller's Robes                  605.4479  1.525355           chest
-#> Boots of Epiphany                   605.4359  1.513346            feet
-#> current                             603.9226  0.000000                
-#> Robes + Leggings + Boots - Setbonus 598.2975 -5.625057 chest/legs/feet
+#>                                          dps        diff            slot
+#> Robes + Leggings + Boots            612.6468  8.72416549 chest/legs/feet
+#> Fel Infused Leggings                610.1060  6.18342595            legs
+#> Doomcaller's Robes                  605.4479  1.52535500           chest
+#> Boots of Epiphany                   605.4359  1.51334626            feet
+#> current                             603.9226  0.00000000                
+#> Zandalarian Hero Charm              603.8308 -0.09175812        trinket1
+#> Briarwood Reed                      603.1765 -0.74608273        trinket1
+#> Robes + Leggings + Boots - Setbonus 598.2975 -5.62505718 chest/legs/feet
 ```
 
 If you want to know what impact world buffs have, simulate again.
@@ -137,6 +143,8 @@ df_ony[order(-df_ony$dps), ]
 #> Boots of Epiphany                   674.9246  1.6020169            feet
 #> Doomcaller's Robes                  673.7222  0.3995946           chest
 #> current                             673.3226  0.0000000                
+#> Zandalarian Hero Charm              673.2026 -0.1200204        trinket1
+#> Briarwood Reed                      672.4864 -0.8362158        trinket1
 #> Robes + Leggings + Boots - Setbonus 668.2354 -5.0872230 chest/legs/feet
 ```
 
