@@ -36,12 +36,12 @@ feet:
   sp: 19
   hit: 1
 finger1:
-  int: 12
-  sp: 21
-  hit: 1
-finger2:
   sp: 14
   crit: 1
+  hit: 1
+finger2:
+  int: 6
+  sp: 37
   hit: 1
 trinket1: toep
 trinket2:

@@ -1,3 +1,8 @@
+Band of Forced Concentration:
+  finger1:
+    int: 12
+    sp: 21
+    hit: 1
 Doomcaller's Mantle:
   shoulders:
     int: 11
