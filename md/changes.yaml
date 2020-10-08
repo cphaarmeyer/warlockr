@@ -3,55 +3,11 @@ MC Mana Igniting Cord:
     int: 16
     sp: 25
     crit: 1
-MC Mana Igniting Cord (Set):
-  waist:
-    int: 16
-    sp: 25
-    crit: 1
-  shoulders:
-    int: 11
-    sp: 5
-    hit: 1
 BWL Mish'undare, Circlet of the Mind Flayer:
   head:
     int: 24
     sp: 35
     crit: 2
-BWL Mish'undare, Circlet of the Mind (Set):
-  head:
-    int: 24
-    sp: 35
-    crit: 2
-  shoulders:
-    int: 11
-    sp: 5
-    hit: 1
-ZG The Hexxer's Cover:
-  head:
-    int: 10
-    sp: 41
-ZG The Hexxer's Cover (Set):
-  head:
-    int: 10
-    sp: 41
-  shoulders:
-    int: 11
-    sp: 5
-    hit: 1
-AQ Dustwind Turban:
-  head:
-    int: 29
-    sp: 31
-    crit: 1
-AQ Dustwind Turban (Set):
-  head:
-    int: 29
-    sp: 31
-    crit: 1
-  shoulders:
-    int: 11
-    sp: 5
-    hit: 1
 AQ Blessed Quiraji Acolyte Staff:
   weapon:
     int: 33
@@ -71,23 +27,9 @@ AQ Eyestalk Waist Cord:
     int: 9
     sp: 41
     crit: 1
-AQ Eyestalk Waist Cord (Set):
-  waist:
-    int: 9
-    sp: 41
-    crit: 1
-  shoulders:
-    int: 11
-    sp: 5
-    hit: 1
 AQ Dark Storm Gauntlets:
   hands:
     int: 15
-    sp: 37
-    hit: 1
-AQ Ring of the Fallen God:
-  finger1:
-    int: 6
     sp: 37
     hit: 1
 AQ Ritssyn's Ring of Chaos:
@@ -105,22 +47,6 @@ AQ Sharpened Silithid Femur + Royal Scepter:
     int: 16
     sp: 92
     crit: 2
-    hit: 1
-Doomcaller's Circlet:
-  head:
-    int: 24
-    sp: 33
-    crit: 1
-    hit: 1
-Doomcaller's Circlet (Set):
-  head:
-    int: 24
-    sp: 33
-    crit: 1
-    hit: 1
-  shoulders:
-    int: 11
-    sp: 5
     hit: 1
 Rockfury Bracers:
   wrist:

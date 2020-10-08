@@ -18,10 +18,10 @@ This file keeps track of my current stats, equip and potential upgrades.
 library(warlockr)
 
 my_stats <- list(
-  int = 261,
-  sp = 528 + 63,
-  crit = 7,
-  hit = 10,
+  int = 267,
+  sp = 521 + 63,
+  crit = 8,
+  hit = 12,
   mp5 = 0
 )
 

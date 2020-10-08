@@ -1,13 +1,16 @@
 head:
-  int: 16
-  sp: 32
+  int: 24
+  sp: 33
+  crit: 1
+  hit: 1
 neck:
   int: 5
   sp: 27
   crit: 1
 shoulders:
-  int: 13
-  sp: 23
+  int: 11
+  sp: 28
+  hit: 1
 back:
   int: 10
   sp: 23
