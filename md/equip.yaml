@@ -46,7 +46,8 @@ finger2:
   int: 6
   sp: 37
   hit: 1
-trinket1: toep
+trinket1:
+  sp: 29
 trinket2:
   sp: 44
   hit: 2

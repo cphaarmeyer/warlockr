@@ -11,11 +11,10 @@ Choker of the Fire Lord:
   neck:
     int: 7
     sp: 34
+Talisman of Ephemeral Power:
+  trinket1: toep
 Zandalarian Hero Charm:
   trinket1: zhc
-Briarwood Reed:
-  trinket1:
-    sp: 29
 Royal Seal of Eldre'Thalas:
   trinket1:
     sp: 23
