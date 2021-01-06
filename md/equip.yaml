@@ -1,7 +1,7 @@
 head:
-  int: 24
+  int: 25
   sp: 33
-  crit: 1
+  crit: 2
   hit: 1
 neck:
   int: 5
