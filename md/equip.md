@@ -52,43 +52,68 @@ show_statweights(my_stats_unbuffed)
 #> dps    0.1909291 0.5388191  6.581484  6.044034 0.1675805
 
 show_result(my_stats_buffed, my_changes)
-#>                                   dps  diff  slot
-#> AQ Eyestalk Waist Cord         645.21  8.27 waist
-#> Fel Infused Leggings           643.07  6.13  legs
-#> Leggings of the Black Blizzard 640.71  3.77  legs
-#> AQ Cloak of the Devoured       640.58  3.64  back
-#> AQ Dark Storm Gauntlets        640.39  3.45 hands
-#> Doomcaller's Trousers          638.26  1.33  legs
-#> MC Mana Igniting Cord          638.18  1.24 waist
-#> Doomcaller's Robes             638.04  1.10 chest
-#> AQ Wand of Quiraji Nobility    637.67  0.73  wand
-#> current                        636.94  0.00      
-#> Rockfury Bracers               636.60 -0.33 wrist
+#>                                   dps  diff      slot
+#> Soulseeker                     659.48 22.54    weapon
+#> Brimstone Staff                658.43 21.49    weapon
+#> Wraith Blade + Jin'do's Bag    656.26 19.32    weapon
+#> Cloak of the Necropolis        645.95  9.01      back
+#> AQ Eyestalk Waist Cord         645.21  8.27     waist
+#> Plagueheart Robe               644.35  7.41     chest
+#> Plagueheart Sandals            643.88  6.94      feet
+#> Leggings of Polarity           643.64  6.70      legs
+#> Fel Infused Leggings           643.07  6.13      legs
+#> Doomfinger                     642.31  5.37      wand
+#> Plagueheart Belt               642.07  5.13     waist
+#> Wand of Fates                  641.46  4.52      wand
+#> Plagueheart Shoulderpads       641.19  4.26 shoulders
+#> Band of the Inevitable         640.95  4.01   finger1
+#> Leggings of the Black Blizzard 640.71  3.77      legs
+#> AQ Cloak of the Devoured       640.58  3.64      back
+#> Seal of the Damned             640.58  3.64   finger1
+#> AQ Dark Storm Gauntlets        640.39  3.45     hands
+#> Plagueheart Leggings           639.84  2.90      legs
+#> MC Mana Igniting Cord          638.18  1.24     waist
+#> AQ Wand of Quiraji Nobility    637.67  0.73      wand
+#> Gem of Trapped Innocents       637.12  0.18      neck
+#> current                        636.94  0.00          
+#> Rockfury Bracers               636.60 -0.33     wrist
+#> The Soul Harvester's Bindings  636.55 -0.39     wrist
+#> Plagueheart Gloves             635.14 -1.80     hands
+#> Plagueheart Bindings           631.66 -5.28     wrist
 
 show_result(my_stats_buffed, my_bank)
 #>                                   dps  diff     slot
+#> Doomcaller's Trousers          638.26  1.33     legs
+#> Doomcaller's Robes             638.04  1.10    chest
 #> current                        636.94  0.00         
 #> Talisman of Ephemeral Power    636.52 -0.42 trinket1
 #> Zandalarian Hero Charm         636.43 -0.51 trinket1
+#> Garb of Royal Ascension        635.04 -1.90    chest
 #> Band of Forced Concentration   634.78 -2.16  finger1
 #> Eye of the Beast               634.42 -2.52 trinket1
 #> Band of Dark Dominion          633.63 -3.31  finger1
 #> Choker of the Fire Lord        633.53 -3.41     neck
 show_result(my_stats_ony, my_bank)
 #>                                   dps  diff     slot
+#> Doomcaller's Robes             707.69  0.04    chest
 #> current                        707.65  0.00         
+#> Doomcaller's Trousers          707.65  0.00     legs
 #> Talisman of Ephemeral Power    707.19 -0.46 trinket1
 #> Zandalarian Hero Charm         707.08 -0.57 trinket1
 #> Band of Forced Concentration   706.21 -1.44  finger1
+#> Garb of Royal Ascension        705.84 -1.82    chest
 #> Band of Dark Dominion          705.05 -2.60  finger1
 #> Choker of the Fire Lord        705.02 -2.63     neck
 #> Eye of the Beast               702.65 -5.00 trinket1
 show_result(my_stats_unbuffed, my_bank)
 #>                                   dps  diff     slot
+#> Doomcaller's Robes             575.03  2.37    chest
+#> Doomcaller's Trousers          574.78  2.12     legs
 #> Talisman of Ephemeral Power    572.90  0.24 trinket1
 #> Zandalarian Hero Charm         572.81  0.15 trinket1
 #> current                        572.66  0.00         
 #> Band of Forced Concentration   571.77 -0.89  finger1
+#> Garb of Royal Ascension        571.57 -1.10    chest
 #> Band of Dark Dominion          571.03 -1.63  finger1
 #> Choker of the Fire Lord        569.90 -2.76     neck
 #> Eye of the Beast               569.74 -2.92 trinket1

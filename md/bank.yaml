@@ -1,3 +1,17 @@
+Garb of Royal Ascension:
+  chest:
+    sp: 30
+    hit: 2
+Doomcaller's Robes:
+  chest:
+    int: 17
+    sp: 41
+    crit: 1
+Doomcaller's Trousers:
+  legs:
+    int: 24
+    sp: 34
+    crit: 1
 Band of Forced Concentration:
   finger1:
     int: 12
