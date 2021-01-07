@@ -7,28 +7,7 @@ Doomcaller's Robes:
     int: 17
     sp: 41
     crit: 1
-Doomcaller's Trousers:
-  legs:
-    int: 24
-    sp: 34
-    crit: 1
-Band of Forced Concentration:
-  finger1:
-    int: 12
-    sp: 21
-    hit: 1
-Band of Dark Dominion:
-  finger1:
-    int: 6
-    sp: 33
-Choker of the Fire Lord:
-  neck:
-    int: 7
-    sp: 34
 Talisman of Ephemeral Power:
   trinket1: toep
 Zandalarian Hero Charm:
   trinket1: zhc
-Eye of the Beast:
-  trinket1:
-    crit: 2
