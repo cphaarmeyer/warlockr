@@ -27,8 +27,8 @@ hands:
   int: 12
   sp: 43
 waist:
-  int: 8
-  sp: 25
+  int: 12
+  sp: 34
   crit: 1
 legs:
   int: 6
