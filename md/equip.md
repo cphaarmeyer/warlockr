@@ -8,8 +8,8 @@ library(warlockr)
 
 my_stats <- list(
   int = 272,
-  sp = 559 + 63,
-  crit = 9,
+  sp = 581 + 63,
+  crit = 8,
   hit = 12,
   mp5 = 0
 )
@@ -19,7 +19,7 @@ my_stats_buffed <- with_buffs(my_stats, consumables = c("gae", "eosp", "bwo"))
 my_stats_ony <- add_buff(my_stats_buffed, "ony")
 unlist(my_stats_ony)
 #>  int   sp crit  hit  mp5 
-#>  319  727   20   12    0
+#>  319  749   19   12    0
 
 my_equip <- yaml::read_yaml("equip.yaml")
 my_changes <- yaml::read_yaml("changes.yaml")
@@ -40,58 +40,57 @@ show_result <- function(stats, changes) {
 
 show_statweights(my_stats_buffed)
 #>              int        sp      crit       hit       mp5
-#> weight 0.3678745 1.0000000 13.277954 12.346551 0.3060327
-#> dps    0.2017607 0.5484499  7.282293  6.771465 0.1678436
+#> weight 0.3752592 1.0000000 13.734769 12.607370 0.3145591
+#> dps    0.2031033 0.5412349  7.433736  6.823549 0.1702504
 show_statweights(my_stats_ony)
-#>              int        sp      crit       hit       mp5
-#> weight 0.3500681 1.0000000 11.285227 12.300095 0.3274560
-#> dps    0.2133045 0.6093227  6.876345  7.494727 0.1995264
+#>              int       sp      crit       hit       mp5
+#> weight 0.3543286 1.000000 11.615763 12.508354 0.3280212
+#> dps    0.2142902 0.604778  7.024958  7.564777 0.1983800
 show_statweights(my_stats_unbuffed)
 #>              int        sp      crit       hit       mp5
-#> weight 0.3549970 1.0000000 12.314881 11.317229 0.3124599
-#> dps    0.1914231 0.5392246  6.640487  6.102529 0.1684861
+#> weight 0.3623497 1.0000000 12.814901 11.557260 0.3056967
+#> dps    0.1933769 0.5336748  6.838989  6.167818 0.1631426
 
 show_result(my_stats_buffed, my_changes)
 #>                                  dps  diff      slot
-#> Soulseeker                    665.27 23.21    weapon
-#> Brimstone Staff               664.20 22.13    weapon
-#> Wraith Blade + Jin'do's Bag   662.07 20.00    weapon
-#> Cloak of the Necropolis       650.87  8.80      back
-#> Plagueheart Robe              650.13  8.07     chest
-#> Plagueheart Sandals           649.39  7.33      feet
-#> Leggings of Polarity          648.55  6.48      legs
-#> Doomfinger                    648.28  6.22      wand
-#> Wand of Fates                 646.79  4.72      wand
-#> Plagueheart Shoulderpads      646.49  4.43 shoulders
-#> Band of the Inevitable        646.45  4.39   finger1
-#> AQ Dark Storm Gauntlets       646.27  4.21     hands
-#> AQ Cloak of the Devoured      645.73  3.66      back
-#> Seal of the Damned            645.73  3.66   finger1
-#> AQ Eyestalk Waist Cord        645.21  3.14     waist
-#> Gem of Trapped Innocents      643.60  1.53      neck
-#> Rockfury Bracers              642.80  0.74     wrist
-#> The Soul Harvester's Bindings 642.28  0.22     wrist
-#> current                       642.07  0.00
+#> Soulseeker                    669.68 23.23    weapon
+#> Brimstone Staff               668.44 21.99    weapon
+#> Wraith Blade + Jin'do's Bag   666.20 19.75    weapon
+#> Cloak of the Necropolis       655.73  9.27      back
+#> Plagueheart Robe              654.75  8.30     chest
+#> Plagueheart Sandals           653.99  7.53      feet
+#> Leggings of Polarity          653.66  7.21      legs
+#> Doomfinger                    652.77  6.32      wand
+#> Wand of Fates                 651.38  4.93      wand
+#> Plagueheart Shoulderpads      650.89  4.44 shoulders
+#> AQ Dark Storm Gauntlets       650.54  4.09     hands
+#> AQ Cloak of the Devoured      650.24  3.78      back
+#> AQ Eyestalk Waist Cord        649.63  3.18     waist
+#> Gem of Trapped Innocents      647.76  1.31      neck
+#> Rockfury Bracers              647.49  1.04     wrist
+#> The Soul Harvester's Bindings 646.82  0.37     wrist
+#> current                       646.45  0.00          
+#> Seal of the Damned            645.73 -0.72   finger1
 
 show_result(my_stats_buffed, my_bank)
 #>                                  dps  diff     slot
-#> Doomcaller's Robes            643.66  1.60    chest
-#> Talisman of Ephemeral Power   642.21  0.14 trinket1
-#> Zandalarian Hero Charm        642.11  0.04 trinket1
-#> current                       642.07  0.00         
-#> Garb of Royal Ascension       640.85 -1.22    chest
+#> Doomcaller's Robes            648.37  1.92    chest
+#> Talisman of Ephemeral Power   647.31  0.86 trinket1
+#> Zandalarian Hero Charm        647.23  0.78 trinket1
+#> current                       646.45  0.00         
+#> Garb of Royal Ascension       645.53 -0.92    chest
 show_result(my_stats_ony, my_bank)
 #>                                  dps  diff     slot
-#> Doomcaller's Robes            713.86  0.60    chest
-#> Talisman of Ephemeral Power   713.41  0.15 trinket1
-#> Zandalarian Hero Charm        713.30  0.04 trinket1
-#> current                       713.25  0.00         
-#> Garb of Royal Ascension       712.21 -1.04    chest
+#> Talisman of Ephemeral Power   720.32  0.96 trinket1
+#> Zandalarian Hero Charm        720.23  0.86 trinket1
+#> Doomcaller's Robes            720.14  0.77    chest
+#> current                       719.36  0.00         
+#> Garb of Royal Ascension       718.58 -0.78    chest
 show_result(my_stats_unbuffed, my_bank)
 #>                                  dps  diff     slot
-#> Doomcaller's Robes            580.67  2.49    chest
-#> Talisman of Ephemeral Power   578.52  0.35 trinket1
-#> Zandalarian Hero Charm        578.41  0.23 trinket1
-#> current                       578.17  0.00         
-#> Garb of Royal Ascension       577.28 -0.89    chest
+#> Doomcaller's Robes            585.52  2.50    chest
+#> Talisman of Ephemeral Power   583.59  0.56 trinket1
+#> Zandalarian Hero Charm        583.49  0.46 trinket1
+#> current                       583.03  0.00         
+#> Garb of Royal Ascension       582.17 -0.86    chest
 ```

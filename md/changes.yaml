@@ -42,10 +42,6 @@ The Soul Harvester's Bindings:
     int: 11
     sp: 21
     crit: 1
-Band of the Inevitable:
-  finger1:
-    sp: 36
-    hit: 1
 Seal of the Damned:
   finger1:
     sp: 21

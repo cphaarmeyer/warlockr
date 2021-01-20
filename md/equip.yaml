@@ -39,8 +39,7 @@ feet:
   sp: 19
   hit: 1
 finger1:
-  sp: 14
-  crit: 1
+  sp: 36
   hit: 1
 finger2:
   int: 6
