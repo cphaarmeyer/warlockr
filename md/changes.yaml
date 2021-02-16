@@ -27,16 +27,6 @@ Plagueheart Shoulderpads:
     int: 12
     sp: 36
     hit: 1
-Plagueheart Robe:
-  chest:
-    int: 22
-    sp: 51
-    crit: 1
-Plagueheart Sandals:
-  feet:
-    int: 16
-    sp: 32
-    crit: 1
 The Soul Harvester's Bindings:
   wrist:
     int: 11
