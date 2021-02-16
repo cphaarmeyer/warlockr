@@ -1,12 +1,6 @@
-Garb of Royal Ascension:
-  chest:
-    sp: 30
-    hit: 2
-Doomcaller's Robes:
-  chest:
-    int: 17
-    sp: 41
-    crit: 1
+Briarwood Reed:
+  trinket1:
+    sp: 29
 Talisman of Ephemeral Power:
   trinket1: toep
 Zandalarian Hero Charm:

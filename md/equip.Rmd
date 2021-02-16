@@ -19,7 +19,7 @@ library(warlockr)
 
 my_stats <- list(
   int = 281,
-  sp = 618 + 63,
+  sp = 700,
   crit = 8,
   hit = 10,
   mp5 = 0
