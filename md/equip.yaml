@@ -52,8 +52,8 @@ trinket2:
   sp: 44
   hit: 2
 weapon:
-  int: 29
-  sp: 84
+  int: 31
+  sp: 126
   crit: 2
 wand:
   sp: 18

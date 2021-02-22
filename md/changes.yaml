@@ -37,18 +37,6 @@ Seal of the Damned:
     sp: 21
     crit: 1
     hit: 1
-Wraith Blade + Jin'do's Bag:
-  weapon:
-    int: 19
-    sp: 113
-    crit: 1
-    hit: 2
-Brimstone Staff:
-  weapon:
-    int: 30
-    sp: 113
-    crit: 1
-    hit: 2
 Wand of Fates:
   wand:
     int: 7
@@ -65,11 +53,6 @@ Cloak of the Necropolis:
     sp: 26
     crit: 1
     hit: 1
-Soulseeker:
-  weapon:
-    int: 31
-    sp: 126
-    crit: 2
 Doomfinger:
   wand:
     sp: 16
