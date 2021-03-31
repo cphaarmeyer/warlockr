@@ -8,8 +8,8 @@ neck:
   sp: 27
   crit: 1
 shoulders:
-  int: 11
-  sp: 28
+  int: 12
+  sp: 36
   hit: 1
 back:
   int: 10

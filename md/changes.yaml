@@ -22,11 +22,11 @@ Leggings of Polarity:
     int: 14
     sp: 33
     crit: 2
-Plagueheart Shoulderpads:
-  shoulders:
-    int: 12
-    sp: 36
-    hit: 1
+Plagueheart Leggings:
+  legs:
+    int: 25
+    sp: 37
+    crit: 1
 The Soul Harvester's Bindings:
   wrist:
     int: 11
